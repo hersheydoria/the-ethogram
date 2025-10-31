@@ -123,7 +123,7 @@ const formattedDate = computed(() => {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1;
   display: block;
 }
 
@@ -140,6 +140,7 @@ const formattedDate = computed(() => {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   letter-spacing: 0.5px;
+  z-index: 10;
 }
 
 .category-badge.personal-experiences {

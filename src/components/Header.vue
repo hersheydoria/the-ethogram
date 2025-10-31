@@ -144,17 +144,6 @@ const clearSearch = () => {
   border-bottom: 3px solid rgba(37, 99, 235, 0.4);
 }
 
-/* Animated Background Blobs */
-.header-background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
 .blob {
   position: absolute;
   border-radius: 50%;
@@ -224,12 +213,13 @@ const clearSearch = () => {
 
 .header-top {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 1.8rem;
-  gap: 2rem;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
   animation: slideDown 0.6s ease-out;
   position: relative;
+  flex-wrap: wrap;
 }
 
 @keyframes slideDown {
@@ -245,11 +235,10 @@ const clearSearch = () => {
 
 .logo-section {
   text-align: center;
-  flex: 1;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 4rem);
+  flex: 0 1 auto;
+  position: relative;
+  transform: none;
+  width: auto;
 }
 
 .logo {
@@ -407,50 +396,63 @@ const clearSearch = () => {
 
 @media (max-width: 768px) {
   .header {
-    padding: 1.2rem 0;
+    padding: 1rem 0 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
   }
 
   .header-top {
-    flex-direction: column;
-    gap: 0.8rem;
     margin-bottom: 1rem;
+    gap: 0.5rem;
   }
 
   .logo {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
   }
 
   .tagline {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    margin-bottom: 0;
   }
 
   .home-btn {
     padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .search-container {
+    margin-bottom: 0.8rem;
   }
 
   .search-input {
     font-size: 0.85rem;
-    padding: 0.7rem 1.2rem;
-    max-width: 300px;
+    padding: 0.6rem 1rem;
+    max-width: 100%;
   }
 
-  .nav-link {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.7rem;
+  .filter-section {
+    margin-top: 0.8rem;
   }
 
   .filter-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     margin-bottom: 0.5rem;
   }
 
-  .search-container {
-    margin-bottom: 1rem;
+  .nav {
+    gap: 0.4rem;
   }
 
-  filter-section {
-    margin-top: 1.2rem;
+  .nav-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+  }
+
+  .nav-link.active {
+    transform: scale(1.02);
   }
 }
 </style>
