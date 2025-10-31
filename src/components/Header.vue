@@ -241,6 +241,15 @@ const clearSearch = () => {
   width: auto;
 }
 
+.header-buttons {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.8rem;
+}
+
 .logo {
   font-size: 2.4rem;
   margin-bottom: 0.6rem;
@@ -406,6 +415,15 @@ const clearSearch = () => {
   .header-top {
     margin-bottom: 1rem;
     gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .logo-section {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .logo {
@@ -415,7 +433,14 @@ const clearSearch = () => {
 
   .tagline {
     font-size: 0.75rem;
-    margin-bottom: 0;
+    margin-bottom: 0.8rem;
+  }
+
+  .header-buttons {
+    position: static;
+    transform: none;
+    flex-basis: 100%;
+    justify-content: center;
   }
 
   .home-btn {

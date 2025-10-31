@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
+import Preloader from './components/Preloader.vue'
 import Landing from './components/Landing.vue'
 import Header from './components/Header.vue'
 import BlogList from './components/BlogList.vue'
@@ -13,6 +14,40 @@ const currentPage = ref('landing') // 'landing', 'blog', 'about', 'resources', '
 const selectedCategory = ref('all')
 const searchQuery = ref('')
 const selectedPostId = ref(null)
+
+// Restore page state from localStorage on mount
+onMounted(() => {
+  const savedPage = localStorage.getItem('currentPage')
+  const savedCategory = localStorage.getItem('selectedCategory')
+  const savedPostId = localStorage.getItem('selectedPostId')
+  
+  if (savedPage) {
+    currentPage.value = savedPage
+  }
+  if (savedCategory) {
+    selectedCategory.value = savedCategory
+  }
+  if (savedPostId) {
+    selectedPostId.value = parseInt(savedPostId)
+  }
+})
+
+// Save page state to localStorage whenever it changes
+watch(currentPage, (newPage) => {
+  localStorage.setItem('currentPage', newPage)
+})
+
+watch(selectedCategory, (newCategory) => {
+  localStorage.setItem('selectedCategory', newCategory)
+})
+
+watch(selectedPostId, (newPostId) => {
+  if (newPostId) {
+    localStorage.setItem('selectedPostId', newPostId)
+  } else {
+    localStorage.removeItem('selectedPostId')
+  }
+})
 
 // All blog posts data
 const allBlogPosts = ref([
@@ -1153,6 +1188,9 @@ const handleNavigatePage = (page) => {
 
 <template>
   <div class="app">
+    <!-- Preloader -->
+    <Preloader />
+    
     <!-- Landing Page -->
     <template v-if="currentPage === 'landing'">
       <Landing @navigate-to-articles="goToArticles" />
