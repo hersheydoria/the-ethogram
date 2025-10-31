@@ -7,27 +7,27 @@
     </div>
     
     <div class="hero-content">
-      <div class="hero-badge">🌟 Welcome to Animal Advocacy</div>
-      <h2 class="hero-title">Connecting Hearts for<br><span class="highlight">Animal Welfare</span></h2>
+      <div class="hero-badge"><Sparkles class="badge-icon" /> Welcome to Living Links</div>
+      <h2 class="hero-title">Connecting Knowledge for<br><span class="highlight">Animal Welfare & Conservation</span></h2>
       <p class="hero-description">
-        Explore comprehensive resources on animal behavior, veterinary insights, wildlife conservation, 
-        and compassionate care practices. Discover stories, education, and actionable initiatives 
-        that make a real difference in the lives of animals.
+        Explore in-depth articles on animal behavior, veterinary science, ethical practices, 
+        and wildlife conservation. Learn from experts and discover actionable insights that 
+        create meaningful change for animals and communities worldwide.
       </p>
       
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-icon">�</div>
+          <div class="stat-icon"><BookOpen /></div>
           <div class="stat-number">18+</div>
           <div class="stat-text">Articles</div>
         </div>
         <div class="stat">
-          <div class="stat-icon">🌍</div>
+          <div class="stat-icon"><Globe /></div>
           <div class="stat-number">5</div>
           <div class="stat-text">Categories</div>
         </div>
         <div class="stat">
-          <div class="stat-icon">💡</div>
+          <div class="stat-icon"><Lightbulb /></div>
           <div class="stat-number">100%</div>
           <div class="stat-text">Compassion</div>
         </div>
@@ -41,6 +41,8 @@
 </template>
 
 <script setup>
+import { Sparkles, BookOpen, Globe, Lightbulb } from 'lucide-vue-next'
+
 defineEmits(['explore-articles'])
 </script>
 
@@ -190,7 +192,8 @@ defineEmits(['explore-articles'])
 }
 
 .stat-icon {
-  font-size: 2.5rem;
+  font-size: 2.rem;
+  color: white;
   animation: bounce 2s ease-in-out infinite;
 }
 

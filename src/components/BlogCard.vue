@@ -50,6 +50,7 @@ const formattedDate = computed(() => {
   flex-direction: column;
   border: 1px solid rgba(37, 99, 235, 0.1);
   position: relative;
+  height: 100%;
 }
 
 .blog-card::before {
@@ -85,6 +86,7 @@ const formattedDate = computed(() => {
   height: 200px;
   overflow: hidden;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .card-image::after {
@@ -278,6 +280,7 @@ const formattedDate = computed(() => {
 
 .date::before {
   content: '📅';
+  display: none;
 }
 
 .read-time {
@@ -288,6 +291,7 @@ const formattedDate = computed(() => {
 
 .read-time::before {
   content: '⏱️';
+  display: none;
 }
 
 .read-more {

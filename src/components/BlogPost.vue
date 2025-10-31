@@ -1,74 +1,108 @@
 <template>
   <section class="blog-post-section">
-    <div class="container">
-      <button class="back-btn" @click="$emit('back')">← Back to Articles</button>
-      
-      <article class="blog-post">
-        <div class="post-header">
-          <img v-if="post.imageUrl" :src="post.imageUrl" :alt="post.title" class="post-img" />
-          <span v-else class="emoji-icon">{{ post.image }}</span>
-          <span class="category-badge" :class="post.category">{{ post.category }}</span>
-        </div>
-        
-        <div class="post-content">
-          <h1 class="post-title">{{ post.title }}</h1>
-          
-          <div class="post-meta">
-            <span class="date">📅 {{ formattedDate }}</span>
-            <span class="read-time">⏱️ {{ post.readTime }}</span>
-          </div>
-          
-          <div class="post-body" v-html="post.content"></div>
-
-          <!-- Media Gallery -->
-          <div v-if="post.media && post.media.length > 0" class="media-section">
-            <h3>📸 Related Media</h3>
-            <div class="media-gallery">
-              <div v-for="(media, index) in post.media" :key="index" class="media-item">
-                <div class="media-placeholder">
-                  <span class="media-icon">🖼️</span>
+    <div class="post-container">
+      <!-- Side Panel - Related Articles -->
+      <aside class="side-panel">
+        <div class="side-panel-content">
+          <h3 class="side-panel-title"><BookOpen :size="20" /> Related Articles</h3>
+          <div class="related-posts">
+            <button
+              v-for="(relatedPost, index) in relatedArticles"
+              :key="relatedPost.id"
+              @click="$emit('select-post', relatedPost.id)"
+              class="related-post-link"
+              :class="{ active: relatedPost.id === post.id }"
+            >
+              <div class="related-post-item">
+                <span class="post-number">{{ index + 1 }}</span>
+                <div class="post-info">
+                  <p class="related-title">{{ relatedPost.title }}</p>
+                  <span class="read-time-small">{{ relatedPost.readTime }}</span>
                 </div>
-                <p class="media-title">{{ media.title }}</p>
-                <p class="media-description">{{ media.description }}</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="container">
+          <button class="back-btn" @click="$emit('back')"><ArrowLeft :size="18" /> Back to Articles</button>
+          
+          <article class="blog-post">
+            <div class="post-header">
+              <img v-if="post.imageUrl" :src="post.imageUrl" :alt="post.title" class="post-img" />
+              <span v-else class="emoji-icon">{{ post.image }}</span>
+              <span class="category-badge" :class="post.category">{{ post.category }}</span>
+            </div>
+            
+            <div class="post-content">
+              <h1 class="post-title">{{ post.title }}</h1>
+              
+              <div class="post-meta">
+                <span class="date"><Calendar :size="18" /> {{ formattedDate }}</span>
+                <span class="read-time"><Clock :size="18" /> {{ post.readTime }}</span>
+              </div>
+              
+              <div class="post-body" v-html="post.content"></div>
+
+              <!-- Media Gallery -->
+              <div v-if="post.media && post.media.length > 0" class="media-section">
+                <h3><Image :size="20" /> Related Media</h3>
+                <div class="media-gallery">
+                  <div v-for="(media, index) in post.media" :key="index" class="media-item">
+                    <div class="media-placeholder">
+                      <span class="media-icon"><Frame :size="32" /></span>
+                    </div>
+                    <p class="media-title">{{ media.title }}</p>
+                    <p class="media-description">{{ media.description }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Related Links / Organizations -->
+              <div v-if="post.relatedLinks && post.relatedLinks.length > 0" class="links-section">
+                <h3><Link :size="20" /> Related Organizations & Resources</h3>
+                <div class="links-list">
+                  <a 
+                    v-for="(link, index) in post.relatedLinks" 
+                    :key="index"
+                    :href="link.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="related-link"
+                  >
+                    <span class="link-icon">{{ link.icon }}</span>
+                    <span class="link-text">{{ link.name }}</span>
+                    <span class="external-icon"><ExternalLink :size="16" /></span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Related Links / Organizations -->
-          <div v-if="post.relatedLinks && post.relatedLinks.length > 0" class="links-section">
-            <h3>🔗 Related Organizations & Resources</h3>
-            <div class="links-list">
-              <a 
-                v-for="(link, index) in post.relatedLinks" 
-                :key="index"
-                :href="link.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="related-link"
-              >
-                <span class="link-icon">{{ link.icon }}</span>
-                <span class="link-text">{{ link.name }}</span>
-                <span class="external-icon">↗️</span>
-              </a>
-            </div>
-          </div>
+          </article>
         </div>
-      </article>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import { BookOpen, ArrowLeft, Calendar, Clock, Image, Frame, Link, ExternalLink } from 'lucide-vue-next'
 
 const props = defineProps({
   post: {
     type: Object,
     required: true
+  },
+  allPosts: {
+    type: Array,
+    default: () => []
   }
 })
 
-defineEmits(['back'])
+defineEmits(['back', 'select-post'])
 
 const formattedDate = computed(() => {
   const date = new Date(props.post.date)
@@ -77,6 +111,10 @@ const formattedDate = computed(() => {
     month: 'long', 
     day: 'numeric' 
   })
+})
+
+const relatedArticles = computed(() => {
+  return props.allPosts.filter(p => p.category === props.post.category)
 })
 </script>
 
@@ -98,8 +136,147 @@ const formattedDate = computed(() => {
   }
 }
 
+.post-container {
+  display: flex;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Side Panel Styles */
+.side-panel {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.side-panel-content {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 20px;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.side-panel-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #e0e7ff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.related-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.related-post-link {
+  background: none;
+  border: 2px solid #e0e7ff;
+  border-radius: 10px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+}
+
+.related-post-link:hover {
+  border-color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+  transform: translateX(5px);
+}
+
+.related-post-link.active {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  border-color: #1e40af;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.related-post-item {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+}
+
+.post-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #2563eb;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.related-post-link.active .post-number {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.post-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.related-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.related-post-link.active .related-title {
+  color: white;
+}
+
+.read-time-small {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.related-post-link.active .read-time-small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
 .container {
-  max-width: 850px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 

@@ -6,11 +6,8 @@ import Header from './components/Header.vue'
 import BlogList from './components/BlogList.vue'
 import BlogPost from './components/BlogPost.vue'
 import Footer from './components/Footer.vue'
-import AboutUs from './components/AboutUs.vue'
-import Resources from './components/Resources.vue'
-import Contribute from './components/Contribute.vue'
 
-const currentPage = ref('landing') // 'landing', 'blog', 'about', 'resources', 'contribute'
+const currentPage = ref('landing') // 'landing', 'blog'
 const selectedCategory = ref('all')
 const searchQuery = ref('')
 const selectedPostId = ref(null)
@@ -1158,31 +1155,8 @@ const handleFooterCategoryFilter = (category) => {
 }
 
 const handleFooterNavigation = (linkType) => {
-  // Handle navigation for different footer links
-  const pageMap = {
-    'about': 'about',
-    'resources': 'resources',
-    'contribute': 'contribute'
-  }
-  
-  if (pageMap[linkType]) {
-    currentPage.value = pageMap[linkType]
-    window.scrollTo(0, 0)
-  }
-}
-
-const handleNavigatePage = (page) => {
-  // Handle navigation from dropdown menu
-  const pageMap = {
-    'about': 'about',
-    'resources': 'resources',
-    'contribute': 'contribute'
-  }
-  
-  if (pageMap[page]) {
-    currentPage.value = pageMap[page]
-    window.scrollTo(0, 0)
-  }
+  // Navigation for removed pages - this is now a no-op
+  // Pages like 'about', 'resources', and 'contribute' have been removed
 }
 </script>
 
@@ -1205,7 +1179,6 @@ const handleNavigatePage = (page) => {
         @category-change="handleCategoryChange"
         @search="handleSearchQuery"
         @navigate-to-home="goToHome"
-        @navigate-to-page="handleNavigatePage"
       />
       <template v-if="selectedPostId === null">
         <BlogList 
@@ -1218,26 +1191,8 @@ const handleNavigatePage = (page) => {
         />
       </template>
       <template v-else>
-        <BlogPost :post="selectedPost" @back="handleBackToList" />
+        <BlogPost :post="selectedPost" :all-posts="allBlogPosts" @back="handleBackToList" @select-post="handleReadPost" />
       </template>
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- About Us Page -->
-    <template v-else-if="currentPage === 'about'">
-      <AboutUs @back="goToHome" @navigate-to-articles="goToArticles" />
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- Resources Page -->
-    <template v-else-if="currentPage === 'resources'">
-      <Resources @back="goToHome" @navigate-to-articles="goToArticles" />
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- Contribute Page -->
-    <template v-else-if="currentPage === 'contribute'">
-      <Contribute @back="goToHome" @navigate-to-articles="goToArticles" />
       <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
     </template>
   </div>

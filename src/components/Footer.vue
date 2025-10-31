@@ -9,7 +9,7 @@
       <div class="footer-content">
         <!-- About Section -->
         <div class="footer-section about-section">
-          <h3>🐾 Living Links</h3>
+          <h3><Heart :size="24" fill="currentColor" /> Living Links</h3>
           <p>Linking hearts to save animals and the planet through education, awareness, and community action. We believe in creating a compassionate world for all animals.</p>
           <div class="footer-badge">Dedicated to Animal Welfare</div>
         </div>
@@ -34,7 +34,7 @@
               <span class="social-icon">f</span> Facebook
             </a>
             <a href="#" @click.prevent="handleSocialLink('email')" class="social-link">
-              <span class="social-icon">✉️</span> Email
+              <span class="social-icon"><Mail :size="18" /></span> Email
             </a>
           </div>
         </div>
@@ -43,13 +43,15 @@
       <!-- Footer Bottom -->
       <div class="footer-bottom">
         <p>&copy; 2025 Living Links - Connecting Hearts for Animal Welfare. All rights reserved.</p>
-        <p class="footer-tagline">Made with ❤️ and compassion for all creatures</p>
+        <p class="footer-tagline">Made with <Heart :size="16" style="display: inline; margin: 0 0.25rem;" /> and compassion for all creatures</p>
       </div>
     </div>
   </footer>
 </template>
 
 <script setup>
+import { Heart, Mail } from 'lucide-vue-next'
+
 const emit = defineEmits(['navigate', 'category-filter'])
 
 const handleCategoryClick = (category) => {
@@ -162,7 +164,7 @@ const handleSocialLink = (platform) => {
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -170,6 +172,18 @@ const handleSocialLink = (platform) => {
 /* About Section */
 .about-section {
   grid-column: 1;
+}
+
+/* Categories Section - Center */
+.footer-section:nth-child(2) {
+  grid-column: 2;
+  text-align: center;
+}
+
+/* Connect Section - Left */
+.footer-section:nth-child(3) {
+  grid-column: 3;
+  text-align: left;
 }
 
 .about-section h3 {
@@ -183,6 +197,7 @@ const handleSocialLink = (platform) => {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.8rem;
   font-size: 0.9rem;
+  text-align: justify;
 }
 
 .footer-badge {
@@ -208,6 +223,7 @@ const handleSocialLink = (platform) => {
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
+  text-align: justify;
 }
 
 .footer-section ul {
@@ -215,8 +231,8 @@ const handleSocialLink = (platform) => {
   padding: 0;
 }
 
-.footer-section ul li {
-  margin-bottom: 0.4rem;
+.categories-grid li {
+  margin-bottom: 0.2rem;
 }
 
 .footer-section ul li a {
@@ -227,7 +243,7 @@ const handleSocialLink = (platform) => {
 }
 
 .footer-section ul li a:hover {
-  color: #a16207;
+  color: #2563eb;
   padding-left: 5px;
   font-weight: 600;
 }
@@ -236,20 +252,25 @@ const handleSocialLink = (platform) => {
 .categories-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  gap: 0.1rem;
+  justify-items: center;
+}
+
+.categories-grid li {
+  margin-bottom: 0.1rem;
 }
 
 .categories-grid li a {
   display: block;
-  padding: 0.4rem 0;
+  padding: 0.2rem 0;
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .categories-grid li a:hover {
-  color: #a16207;
+  color: #2563eb;
   padding-left: 5px;
   font-weight: 600;
 }
@@ -259,6 +280,8 @@ const handleSocialLink = (platform) => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  align-items: flex-start;
+  padding-left: 0;
 }
 
 .social-link {
@@ -275,12 +298,14 @@ const handleSocialLink = (platform) => {
 
 .social-icon {
   font-size: 1rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-link:hover {
-  color: #a16207;
-  background: linear-gradient(135deg, rgba(161, 98, 7, 0.2) 0%, rgba(161, 98, 7, 0.1) 100%);
+  color: #2563eb;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(37, 99, 235, 0.1) 100%);
   padding-left: 0.8rem;
   font-weight: 600;
 }
@@ -330,6 +355,7 @@ const handleSocialLink = (platform) => {
   .footer-section h4 {
     font-size: 0.9rem;
     margin-bottom: 0.6rem;
+    align-items: center;
   }
 
   .categories-grid {

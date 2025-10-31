@@ -12,24 +12,125 @@
         <div class="filter-tags">
           <span v-for="filter in activeFilters" :key="filter" class="filter-tag">
             {{ filter }}
-            <button @click="clearFilter(filter)" class="clear-filter-btn" :title="`Clear ${filter}`">✕</button>
+            <button @click="clearFilter(filter)" class="clear-filter-btn" :title="`Clear ${filter}`"><X :size="18" /></button>
           </span>
         </div>
       </div>
 
-      <!-- Blog Grid -->
-      <div class="blog-grid">
-        <BlogCard
-          v-for="post in filteredPosts"
-          :key="post.id"
-          :post="post"
-          @read-post="$emit('read-post', $event)"
-        />
+      <!-- Featured Article Carousel -->
+      <div v-if="currentFeaturedArticle && (selectedCategory === 'all' && !searchQuery.trim())" class="featured-carousel-section">
+        <div class="featured-article">
+          <div class="featured-image">
+            <img 
+              v-if="currentFeaturedArticle.imageUrl" 
+              :src="currentFeaturedArticle.imageUrl" 
+              :alt="currentFeaturedArticle.title" 
+              class="featured-img"
+            />
+            <div v-else class="featured-emoji">{{ currentFeaturedArticle.image }}</div>
+            <span class="featured-badge" :class="currentFeaturedArticle.category">{{ currentFeaturedArticle.category }}</span>
+          </div>
+          <div class="featured-content">
+            <div class="featured-label">Featured Article</div>
+            <h2 class="featured-title">{{ currentFeaturedArticle.title }}</h2>
+            <p class="featured-excerpt">{{ currentFeaturedArticle.excerpt }}</p>
+            <div class="featured-meta">
+              <span class="featured-date"><Calendar :size="18" /> {{ formatDate(currentFeaturedArticle.date) }}</span>
+              <span class="featured-read-time"><Clock :size="18" /> {{ currentFeaturedArticle.readTime }}</span>
+            </div>
+            <button 
+              class="featured-read-more" 
+              @click="$emit('read-post', currentFeaturedArticle.id)"
+            >
+              Read Featured Article →
+            </button>
+          </div>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <div v-if="featuredArticles.length > 1" class="carousel-indicators">
+          <button 
+            v-for="(article, index) in featuredArticles" 
+            :key="article.id"
+            class="carousel-dot"
+            :class="{ active: index === currentFeaturedIndex }"
+            :title="article.category"
+            @click="goToFeaturedArticle(index)"
+          >
+            <span class="dot-category">{{ index + 1 }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Featured Article (when filtered or searching) -->
+      <div v-else-if="filteredPosts.length > 0" class="featured-article">
+        <div class="featured-image">
+          <img 
+            v-if="filteredPosts[0].imageUrl" 
+            :src="filteredPosts[0].imageUrl" 
+            :alt="filteredPosts[0].title" 
+            class="featured-img"
+          />
+          <div v-else class="featured-emoji">{{ filteredPosts[0].image }}</div>
+          <span class="featured-badge" :class="filteredPosts[0].category">{{ filteredPosts[0].category }}</span>
+        </div>
+        <div class="featured-content">
+          <div class="featured-label">Featured Article</div>
+          <h2 class="featured-title">{{ filteredPosts[0].title }}</h2>
+          <p class="featured-excerpt">{{ filteredPosts[0].excerpt }}</p>
+          <div class="featured-meta">
+            <span class="featured-date"><Calendar :size="18" /> {{ formatDate(filteredPosts[0].date) }}</span>
+            <span class="featured-read-time"><Clock :size="18" /> {{ filteredPosts[0].readTime }}</span>
+          </div>
+          <button 
+            class="featured-read-more" 
+            @click="$emit('read-post', filteredPosts[0].id)"
+          >
+            Read Featured Article →
+          </button>
+        </div>
+      </div>
+
+      <!-- More Articles List Section -->
+      <div v-if="remainingArticles.length > 0" class="articles-list-section">
+        <h3 class="articles-list-title">More Articles</h3>
+        <div class="articles-list">
+          <article 
+            v-for="(post, index) in remainingArticles" 
+            :key="post.id"
+            class="list-article"
+            :style="{ animationDelay: `${index * 0.1}s` }"
+            @click="$emit('read-post', post.id)"
+          >
+            <div class="list-article-number">{{ index + 1 }}</div>
+            <div class="list-article-image">
+              <img 
+                v-if="post.imageUrl" 
+                :src="post.imageUrl" 
+                :alt="post.title" 
+                class="list-img"
+              />
+              <div v-else class="list-emoji">{{ post.image }}</div>
+            </div>
+            <div class="list-article-content">
+              <div class="list-article-header">
+                <span class="list-category" :class="post.category">{{ post.category }}</span>
+                <span class="list-date">{{ formatDate(post.date) }}</span>
+              </div>
+              <h4 class="list-article-title">{{ post.title }}</h4>
+              <p class="list-article-excerpt">{{ post.excerpt }}</p>
+              <div class="list-article-footer">
+                <span class="list-read-time">{{ post.readTime }}</span>
+                <span class="read-link">Read More →</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
 
       <!-- No Results Message -->
       <div v-if="filteredPosts.length === 0" class="no-posts">
-        <div class="no-posts-icon">🔍</div>
+        <div class="no-posts-icon"><Search :size="48" /></div>
         <p class="no-posts-title">No articles found</p>
         <p class="no-posts-subtitle">
           Try adjusting your search or category filters
@@ -40,8 +141,8 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import BlogCard from './BlogCard.vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { X, Calendar, Clock, Search } from 'lucide-vue-next'
 
 const props = defineProps({
   selectedCategory: {
@@ -59,6 +160,9 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['read-post', 'clear-filter', 'clear-search'])
+
+const currentFeaturedIndex = ref(0)
+let carouselInterval = null
 
 const filteredPosts = computed(() => {
   let posts = props.allPosts
@@ -81,6 +185,87 @@ const filteredPosts = computed(() => {
   return posts
 })
 
+// Get featured articles from each category (only when showing "all" posts)
+const featuredArticles = computed(() => {
+  if (props.selectedCategory !== 'all' || props.searchQuery.trim()) {
+    // When filtered, show the first post
+    return filteredPosts.value.length > 0 ? [filteredPosts.value[0]] : []
+  }
+
+  // Group posts by category and get the first one from each
+  const categories = new Map()
+  props.allPosts.forEach(post => {
+    if (!categories.has(post.category)) {
+      categories.set(post.category, post)
+    }
+  })
+  
+  // Define the desired order
+  const categoryOrder = [
+    'personal-experiences',
+    'personal-perspectives',
+    'educational-articles',
+    'spotlight-initiatives',
+    'creative-expressions'
+  ]
+  
+  // Sort by the defined order
+  const sortedArticles = categoryOrder
+    .map(category => categories.get(category))
+    .filter(article => article !== undefined)
+  
+  return sortedArticles
+})
+
+// Get remaining articles (exclude featured articles from the carousel)
+const remainingArticles = computed(() => {
+  if (props.selectedCategory !== 'all' || props.searchQuery.trim()) {
+    // When filtered or searching, show all except the first one
+    return filteredPosts.value.slice(1)
+  }
+
+  // When showing all posts, exclude the featured articles from the carousel
+  const featuredIds = new Set(featuredArticles.value.map(article => article.id))
+  return filteredPosts.value.filter(post => !featuredIds.has(post.id))
+})
+
+// Setup carousel auto-rotation
+onMounted(() => {
+  if (props.selectedCategory === 'all' && !props.searchQuery.trim()) {
+    carouselInterval = setInterval(() => {
+      if (featuredArticles.value.length > 0) {
+        currentFeaturedIndex.value = (currentFeaturedIndex.value + 1) % featuredArticles.value.length
+      }
+    }, 4000) // Change featured article every 4 seconds
+  }
+})
+
+onUnmounted(() => {
+  if (carouselInterval) {
+    clearInterval(carouselInterval)
+  }
+})
+
+const currentFeaturedArticle = computed(() => {
+  if (featuredArticles.value.length === 0) return null
+  return featuredArticles.value[currentFeaturedIndex.value]
+})
+
+const goToFeaturedArticle = (index) => {
+  currentFeaturedIndex.value = index
+  // Reset carousel interval when user clicks
+  if (carouselInterval) {
+    clearInterval(carouselInterval)
+  }
+  if (props.selectedCategory === 'all' && !props.searchQuery.trim()) {
+    carouselInterval = setInterval(() => {
+      if (featuredArticles.value.length > 0) {
+        currentFeaturedIndex.value = (currentFeaturedIndex.value + 1) % featuredArticles.value.length
+      }
+    }, 4000)
+  }
+}
+
 const activeFilters = computed(() => {
   const filters = []
   if (props.selectedCategory !== 'all') {
@@ -94,6 +279,15 @@ const activeFilters = computed(() => {
 
 const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString)
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  })
 }
 
 const clearFilter = (filter) => {
@@ -259,12 +453,770 @@ const clearFilter = (filter) => {
   }
 }
 
-/* Blog Grid */
-.blog-grid {
+/* Featured Article Layout */
+.featured-article {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(37, 99, 235, 0.15);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 4rem;
+  border: 2px solid rgba(37, 99, 235, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.featured-image {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.featured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.featured-article:hover .featured-img {
+  transform: scale(1.05);
+}
+
+.featured-emoji {
+  font-size: 5rem;
+  animation: float 3s ease-in-out infinite;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 3;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.featured-badge.personal-experiences {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+}
+
+.featured-badge.personal-perspectives {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+}
+
+.featured-badge.educational-articles {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.featured-badge.spotlight-initiatives {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.featured-badge.creative-expressions {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+}
+
+.featured-content {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2563eb;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+.featured-title {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+.featured-excerpt {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.featured-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+  font-size: 0.95rem;
+  color: #777;
+  font-weight: 500;
+}
+
+.featured-date,
+.featured-read-time {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.featured-read-more {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.featured-read-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.6);
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.featured-read-more:active {
+  transform: translateY(-1px);
+}
+
+/* Featured Carousel Section */
+.featured-carousel-section {
+  position: relative;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.featured-carousel-section .featured-article {
+  border-radius: 20px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.carousel-dot {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(37, 99, 235, 0.2);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #2563eb;
+  position: relative;
+}
+
+.carousel-dot:hover {
+  border-color: #2563eb;
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+}
+
+.carousel-dot.active {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  color: white;
+  border-color: #2563eb;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  transform: scale(1.15);
+}
+
+.dot-category {
+  display: block;
+}
+
+/* Articles List Section */
+.articles-list-section {
+  margin-top: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.articles-list-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  padding-left: 1rem;
+  border-left: 4px solid #2563eb;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.articles-list-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb 0%, #f97316 100%);
+  animation: expandWidth 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Articles List Layout */
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
   margin-bottom: 3rem;
+}
+
+/* List Article Item */
+.list-article {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInLeft 0.6s ease-out backwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.list-article:nth-child(1) { animation-delay: 0.1s; }
+.list-article:nth-child(2) { animation-delay: 0.2s; }
+.list-article:nth-child(3) { animation-delay: 0.3s; }
+.list-article:nth-child(4) { animation-delay: 0.4s; }
+.list-article:nth-child(5) { animation-delay: 0.5s; }
+
+.list-article {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 180px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.list-article::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.list-article:hover::before {
+  left: 100%;
+}
+
+.list-article:hover {
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.15);
+  border-color: rgba(37, 99, 235, 0.2);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(249, 115, 22, 0.03) 100%);
+  transform: translateY(-4px);
+}
+
+/* Article Number */
+.list-article-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(37, 99, 235, 0.15);
+  min-width: 60px;
+  text-align: center;
+  line-height: 1;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.list-article:hover .list-article-number {
+  color: rgba(37, 99, 235, 0.35);
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Article Image */
+.list-article-image {
+  width: 180px;
+  height: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.list-article:hover .list-article-image {
+  box-shadow: 0 8px 24px rgba(30, 64, 175, 0.4);
+}
+
+.list-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-article:hover .list-img {
+  transform: scale(1.15) rotate(2deg);
+}
+
+.list-emoji {
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Article Content */
+.list-article-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.list-article-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.list-category {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  background: rgba(37, 99, 235, 0.8);
+  white-space: nowrap;
+}
+
+.list-category.personal-experiences {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+}
+
+.list-category.personal-perspectives {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+}
+
+.list-category.educational-articles {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.list-category.spotlight-initiatives {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+.list-category.creative-expressions {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+}
+
+.list-date {
+  font-size: 0.85rem;
+  color: #999;
+  margin-left: auto;
+}
+
+.list-article-title {
+  font-size: 1.35rem;
+  color: #2c3e50;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.list-article:hover .list-article-title {
+  color: #2563eb;
+  transform: translateX(4px);
+}
+
+.list-article-excerpt {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.list-article:hover .list-article-excerpt {
+  color: #666;
+}
+
+.list-article-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid #eee;
+  transition: border-color 0.3s ease;
+}
+
+.list-article:hover .list-article-footer {
+  border-top-color: #2563eb;
+}
+
+.list-read-time {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.list-article:hover .list-read-time {
+  color: #666;
+}
+
+.read-link {
+  font-size: 0.9rem;
+  color: #2563eb;
+  font-weight: 600;
+  margin-left: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  white-space: nowrap;
+}
+
+.read-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+  transition: width 0.3s ease;
+}
+
+.list-article:hover .read-link {
+  color: #1e40af;
+  transform: translateX(4px);
+}
+
+.list-article:hover .read-link::after {
+  width: 100%;
+}
+
+/* Responsive Articles List */
+@media (max-width: 992px) {
+  .featured-article {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-content {
+    padding: 2rem;
+  }
+
+  .featured-title {
+    font-size: 1.8rem;
+  }
+
+  .carousel-indicators {
+    gap: 0.8rem;
+    padding: 1.2rem;
+  }
+
+  .carousel-dot {
+    width: 45px;
+    height: 45px;
+    font-size: 0.85rem;
+  }
+
+  .list-article {
+    grid-template-columns: auto 150px 1fr;
+    gap: 1.2rem;
+    padding: 1.2rem;
+  }
+
+  .list-article-image {
+    width: 150px;
+    height: 120px;
+  }
+
+  .list-article-title {
+    font-size: 1.15rem;
+  }
+
+  .list-article-excerpt {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-article {
+    grid-template-columns: 1fr;
+    border-radius: 15px;
+  }
+
+  .featured-image {
+    height: 250px;
+  }
+
+  .featured-content {
+    padding: 1.5rem;
+  }
+
+  .featured-title {
+    font-size: 1.5rem;
+  }
+
+  .featured-excerpt {
+    font-size: 0.95rem;
+  }
+
+  .carousel-indicators {
+    gap: 0.6rem;
+    padding: 1rem;
+  }
+
+  .carousel-dot {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
+
+  .carousel-dot.active {
+    transform: scale(1.1);
+  }
+
+  .list-article {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .list-article-number {
+    display: none;
+  }
+
+  .list-article-image {
+    width: 100%;
+    height: 150px;
+  }
+
+  .list-article-title {
+    font-size: 1.1rem;
+  }
+
+  .list-article-excerpt {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  .list-date {
+    margin-left: 0;
+    font-size: 0.75rem;
+  }
+
+  .articles-list-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .list-article {
+    padding: 1rem;
+  }
+
+  .list-article-image {
+    height: 120px;
+  }
+
+  .list-article-title {
+    font-size: 0.95rem;
+  }
+
+  .list-article-excerpt {
+    font-size: 0.8rem;
+  }
+
+  .list-read-time {
+    font-size: 0.75rem;
+  }
+
+  .read-link {
+    font-size: 0.8rem;
+  }
+
+  .articles-list-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile Animation Adjustments */
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  .list-article {
+    animation: slideInLeft 0.4s ease-out backwards !important;
+  }
+
+  .list-article::before {
+    /* Disable shimmer effect on mobile for performance */
+    display: none;
+  }
+
+  .list-article:hover {
+    /* Reduce transform on mobile */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+  }
+
+  .list-img:hover {
+    /* Reduce image zoom on mobile */
+    transform: scale(1.08) rotate(1deg);
+  }
+
+  .list-article-title:hover {
+    /* Keep text animation but reduce movement */
+    transform: translateX(2px);
+  }
+
+  .articles-list-section {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .articles-list-title::after {
+    animation: expandWidth 0.6s ease-out 0.1s forwards;
+  }
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .list-article,
+  .list-article::before,
+  .articles-list-section,
+  .articles-list-title::after {
+    animation: none !important;
+  }
+
+  .list-article:hover,
+  .list-img:hover,
+  .list-article-title:hover,
+  .list-article-number:hover,
+  .read-link::after {
+    transition: none !important;
+  }
 }
 
 /* No Posts Message */
@@ -308,6 +1260,37 @@ const clearFilter = (filter) => {
 
   .section-title {
     font-size: 2.2rem;
+  }
+
+  .featured-article {
+    grid-template-columns: 1fr;
+    margin-bottom: 3rem;
+  }
+
+  .featured-image {
+    height: 250px;
+  }
+
+  .featured-content {
+    padding: 2rem;
+  }
+
+  .featured-title {
+    font-size: 1.6rem;
+  }
+
+  .featured-excerpt {
+    font-size: 0.95rem;
+  }
+
+  .featured-meta {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .featured-read-more {
+    width: 100%;
+    text-align: center;
   }
 
   .blog-grid {

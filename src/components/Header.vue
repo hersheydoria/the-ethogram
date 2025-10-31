@@ -8,7 +8,7 @@
     <div class="container">
       <div class="header-top">
         <div class="logo-section">
-          <h1 class="logo">🐾 Living Links</h1>
+          <h1 class="logo"><Heart :size="28" fill="currentColor" /> Living Links</h1>
           <p class="tagline">Linking hearts to save animals and the planet</p>
         </div>
         <div class="header-buttons">
@@ -22,7 +22,7 @@
           <input 
             v-model="localSearchQuery"
             type="text" 
-            placeholder="🔍 Search articles..."
+            placeholder="Search articles..."
             class="search-input"
             @input="handleSearchInput(localSearchQuery)"
           />
@@ -83,6 +83,7 @@
 
 <script setup>
 import { ref, watch } from 'vue'
+import { Heart } from 'lucide-vue-next'
 
 const props = defineProps({
   selectedCategory: {

@@ -8,34 +8,34 @@
         <h2 class="features-title">Why Living Links?</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <div class="feature-icon">📖</div>
-            <h3>Comprehensive Content</h3>
-            <p>Explore 18+ carefully curated articles covering animal behavior, welfare, ethics, and conservation.</p>
+            <div class="feature-icon"><BookMarked /></div>
+            <h3>Curated Articles</h3>
+            <p>18+ carefully researched articles on animal behavior, welfare, ethics, veterinary science, and conservation.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">🌍</div>
+            <div class="feature-icon"><Globe /></div>
             <h3>Global Perspective</h3>
-            <p>Articles covering local initiatives, national campaigns, and international wildlife conservation efforts.</p>
+            <p>Discover local initiatives, national campaigns, and international efforts in animal welfare and protection.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">💡</div>
-            <h3>Expert Insights</h3>
-            <p>Learn from veterinary students, wildlife experts, and animal welfare professionals sharing their experiences.</p>
+            <div class="feature-icon"><Stethoscope /></div>
+            <h3>Expert Contributions</h3>
+            <p>Learn from veterinarians, wildlife specialists, and animal welfare professionals sharing real experiences.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Community Action</h3>
-            <p>Discover how to get involved in animal rescue, education, and welfare initiatives in your community.</p>
+            <div class="feature-icon"><Users /></div>
+            <h3>Community Driven</h3>
+            <p>Explore rescue operations, educational outreach, and local initiatives making tangible differences.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">🎓</div>
-            <h3>Educational Resources</h3>
-            <p>From responsible pet ownership to wildlife protection - comprehensive guides for all levels.</p>
+            <div class="feature-icon"><GraduationCap /></div>
+            <h3>Educational Content</h3>
+            <p>Comprehensive guides covering responsible pet ownership, wildlife protection, and ethical practices.</p>
           </div>
           <div class="feature-card">
-            <div class="feature-icon">✨</div>
-            <h3>Inspiring Stories</h3>
-            <p>Read creative expressions, success stories, and real-world examples of animal welfare in action.</p>
+            <div class="feature-icon"><Lightbulb /></div>
+            <h3>Inspiring Voices</h3>
+            <p>Amplifying creative expressions, success stories, and personal perspectives on animal advocacy.</p>
           </div>
         </div>
       </div>
@@ -47,6 +47,7 @@
 
 <script setup>
 import Hero from './Hero.vue'
+import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb } from 'lucide-vue-next'
 </script>
 
 <style scoped>
@@ -119,6 +120,7 @@ import Hero from './Hero.vue'
   color: #666;
   line-height: 1.7;
   font-size: 0.95rem;
+  text-align: justify;
 }
 
 @media (max-width: 768px) {

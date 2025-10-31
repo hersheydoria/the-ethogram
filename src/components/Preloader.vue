@@ -3,10 +3,10 @@
     <div class="preloader-content">
       <!-- Animated paw prints -->
       <div class="paw-prints">
-        <div class="paw paw-1">🐾</div>
-        <div class="paw paw-2">🐾</div>
-        <div class="paw paw-3">🐾</div>
-        <div class="paw paw-4">🐾</div>
+        <div class="paw paw-1"><Heart :size="28" fill="currentColor" /></div>
+        <div class="paw paw-2"><Heart :size="28" fill="currentColor" /></div>
+        <div class="paw paw-3"><Heart :size="28" fill="currentColor" /></div>
+        <div class="paw paw-4"><Heart :size="28" fill="currentColor" /></div>
       </div>
       
       <!-- Loading text -->
@@ -17,7 +17,7 @@
       </div>
       
       <!-- Animated heart -->
-      <div class="heart-pulse">❤️</div>
+      <div class="heart-pulse"><Heart :size="32" fill="currentColor" /></div>
       
       <!-- Loading message -->
       <p class="loading-message">Connecting hearts to save animals</p>
@@ -27,6 +27,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { Heart } from 'lucide-vue-next'
 
 const isLoading = ref(true)
 
