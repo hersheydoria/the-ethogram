@@ -1,4 +1,4 @@
-# Living Links - Animal Welfare Blog
+# The Ethogram - Animal Welfare Blog
 
 ![Living Links](https://img.shields.io/badge/Living_Links-Animal_Welfare-purple)
 ![Vue 3](https://img.shields.io/badge/Vue-3.5-green)
