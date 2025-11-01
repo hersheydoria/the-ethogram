@@ -3,8 +3,8 @@
     <div class="about-container">
       <!-- Header -->
       <div class="about-header">
-        <h1 class="about-title">About Living Links</h1>
-        <p class="about-subtitle">Connecting hearts, changing lives, one article at a time</p>
+        <h1 class="about-title">About The Ethogram</h1>
+        <p class="about-subtitle">Compassion in Motion for a Kinder World</p>
       </div>
 
       <!-- Mission Section -->
@@ -12,7 +12,7 @@
         <Target :size="48" class="section-icon" />
         <h2 class="section-title">Our Mission</h2>
         <p class="section-content">
-          Living Links is dedicated to promoting animal welfare through educational content, professional insights, and compassionate perspectives. We believe that knowledge and empathy are the foundations for creating a more humane world for all living beings.
+          The Ethogram is dedicated to promoting animal welfare through educational content, professional insights, and compassionate perspectives. We believe that knowledge and empathy are the foundations for creating a more humane world for all living beings.
         </p>
       </div>
 
@@ -58,8 +58,11 @@
         <Users :size="48" class="section-icon" />
         <h2 class="section-title">Our Team</h2>
         <p class="section-content">
-          Living Links brings together veterinarians, animal welfare advocates, educators, and passionate individuals who believe in the power of information and compassion. Our diverse team ensures that the content we share is accurate, insightful, and meaningful.
+          The Ethogram brings together veterinarians, animal welfare advocates, educators, and passionate individuals who believe in the power of information and compassion. Our diverse team ensures that the content we share is accurate, insightful, and meaningful.
         </p>
+        <button @click="$emit('navigate-to-team')" class="team-btn">
+          Meet Our Team →
+        </button>
       </div>
 
       <!-- Commitment Section -->
@@ -81,7 +84,7 @@
       <!-- Call to Action -->
       <div class="about-cta">
         <h3>Join Our Community</h3>
-        <p>Explore our articles and become part of the Living Links movement for animal welfare.</p>
+        <p>Explore our articles and become part of The Ethogram movement for animal welfare.</p>
         <button @click="$emit('navigate-to-articles')" class="cta-button">
           Explore Articles →
         </button>
@@ -93,7 +96,7 @@
 <script setup>
 import { Target, Globe, BookOpen, Users, Heart } from 'lucide-vue-next'
 
-defineEmits(['navigate-to-articles'])
+defineEmits(['navigate-to-articles', 'navigate-to-team'])
 </script>
 
 <style scoped>
@@ -104,10 +107,6 @@ defineEmits(['navigate-to-articles'])
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s ease;
-}
-
-:root.light-mode .about-us {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .about-us::before {
@@ -178,6 +177,12 @@ defineEmits(['navigate-to-articles'])
   transition: all 0.3s ease;
 }
 
+:root.light-mode .about-section {
+  background: #CBD5E1;
+  border-color: #9CA3AF;
+  box-shadow: 0 10px 40px rgba(155, 163, 175, 0.15);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -193,6 +198,11 @@ defineEmits(['navigate-to-articles'])
   box-shadow: 0 15px 50px rgba(37, 99, 235, 0.15);
   border-color: rgba(37, 99, 235, 0.2);
   transform: translateY(-5px);
+}
+
+:root.light-mode .about-section:hover {
+  box-shadow: 0 15px 50px rgba(155, 163, 175, 0.25);
+  border-color: #7FA8C9;
 }
 
 .section-icon {
@@ -212,12 +222,20 @@ defineEmits(['navigate-to-articles'])
   transition: color 0.3s ease;
 }
 
+:root.light-mode .section-title {
+  color: #1F3A52;
+}
+
 .section-content {
   font-size: 1.05rem;
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 1rem;
   transition: color 0.3s ease;
+}
+
+:root.light-mode .section-content {
+  color: #3D5A7D;
 }
 
 .category-list {
@@ -232,16 +250,36 @@ defineEmits(['navigate-to-articles'])
   gap: 1rem;
   align-items: flex-start;
   padding: 1rem;
-  border-left: 4px solid #2563eb;
+  border-left: 4px solid #BC6C25;
   border-radius: 8px;
-  background: var(--bg-secondary);
+  background: rgba(188, 108, 37, 0.1);
   transition: all 0.3s ease;
 }
 
+:root.dark-mode .category-item {
+  background: rgba(188, 108, 37, 0.15);
+  border-left-color: #DDA15E;
+}
+
+:root.light-mode .category-item {
+  background: rgba(45, 81, 130, 0.08);
+  border-left-color: #7FA8C9;
+}
+
 .category-item:hover {
-  background: var(--card-bg);
-  border-left-color: #f97316;
+  background: rgba(188, 108, 37, 0.15);
+  border-left-color: #BC6C25;
   transform: translateX(5px);
+}
+
+:root.dark-mode .category-item:hover {
+  background: rgba(188, 108, 37, 0.25);
+  border-left-color: #DDA15E;
+}
+
+:root.light-mode .category-item:hover {
+  background: rgba(45, 81, 130, 0.15);
+  border-left-color: #5B8EC9;
 }
 
 .category-badge {
@@ -257,23 +295,24 @@ defineEmits(['navigate-to-articles'])
 }
 
 .category-badge.personal-experiences {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #A55A1F 100%);
 }
 
 .category-badge.professional-perspectives {
-  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #DDA15E 0%, #CC8F48 100%);
 }
 
 .category-badge.educational-articles {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #C49A36 0%, #A67C2F 100%);
+  color: white;
 }
 
 .category-badge.spotlight-initiatives {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
 }
 
 .category-badge.creative-expressions {
-  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  background: linear-gradient(135deg, #606C38 0%, #4D5829 100%);
 }
 
 .category-item p {
@@ -309,12 +348,12 @@ defineEmits(['navigate-to-articles'])
 }
 
 .about-cta {
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
   border-radius: 20px;
   padding: 3rem;
   text-align: center;
   color: white;
-  box-shadow: 0 15px 50px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 15px 50px rgba(188, 108, 37, 0.3);
   animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
@@ -333,8 +372,8 @@ defineEmits(['navigate-to-articles'])
 }
 
 .cta-button {
-  background: white;
-  color: #2563eb;
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  color: white;
   border: none;
   padding: 1rem 2.5rem;
   border-radius: 25px;
@@ -342,17 +381,42 @@ defineEmits(['navigate-to-articles'])
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.3);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  background: #f0f0f0;
+  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.4);
+  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
 }
 
 .cta-button:active {
   transform: translateY(-1px);
+}
+
+.team-btn {
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  color: white;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.25);
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.team-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(188, 108, 37, 0.35);
+  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+}
+
+.team-btn:active {
+  transform: translateY(0px);
 }
 
 @media (max-width: 768px) {

@@ -5,13 +5,15 @@ import Navbar from './components/Navbar.vue'
 import BlogList from './components/BlogList.vue'
 import BlogPost from './components/BlogPost.vue'
 import AboutUs from './components/AboutUs.vue'
+import Teams from './components/Teams.vue'
 import Footer from './components/Footer.vue'
+import { Sun, Moon } from 'lucide-vue-next'
 import { allArticles } from './articles/index.js'
 import { useTheme } from './composables/useTheme'
 
-const { isDarkMode, initTheme } = useTheme()
+const { isDarkMode, initTheme, toggleTheme } = useTheme()
 
-const currentPage = ref('landing') // 'landing', 'blog', 'about'
+const currentPage = ref('landing') // 'landing', 'blog', 'about', 'team'
 const selectedCategory = ref('all')
 const searchQuery = ref('')
 const selectedPostId = ref(null)
@@ -25,7 +27,7 @@ onMounted(() => {
   const savedPostId = localStorage.getItem('selectedPostId')
   
   // Only restore valid pages
-  if (savedPage && (savedPage === 'landing' || savedPage === 'blog' || savedPage === 'about')) {
+  if (savedPage && (savedPage === 'landing' || savedPage === 'blog' || savedPage === 'about' || savedPage === 'team')) {
     currentPage.value = savedPage
   }
   if (savedCategory) {
@@ -97,6 +99,16 @@ const handleClearSearch = () => {
 
 const goToArticles = () => {
   currentPage.value = 'blog'
+  selectedCategory.value = 'all'
+  selectedPostId.value = null
+  searchQuery.value = ''
+  selectedTags.value = []
+  window.scrollTo(0, 0)
+}
+
+const goToBlogWithCurrentFilters = () => {
+  // Navigate to blog page while keeping current filters (category, search, tags)
+  currentPage.value = 'blog'
   selectedPostId.value = null
   window.scrollTo(0, 0)
 }
@@ -110,6 +122,17 @@ const goToHome = () => {
 const goToAbout = () => {
   currentPage.value = 'about'
   selectedPostId.value = null
+  window.scrollTo(0, 0)
+}
+
+const goToTeams = () => {
+  currentPage.value = 'team'
+  selectedPostId.value = null
+  window.scrollTo(0, 0)
+}
+
+const goBackFromTeams = () => {
+  currentPage.value = 'about'
   window.scrollTo(0, 0)
 }
 
@@ -144,10 +167,11 @@ const handleFooterNavigation = (linkType) => {
         @search="handleSearchQuery"
         @navigate-to-landing="goToHome"
         @navigate-to-blog="goToArticles"
+        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
         @navigate-to-about="goToAbout"
         @tag-filter-change="handleTagFilterChange"
       />
-      <AboutUs @navigate-to-articles="goToArticles" />
+      <AboutUs @navigate-to-articles="goToArticles" @navigate-to-team="goToTeams" />
       <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
     </template>
 
@@ -161,6 +185,7 @@ const handleFooterNavigation = (linkType) => {
         @search="handleSearchQuery"
         @navigate-to-landing="goToHome"
         @navigate-to-blog="goToArticles"
+        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
         @navigate-to-about="goToAbout"
         @tag-filter-change="handleTagFilterChange"
       />
@@ -180,6 +205,30 @@ const handleFooterNavigation = (linkType) => {
       </template>
       <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
     </template>
+
+    <!-- Teams Page -->
+    <template v-else-if="currentPage === 'team'">
+      <Navbar 
+        :selected-category="selectedCategory"
+        :search-query="searchQuery"
+        :all-posts="allBlogPosts"
+        @category-change="handleCategoryChange"
+        @search="handleSearchQuery"
+        @navigate-to-landing="goToHome"
+        @navigate-to-blog="goToArticles"
+        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
+        @navigate-to-about="goToAbout"
+        @tag-filter-change="handleTagFilterChange"
+      />
+      <Teams @go-back="goBackFromTeams" />
+      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
+    </template>
+
+    <!-- Floating Theme Toggle Button -->
+    <button class="floating-theme-toggle" @click="toggleTheme" :title="isDarkMode ? 'Light Mode' : 'Dark Mode'">
+      <Sun v-if="isDarkMode" :size="24" />
+      <Moon v-else :size="24" />
+    </button>
   </div>
 </template>
 
@@ -192,23 +241,23 @@ const handleFooterNavigation = (linkType) => {
 
 /* Light Mode (Default) */
 :root.light-mode {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
-  --card-bg: #ffffff;
-  --card-shadow: rgba(0, 0, 0, 0.1);
+  --bg-primary: #FEFAE0;
+  --bg-secondary: #DDA15E;
+  --text-primary: #283618;
+  --text-secondary: #606C38;
+  --border-color: #BC6C25;
+  --card-bg: #FEFAE0;
+  --card-shadow: rgba(40, 54, 24, 0.1);
 }
 
 /* Dark Mode */
 :root.dark-mode {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
+  --bg-primary: #475569;
+  --bg-secondary: #606C80;
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --border-color: #334155;
-  --card-bg: #1e293b;
+  --card-bg: #606C80;
   --card-shadow: rgba(0, 0, 0, 0.5);
 }
 
@@ -220,10 +269,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-:root.light-mode body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
 .app {
   min-height: 100vh;
   display: flex;
@@ -231,7 +276,51 @@ body {
   background-color: var(--bg-primary);
 }
 
-:root.light-mode .app {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+/* Floating Theme Toggle Button */
+.floating-theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(188, 108, 37, 0.4);
+  transition: all 0.3s ease;
+}
+
+.floating-theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(188, 108, 37, 0.5);
+}
+
+.floating-theme-toggle:active {
+  transform: scale(0.95);
+}
+
+:root.dark-mode .floating-theme-toggle {
+  background: linear-gradient(135deg, #7A3C0E 0%, #A8643A 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+:root.dark-mode .floating-theme-toggle:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .floating-theme-toggle {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
 }
 </style>
+

@@ -6,8 +6,8 @@
     </div>
     
     <div class="hero-content">
-      <div class="hero-badge"><Sparkles class="badge-icon" /> Welcome to Living Links</div>
-      <h2 class="hero-title">Connecting Knowledge for<br><span class="highlight">Animal Welfare & Conservation</span></h2>
+      <div class="hero-badge"><Sparkles class="badge-icon" /> Welcome to The Ethogram</div>
+      <h2 class="hero-title">Compassion in Motion for<br><span class="highlight">a Kinder World</span></h2>
       <p class="hero-description">
         Explore in-depth articles on animal behavior, veterinary science, ethical practices, 
         and wildlife conservation. Learn from experts and discover actionable insights that 
@@ -55,7 +55,7 @@ defineEmits(['explore-articles'])
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f0f9ff 0%, #ecfdf5 100%);
+  background: #FEFAE0;
 }
 
 /* Background Image Section */
@@ -107,14 +107,14 @@ defineEmits(['explore-articles'])
 
 .hero-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
   color: white;
   padding: 0.6rem 1.5rem;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(37, 99, 235, 0.3);
+  border: 1px solid rgba(188, 108, 37, 0.3);
 }
 
 .badge-icon {
@@ -132,7 +132,7 @@ defineEmits(['explore-articles'])
 }
 
 .hero-title .highlight {
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #606C38 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -172,24 +172,24 @@ defineEmits(['explore-articles'])
 }
 
 .cta-button.primary {
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
   color: white;
-  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 25px rgba(188, 108, 37, 0.3);
 }
 
 .cta-button.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 12px 35px rgba(188, 108, 37, 0.4);
 }
 
 .cta-button.secondary {
   background: transparent;
-  color: #2563eb;
-  border: 2px solid #2563eb;
+  color: #BC6C25;
+  border: 2px solid #BC6C25;
 }
 
 .cta-button.secondary:hover {
-  background: #2563eb;
+  background: #BC6C25;
   color: white;
   transform: translateY(-3px);
 }

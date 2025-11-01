@@ -4,7 +4,7 @@
       <!-- Logo -->
       <div class="navbar-logo" @click="$emit('navigate-to-landing')">
         <Heart :size="24" fill="currentColor" />
-        <span>Living Links</span>
+        <span>The Ethogram</span>
       </div>
       
       <!-- Right-side Navigation Wrapper -->
@@ -61,12 +61,6 @@
             @input="handleSearchInput(localSearchQuery)"
           />
         </div>
-
-        <!-- Theme Toggle Button -->
-        <button class="theme-toggle-btn" @click="toggleTheme" :title="isDarkMode ? 'Light Mode' : 'Dark Mode'">
-          <Sun v-if="isDarkMode" :size="20" />
-          <Moon v-else :size="20" />
-        </button>
       </div>
     </div>
     
@@ -99,10 +93,10 @@
 
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
-import { Heart, Sun, Moon } from 'lucide-vue-next'
+import { Heart } from 'lucide-vue-next'
 import { useTheme } from '../composables/useTheme'
 
-const { isDarkMode, toggleTheme, initTheme } = useTheme()
+const { initTheme } = useTheme()
 
 const props = defineProps({
   selectedCategory: {
@@ -124,8 +118,9 @@ const activeCategory = ref('all')
 const showMenu = ref(false)
 const selectedTags = ref([])
 let closeMenuTimeout = null
+let searchTimeout = null
 
-const emit = defineEmits(['category-change', 'search', 'navigate-to-landing', 'navigate-to-blog', 'navigate-to-about', 'tag-filter-change'])
+const emit = defineEmits(['category-change', 'search', 'navigate-to-landing', 'navigate-to-blog', 'navigate-to-about', 'navigate-to-blog-with-filters', 'tag-filter-change'])
 
 // Category definitions
 const categories = computed(() => [
@@ -218,6 +213,16 @@ const clearTags = () => {
 const handleSearchInput = (query) => {
   localSearchQuery.value = query
   emit('search', query)
+  
+  // Clear previous timeout
+  if (searchTimeout) clearTimeout(searchTimeout)
+  
+  // Only navigate to blog after user stops typing for 500ms
+  if (query.trim() !== '') {
+    searchTimeout = setTimeout(() => {
+      emit('navigate-to-blog-with-filters')
+    }, 500)
+  }
 }
 
 onMounted(() => {
@@ -227,21 +232,25 @@ onMounted(() => {
 
 <style scoped>
 .navbar {
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 50%, #606C38 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
   z-index: 100;
   transition: background 0.3s ease;
 }
 
+:root.light-mode .navbar {
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 50%, #606C38 100%);
+}
+
 :root.dark-mode .navbar {
-  background: linear-gradient(135deg, #1e3a8a 0%, #b45309 50%, #78350f 100%);
+  background: linear-gradient(135deg, #7A3C0E 0%, #A8643A 50%, #3D4620 100%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 :root.dark-mode .categories-dropdown {
-  background: linear-gradient(135deg, #0a0e27 0%, #1a2847 100%);
-  border-color: rgba(37, 99, 235, 0.3);
+  background: linear-gradient(135deg, #6B3410 0%, #8F5428 100%);
+  border-color: rgba(168, 100, 58, 0.3);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
@@ -250,14 +259,14 @@ onMounted(() => {
 }
 
 :root.dark-mode .dropdown-item:hover {
-  background: rgba(37, 99, 235, 0.15);
-  color: #60a5fa;
+  background: rgba(188, 108, 37, 0.2);
+  color: #DDA15E;
 }
 
 :root.dark-mode .dropdown-item.active {
-  background: rgba(37, 99, 235, 0.25);
-  color: #60a5fa;
-  border-left-color: #60a5fa;
+  background: rgba(188, 108, 37, 0.3);
+  color: #DDA15E;
+  border-left-color: #DDA15E;
 }
 
 .navbar-container {
@@ -454,28 +463,6 @@ onMounted(() => {
   background: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
-}
-
-/* Theme Toggle Button */
-.theme-toggle-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: white;
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.theme-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.6);
-  transform: scale(1.1);
 }
 
 /* Menu Dropdown */

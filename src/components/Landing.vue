@@ -5,7 +5,7 @@
     <!-- Features Section -->
     <section class="features-section">
       <div class="container">
-        <h2 class="features-title">Why Living Links?</h2>
+        <h2 class="features-title">Why The Ethogram?</h2>
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon"><BookMarked /></div>
@@ -63,10 +63,6 @@ import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb } from 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-:root.light-mode .features-section {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -97,10 +93,21 @@ import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb } from 
   color: var(--text-primary);
 }
 
+:root.light-mode .feature-card {
+  background: #CBD5E1;
+  color: #1F2937;
+  border-color: #9CA3AF;
+}
+
 .feature-card:hover {
   transform: translateY(-8px);
   border-color: rgba(102, 126, 234, 0.5);
   box-shadow: 0 15px 40px var(--card-shadow);
+}
+
+:root.light-mode .feature-card:hover {
+  border-color: #6B7280;
+  box-shadow: 0 15px 40px rgba(107, 114, 128, 0.3);
 }
 
 .feature-icon {
@@ -123,12 +130,20 @@ import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb } from 
   transition: color 0.3s ease;
 }
 
+:root.light-mode .feature-card h3 {
+  color: #1F2937;
+}
+
 .feature-card p {
   color: var(--text-secondary);
   line-height: 1.7;
   font-size: 0.95rem;
   text-align: justify;
   transition: color 0.3s ease;
+}
+
+:root.light-mode .feature-card p {
+  color: #4B5563;
 }
 
 @media (max-width: 768px) {

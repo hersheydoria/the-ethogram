@@ -9,9 +9,9 @@
       <div class="footer-content">
         <!-- About Section -->
         <div class="footer-section about-section">
-          <h3><Heart :size="24" fill="currentColor" /> Living Links</h3>
-          <p>Linking hearts to save animals and the planet through education, awareness, and community action. We believe in creating a compassionate world for all animals.</p>
-          <div class="footer-badge">Dedicated to Animal Welfare</div>
+          <h3><Heart :size="24" fill="currentColor" /> The Ethogram</h3>
+          <p>Save the animals, save the planet through education, awareness, and community action. We believe in creating a compassionate world for all animals.</p>
+          <div class="footer-badge">Save the Animals, Save the Planet</div>
         </div>
 
         <!-- Categories Section -->
@@ -42,7 +42,7 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p>&copy; 2025 Living Links - Connecting Hearts for Animal Welfare. All rights reserved.</p>
+        <p>&copy; 2025 The Ethogram - Save the Animals, Save the Planet. All rights reserved.</p>
         <p class="footer-tagline">Made with <Heart :size="16" style="display: inline; margin: 0 0.25rem;" /> and compassion for all creatures</p>
       </div>
     </div>
@@ -72,27 +72,31 @@ const handleSocialLink = (platform) => {
 
 <style scoped>
 .footer {
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 50%, #606C38 100%);
   color: white;
   padding: 2rem 2rem 1rem;
   margin-top: 2rem;
   box-shadow: 
-    0 -4px 20px rgba(37, 99, 235, 0.4),
+    0 -4px 20px rgba(188, 108, 37, 0.4),
     inset 0 -1px 0 rgba(255, 255, 255, 0.1),
     inset 0 1px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
-  border-top: 3px solid rgba(37, 99, 235, 0.4);
+  border-top: 3px solid rgba(188, 108, 37, 0.4);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+:root.light-mode .footer {
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 50%, #606C38 100%);
+}
+
 :root.dark-mode .footer {
-  background: linear-gradient(135deg, #1e3a8a 0%, #b45309 50%, #78350f 100%);
+  background: linear-gradient(135deg, #7A3C0E 0%, #A8643A 50%, #3D4620 100%);
   box-shadow: 
     0 -4px 20px rgba(0, 0, 0, 0.5),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(0, 0, 0, 0.5);
-  border-top: 3px solid rgba(30, 58, 138, 0.6);
+  border-top: 3px solid rgba(122, 60, 14, 0.6);
 }
 
 /* Animated Background Blobs */

@@ -7,7 +7,7 @@
       </div>
 
       <!-- Filter Info Bar -->
-      <div v-if="selectedCategory !== 'all'" class="filter-info">
+      <div v-if="selectedCategory !== 'all'" class="filter-info" :class="selectedCategory">
         <p class="category-display">{{ formatCategoryName(selectedCategory) }}</p>
       </div>
 
@@ -376,10 +376,6 @@ const clearFilter = (filter) => {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-:root.light-mode .blog-section {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
 .blog-section::before {
   content: '';
   position: absolute;
@@ -423,7 +419,7 @@ const clearFilter = (filter) => {
   margin-bottom: 0.5rem;
   font-weight: 800;
   letter-spacing: -1px;
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 50%, #C49A36 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -447,6 +443,31 @@ const clearFilter = (filter) => {
   transition: background-color 0.3s ease;
 }
 
+.filter-info.personal-experiences {
+  border-left-color: #BC6C25;
+  background: linear-gradient(135deg, #BC6C25 0%, #A55A1F 100%);
+}
+
+.filter-info.professional-perspectives {
+  border-left-color: #DDA15E;
+  background: linear-gradient(135deg, #DDA15E 0%, #CC8F48 100%);
+}
+
+.filter-info.educational-articles {
+  border-left-color: #C49A36;
+  background: linear-gradient(135deg, #C49A36 0%, #A67C2F 100%);
+}
+
+.filter-info.spotlight-initiatives {
+  border-left-color: #283618;
+  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+}
+
+.filter-info.creative-expressions {
+  border-left-color: #606C38;
+  background: linear-gradient(135deg, #606C38 0%, #4D5829 100%);
+}
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -467,6 +488,26 @@ const clearFilter = (filter) => {
   letter-spacing: 0.8px;
 }
 
+.filter-info.personal-experiences .category-display {
+  color: white;
+}
+
+.filter-info.professional-perspectives .category-display {
+  color: white;
+}
+
+.filter-info.educational-articles .category-display {
+  color: white;
+}
+
+.filter-info.spotlight-initiatives .category-display {
+  color: white;
+}
+
+.filter-info.creative-expressions .category-display {
+  color: white;
+}
+
 /* Featured Article Layout */
 .featured-article {
   background: var(--card-bg);
@@ -481,6 +522,11 @@ const clearFilter = (filter) => {
   animation: fadeInUp 0.6s ease-out;
   min-height: 500px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root.light-mode .featured-article {
+  background: #A8C5DD;
+  border-color: #7FA8C9;
 }
 
 @keyframes fadeInUp {
@@ -552,23 +598,24 @@ const clearFilter = (filter) => {
 }
 
 .featured-badge.personal-experiences {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #A55A1F 100%);
 }
 
 .featured-badge.professional-perspectives {
-  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #DDA15E 0%, #CC8F48 100%);
 }
 
 .featured-badge.educational-articles {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #C49A36 0%, #A67C2F 100%);
+  color: white;
 }
 
 .featured-badge.spotlight-initiatives {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
 }
 
 .featured-badge.creative-expressions {
-  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  background: linear-gradient(135deg, #606C38 0%, #4D5829 100%);
 }
 
 .featured-content {
@@ -587,6 +634,10 @@ const clearFilter = (filter) => {
   margin-bottom: 0.4rem;
 }
 
+:root.light-mode .featured-label {
+  color: #2D5182;
+}
+
 .featured-title {
   font-size: 1.4rem;
   color: var(--text-primary);
@@ -602,12 +653,20 @@ const clearFilter = (filter) => {
   max-height: 5rem;
 }
 
+:root.light-mode .featured-title {
+  color: #1F3A52;
+}
+
 .featured-excerpt {
   font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 0.7rem;
   margin-top: 0.5rem;
+}
+
+:root.light-mode .featured-excerpt {
+  color: #3D5A7D;
 }
 
 .featured-meta {
@@ -617,6 +676,10 @@ const clearFilter = (filter) => {
   font-size: 0.85rem;
   color: var(--text-secondary);
   font-weight: 500;
+}
+
+:root.light-mode .featured-meta {
+  color: #3D5A7D;
 }
 
 .featured-date,
@@ -645,14 +708,25 @@ const clearFilter = (filter) => {
   transition: all 0.3s ease;
 }
 
+:root.light-mode .featured-tag {
+  background: rgba(45, 81, 130, 0.15);
+  color: #2D5182;
+  border-color: rgba(45, 81, 130, 0.3);
+}
+
 .featured-tag:hover {
   background: rgba(37, 99, 235, 0.25);
   border-color: #2563eb;
   transform: translateY(-2px);
 }
 
+:root.light-mode .featured-tag:hover {
+  background: rgba(45, 81, 130, 0.25);
+  border-color: #2D5182;
+}
+
 .featured-read-more {
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
   color: white;
   border: none;
   padding: 0.8rem 1.8rem;
@@ -662,13 +736,25 @@ const clearFilter = (filter) => {
   cursor: pointer;
   transition: all 0.3s ease;
   width: fit-content;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+}
+
+:root.light-mode .featured-read-more {
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  color: white;
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
 }
 
 .featured-read-more:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.6);
-  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.6);
+  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+}
+
+:root.light-mode .featured-read-more:hover {
+  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.6);
+  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  color: white;
 }
 
 .featured-read-more:active {
@@ -709,7 +795,7 @@ const clearFilter = (filter) => {
 .carousel-dot {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(37, 99, 235, 0.2);
+  border: 3px solid rgba(188, 108, 37, 0.2);
   border-radius: 50%;
   background: white;
   cursor: pointer;
@@ -719,21 +805,21 @@ const clearFilter = (filter) => {
   justify-content: center;
   font-weight: 700;
   font-size: 0.8rem;
-  color: #2563eb;
+  color: #BC6C25;
   position: relative;
 }
 
 .carousel-dot:hover {
-  border-color: #2563eb;
+  border-color: #BC6C25;
   transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.2);
 }
 
 .carousel-dot.active {
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
   color: white;
-  border-color: #2563eb;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  border-color: #BC6C25;
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
   transform: scale(1.15);
 }
 
@@ -824,35 +910,35 @@ const clearFilter = (filter) => {
 }
 
 .category-section-title.personal-experiences {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
-  border-left-color: #0ea5e9;
+  background: linear-gradient(135deg, #BC6C25 0%, #A55A1F 100%);
+  border-left-color: #BC6C25;
 }
 
 .category-section-title.professional-perspectives {
-  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
-  border-left-color: #a855f7;
+  background: linear-gradient(135deg, #DDA15E 0%, #CC8F48 100%);
+  border-left-color: #DDA15E;
 }
 
 .category-section-title.educational-articles {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  border-left-color: #10b981;
+  background: linear-gradient(135deg, #C49A36 0%, #A67C2F 100%);
+  border-left-color: #C49A36;
+  color: white;
 }
 
 .category-section-title.spotlight-initiatives {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-  border-left-color: #f97316;
+  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+  border-left-color: #283618;
 }
 
 .category-section-title.creative-expressions {
-  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
-  border-left-color: #eab308;
-  color: #1f2937;
+  background: linear-gradient(135deg, #606C38 0%, #4D5829 100%);
+  border-left-color: #606C38;
 }
 
 .see-more-btn {
-  background: rgba(37, 99, 235, 0.1);
-  border: 2px solid #2563eb;
-  color: #2563eb;
+  background: linear-gradient(135deg, rgba(188, 108, 37, 0.1) 0%, rgba(221, 161, 94, 0.1) 100%);
+  border: 2px solid #BC6C25;
+  color: #BC6C25;
   padding: 0.8rem 1.8rem;
   border-radius: 8px;
   font-weight: 600;
@@ -865,10 +951,10 @@ const clearFilter = (filter) => {
 }
 
 .see-more-btn:hover {
-  background: #2563eb;
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
 }
 
 .see-more-btn:active {
@@ -892,6 +978,12 @@ const clearFilter = (filter) => {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: slideInLeft 0.6s ease-out backwards;
   color: var(--text-primary);
+}
+
+:root.light-mode .list-article {
+  background: #CBD5E1;
+  color: #1F2937;
+  border-color: #9CA3AF;
 }
 
 @keyframes slideInLeft {
@@ -1031,23 +1123,24 @@ const clearFilter = (filter) => {
 }
 
 .list-category.personal-experiences {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #BC6C25 0%, #A55A1F 100%);
 }
 
 .list-category.professional-perspectives {
-  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #DDA15E 0%, #CC8F48 100%);
 }
 
 .list-category.educational-articles {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #C49A36 0%, #A67C2F 100%);
+  color: white;
 }
 
 .list-category.spotlight-initiatives {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
 }
 
 .list-category.creative-expressions {
-  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  background: linear-gradient(135deg, #606C38 0%, #4D5829 100%);
 }
 
 .list-date {
@@ -1055,6 +1148,10 @@ const clearFilter = (filter) => {
   color: var(--text-secondary);
   margin-left: auto;
   transition: color 0.3s ease;
+}
+
+:root.light-mode .list-date {
+  color: #4B5563;
 }
 
 .list-article-title {
@@ -1071,9 +1168,17 @@ const clearFilter = (filter) => {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+:root.light-mode .list-article-title {
+  color: #1F2937;
+}
+
 .list-article:hover .list-article-title {
   color: #2563eb;
   transform: translateX(4px);
+}
+
+:root.light-mode .list-article:hover .list-article-title {
+  color: #475569;
 }
 
 .list-article-excerpt {
@@ -1087,6 +1192,10 @@ const clearFilter = (filter) => {
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: color 0.3s ease;
+}
+
+:root.light-mode .list-article-excerpt {
+  color: #4B5563;
 }
 
 .list-article:hover .list-article-excerpt {
@@ -1114,10 +1223,32 @@ const clearFilter = (filter) => {
   white-space: nowrap;
 }
 
+:root.dark-mode .list-article-tag {
+  background: rgba(188, 108, 37, 0.2);
+  color: #DDA15E;
+  border-color: rgba(188, 108, 37, 0.3);
+}
+
+:root.light-mode .list-article-tag {
+  background: rgba(71, 85, 105, 0.15);
+  color: #475569;
+  border-color: rgba(71, 85, 105, 0.2);
+}
+
 .list-article-tag:hover {
   background: rgba(37, 99, 235, 0.2);
   border-color: #2563eb;
   transform: translateY(-1px);
+}
+
+:root.dark-mode .list-article-tag:hover {
+  background: rgba(188, 108, 37, 0.3);
+  border-color: #BC6C25;
+}
+
+:root.light-mode .list-article-tag:hover {
+  background: rgba(71, 85, 105, 0.25);
+  border-color: #475569;
 }
 
 .list-article-tag-more {
@@ -1129,6 +1260,12 @@ const clearFilter = (filter) => {
   font-weight: 600;
   display: inline-block;
   border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+:root.light-mode .list-article-tag-more {
+  background: rgba(71, 85, 105, 0.1);
+  color: #475569;
+  border-color: rgba(71, 85, 105, 0.15);
 }
 
 .list-article-footer {
@@ -1151,6 +1288,10 @@ const clearFilter = (filter) => {
   transition: color 0.3s ease;
 }
 
+:root.light-mode .list-read-time {
+  color: #4B5563;
+}
+
 .list-article:hover .list-read-time {
   color: #666;
 }
@@ -1165,6 +1306,10 @@ const clearFilter = (filter) => {
   white-space: nowrap;
 }
 
+:root.light-mode .read-link {
+  color: #475569;
+}
+
 .read-link::after {
   content: '';
   position: absolute;
@@ -1176,9 +1321,17 @@ const clearFilter = (filter) => {
   transition: width 0.3s ease;
 }
 
+:root.light-mode .read-link::after {
+  background: linear-gradient(90deg, #475569 0%, #334155 100%);
+}
+
 .list-article:hover .read-link {
   color: #1e40af;
   transform: translateX(4px);
+}
+
+:root.light-mode .list-article:hover .read-link {
+  color: #334155;
 }
 
 .list-article:hover .read-link::after {
