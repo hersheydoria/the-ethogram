@@ -54,8 +54,8 @@ const formattedDate = computed(() => {
 }
 
 :root.light-mode .blog-card {
-  background: #CBD5E1;
-  border-color: #9CA3AF;
+  background: #FFFFFF;
+  border-color: #E5E7EB;
   color: #1F2937;
 }
 
@@ -83,8 +83,9 @@ const formattedDate = computed(() => {
 }
 
 :root.light-mode .blog-card:hover {
-  box-shadow: 0 15px 40px rgba(155, 163, 175, 0.3);
-  border-color: #9CA3AF;
+  background: var(--card-bg);
+  box-shadow: 0 15px 40px rgba(90, 122, 148, 0.3);
+  border-color: #5A7A94;
 }
 
 .card-image {
@@ -169,7 +170,7 @@ const formattedDate = computed(() => {
 }
 
 .category-badge.spotlight-initiatives {
-  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+  background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
 }
 
 .category-badge.creative-expressions {
@@ -251,7 +252,7 @@ const formattedDate = computed(() => {
 }
 
 :root.light-mode .card-content {
-  background: #CBD5E1;
+  background: var(--card-bg);
 }
 
 .card-title {
@@ -272,7 +273,7 @@ const formattedDate = computed(() => {
 }
 
 :root.light-mode .blog-card:hover .card-title {
-  color: #475569;
+  color: #FFFFFF;
 }
 
 .card-excerpt {
@@ -286,6 +287,10 @@ const formattedDate = computed(() => {
 
 :root.light-mode .card-excerpt {
   color: #4B5563;
+}
+
+:root.light-mode .blog-card:hover .card-excerpt {
+  color: #2563eb;
 }
 
 .card-footer {
@@ -329,7 +334,7 @@ const formattedDate = computed(() => {
 }
 
 .read-more {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -339,23 +344,23 @@ const formattedDate = computed(() => {
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.4);
+  box-shadow: 0 4px 15px rgba(74, 109, 66, 0.4);
 }
 
 :root.light-mode .read-more {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.4);
+  background: #4A6D42;
+  box-shadow: 0 4px 15px rgba(74, 109, 66, 0.4);
 }
 
 .read-more:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.6);
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  box-shadow: 0 6px 20px rgba(74, 109, 66, 0.6);
+  background: #3D5C35;
 }
 
 :root.light-mode .read-more:hover {
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.6);
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  box-shadow: 0 6px 20px rgba(40, 54, 24, 0.6);
+  background: #1F2912;
 }
 
 @media (max-width: 768px) {

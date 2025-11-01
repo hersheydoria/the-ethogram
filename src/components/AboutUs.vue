@@ -178,9 +178,10 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 }
 
 :root.light-mode .about-section {
-  background: #CBD5E1;
-  border-color: #9CA3AF;
+  background: #FFFFFF;
+  border-color: #E5E7EB;
   box-shadow: 0 10px 40px rgba(155, 163, 175, 0.15);
+  color: #1F2937;
 }
 
 @keyframes fadeInUp {
@@ -201,8 +202,8 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 }
 
 :root.light-mode .about-section:hover {
-  box-shadow: 0 15px 50px rgba(155, 163, 175, 0.25);
-  border-color: #7FA8C9;
+  box-shadow: 0 15px 50px rgba(90, 122, 148, 0.3);
+  border-color: #5A7A94;
 }
 
 .section-icon {
@@ -267,18 +268,15 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 }
 
 .category-item:hover {
-  background: rgba(188, 108, 37, 0.15);
   border-left-color: #BC6C25;
   transform: translateX(5px);
 }
 
 :root.dark-mode .category-item:hover {
-  background: rgba(188, 108, 37, 0.25);
   border-left-color: #DDA15E;
 }
 
 :root.light-mode .category-item:hover {
-  background: rgba(45, 81, 130, 0.15);
   border-left-color: #5B8EC9;
 }
 
@@ -308,7 +306,7 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 }
 
 .category-badge.spotlight-initiatives {
-  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+  background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
 }
 
 .category-badge.creative-expressions {
@@ -321,6 +319,10 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
   line-height: 1.6;
   margin: 0;
   transition: color 0.3s ease;
+}
+
+:root.light-mode .category-item p {
+  color: #4B5563;
 }
 
 .commitment-list {
@@ -338,6 +340,10 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
   transition: color 0.3s ease;
 }
 
+:root.light-mode .commitment-list li {
+  color: #1F3A52;
+}
+
 .commitment-list li::before {
   content: '✓';
   position: absolute;
@@ -348,12 +354,12 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 }
 
 .about-cta {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #5A7A94;
   border-radius: 20px;
   padding: 3rem;
   text-align: center;
   color: white;
-  box-shadow: 0 15px 50px rgba(188, 108, 37, 0.3);
+  box-shadow: 0 15px 50px rgba(90, 122, 148, 0.3);
   animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
@@ -372,7 +378,7 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 }
 
 .cta-button {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 1rem 2.5rem;
@@ -381,13 +387,12 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.3);
+  box-shadow: 0 6px 20px rgba(74, 109, 66, 0.3);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.4);
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  box-shadow: 0 10px 30px rgba(74, 109, 66, 0.4);
 }
 
 .cta-button:active {
@@ -395,7 +400,7 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 }
 
 .team-btn {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 0.85rem 2rem;
@@ -404,15 +409,14 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.25);
+  box-shadow: 0 4px 15px rgba(74, 109, 66, 0.25);
   margin-top: 1rem;
   display: inline-block;
 }
 
 .team-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(188, 108, 37, 0.35);
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  box-shadow: 0 8px 25px rgba(74, 109, 66, 0.35);
 }
 
 .team-btn:active {

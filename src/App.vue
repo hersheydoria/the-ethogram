@@ -251,18 +251,18 @@ const handleFooterNavigation = (linkType) => {
   --text-primary: #283618;
   --text-secondary: #606C38;
   --border-color: #BC6C25;
-  --card-bg: #FEFAE0;
+  --card-bg: #5A7A94;
   --card-shadow: rgba(40, 54, 24, 0.1);
 }
 
 /* Dark Mode */
 :root.dark-mode {
-  --bg-primary: #475569;
-  --bg-secondary: #606C80;
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
   --text-primary: #f1f5f9;
   --text-secondary: #cbd5e1;
   --border-color: #334155;
-  --card-bg: #606C80;
+  --card-bg: #546B82;
   --card-shadow: rgba(0, 0, 0, 0.5);
 }
 
@@ -289,7 +289,7 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   border: none;
   color: white;
   cursor: pointer;
@@ -297,13 +297,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(188, 108, 37, 0.4);
+  box-shadow: 0 8px 24px rgba(74, 109, 66, 0.4);
   transition: all 0.3s ease;
 }
 
 .floating-theme-toggle:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 32px rgba(188, 108, 37, 0.5);
+  box-shadow: 0 12px 32px rgba(74, 109, 66, 0.5);
 }
 
 .floating-theme-toggle:active {
@@ -311,7 +311,7 @@ body {
 }
 
 :root.dark-mode .floating-theme-toggle {
-  background: linear-gradient(135deg, #7A3C0E 0%, #A8643A 100%);
+  background: #5A7F54;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 

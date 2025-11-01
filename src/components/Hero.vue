@@ -55,7 +55,7 @@ defineEmits(['explore-articles'])
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #FEFAE0;
+  background: var(--card-bg);
 }
 
 /* Background Image Section */
@@ -172,24 +172,24 @@ defineEmits(['explore-articles'])
 }
 
 .cta-button.primary {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
-  box-shadow: 0 8px 25px rgba(188, 108, 37, 0.3);
+  box-shadow: 0 8px 25px rgba(74, 109, 66, 0.3);
 }
 
 .cta-button.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(188, 108, 37, 0.4);
+  box-shadow: 0 12px 35px rgba(74, 109, 66, 0.4);
 }
 
 .cta-button.secondary {
   background: transparent;
-  color: #BC6C25;
-  border: 2px solid #BC6C25;
+  color: #4A6D42;
+  border: 2px solid #4A6D42;
 }
 
 .cta-button.secondary:hover {
-  background: #BC6C25;
+  background: #4A6D42;
   color: white;
   transform: translateY(-3px);
 }

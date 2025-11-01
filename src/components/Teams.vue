@@ -259,11 +259,11 @@ const goBack = () => {
 }
 
 :root.light-mode .teams-header {
-  background: #CBD5E1;
+  background: #FFFFFF;
 }
 
 :root.dark-mode .teams-header {
-  background: #334155;
+  background: #0f0f0f;
 }
 
 .teams-header h1 {
@@ -288,6 +288,10 @@ const goBack = () => {
   font-weight: 600;
 }
 
+:root.light-mode .teams-subtitle {
+  color: #4B5563;
+}
+
 :root.dark-mode .teams-subtitle {
   color: #DDA15E;
 }
@@ -296,6 +300,10 @@ const goBack = () => {
   font-size: 1.05rem;
   color: #64748b;
   line-height: 1.6;
+}
+
+:root.light-mode .teams-description {
+  color: #4B5563;
 }
 
 :root.dark-mode .teams-description {
@@ -334,17 +342,23 @@ const goBack = () => {
 }
 
 :root.light-mode .committee-card {
-  background: #CBD5E1;
+  background: #FFFFFF;
+  color: #1F2937;
 }
 
 :root.dark-mode .committee-card {
-  background: #334155;
+  background: var(--card-bg);
   border-left-color: #DDA15E;
+  color: #000000;
 }
 
 .committee-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(188, 108, 37, 0.15);
+}
+
+:root.light-mode .committee-card:hover {
+  box-shadow: 0 12px 32px rgba(90, 122, 148, 0.3);
 }
 
 .committee-header {
@@ -361,6 +375,10 @@ const goBack = () => {
   color: #1e293b;
   margin: 0;
   line-height: 1.4;
+}
+
+:root.light-mode .committee-name {
+  color: #1F2937;
 }
 
 :root.dark-mode .committee-name {
@@ -383,6 +401,10 @@ const goBack = () => {
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 1rem 0 0 0;
+}
+
+:root.light-mode .committee-description {
+  color: #4B5563;
 }
 
 :root.dark-mode .committee-description {
@@ -502,8 +524,16 @@ const goBack = () => {
   margin: 0;
 }
 
+:root.light-mode .member-name {
+  color: #1F2937;
+}
+
 :root.dark-mode .member-name {
   color: #f1f5f9;
+}
+
+:root.light-mode .committee-card:hover .member-name {
+  color: #1F2937;
 }
 
 .head-item .member-name {
@@ -531,12 +561,12 @@ const goBack = () => {
 }
 
 .stats-card {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #5A7A94;
   color: white;
   padding: 2.5rem 2rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.2);
+  box-shadow: 0 6px 20px rgba(90, 122, 148, 0.2);
 }
 
 .stat-number {
@@ -559,7 +589,7 @@ const goBack = () => {
 }
 
 .back-button {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 0.85rem 2rem;
@@ -568,13 +598,13 @@ const goBack = () => {
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.25);
+  box-shadow: 0 4px 15px rgba(74, 109, 66, 0.25);
 }
 
 .back-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(188, 108, 37, 0.35);
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  box-shadow: 0 8px 25px rgba(74, 109, 66, 0.35);
+  background: #3D5C35;
 }
 
 .back-button:active {

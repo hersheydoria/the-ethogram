@@ -212,22 +212,23 @@ const toggleShowMore = () => {
 .side-panel {
   width: 280px;
   flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: fit-content;
 }
 
 .side-panel-content {
-  background: var(--card-bg);
-  border-radius: 15px;
+  background: transparent;
+  border-radius: 0;
   padding: 1.5rem;
-  box-shadow: 0 8px 32px var(--card-shadow);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
+  box-shadow: none;
+  backdrop-filter: none;
   animation: slideInLeft 0.6s ease-out;
   transition: background-color 0.3s ease;
 }
 
 :root.light-mode .side-panel-content {
-  background: #CBD5E1;
+  background: transparent;
 }
 
 @keyframes slideInLeft {
@@ -255,7 +256,7 @@ const toggleShowMore = () => {
 }
 
 :root.light-mode .side-panel-title {
-  color: #1F3A52;
+  color: #7FA8C9;
   border-bottom-color: #7FA8C9;
 }
 
@@ -278,8 +279,8 @@ const toggleShowMore = () => {
 }
 
 :root.light-mode .related-post-card {
-  background: #A8C5DD;
-  border-color: #7FA8C9;
+  background: #FFFFFF;
+  border-color: #E5E7EB;
   color: #1F2937;
 }
 
@@ -301,9 +302,9 @@ const toggleShowMore = () => {
 }
 
 :root.light-mode .related-post-card.active {
-  background: #A8C5DD;
+  background: var(--card-bg);
   border-color: #5B8EC9;
-  color: #1F2937;
+  color: #FFFFFF;
 }
 
 .card-image {
@@ -402,7 +403,7 @@ const toggleShowMore = () => {
 }
 
 .see-more-btn {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 0.8rem 1rem;
@@ -413,13 +414,13 @@ const toggleShowMore = () => {
   transition: all 0.3s ease;
   text-align: center;
   margin-top: 0.5rem;
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+  box-shadow: 0 4px 15px rgba(74, 109, 66, 0.3);
 }
 
 .see-more-btn:hover {
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  background: #3D5C35;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+  box-shadow: 0 6px 20px rgba(74, 109, 66, 0.4);
 }
 
 .see-more-btn:active {
@@ -438,7 +439,7 @@ const toggleShowMore = () => {
 }
 
 .back-btn {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -448,16 +449,16 @@ const toggleShowMore = () => {
   cursor: pointer;
   margin-bottom: 2.5rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.4);
+  box-shadow: 0 4px 15px rgba(40, 54, 24, 0.4);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .back-btn:hover {
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  background: #1F2912;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.6);
+  box-shadow: 0 6px 20px rgba(40, 54, 24, 0.6);
 }
 
 .back-btn:active {
@@ -560,7 +561,7 @@ const toggleShowMore = () => {
 }
 
 .category-badge.spotlight-initiatives {
-  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+  background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
 }
 
 .category-badge.creative-expressions {
@@ -576,7 +577,7 @@ const toggleShowMore = () => {
 }
 
 :root.light-mode .post-content {
-  background: #CBD5E1;
+  background: #FFFFFF;
 }
 
 .post-title {

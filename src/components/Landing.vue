@@ -94,8 +94,8 @@ import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb } from 
 }
 
 :root.light-mode .feature-card {
-  background: #CBD5E1;
-  color: #1F2937;
+  background: var(--card-bg);
+  color: #FFFFFF;
   border-color: #9CA3AF;
 }
 
@@ -131,7 +131,7 @@ import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb } from 
 }
 
 :root.light-mode .feature-card h3 {
-  color: #1F2937;
+  color: #FFFFFF;
 }
 
 .feature-card p {
@@ -143,7 +143,7 @@ import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb } from 
 }
 
 :root.light-mode .feature-card p {
-  color: #4B5563;
+  color: #FFFFFF;
 }
 
 @media (max-width: 768px) {

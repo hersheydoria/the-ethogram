@@ -459,8 +459,8 @@ const clearFilter = (filter) => {
 }
 
 .filter-info.spotlight-initiatives {
-  border-left-color: #283618;
-  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+  border-left-color: #4A6D42;
+  background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
 }
 
 .filter-info.creative-expressions {
@@ -525,8 +525,8 @@ const clearFilter = (filter) => {
 }
 
 :root.light-mode .featured-article {
-  background: #A8C5DD;
-  border-color: #7FA8C9;
+  background: #FFFFFF;
+  border-color: #E5E7EB;
 }
 
 @keyframes fadeInUp {
@@ -611,7 +611,7 @@ const clearFilter = (filter) => {
 }
 
 .featured-badge.spotlight-initiatives {
-  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+  background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
 }
 
 .featured-badge.creative-expressions {
@@ -635,7 +635,7 @@ const clearFilter = (filter) => {
 }
 
 :root.light-mode .featured-label {
-  color: #2D5182;
+  color: #7FA8C9;
 }
 
 .featured-title {
@@ -714,6 +714,12 @@ const clearFilter = (filter) => {
   border-color: rgba(45, 81, 130, 0.3);
 }
 
+:root.dark-mode .featured-tag {
+  background: rgba(221, 161, 94, 0.2);
+  color: #DDA15E;
+  border-color: rgba(221, 161, 94, 0.4);
+}
+
 .featured-tag:hover {
   background: rgba(37, 99, 235, 0.25);
   border-color: #2563eb;
@@ -725,8 +731,14 @@ const clearFilter = (filter) => {
   border-color: #2D5182;
 }
 
+:root.dark-mode .featured-tag:hover {
+  background: rgba(221, 161, 94, 0.3);
+  border-color: #DDA15E;
+  transform: translateY(-2px);
+}
+
 .featured-read-more {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 0.8rem 1.8rem;
@@ -736,24 +748,24 @@ const clearFilter = (filter) => {
   cursor: pointer;
   transition: all 0.3s ease;
   width: fit-content;
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+  box-shadow: 0 6px 20px rgba(74, 109, 66, 0.4);
 }
 
 :root.light-mode .featured-read-more {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+  box-shadow: 0 6px 20px rgba(74, 109, 66, 0.4);
 }
 
 .featured-read-more:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.6);
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  box-shadow: 0 10px 30px rgba(74, 109, 66, 0.6);
+  background: #1F2912;
 }
 
 :root.light-mode .featured-read-more:hover {
-  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.6);
-  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  box-shadow: 0 10px 30px rgba(40, 54, 24, 0.6);
+  background: #1F2912;
   color: white;
 }
 
@@ -795,7 +807,7 @@ const clearFilter = (filter) => {
 .carousel-dot {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(188, 108, 37, 0.2);
+  border: 3px solid rgba(107, 114, 128, 0.2);
   border-radius: 50%;
   background: white;
   cursor: pointer;
@@ -805,22 +817,28 @@ const clearFilter = (filter) => {
   justify-content: center;
   font-weight: 700;
   font-size: 0.8rem;
-  color: #BC6C25;
+  color: #6B7280;
   position: relative;
 }
 
 .carousel-dot:hover {
-  border-color: #BC6C25;
+  border-color: #6B7280;
   transform: scale(1.1);
-  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.2);
+  box-shadow: 0 4px 15px rgba(107, 114, 128, 0.2);
 }
 
 .carousel-dot.active {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #3D7D40;
   color: white;
-  border-color: #BC6C25;
-  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+  border-color: #3D7D40;
+  box-shadow: 0 6px 20px rgba(61, 125, 64, 0.4);
   transform: scale(1.15);
+}
+
+:root.light-mode .carousel-dot.active {
+  background: #4A6D42;
+  border-color: #4A6D42;
+  box-shadow: 0 6px 20px rgba(74, 109, 66, 0.4);
 }
 
 .dot-category {
@@ -854,6 +872,10 @@ const clearFilter = (filter) => {
   border-left: 4px solid #2563eb;
   position: relative;
   padding-bottom: 0.5rem;
+}
+
+:root.dark-mode .articles-list-title {
+  color: #ffffff;
 }
 
 .articles-list-title::after {
@@ -926,8 +948,8 @@ const clearFilter = (filter) => {
 }
 
 .category-section-title.spotlight-initiatives {
-  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
-  border-left-color: #283618;
+  background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
+  border-left-color: #4A6D42;
 }
 
 .category-section-title.creative-expressions {
@@ -936,9 +958,9 @@ const clearFilter = (filter) => {
 }
 
 .see-more-btn {
-  background: linear-gradient(135deg, rgba(188, 108, 37, 0.1) 0%, rgba(221, 161, 94, 0.1) 100%);
-  border: 2px solid #BC6C25;
-  color: #BC6C25;
+  background: #4A6D42;
+  border: none;
+  color: white;
   padding: 0.8rem 1.8rem;
   border-radius: 8px;
   font-weight: 600;
@@ -948,13 +970,14 @@ const clearFilter = (filter) => {
   margin-left: 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
+  box-shadow: 0 4px 12px rgba(40, 54, 24, 0.3);
 }
 
 .see-more-btn:hover {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #1F2912;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
+  box-shadow: 0 4px 12px rgba(40, 54, 24, 0.5);
 }
 
 .see-more-btn:active {
@@ -981,9 +1004,9 @@ const clearFilter = (filter) => {
 }
 
 :root.light-mode .list-article {
-  background: #CBD5E1;
+  background: #FFFFFF;
   color: #1F2937;
-  border-color: #9CA3AF;
+  border-color: #E5E7EB;
 }
 
 @keyframes slideInLeft {
@@ -1038,11 +1061,48 @@ const clearFilter = (filter) => {
   transform: translateY(-4px);
 }
 
+:root.light-mode .list-article:hover {
+  border-color: #5A7A94;
+  box-shadow: 0 12px 32px rgba(90, 122, 148, 0.3);
+}
+
+:root.light-mode .list-article:hover .list-article-title {
+  color: #1F2937;
+}
+
+:root.light-mode .list-article:hover .list-article-excerpt {
+  color: #4B5563;
+}
+
+:root.light-mode .list-article:hover .list-date {
+  color: #4B5563;
+}
+
+:root.light-mode .list-article:hover .list-read-time {
+  color: #4B5563;
+}
+
+:root.light-mode .list-article:hover .list-article-tag {
+  background: rgba(90, 122, 148, 0.1);
+  color: #475569;
+  border-color: rgba(90, 122, 148, 0.3);
+}
+
+:root.light-mode .list-article:hover .list-article-tag-more {
+  background: rgba(90, 122, 148, 0.08);
+  color: #475569;
+  border-color: rgba(90, 122, 148, 0.2);
+}
+
+:root.light-mode .list-article:hover .read-link {
+  color: #475569;
+}
+
 /* Article Number */
 .list-article-number {
   font-size: 2.5rem;
   font-weight: 800;
-  color: rgba(37, 99, 235, 0.15);
+  color: #5A7A94;
   min-width: 60px;
   text-align: center;
   line-height: 1;
@@ -1050,9 +1110,24 @@ const clearFilter = (filter) => {
   position: relative;
 }
 
+:root.light-mode .list-article-number {
+  color: #5A7A94;
+}
+
+:root.dark-mode .list-article-number {
+  color: #ffffff;
+}
+
 .list-article:hover .list-article-number {
-  color: rgba(37, 99, 235, 0.35);
   transform: scale(1.1) rotate(5deg);
+}
+
+:root.light-mode .list-article:hover .list-article-number {
+  color: #4A6D7F;
+}
+
+:root.dark-mode .list-article:hover .list-article-number {
+  color: #e0e0e0;
 }
 
 /* Article Image */
@@ -1136,7 +1211,7 @@ const clearFilter = (filter) => {
 }
 
 .list-category.spotlight-initiatives {
-  background: linear-gradient(135deg, #283618 0%, #1F2912 100%);
+  background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
 }
 
 .list-category.creative-expressions {
@@ -1172,15 +1247,6 @@ const clearFilter = (filter) => {
   color: #1F2937;
 }
 
-.list-article:hover .list-article-title {
-  color: #2563eb;
-  transform: translateX(4px);
-}
-
-:root.light-mode .list-article:hover .list-article-title {
-  color: #475569;
-}
-
 .list-article-excerpt {
   font-size: 0.95rem;
   color: var(--text-secondary);
@@ -1200,6 +1266,10 @@ const clearFilter = (filter) => {
 
 .list-article:hover .list-article-excerpt {
   color: #666;
+}
+
+:root.light-mode .list-article:hover .list-article-excerpt {
+  color: #2563eb;
 }
 
 .list-article-tags {
@@ -1292,10 +1362,6 @@ const clearFilter = (filter) => {
   color: #4B5563;
 }
 
-.list-article:hover .list-read-time {
-  color: #666;
-}
-
 .read-link {
   font-size: 0.9rem;
   color: #2563eb;
@@ -1323,15 +1389,6 @@ const clearFilter = (filter) => {
 
 :root.light-mode .read-link::after {
   background: linear-gradient(90deg, #475569 0%, #334155 100%);
-}
-
-.list-article:hover .read-link {
-  color: #1e40af;
-  transform: translateX(4px);
-}
-
-:root.light-mode .list-article:hover .read-link {
-  color: #334155;
 }
 
 .list-article:hover .read-link::after {
@@ -1664,157 +1721,3 @@ const clearFilter = (filter) => {
   }
 }
 </style>
-  {
-    id: 2,
-    title: 'Stories from the Veterinary Students During Their Internships',
-    excerpt: 'Real experiences and insights from veterinary students during their clinical rotations. Learn from their journey in animal care.',
-    category: 'education',
-    date: '2025-10-27',
-    image: '�‍🎓',
-    readTime: '6 min read'
-  },
-  {
-    id: 3,
-    title: 'The Importance of Spay/Neuter Campaigns',
-    excerpt: 'Discover how spay and neuter programs help control animal populations and prevent health issues in dogs and cats.',
-    category: 'welfare',
-    date: '2025-10-26',
-    image: '🏥',
-    readTime: '5 min read'
-  },
-  {
-    id: 4,
-    title: 'Humane Euthanasia and Its Ethical Considerations',
-    excerpt: 'An in-depth look at the ethical aspects of humane euthanasia and the compassionate care involved in end-of-life decisions.',
-    category: 'ethics',
-    date: '2025-10-25',
-    image: '�',
-    readTime: '8 min read'
-  },
-  {
-    id: 5,
-    title: 'Emotional Resilience and Compassion Fatigue Among Veterinarians',
-    excerpt: 'Understanding burnout and compassion fatigue in veterinary professionals and strategies for building emotional resilience.',
-    category: 'wellbeing',
-    date: '2025-10-24',
-    image: '❤️',
-    readTime: '7 min read'
-  },
-  {
-    id: 6,
-    title: 'Experiences as Pet Owners Implementing Animal Welfare Practices',
-    excerpt: 'Learn from real pet owners about their experiences implementing animal welfare practices in their daily life at home.',
-    category: 'lifestyle',
-    date: '2025-10-23',
-    image: '🐕',
-    readTime: '6 min read'
-  },
-  {
-    id: 7,
-    title: 'From Bite to Cure: Anti-Venom Accessibility and Awareness',
-    excerpt: 'An interview exploring the challenges and solutions in evaluating anti-venom accessibility and knowledge gaps in local areas.',
-    category: 'interviews',
-    date: '2025-10-22',
-    image: '🐍',
-    readTime: '9 min read'
-  },
-  {
-    id: 8,
-    title: 'Creative Expressions: Artworks for Animal Advocacy',
-    excerpt: 'Explore beautiful and meaningful artworks created to raise awareness about animal welfare and promote compassion.',
-    category: 'creative',
-    date: '2025-10-21',
-    image: '🎨',
-    readTime: '4 min read'
-  },
-  {
-    id: 9,
-    title: 'Shifting from Impoundment to CNVR for Better Animal Welfare',
-    excerpt: 'A look at local and national campaigns shifting towards community-based animal welfare solutions instead of traditional impounding.',
-    category: 'campaigns',
-    date: '2025-10-20',
-    image: '🏘️',
-    readTime: '7 min read'
-  },
-  {
-    id: 10,
-    title: 'Previous Works: Spotlight on Current and Past Initiatives',
-    excerpt: 'Celebrating the achievements and initiatives from previous batches of animal welfare projects and their lasting impact.',
-    category: 'initiatives',
-    date: '2025-10-19',
-    image: '⭐',
-    readTime: '5 min read'
-  },
-  {
-    id: 11,
-    title: 'Sustainable Livestock Management for Productivity and Welfare',
-    excerpt: 'Balancing productivity with animal welfare in livestock management through sustainable and ethical farming practices.',
-    category: 'livestock',
-    date: '2025-10-18',
-    image: '🐄',
-    readTime: '6 min read'
-  },
-  {
-    id: 12,
-    title: 'Ethical Wildlife Conservation and Habitat Protection',
-    excerpt: 'Exploring ethical approaches to wildlife conservation and the importance of protecting natural habitats for animal populations.',
-    category: 'wildlife',
-    date: '2025-10-17',
-    image: '🦁',
-    readTime: '7 min read'
-  },
-  {
-    id: 13,
-    title: 'Recognizing and Preventing Animal Cruelty in the Community',
-    excerpt: 'Learn how to identify signs of animal cruelty and what steps you can take to protect animals in your community.',
-    category: 'awareness',
-    date: '2025-10-16',
-    image: '🚨',
-    readTime: '6 min read'
-  },
-  {
-    id: 14,
-    title: 'NGO and Government Projects in Animal Rescue and Protection',
-    excerpt: 'Discover the important work of NGOs and government agencies in animal rescue, rehabilitation, and long-term protection efforts.',
-    category: 'rescue',
-    date: '2025-10-15',
-    image: '�',
-    readTime: '7 min read'
-  },
-  {
-    id: 15,
-    title: 'School-Led Outreach and Veterinary Missions',
-    excerpt: 'Spotlight on educational institutions leading animal welfare initiatives and veterinary missions in underserved communities.',
-    category: 'outreach',
-    date: '2025-10-14',
-    image: '🏫',
-    readTime: '6 min read'
-  },
-  {
-    id: 16,
-    title: 'The One Health Approach: Animals, Humans, and Environment',
-    excerpt: 'Understanding the interconnection between animal welfare, human health, and environmental protection in a holistic approach.',
-    category: 'onehealth',
-    date: '2025-10-13',
-    image: '🌍',
-    readTime: '8 min read'
-  },
-  {
-    id: 17,
-    title: 'Educational Articles: Responsible Pet Ownership',
-    excerpt: 'Comprehensive guide to responsible pet ownership covering nutrition, training, healthcare, and creating a safe home environment.',
-    category: 'education',
-    date: '2025-10-12',
-    image: '📚',
-    readTime: '9 min read'
-  },
-  {
-    id: 18,
-    title: 'Protecting the Philippine Eagle: The Phil. Eagle Foundation\'s Mission',
-    excerpt: 'Documentary featuring the Philippine Eagle Foundation\'s crucial work in protecting and conserving the endangered Philippine Eagle.',
-    category: 'wildlife',
-    date: '2025-10-11',
-    image: '🦅',
-    readTime: '10 min read'
-  }
-]
