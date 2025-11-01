@@ -41,14 +41,14 @@ const formattedDate = computed(() => {
 
 <style scoped>
 .blog-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 6px 20px var(--card-shadow);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(37, 99, 235, 0.1);
+  border: 1px solid var(--border-color);
   position: relative;
   height: 100%;
 }
@@ -241,7 +241,7 @@ const formattedDate = computed(() => {
 
 .card-title {
   font-size: 1.4rem;
-  color: #2c3e50;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-weight: 700;
   line-height: 1.4;
@@ -253,11 +253,12 @@ const formattedDate = computed(() => {
 }
 
 .card-excerpt {
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
   line-height: 1.7;
   flex: 1;
   font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 
 .card-footer {
@@ -265,11 +266,12 @@ const formattedDate = computed(() => {
   justify-content: space-between;
   align-items: center;
   padding: 1.2rem 0;
-  border-top: 2px solid #f0f0f0;
+  border-top: 2px solid var(--border-color);
   margin-bottom: 1.2rem;
   font-size: 0.85rem;
-  color: #999;
+  color: var(--text-secondary);
   gap: 1rem;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .date {

@@ -1,6 +1,6 @@
 <template>
   <div class="blog-page">
-    <Header 
+    <Navbar 
       @category-change="handleCategoryChange"
       @search="handleSearchQuery"
     />
@@ -15,7 +15,7 @@
 
 <script setup>
 import { defineProps } from 'vue'
-import Header from './Header.vue'
+import Navbar from './Navbar.vue'
 import BlogList from './BlogList.vue'
 
 const props = defineProps({

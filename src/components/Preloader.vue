@@ -40,7 +40,7 @@ onMounted(() => {
   // Fallback: hide after 3 seconds
   setTimeout(() => {
     isLoading.value = false
-  }, 3000)
+  }, 2500)
 })
 </script>
 

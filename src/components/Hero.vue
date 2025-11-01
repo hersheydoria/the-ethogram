@@ -1,9 +1,8 @@
 <template>
   <section class="hero">
     <div class="hero-background">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
+      <img src="../assets/animal-welfare.png" alt="Animal Welfare" class="hero-bg-image" />
+      <div class="hero-overlay"></div>
     </div>
     
     <div class="hero-content">
@@ -15,6 +14,10 @@
         create meaningful change for animals and communities worldwide.
       </p>
       
+      <div class="hero-cta">
+        <button class="cta-button primary" @click="$emit('explore-articles')">Explore Articles</button>
+      </div>
+
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-icon"><BookOpen /></div>
@@ -32,10 +35,6 @@
           <div class="stat-text">Compassion</div>
         </div>
       </div>
-
-      <div class="hero-cta">
-        <button class="cta-button primary" @click="$emit('explore-articles')">Explore Articles</button>
-      </div>
     </div>
   </section>
 </template>
@@ -48,18 +47,18 @@ defineEmits(['explore-articles'])
 
 <style scoped>
 .hero {
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
   padding: 5rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 60vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #f0f9ff 0%, #ecfdf5 100%);
 }
 
-/* Animated Background Blobs */
+/* Background Image Section */
 .hero-background {
   position: absolute;
   width: 100%;
@@ -70,53 +69,28 @@ defineEmits(['explore-articles'])
   overflow: hidden;
 }
 
-.blob {
+.hero-bg-image {
   position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  right: 0;
+  top: 0;
 }
 
-.blob-1 {
-  width: 400px;
-  height: 400px;
-  background: white;
-  bottom: -100px;
-  right: -100px;
-  animation: float 8s ease-in-out infinite;
-}
-
-.blob-2 {
-  width: 300px;
-  height: 300px;
-  background: white;
-  top: -50px;
-  left: -50px;
-  animation: float 10s ease-in-out infinite reverse;
-}
-
-.blob-3 {
-  width: 250px;
-  height: 250px;
-  background: white;
-  top: 50%;
-  left: 50%;
-  animation: float 12s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(20px);
-  }
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   animation: slideUp 0.8s ease-out;
 }
 
@@ -133,15 +107,19 @@ defineEmits(['explore-articles'])
 
 .hero-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
   color: white;
   padding: 0.6rem 1.5rem;
   border-radius: 30px;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.badge-icon {
+  display: inline;
+  margin-right: 0.5rem;
 }
 
 .hero-title {
@@ -154,7 +132,7 @@ defineEmits(['explore-articles'])
 }
 
 .hero-title .highlight {
-  background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -162,60 +140,14 @@ defineEmits(['explore-articles'])
 }
 
 .hero-description {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.15rem;
+  color: white;
   line-height: 1.8;
-  margin-bottom: 2.5rem;
-  max-width: 700px;
+  margin-bottom: 2rem;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* Stats Section */
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.stat-icon {
-  font-size: 2.rem;
-  color: white;
-  animation: bounce 2s ease-in-out infinite;
-}
-
-.stat-number {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: white;
-}
-
-.stat-text {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 600;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  font-weight: 500;
 }
 
 /* CTA Buttons */
@@ -224,6 +156,7 @@ defineEmits(['explore-articles'])
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
 .cta-button {
@@ -239,98 +172,167 @@ defineEmits(['explore-articles'])
 }
 
 .cta-button.primary {
-  background: white;
-  color: #667eea;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
 }
 
 .cta-button.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.4);
 }
 
 .cta-button.secondary {
   background: transparent;
-  color: white;
-  border: 2px solid white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #2563eb;
+  border: 2px solid #2563eb;
 }
 
 .cta-button.secondary:hover {
-  background: white;
-  color: #667eea;
+  background: #2563eb;
+  color: white;
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats Section */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  color: white;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: white;
+}
+
+.stat-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .hero {
     padding: 3rem 1.5rem;
-    min-height: 50vh;
+    min-height: 60vh;
+  }
+
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.75);
   }
 
   .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .hero-stats {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem;
-  }
-
-  .stat-icon {
     font-size: 2rem;
   }
 
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
   .stat-number {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .cta-button {
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
   }
-
-  .blob-1 {
-    width: 250px;
-    height: 250px;
-  }
-
-  .blob-2 {
-    width: 200px;
-    height: 200px;
-  }
-
-  .blob-3 {
-    width: 150px;
-    height: 150px;
-  }
 }
 
 @media (max-width: 480px) {
   .hero {
     padding: 2rem 1rem;
-    min-height: 45vh;
+    min-height: 50vh;
+  }
+
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.75);
   }
 
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
   }
 
   .hero-description {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
   }
 
   .hero-stats {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.8rem;
     padding: 1rem;
+  }
+
+  .stat {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.1rem;
+  }
+
+  .stat-text {
+    font-size: 0.8rem;
   }
 
   .cta-button {
@@ -338,8 +340,14 @@ defineEmits(['explore-articles'])
     padding: 0.8rem 1rem;
   }
 
+  .cta-button.primary {
+    padding: 1rem 1.5rem;
+  }
+
   .hero-cta {
-    gap: 1rem;
+    flex-direction: column;
+    margin-bottom: 2rem;
   }
 }
 </style>
+

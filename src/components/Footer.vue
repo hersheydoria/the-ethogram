@@ -83,6 +83,16 @@ const handleSocialLink = (platform) => {
   position: relative;
   overflow: hidden;
   border-top: 3px solid rgba(37, 99, 235, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+:root.dark-mode .footer {
+  background: linear-gradient(135deg, #1e3a8a 0%, #b45309 50%, #78350f 100%);
+  box-shadow: 
+    0 -4px 20px rgba(0, 0, 0, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(0, 0, 0, 0.5);
+  border-top: 3px solid rgba(30, 58, 138, 0.6);
 }
 
 /* Animated Background Blobs */
@@ -217,6 +227,7 @@ const handleSocialLink = (platform) => {
   color: white;
   font-weight: 700;
   letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
 
 .footer-section p {
@@ -224,6 +235,7 @@ const handleSocialLink = (platform) => {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
   text-align: justify;
+  transition: color 0.3s ease;
 }
 
 .footer-section ul {
@@ -315,12 +327,14 @@ const handleSocialLink = (platform) => {
   text-align: center;
   padding-top: 1.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color 0.3s ease;
 }
 
 .footer-bottom p {
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.85rem;
   margin: 0.2rem 0;
+  transition: color 0.3s ease;
 }
 
 .footer-tagline {
@@ -339,75 +353,148 @@ const handleSocialLink = (platform) => {
 
 @media (max-width: 768px) {
   .footer {
-    padding: 1.5rem 1rem 0.8rem;
-    margin-top: 1.5rem;
+    padding: 1rem 1rem 0.6rem;
+    margin-top: 1rem;
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   .about-section {
-    grid-column: 1;
+    width: 100%;
+    margin-bottom: 0.4rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .about-section p {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .footer-badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .footer-content > div:not(.about-section) {
+    display: inline-block;
+    width: calc(50% - 0.4rem);
+    vertical-align: top;
+  }
+
+  .footer-section:nth-child(2) {
+    margin-right: 0.8rem;
   }
 
   .footer-section h4 {
-    font-size: 0.9rem;
-    margin-bottom: 0.6rem;
-    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
   }
 
   .categories-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0.2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1rem;
+    justify-items: flex-start;
   }
 
   .footer-section ul li a {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    padding: 0.15rem 0;
+  }
+
+  .social-links {
+    gap: 0.3rem;
   }
 
   .social-link {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  .footer-bottom {
+    padding-top: 0.6rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.75rem;
+    margin: 0.1rem 0;
   }
 }
 
 @media (max-width: 480px) {
   .footer {
-    padding: 1rem 0.8rem 0.6rem;
+    padding: 0.8rem 0.6rem 0.5rem;
+    margin-top: 0.8rem;
   }
 
   .footer-content {
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
 
   .about-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
   }
 
   .about-section p {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .footer-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .footer-section h4 {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
   }
 
   .categories-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 0.2rem;
+    gap: 0.1rem;
+    justify-items: flex-start;
+  }
+
+  .categories-grid li a {
+    font-size: 0.75rem;
+    padding: 0.1rem 0;
+  }
+
+  .social-links {
+    gap: 0.25rem;
+  }
+
+  .social-link {
+    font-size: 0.75rem;
+    padding: 0.2rem;
+    gap: 0.4rem;
+  }
+
+  .social-icon {
+    font-size: 0.9rem;
   }
 
   .footer-bottom {
-    padding-top: 0.8rem;
+    padding-top: 0.5rem;
   }
 
   .footer-bottom p {
-    font-size: 0.75rem;
-    margin: 0.15rem 0;
+    font-size: 0.7rem;
+    margin: 0.08rem 0;
+    line-height: 1.2;
   }
 }
 </style>
