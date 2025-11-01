@@ -66,6 +66,11 @@ const handleCategoryChange = (category) => {
   selectedCategory.value = category
   selectedTags.value = [] // Reset tags when changing category
   selectedPostId.value = null
+  // Navigate to blog page if not already there
+  if (currentPage.value !== 'blog') {
+    currentPage.value = 'blog'
+  }
+  window.scrollTo(0, 0)
 }
 
 const handleTagFilterChange = (tags) => {
