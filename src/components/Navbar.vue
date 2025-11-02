@@ -301,7 +301,7 @@ onMounted(() => {
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.2rem;
   font-size: 1.5rem;
   font-weight: 800;
   white-space: nowrap;
@@ -678,7 +678,13 @@ onMounted(() => {
   }
 
   .navbar-logo {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+
+  .navbar-logo-img {
+    width: 55px;
+    height: 55px;
   }
 
   .search-input {
@@ -734,13 +740,14 @@ onMounted(() => {
   }
 
   .navbar-logo {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 800;
     flex: 1;
   }
 
   .navbar-logo-img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
   }
 
   .navbar-right-content {
@@ -875,8 +882,14 @@ onMounted(() => {
   }
 
   .navbar-logo {
-    font-size: 0.9rem;
+    font-size: 1.3rem;
+    font-weight: 800;
     order: 1;
+  }
+
+  .navbar-logo-img {
+    width: 55px;
+    height: 55px;
   }
 
   .navbar-right-content {
