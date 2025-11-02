@@ -253,32 +253,35 @@ const goBack = () => {
   margin: 0 auto 4rem;
   text-align: center;
   padding: 2rem;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 :root.light-mode .teams-header {
-  background: #FFFFFF;
+  background: transparent;
 }
 
 :root.dark-mode .teams-header {
-  background: #0f0f0f;
+  background: transparent;
 }
 
 .teams-header h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
+  letter-spacing: -1px;
 }
 
 :root.dark-mode .teams-header h1 {
-  color: #DDA15E;
-  -webkit-text-fill-color: unset;
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .teams-subtitle {
@@ -318,7 +321,7 @@ const goBack = () => {
 
 .committees-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
@@ -332,13 +335,13 @@ const goBack = () => {
 .committee-card {
   background: white;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 3rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border-left: 4px solid #BC6C25;
   position: relative;
   overflow: hidden;
-  min-height: 550px;
+  min-height: 650px;
 }
 
 :root.light-mode .committee-card {
@@ -567,6 +570,13 @@ const goBack = () => {
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 6px 20px rgba(90, 122, 148, 0.2);
+}
+
+:root.dark-mode .stats-card {
+  background: rgba(20, 30, 50, 0.8);
+  border: 2px solid rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .stat-number {

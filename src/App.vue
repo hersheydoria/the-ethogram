@@ -6,6 +6,8 @@ import BlogList from './components/BlogList.vue'
 import BlogPost from './components/BlogPost.vue'
 import AboutUs from './components/AboutUs.vue'
 import Teams from './components/Teams.vue'
+import PawsBehindTheScenes from './components/PawsBehindTheScenes.vue'
+import DoctorFeature from './components/DoctorFeature.vue'
 import Footer from './components/Footer.vue'
 import { Sun, Moon } from 'lucide-vue-next'
 import { allArticles } from './articles/index.js'
@@ -13,7 +15,7 @@ import { useTheme } from './composables/useTheme'
 
 const { isDarkMode, initTheme, toggleTheme } = useTheme()
 
-const currentPage = ref('landing') // 'landing', 'blog', 'about', 'team'
+const currentPage = ref('landing') // 'landing', 'blog', 'about', 'team', 'paws', 'doctor-feature'
 const selectedCategory = ref('all')
 const searchQuery = ref('')
 const selectedPostId = ref(null)
@@ -27,7 +29,7 @@ onMounted(() => {
   const savedPostId = localStorage.getItem('selectedPostId')
   
   // Only restore valid pages
-  if (savedPage && (savedPage === 'landing' || savedPage === 'blog' || savedPage === 'about' || savedPage === 'team')) {
+  if (savedPage && (savedPage === 'landing' || savedPage === 'blog' || savedPage === 'about' || savedPage === 'team' || savedPage === 'paws' || savedPage === 'doctor-feature')) {
     currentPage.value = savedPage
   }
   if (savedCategory) {
@@ -85,6 +87,7 @@ const handleSearchQuery = (query) => {
 
 const handleReadPost = (postId) => {
   selectedPostId.value = postId
+  currentPage.value = 'blog'
   window.scrollTo(0, 0)
 }
 
@@ -141,6 +144,18 @@ const goBackFromTeams = () => {
   window.scrollTo(0, 0)
 }
 
+const goToPaws = () => {
+  currentPage.value = 'paws'
+  selectedPostId.value = null
+  window.scrollTo(0, 0)
+}
+
+const goToDoctorFeature = () => {
+  currentPage.value = 'doctor-feature'
+  selectedPostId.value = null
+  window.scrollTo(0, 0)
+}
+
 const handleFooterCategoryFilter = (category) => {
   currentPage.value = 'blog'
   selectedCategory.value = category
@@ -158,7 +173,12 @@ const handleFooterNavigation = (linkType) => {
   <div class="app">
     <!-- Landing Page -->
     <template v-if="currentPage === 'landing'">
-      <Landing @navigate-to-articles="goToArticles" />
+      <Landing 
+        :all-posts="allBlogPosts"
+        @navigate-to-articles="goToArticles"
+        @navigate-paws="goToPaws"
+        @read-post="handleReadPost"
+      />
       <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
     </template>
 
@@ -226,6 +246,42 @@ const handleFooterNavigation = (linkType) => {
         @tag-filter-change="handleTagFilterChange"
       />
       <Teams @go-back="goBackFromTeams" />
+      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
+    </template>
+
+    <!-- Paws Behind The Scenes Page -->
+    <template v-else-if="currentPage === 'paws'">
+      <Navbar 
+        :selected-category="selectedCategory"
+        :search-query="searchQuery"
+        :all-posts="allBlogPosts"
+        @category-change="handleCategoryChange"
+        @search="handleSearchQuery"
+        @navigate-to-landing="goToHome"
+        @navigate-to-blog="goToArticles"
+        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
+        @navigate-to-about="goToAbout"
+        @tag-filter-change="handleTagFilterChange"
+      />
+      <PawsBehindTheScenes @navigate-to-landing="goToHome" />
+      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
+    </template>
+
+    <!-- Doctor Feature Page -->
+    <template v-else-if="currentPage === 'doctor-feature'">
+      <Navbar 
+        :selected-category="selectedCategory"
+        :search-query="searchQuery"
+        :all-posts="allBlogPosts"
+        @category-change="handleCategoryChange"
+        @search="handleSearchQuery"
+        @navigate-to-landing="goToHome"
+        @navigate-to-blog="goToArticles"
+        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
+        @navigate-to-about="goToAbout"
+        @tag-filter-change="handleTagFilterChange"
+      />
+      <DoctorFeature @navigate-to-articles="goToArticles" />
       <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
     </template>
 

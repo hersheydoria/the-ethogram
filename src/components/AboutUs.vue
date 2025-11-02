@@ -21,7 +21,7 @@
         <Globe :size="48" class="section-icon" />
         <h2 class="section-title">Our Vision</h2>
         <p class="section-content">
-          We envision a world where animal welfare is prioritized, where veterinary professionals are supported in their work, and where every individual understands their role in creating a more compassionate society. Through our articles, we aim to bridge the gap between clinical practice, personal experiences, and community action.
+          We envision a world where animal welfare is prioritized, where veterinary professionals are supported in their work, and where every individual understands their role in creating a more compassionate society. Through our blogs, we aim to bridge the gap between clinical practice, personal experiences, and community action.
         </p>
       </div>
 
@@ -84,9 +84,9 @@
       <!-- Call to Action -->
       <div class="about-cta">
         <h3>Join Our Community</h3>
-        <p>Explore our articles and become part of The Ethogram movement for animal welfare.</p>
+        <p>Explore our blogs and become part of The Ethogram movement for animal welfare.</p>
         <button @click="$emit('navigate-to-articles')" class="cta-button">
-          Explore Articles →
+          Explore Blogs →
         </button>
       </div>
     </div>
@@ -375,6 +375,13 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
   margin-bottom: 2rem;
   opacity: 0.95;
   transition: opacity 0.3s ease;
+}
+
+:root.dark-mode .about-cta {
+  background: rgba(20, 30, 50, 0.8);
+  border: 2px solid rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .cta-button {

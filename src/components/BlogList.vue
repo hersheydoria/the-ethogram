@@ -2,8 +2,8 @@
   <section class="blog-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Latest Articles</h2>
-        <p class="article-count">{{ filteredPosts.length }} article<span v-if="filteredPosts.length !== 1">s</span> found</p>
+        <h2 class="section-title">Latest Blogs</h2>
+        <p class="article-count">{{ filteredPosts.length }} blog<span v-if="filteredPosts.length !== 1">s</span> found</p>
       </div>
 
       <!-- Filter Info Bar -->
@@ -11,93 +11,8 @@
         <p class="category-display">{{ formatCategoryName(selectedCategory) }}</p>
       </div>
 
-      <!-- Featured Article Carousel -->
-      <div v-if="currentFeaturedArticle && (selectedCategory === 'all' && !searchQuery.trim())" class="featured-carousel-section">
-        <div class="featured-article">
-          <div class="featured-image">
-            <img 
-              v-if="currentFeaturedArticle.imageUrl" 
-              :src="currentFeaturedArticle.imageUrl" 
-              :alt="currentFeaturedArticle.title" 
-              class="featured-img"
-            />
-            <div v-else class="featured-emoji">{{ currentFeaturedArticle.image }}</div>
-            <span class="featured-badge" :class="currentFeaturedArticle.category">{{ currentFeaturedArticle.category }}</span>
-          </div>
-          <div class="featured-content">
-            <div class="featured-label">Featured Article</div>
-            <h2 class="featured-title">{{ currentFeaturedArticle.title }}</h2>
-            <p class="featured-excerpt">{{ currentFeaturedArticle.excerpt }}</p>
-            <div class="featured-meta">
-              <span class="featured-date"><Calendar :size="18" /> {{ formatDate(currentFeaturedArticle.date) }}</span>
-              <span class="featured-read-time"><Clock :size="18" /> {{ currentFeaturedArticle.readTime }}</span>
-            </div>
-            <div v-if="currentFeaturedArticle.tags" class="featured-tags">
-              <span v-for="tag in currentFeaturedArticle.tags" :key="tag" class="featured-tag">
-                {{ tag }}
-              </span>
-            </div>
-            <button 
-              class="featured-read-more" 
-              @click="$emit('read-post', currentFeaturedArticle.id)"
-            >
-              Read Featured Article →
-            </button>
-          </div>
-        </div>
-
-        <!-- Carousel Indicators -->
-        <div v-if="featuredArticles.length > 1" class="carousel-indicators">
-          <button 
-            v-for="(article, index) in featuredArticles" 
-            :key="article.id"
-            class="carousel-dot"
-            :class="{ active: index === currentFeaturedIndex }"
-            :title="article.category"
-            @click="goToFeaturedArticle(index)"
-          >
-            <span class="dot-category">{{ index + 1 }}</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Featured Article (when filtered or searching) -->
-      <div v-else-if="filteredPosts.length > 0" class="featured-article">
-        <div class="featured-image">
-          <img 
-            v-if="filteredPosts[0].imageUrl" 
-            :src="filteredPosts[0].imageUrl" 
-            :alt="filteredPosts[0].title" 
-            class="featured-img"
-          />
-          <div v-else class="featured-emoji">{{ filteredPosts[0].image }}</div>
-          <span class="featured-badge" :class="filteredPosts[0].category">{{ filteredPosts[0].category }}</span>
-        </div>
-        <div class="featured-content">
-          <div class="featured-label">Featured Article</div>
-          <h2 class="featured-title">{{ filteredPosts[0].title }}</h2>
-          <p class="featured-excerpt">{{ filteredPosts[0].excerpt }}</p>
-          <div class="featured-meta">
-            <span class="featured-date"><Calendar :size="18" /> {{ formatDate(filteredPosts[0].date) }}</span>
-            <span class="featured-read-time"><Clock :size="18" /> {{ filteredPosts[0].readTime }}</span>
-          </div>
-          <div v-if="filteredPosts[0].tags" class="featured-tags">
-            <span v-for="tag in filteredPosts[0].tags" :key="tag" class="featured-tag">
-              {{ tag }}
-            </span>
-          </div>
-          <button 
-            class="featured-read-more" 
-            @click="$emit('read-post', filteredPosts[0].id)"
-          >
-            Read Featured Article →
-          </button>
-        </div>
-      </div>
-
       <!-- More Articles List Section -->
       <div v-if="remainingArticles.length > 0" class="articles-list-section">
-        <h3 class="articles-list-title">More Articles</h3>
         <div class="articles-by-category">
           <div v-for="(articles, category) in articlesByCategory" :key="category" class="category-section">
             <h4 v-if="selectedCategory === 'all'" class="category-section-title" :class="category">{{ formatCategoryName(category) }}</h4>
@@ -153,7 +68,7 @@
       <!-- No Results Message -->
       <div v-if="filteredPosts.length === 0" class="no-posts">
         <div class="no-posts-icon"><Search :size="48" /></div>
-        <p class="no-posts-title">No articles found</p>
+        <p class="no-posts-title">No blogs found</p>
         <p class="no-posts-subtitle">
           Try adjusting your search or category filters
         </p>
@@ -163,7 +78,7 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref } from 'vue'
 import { X, Calendar, Clock, Search } from 'lucide-vue-next'
 
 const props = defineProps({
@@ -187,9 +102,7 @@ const props = defineProps({
 
 const emit = defineEmits(['read-post', 'clear-filter', 'clear-search'])
 
-const currentFeaturedIndex = ref(0)
 const expandedCategories = ref(new Set())
-let carouselInterval = null
 
 const toggleCategoryExpanded = (category) => {
   if (expandedCategories.value.has(category)) {
@@ -229,86 +142,10 @@ const filteredPosts = computed(() => {
   return posts
 })
 
-// Get featured articles from each category (only when showing "all" posts)
-const featuredArticles = computed(() => {
-  if (props.selectedCategory !== 'all' || props.searchQuery.trim()) {
-    // When filtered, show the first post
-    return filteredPosts.value.length > 0 ? [filteredPosts.value[0]] : []
-  }
-
-  // Group posts by category and get the first one from each
-  const categories = new Map()
-  props.allPosts.forEach(post => {
-    if (!categories.has(post.category)) {
-      categories.set(post.category, post)
-    }
-  })
-  
-  // Define the desired order
-  const categoryOrder = [
-    'personal-experiences',
-    'professional-perspectives',
-    'educational-articles',
-    'spotlight-initiatives',
-    'creative-expressions'
-  ]
-  
-  // Sort by the defined order
-  const sortedArticles = categoryOrder
-    .map(category => categories.get(category))
-    .filter(article => article !== undefined)
-  
-  return sortedArticles
-})
-
-// Get remaining articles (exclude featured articles from the carousel)
+// Get remaining articles
 const remainingArticles = computed(() => {
-  if (props.selectedCategory !== 'all' || props.searchQuery.trim()) {
-    // When filtered or searching, show all except the first one
-    return filteredPosts.value.slice(1)
-  }
-
-  // When showing all posts, exclude the featured articles from the carousel
-  const featuredIds = new Set(featuredArticles.value.map(article => article.id))
-  return filteredPosts.value.filter(post => !featuredIds.has(post.id))
+  return filteredPosts.value
 })
-
-// Setup carousel auto-rotation
-onMounted(() => {
-  if (props.selectedCategory === 'all' && !props.searchQuery.trim()) {
-    carouselInterval = setInterval(() => {
-      if (featuredArticles.value.length > 0) {
-        currentFeaturedIndex.value = (currentFeaturedIndex.value + 1) % featuredArticles.value.length
-      }
-    }, 4000) // Change featured article every 4 seconds
-  }
-})
-
-onUnmounted(() => {
-  if (carouselInterval) {
-    clearInterval(carouselInterval)
-  }
-})
-
-const currentFeaturedArticle = computed(() => {
-  if (featuredArticles.value.length === 0) return null
-  return featuredArticles.value[currentFeaturedIndex.value]
-})
-
-const goToFeaturedArticle = (index) => {
-  currentFeaturedIndex.value = index
-  // Reset carousel interval when user clicks
-  if (carouselInterval) {
-    clearInterval(carouselInterval)
-  }
-  if (props.selectedCategory === 'all' && !props.searchQuery.trim()) {
-    carouselInterval = setInterval(() => {
-      if (featuredArticles.value.length > 0) {
-        currentFeaturedIndex.value = (currentFeaturedIndex.value + 1) % featuredArticles.value.length
-      }
-    }, 4000)
-  }
-}
 
 const activeFilters = computed(() => {
   const filters = []
@@ -414,12 +251,19 @@ const clearFilter = (filter) => {
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
   font-weight: 800;
   letter-spacing: -1px;
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 50%, #C49A36 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:root.dark-mode .section-title {
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -434,44 +278,105 @@ const clearFilter = (filter) => {
 /* Filter Info Bar */
 .filter-info {
   background: var(--card-bg);
-  border-radius: 15px;
-  padding: 1.2rem 1.8rem;
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 4px 15px var(--card-shadow);
-  border-left: 5px solid #2563eb;
-  animation: slideInUp 0.5s ease-out;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.3);
+  animation: slideInDown 0.6s ease-out;
+  transition: all 0.3s ease;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-transform: capitalize;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.3;
+}
+
+.filter-info:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.4);
 }
 
 .filter-info.personal-experiences {
-  border-left-color: #BC6C25;
   background: linear-gradient(135deg, #BC6C25 0%, #A55A1F 100%);
 }
 
+.filter-info.personal-experiences:hover {
+  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.5);
+}
+
 .filter-info.professional-perspectives {
-  border-left-color: #DDA15E;
   background: linear-gradient(135deg, #DDA15E 0%, #CC8F48 100%);
 }
 
+.filter-info.professional-perspectives:hover {
+  box-shadow: 0 10px 30px rgba(204, 143, 72, 0.5);
+}
+
 .filter-info.educational-articles {
-  border-left-color: #C49A36;
   background: linear-gradient(135deg, #C49A36 0%, #A67C2F 100%);
 }
 
+.filter-info.educational-articles:hover {
+  box-shadow: 0 10px 30px rgba(166, 124, 47, 0.5);
+}
+
 .filter-info.spotlight-initiatives {
-  border-left-color: #4A6D42;
   background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
 }
 
+.filter-info.spotlight-initiatives:hover {
+  box-shadow: 0 10px 30px rgba(61, 92, 53, 0.5);
+}
+
 .filter-info.creative-expressions {
-  border-left-color: #606C38;
   background: linear-gradient(135deg, #606C38 0%, #4D5829 100%);
 }
 
-@keyframes slideInUp {
+.filter-info.creative-expressions:hover {
+  box-shadow: 0 10px 30px rgba(77, 88, 41, 0.5);
+}
+
+/* Speech bubble tail effect for filter info */
+.filter-info::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgba(188, 108, 37, 0.8);
+}
+
+.filter-info.professional-perspectives::after {
+  border-top-color: rgba(204, 143, 72, 0.8);
+}
+
+.filter-info.educational-articles::after {
+  border-top-color: rgba(166, 124, 47, 0.8);
+}
+
+.filter-info.spotlight-initiatives::after {
+  border-top-color: rgba(61, 92, 53, 0.8);
+}
+
+.filter-info.creative-expressions::after {
+  border-top-color: rgba(77, 88, 41, 0.8);
+}
+
+@keyframes slideInDown {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(-30px);
   }
   to {
     opacity: 1;
@@ -481,11 +386,11 @@ const clearFilter = (filter) => {
 
 .category-display {
   font-weight: 700;
-  color: #2563eb;
+  color: white;
   margin: 0;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  letter-spacing: -0.5px;
 }
 
 .filter-info.personal-experiences .category-display {
@@ -862,33 +767,6 @@ const clearFilter = (filter) => {
   }
 }
 
-.articles-list-title {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  padding-left: 1rem;
-  border-left: 4px solid #2563eb;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-:root.dark-mode .articles-list-title {
-  color: #ffffff;
-}
-
-.articles-list-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #2563eb 0%, #f97316 100%);
-  animation: expandWidth 0.8s ease-out 0.2s forwards;
-}
-
 @keyframes expandWidth {
   from {
     width: 0;
@@ -909,6 +787,7 @@ const clearFilter = (filter) => {
   margin-bottom: 3rem;
   padding-bottom: 3rem;
   border-bottom: 2px solid #e5e7eb;
+  padding-top: 1.5rem;
 }
 
 .category-section:last-child {
@@ -918,43 +797,117 @@ const clearFilter = (filter) => {
 }
 
 .category-section-title {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 1.8rem;
-  padding: 0.8rem 1rem;
-  background: #f3f4f6;
-  border-radius: 8px;
-  border-left: 4px solid #2563eb;
-  margin-left: 0;
+  text-transform: capitalize;
+  margin-bottom: 2.5rem;
+  padding: 1.8rem 2rem;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  line-height: 1.3;
+  position: relative;
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  width: 100%;
+  animation: slideInDown 0.6s ease-out;
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.3);
+  transition: all 0.3s ease;
 }
 
+.category-section-title:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.4);
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category-specific background colors matching BlogCard */
 .category-section-title.personal-experiences {
   background: linear-gradient(135deg, #BC6C25 0%, #A55A1F 100%);
-  border-left-color: #BC6C25;
+  color: white;
+}
+
+.category-section-title.personal-experiences:hover {
+  box-shadow: 0 10px 30px rgba(188, 108, 37, 0.5);
 }
 
 .category-section-title.professional-perspectives {
   background: linear-gradient(135deg, #DDA15E 0%, #CC8F48 100%);
-  border-left-color: #DDA15E;
+  color: white;
+}
+
+.category-section-title.professional-perspectives:hover {
+  box-shadow: 0 10px 30px rgba(204, 143, 72, 0.5);
 }
 
 .category-section-title.educational-articles {
   background: linear-gradient(135deg, #C49A36 0%, #A67C2F 100%);
-  border-left-color: #C49A36;
   color: white;
+}
+
+.category-section-title.educational-articles:hover {
+  box-shadow: 0 10px 30px rgba(166, 124, 47, 0.5);
 }
 
 .category-section-title.spotlight-initiatives {
   background: linear-gradient(135deg, #4A6D42 0%, #3D5C35 100%);
-  border-left-color: #4A6D42;
+  color: white;
+}
+
+.category-section-title.spotlight-initiatives:hover {
+  box-shadow: 0 10px 30px rgba(61, 92, 53, 0.5);
 }
 
 .category-section-title.creative-expressions {
   background: linear-gradient(135deg, #606C38 0%, #4D5829 100%);
-  border-left-color: #606C38;
+  color: white;
+}
+
+.category-section-title.creative-expressions:hover {
+  box-shadow: 0 10px 30px rgba(77, 88, 41, 0.5);
+}
+
+/* Speech bubble tail effect */
+.category-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgba(188, 108, 37, 0.8);
+}
+
+.category-section-title.professional-perspectives::after {
+  border-top-color: rgba(204, 143, 72, 0.8);
+}
+
+.category-section-title.educational-articles::after {
+  border-top-color: rgba(166, 124, 47, 0.8);
+}
+
+.category-section-title.spotlight-initiatives::after {
+  border-top-color: rgba(61, 92, 53, 0.8);
+}
+
+.category-section-title.creative-expressions::after {
+  border-top-color: rgba(77, 88, 41, 0.8);
 }
 
 .see-more-btn {
@@ -1265,7 +1218,7 @@ const clearFilter = (filter) => {
 }
 
 .list-article:hover .list-article-excerpt {
-  color: #666;
+  color: #DDA15E;
 }
 
 :root.light-mode .list-article:hover .list-article-excerpt {
@@ -1322,14 +1275,14 @@ const clearFilter = (filter) => {
 }
 
 .list-article-tag-more {
-  background: rgba(37, 99, 235, 0.08);
-  color: #2563eb;
+  background: rgba(188, 108, 37, 0.2);
+  color: #DDA15E;
   padding: 0.3rem 0.7rem;
   border-radius: 16px;
   font-size: 0.75rem;
   font-weight: 600;
   display: inline-block;
-  border: 1px solid rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(188, 108, 37, 0.3);
 }
 
 :root.light-mode .list-article-tag-more {
@@ -1364,7 +1317,7 @@ const clearFilter = (filter) => {
 
 .read-link {
   font-size: 0.9rem;
-  color: #2563eb;
+  color: #DDA15E;
   font-weight: 600;
   margin-left: auto;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1530,10 +1483,6 @@ const clearFilter = (filter) => {
     margin-left: 0;
     font-size: 0.75rem;
   }
-
-  .articles-list-title {
-    font-size: 1.4rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -1559,10 +1508,6 @@ const clearFilter = (filter) => {
 
   .read-link {
     font-size: 0.8rem;
-  }
-
-  .articles-list-title {
-    font-size: 1.2rem;
   }
 }
 
@@ -1597,10 +1542,6 @@ const clearFilter = (filter) => {
   .articles-list-section {
     animation: fadeInUp 0.6s ease-out;
   }
-
-  .articles-list-title::after {
-    animation: expandWidth 0.6s ease-out 0.1s forwards;
-  }
 }
 
 /* Accessibility: Respect prefers-reduced-motion */
@@ -1613,8 +1554,7 @@ const clearFilter = (filter) => {
 
   .list-article,
   .list-article::before,
-  .articles-list-section,
-  .articles-list-title::after {
+  .articles-list-section {
     animation: none !important;
   }
 

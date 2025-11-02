@@ -1,38 +1,31 @@
 <template>
   <section class="hero">
-    <div class="hero-background">
-      <img src="../assets/animal-welfare.png" alt="Animal Welfare" class="hero-bg-image" />
-      <div class="hero-overlay"></div>
-    </div>
-    
-    <div class="hero-content">
-      <div class="hero-badge"><Sparkles class="badge-icon" /> Welcome to The Ethogram</div>
-      <h2 class="hero-title">Compassion in Motion for<br><span class="highlight">a Kinder World</span></h2>
-      <p class="hero-description">
-        Explore in-depth articles on animal behavior, veterinary science, ethical practices, 
-        and wildlife conservation. Learn from experts and discover actionable insights that 
-        create meaningful change for animals and communities worldwide.
-      </p>
-      
-      <div class="hero-cta">
-        <button class="cta-button primary" @click="$emit('explore-articles')">Explore Articles</button>
+    <div class="hero-wrapper">
+      <div class="hero-banner">
+        <img src="../assets/banner2.png" alt="Animal Welfare" class="banner-image" />
       </div>
+      
+      <div class="hero-footer">
+        <div class="hero-cta">
+          <button class="cta-button primary" @click="$emit('explore-articles')">Explore Blogs</button>
+        </div>
 
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-icon"><BookOpen /></div>
-          <div class="stat-number">18+</div>
-          <div class="stat-text">Articles</div>
-        </div>
-        <div class="stat">
-          <div class="stat-icon"><Globe /></div>
-          <div class="stat-number">5</div>
-          <div class="stat-text">Categories</div>
-        </div>
-        <div class="stat">
-          <div class="stat-icon"><Lightbulb /></div>
-          <div class="stat-number">100%</div>
-          <div class="stat-text">Compassion</div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-icon"><BookOpen /></div>
+            <div class="stat-number">18+</div>
+            <div class="stat-text">Blogs</div>
+          </div>
+          <div class="stat">
+            <div class="stat-icon"><Globe /></div>
+            <div class="stat-number">5</div>
+            <div class="stat-text">Categories</div>
+          </div>
+          <div class="stat">
+            <div class="stat-icon"><Lightbulb /></div>
+            <div class="stat-number">100%</div>
+            <div class="stat-text">Compassion</div>
+          </div>
         </div>
       </div>
     </div>
@@ -47,51 +40,82 @@ defineEmits(['explore-articles'])
 
 <style scoped>
 .hero {
-  padding: 5rem 2rem;
+  padding: 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--card-bg);
+  min-height: auto;
+  display: block;
+  background: var(--bg-primary);
 }
 
-/* Background Image Section */
-.hero-background {
-  position: absolute;
+.hero-wrapper {
+  padding: 0;
+  margin: 0;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  background: var(--bg-primary);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Banner Section */
+.hero-banner {
+  width: 100%;
   overflow: hidden;
-}
-
-.hero-bg-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  right: 0;
-  top: 0;
-}
-
-.hero-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 1;
-}
-
-.hero-content {
-  max-width: 700px;
-  margin: 0 auto;
+  border-radius: 0;
+  margin-bottom: 0;
   position: relative;
-  z-index: 2;
-  animation: slideUp 0.8s ease-out;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 70vh;
+  image-rendering: high-quality;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.05) brightness(1.02) saturate(1.08);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0) scale(1);
+  -webkit-transform: translateZ(0) scale(1);
+  animation: bannerFadeInZoom 1s ease-out forwards, bannerFloat 6s ease-in-out infinite;
+  animation-delay: 0s, 1s;
+}
+
+.banner-image:hover {
+  animation-play-state: paused;
+  filter: contrast(1.1) brightness(1.05) saturate(1.15);
+}
+
+@keyframes bannerFadeInZoom {
+  from {
+    opacity: 0;
+    transform: translateZ(0) scale(0.95);
+    filter: contrast(0.8) brightness(0.9) saturate(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+    filter: contrast(1.05) brightness(1.02) saturate(1.08);
+  }
+}
+
+@keyframes bannerFloat {
+  0%, 100% {
+    transform: translateZ(0) scale(1) translateY(0px);
+  }
+  50% {
+    transform: translateZ(0) scale(1) translateY(-8px);
+  }
+}
+
+.hero-footer {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 @keyframes slideUp {
@@ -200,12 +224,18 @@ defineEmits(['explore-articles'])
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(90, 122, 148, 0.05);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  border: 2px solid rgba(90, 122, 148, 0.15);
   max-width: 600px;
-  margin: 0 auto;
+  margin: 1.5rem auto 0;
+}
+
+:root.dark-mode .hero-stats {
+  background: rgba(20, 30, 50, 0.8);
+  border: 2px solid rgba(37, 99, 235, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .stat {
@@ -217,20 +247,32 @@ defineEmits(['explore-articles'])
 
 .stat-icon {
   font-size: 2rem;
-  color: white;
+  color: #4A6D42;
   animation: bounce 2s ease-in-out infinite;
+}
+
+:root.dark-mode .stat-icon {
+  color: white;
 }
 
 .stat-number {
   font-size: 1.6rem;
   font-weight: 800;
+  color: #1F2937;
+}
+
+:root.dark-mode .stat-number {
   color: white;
 }
 
 .stat-text {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #374151;
   font-weight: 600;
+}
+
+:root.dark-mode .stat-text {
+  color: white;
 }
 
 @keyframes bounce {

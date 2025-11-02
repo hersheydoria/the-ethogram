@@ -4,7 +4,7 @@
       <!-- Side Panel - Related Articles -->
       <aside class="side-panel">
         <div class="side-panel-content">
-          <h3 class="side-panel-title"><BookOpen :size="20" /> Related Articles</h3>
+          <h3 class="side-panel-title"><BookOpen :size="20" /> Related Blogs</h3>
           <div class="related-posts">
             <button
               v-for="(relatedPost, index) in displayedRelatedArticles"
@@ -42,7 +42,7 @@
       <!-- Main Content -->
       <div class="main-content">
         <div class="container">
-          <button class="back-btn" @click="$emit('back')"><ArrowLeft :size="18" /> Back to Articles</button>
+          <button class="back-btn" @click="$emit('back')"><ArrowLeft :size="18" /> Back to Blogs</button>
           
           <article class="blog-post">
             <div class="post-header">
@@ -103,6 +103,38 @@
                   </a>
                 </div>
               </div>
+
+              <!-- Tell the World - Share Section -->
+              <div class="tell-the-world-section">
+                <h3><Share2 :size="24" /> Tell the World</h3>
+                <p class="share-subtitle">Share this article with your network</p>
+                <div class="share-buttons">
+                  <button @click="shareToFacebook" class="share-btn facebook-btn" title="Share on Facebook">
+                    <Facebook :size="20" />
+                    <span>Facebook</span>
+                  </button>
+                  <button @click="shareToTwitter" class="share-btn twitter-btn" title="Share on X">
+                    <svg class="twitter-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.671-5.857 6.671H2.882l7.687-8.793-8.156-10.707h6.41l4.75 6.287 5.304-6.287zM16.17 20.033h1.829L5.25 3.993H3.247l12.923 16.04z"/>
+                    </svg>
+                    <span>X</span>
+                  </button>
+                  <button @click="shareToInstagram" class="share-btn instagram-btn" title="Share on Instagram">
+                    <Instagram :size="20" />
+                    <span>Instagram</span>
+                  </button>
+                  <button @click="shareToThreads" class="share-btn threads-btn" title="Share on Threads">
+                    <svg class="threads-icon" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.011 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.011 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.011-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.011-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.756 0 8.334.011 7.053.072 2.695.272.273 2.69.073 7.052.011 8.333 0 8.756 0 12s.011 3.667.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.061 1.703.073 4.948.073s3.668-.011 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.061-1.28.073-1.702.073-4.948s-.011-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98C15.668.011 15.23 0 12 0z"/>
+                    </svg>
+                    <span>Threads</span>
+                  </button>
+                  <button @click="shareToEmail" class="share-btn email-btn" title="Share via Email">
+                    <Mail :size="20" />
+                    <span>Email</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </article>
         </div>
@@ -113,7 +145,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { BookOpen, ArrowLeft, Calendar, Clock, Image, Frame, Link, ExternalLink } from 'lucide-vue-next'
+import { BookOpen, ArrowLeft, Calendar, Clock, Image, Frame, Link, ExternalLink, Share2, Facebook, Mail, Instagram } from 'lucide-vue-next'
 
 const props = defineProps({
   post: {
@@ -161,6 +193,43 @@ const displayedRelatedArticles = computed(() => {
 
 const toggleShowMore = () => {
   showMoreRelated.value = !showMoreRelated.value
+}
+
+const currentUrl = computed(() => {
+  if (typeof window !== 'undefined') {
+    return window.location.href
+  }
+  return ''
+})
+
+const shareTitle = computed(() => props.post.title)
+const shareText = computed(() => `${props.post.title} - The Ethogram: Animal Welfare Blog`)
+
+const shareToFacebook = () => {
+  const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl.value)}`
+  window.open(url, '_blank', 'width=600,height=400')
+}
+
+const shareToTwitter = () => {
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText.value)}&url=${encodeURIComponent(currentUrl.value)}`
+  window.open(url, '_blank', 'width=600,height=400')
+}
+
+const shareToInstagram = () => {
+  // Instagram doesn't support direct sharing via URL, so we'll prompt to copy link
+  navigator.clipboard.writeText(currentUrl.value)
+  alert('Link copied! You can now share it on Instagram.')
+}
+
+const shareToThreads = () => {
+  const url = `https://threads.net/intent/post?text=${encodeURIComponent(shareText.value)}%0A${encodeURIComponent(currentUrl.value)}`
+  window.open(url, '_blank', 'width=600,height=400')
+}
+
+const shareToEmail = () => {
+  const subject = encodeURIComponent(`Check out this article: ${shareTitle.value}`)
+  const body = encodeURIComponent(`I found this interesting article on The Ethogram:\n\n${shareTitle.value}\n\n${currentUrl.value}`)
+  window.location.href = `mailto:?subject=${subject}&body=${body}`
 }
 </script>
 
@@ -1159,6 +1228,233 @@ const toggleShowMore = () => {
   .tag-badge {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
+  }
+}
+
+/* Tell the World - Share Section */
+.tell-the-world-section {
+  margin-top: 3.5rem;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgba(74, 109, 66, 0.1) 0%, rgba(97, 120, 145, 0.1) 100%);
+  border-radius: 16px;
+  border-left: 5px solid #4A6D42;
+  box-shadow: 0 8px 24px rgba(74, 109, 66, 0.15);
+  animation: slideInUp 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+:root.light-mode .tell-the-world-section {
+  background: linear-gradient(135deg, rgba(127, 168, 201, 0.15) 0%, rgba(186, 197, 221, 0.1) 100%);
+  border-left-color: #5B8EC9;
+  box-shadow: 0 8px 24px rgba(91, 142, 201, 0.15);
+}
+
+.tell-the-world-section:hover {
+  background: linear-gradient(135deg, rgba(74, 109, 66, 0.15) 0%, rgba(97, 120, 145, 0.15) 100%);
+  box-shadow: 0 12px 32px rgba(74, 109, 66, 0.2);
+}
+
+:root.light-mode .tell-the-world-section:hover {
+  background: linear-gradient(135deg, rgba(127, 168, 201, 0.2) 0%, rgba(186, 197, 221, 0.15) 100%);
+  box-shadow: 0 12px 32px rgba(91, 142, 201, 0.2);
+}
+
+.tell-the-world-section h3 {
+  font-size: 1.8rem;
+  color: #4A6D42;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+:root.light-mode .tell-the-world-section h3 {
+  color: #2D5182;
+}
+
+.share-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+:root.light-mode .share-subtitle {
+  color: #3D5A7D;
+}
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
+  position: relative;
+  overflow: hidden;
+}
+
+.share-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.share-btn:hover::before {
+  left: 0;
+}
+
+.share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.share-btn:active {
+  transform: translateY(-1px);
+}
+
+.facebook-btn {
+  background: linear-gradient(135deg, #1877F2 0%, #0A66C2 100%);
+}
+
+.facebook-btn:hover {
+  background: linear-gradient(135deg, #0A66C2 0%, #054399 100%);
+}
+
+.twitter-btn {
+  background: linear-gradient(135deg, #000000 0%, #1D1D1D 100%);
+}
+
+.twitter-btn:hover {
+  background: linear-gradient(135deg, #1D1D1D 0%, #333333 100%);
+}
+
+.twitter-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.instagram-btn {
+  background: linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%);
+}
+
+.instagram-btn:hover {
+  background: linear-gradient(135deg, #DD2A7B 0%, #8134AF 100%);
+}
+
+.threads-btn {
+  background: linear-gradient(135deg, #000000 0%, #262626 100%);
+}
+
+.threads-btn:hover {
+  background: linear-gradient(135deg, #262626 0%, #404040 100%);
+}
+
+.threads-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.email-btn {
+  background: linear-gradient(135deg, #EA4335 0%, #C5221F 100%);
+}
+
+.email-btn:hover {
+  background: linear-gradient(135deg, #C5221F 0%, #9D1B18 100%);
+}
+
+@media (max-width: 768px) {
+  .tell-the-world-section {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .tell-the-world-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .share-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .share-buttons {
+    gap: 0.8rem;
+  }
+
+  .share-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    flex: 1;
+    min-width: calc(50% - 0.4rem);
+    justify-content: center;
+  }
+
+  .share-btn span {
+    display: none;
+  }
+
+  .share-btn {
+    width: auto;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .share-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tell-the-world-section {
+    padding: 1.2rem;
+  }
+
+  .tell-the-world-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .share-btn {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .share-buttons {
+    gap: 0.6rem;
   }
 }
 </style>

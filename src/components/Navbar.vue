@@ -3,26 +3,33 @@
     <div class="navbar-container">
       <!-- Logo -->
       <div class="navbar-logo" @click="$emit('navigate-to-landing')">
-        <Heart :size="24" fill="currentColor" />
+        <img src="../assets/logo.png" alt="The Ethogram Logo" class="navbar-logo-img" />
         <span>The Ethogram</span>
       </div>
       
+      <!-- Hamburger Menu Button (Mobile) -->
+      <button class="hamburger-menu" @click="toggleMobileMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
       <!-- Right-side Navigation Wrapper -->
-      <div class="navbar-right-content">
+      <div class="navbar-right-content" :class="{ active: showMobileMenu }">
         <!-- Home Button -->
-        <button @click="$emit('navigate-to-blog')" class="navbar-home-btn">
+        <button @click="handleMobileNavClick($emit('navigate-to-blog'))" class="navbar-home-btn">
           Home
         </button>
 
         <!-- About Us Button -->
-        <button @click="$emit('navigate-to-about')" class="navbar-about-btn">
+        <button @click="handleMobileNavClick($emit('navigate-to-about'))" class="navbar-about-btn">
           About Us
         </button>
         
         <!-- Categories Dropdown -->
         <div class="categories-dropdown-wrapper" @mouseenter="openMenu" @mouseleave="closeMenu">
           <button 
-            @click="toggleMenu"
+            @click.stop="toggleMenu"
             class="dropdown-toggle"
           >
             Categories ▼
@@ -93,7 +100,6 @@
 
 <script setup>
 import { ref, watch, computed, onMounted } from 'vue'
-import { Heart } from 'lucide-vue-next'
 import { useTheme } from '../composables/useTheme'
 
 const { initTheme } = useTheme()
@@ -116,6 +122,7 @@ const props = defineProps({
 const localSearchQuery = ref('')
 const activeCategory = ref('all')
 const showMenu = ref(false)
+const showMobileMenu = ref(false)
 const selectedTags = ref([])
 let closeMenuTimeout = null
 let searchTimeout = null
@@ -187,6 +194,14 @@ const closeMenu = () => {
   }, 150) // Small delay to allow clicks to register
 }
 
+const toggleMobileMenu = () => {
+  showMobileMenu.value = !showMobileMenu.value
+}
+
+const handleMobileNavClick = (action) => {
+  showMobileMenu.value = false
+}
+
 const selectCategory = (category) => {
   activeCategory.value = category
   selectedTags.value = [] // Reset tags when changing category
@@ -237,6 +252,8 @@ onMounted(() => {
   box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
   z-index: 100;
   transition: background 0.3s ease;
+  position: sticky;
+  top: 0;
 }
 
 :root.light-mode .navbar {
@@ -293,8 +310,34 @@ onMounted(() => {
   transition: transform 0.3s ease;
 }
 
+.navbar-logo-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
 .navbar-logo:hover {
   transform: scale(1.05);
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 /* Right Content Wrapper */
@@ -681,58 +724,122 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .navbar-container {
-    flex-wrap: wrap;
-    height: auto;
     padding: 0.8rem 1rem;
     gap: 0.8rem;
+    height: auto;
+  }
+
+  .hamburger-menu {
+    display: flex;
   }
 
   .navbar-logo {
-    font-size: 1rem;
-    order: 1;
+    font-size: 1.2rem;
+    flex: 1;
+  }
+
+  .navbar-logo-img {
+    width: 50px;
+    height: 50px;
   }
 
   .navbar-right-content {
-    flex-basis: 100%;
-    order: 2;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: linear-gradient(135deg, #7A3C0E 0%, #A8643A 50%, #3D4620 100%);
+    padding: 1rem;
+    max-width: 100%;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: flex-start;
+  }
+
+  .navbar-right-content.active {
+    transform: translateX(0);
   }
 
   .navbar-home-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: left;
   }
 
   .navbar-about-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: left;
   }
 
   .categories-dropdown-wrapper {
     flex-shrink: 0;
+    width: 100%;
+    position: relative;
   }
 
   .dropdown-toggle {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: left;
+    position: relative;
   }
 
   .navbar-search {
-    flex-basis: 100%;
-    min-width: 0;
-    justify-content: center;
-    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .search-input {
-    max-width: 100%;
-    font-size: 0.85rem;
+    width: 100%;
+    max-width: none;
+  }
+
+  .categories-dropdown {
+    position: static;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: auto;
+    z-index: 999;
+    margin-top: 0;
+    animation: none;
+    display: flex;
+    flex-direction: column;
   }
 
   .dropdown-item {
-    padding: 0.7rem 1rem;
+    padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    background: transparent;
+    border: none;
+    text-align: left;
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #DDA15E;
+    padding-left: 1.8rem;
+  }
+
+  .dropdown-item.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #DDA15E;
+    font-weight: 700;
+    border-left: 3px solid #DDA15E;
+    padding-left: calc(1.5rem - 3px);
   }
 
   .tag-filter-container {
