@@ -153,6 +153,9 @@ defineEmits(['explore-articles'])
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .hero-title .highlight {
@@ -172,6 +175,9 @@ defineEmits(['explore-articles'])
   margin-left: auto;
   margin-right: auto;
   font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* CTA Buttons */
@@ -264,6 +270,9 @@ defineEmits(['explore-articles'])
   font-size: 1.6rem;
   font-weight: 800;
   color: #1F2937;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root.dark-mode .stat-number {
@@ -274,6 +283,9 @@ defineEmits(['explore-articles'])
   font-size: 0.9rem;
   color: #374151;
   font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root.dark-mode .stat-text {

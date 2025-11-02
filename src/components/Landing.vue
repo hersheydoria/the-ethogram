@@ -467,6 +467,9 @@ onUnmounted(() => {
   width: 100%;
   background: #DDA15E;
   border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root.dark-mode .features-title {
@@ -748,6 +751,9 @@ onUnmounted(() => {
   font-weight: 800;
   line-height: 1.3;
   margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root.dark-mode .featured-carousel-section .featured-title {
@@ -759,6 +765,9 @@ onUnmounted(() => {
   color: #6B7280;
   line-height: 1.6;
   margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root.dark-mode .featured-carousel-section .featured-excerpt {
@@ -846,6 +855,9 @@ onUnmounted(() => {
   width: 100%;
   background: #DDA15E;
   border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root.dark-mode .carousel-title {
@@ -1150,6 +1162,9 @@ onUnmounted(() => {
   width: 100%;
   background: #DDA15E;
   border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :root.dark-mode .quick-links-title,
@@ -1241,11 +1256,17 @@ onUnmounted(() => {
   font-weight: 700;
   color: white;
   margin-bottom: 0.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .quick-link-card p {
   font-size: 0.95rem;
-  color:  white;
+  color: white;
   line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
