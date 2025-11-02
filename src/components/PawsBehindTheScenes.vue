@@ -384,7 +384,7 @@ const generalFacts = [
 /* Modal */
 .modal-overlay {
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -395,6 +395,7 @@ const generalFacts = [
   z-index: 1000;
   padding: 2rem;
   animation: fadeIn 0.3s ease-out;
+  overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -665,12 +666,55 @@ const generalFacts = [
     gap: 1.5rem;
   }
 
+  .modal-overlay {
+    top: 60px;
+    padding: 1.5rem 1rem;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .modal-content {
+    margin-top: 1rem;
+  }
+
   .modal-body {
     grid-template-columns: 1fr;
   }
 
   .modal-image {
     height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    top: 60px;
+    padding: 1rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .modal-image {
+    height: 200px;
+  }
+
+  .modal-name {
+    font-size: 1.5rem;
+  }
+
+  .paws-title {
+    font-size: 1.8rem;
+  }
+
+  .paws-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .paws-description {
+    font-size: 0.95rem;
   }
 }
 </style>
