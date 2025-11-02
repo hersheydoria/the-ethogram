@@ -1,5 +1,6 @@
 <template>
   <section class="doctor-feature-section">
+
     <div class="container">
       <div class="feature-wrapper">
         <!-- Doctor Image -->
@@ -7,10 +8,6 @@
           <div class="doctor-image">
             <UserCheck v-if="!doctorInfo.imageUrl" class="doctor-icon" :size="120" />
             <img v-else :src="doctorInfo.imageUrl" :alt="doctorInfo.name" class="doctor-img">
-          </div>
-          <div class="feature-badge">
-            <span class="badge-label">Featured This Week</span>
-            <Star class="badge-icon-component" :size="20" />
           </div>
         </div>
 
@@ -180,25 +177,25 @@ const doctorInfo = {
 }
 
 .feature-badge {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  animation: slideInUp 0.6s ease-out 0.3s backwards;
+  position: static;
+  display: none;
 }
 
-@keyframes slideInUp {
+/* Featured Badge at Top */
+.featured-badge-top {
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
@@ -209,7 +206,9 @@ const doctorInfo = {
 .badge-label {
   font-weight: 600;
   color: #2563eb;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .badge-icon {

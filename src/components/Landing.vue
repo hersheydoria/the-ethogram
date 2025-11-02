@@ -97,6 +97,7 @@
     <!-- Doctor Feature Section (Animal Welfare Week) -->
     <section class="doctor-feature-landing-section">
       <div class="container">
+        <h2 class="featured-title-section">Featured This Week</h2>
         <DoctorFeature @navigate-to-articles="$emit('navigate-to-articles')" />
       </div>
     </section>
@@ -883,7 +884,13 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .carousel-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .featured-title-section,
+  .quick-links-title {
+    font-size: 2.2rem;
     margin-bottom: 2rem;
   }
 
@@ -915,11 +922,35 @@ onUnmounted(() => {
     height: 35px;
     font-size: 0.75rem;
   }
+
+  .quick-links-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .quick-link-card {
+    padding: 1.5rem;
+  }
+
+  .quick-link-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .quick-link-card p {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
   .carousel-title {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+
+  .featured-title-section,
+  .quick-links-title {
+    font-size: 1.6rem;
+    padding: 1.5rem 2rem 2rem 2rem;
   }
 
   .featured-carousel-section .featured-article {
@@ -958,14 +989,34 @@ onUnmounted(() => {
 
   .carousel-indicators {
     gap: 0.5rem;
-    padding: 0.75rem;
+    padding: 0.8rem;
   }
 
   .carousel-dot {
     width: 30px;
     height: 30px;
-    border-width: 2px;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
+  }
+
+  .quick-links-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .quick-link-card {
+    padding: 1.2rem;
+  }
+
+  .link-icon-component {
+    margin-bottom: 0.8rem;
+  }
+
+  .quick-link-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .quick-link-card p {
+    font-size: 0.85rem;
   }
 }
 
@@ -984,32 +1035,80 @@ onUnmounted(() => {
 .quick-links-section {
   padding: 5rem 2rem;
   background: transparent;
+  text-align: center;
 }
 
-.quick-links-title {
-  font-size: 2.5rem;
-  font-weight: 800;
+.doctor-feature-landing-section {
+  padding: 5rem 2rem;
+  background: transparent;
+  text-align: center;
+}
+
+.doctor-feature-landing-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-links-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quick-links-title,
+.featured-title-section {
+  font-size: 2.8rem;
+  color: var(--text-primary);
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding: 2rem 2.5rem 3rem 2.5rem;
+  display: inline-block;
+  width: 100%;
+  background: #DDA15E;
+  border-radius: 12px;
 }
 
-:root.dark-mode .quick-links-title {
-  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+:root.dark-mode .quick-links-title,
+:root.dark-mode .featured-title-section {
+  background: #bc6c25;
+}
+
+.quick-links-title::after,
+.featured-title-section::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #DDA15E;
+  animation: slideDown 0.6s ease-out;
+}
+
+:root.dark-mode .quick-links-title::after,
+:root.dark-mode .featured-title-section::after {
+  border-top-color: #bc6c25;
 }
 
 .quick-links-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  .quick-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .quick-link-card {
@@ -1050,19 +1149,5 @@ onUnmounted(() => {
   font-size: 0.95rem;
   color:  white;
   line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .quick-links-section {
-    padding: 3rem 1.5rem;
-  }
-
-  .quick-links-title {
-    font-size: 1.8rem;
-  }
-
-  .quick-links-grid {
-    gap: 1.5rem;
-  }
 }
 </style>
