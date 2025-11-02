@@ -2,7 +2,7 @@
   <section class="hero">
     <div class="hero-wrapper">
       <div class="hero-banner">
-        <img src="../assets/banner2.png" alt="Animal Welfare" class="banner-image" />
+        <img src="../assets/banner1.png" alt="Animal Welfare" class="banner-image" />
       </div>
       
       <div class="hero-footer">
@@ -229,6 +229,11 @@ defineEmits(['explore-articles'])
   border: 2px solid rgba(90, 122, 148, 0.15);
   max-width: 600px;
   margin: 1.5rem auto 0;
+}
+
+:root.light-mode .hero-stats {
+  background: white;
+  border: 2px solid rgba(90, 122, 148, 0.15);
 }
 
 :root.dark-mode .hero-stats {
