@@ -323,11 +323,13 @@ const handleFooterNavigation = (linkType) => {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .app {
@@ -335,6 +337,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 /* Floating Theme Toggle Button */

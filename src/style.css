@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
   line-height: 1.6;
   font-weight: 400;
 
@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
 body {
@@ -23,9 +24,18 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
   width: 100%;
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* Force font family on all text elements */
+h1, h2, h3, h4, h5, h6, p, span, div, button, a, input, textarea, label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
 }
