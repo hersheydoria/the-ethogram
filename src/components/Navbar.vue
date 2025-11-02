@@ -784,6 +784,7 @@ onMounted(() => {
     font-size: 0.95rem;
     width: 100%;
     text-align: left;
+    margin-left: -0.2rem;
   }
 
   .categories-dropdown-wrapper {
@@ -907,6 +908,7 @@ onMounted(() => {
   .navbar-about-btn {
     padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
+    margin-left: -0.1rem;
   }
 
   .categories-dropdown-wrapper {
