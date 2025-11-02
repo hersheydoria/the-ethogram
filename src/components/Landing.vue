@@ -410,6 +410,45 @@ onUnmounted(() => {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .features-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-section {
+    padding: 2rem 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -450,6 +489,22 @@ onUnmounted(() => {
 
 :root.dark-mode .features-title::after {
   border-top-color: #bc6c25;
+}
+
+@media (max-width: 768px) {
+  .features-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
 }
 
 .features-grid {
@@ -815,6 +870,22 @@ onUnmounted(() => {
   border-top-color: #bc6c25;
 }
 
+@media (max-width: 768px) {
+  .carousel-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -883,15 +954,8 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .carousel-title {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-  }
-
-  .featured-title-section,
-  .quick-links-title {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
+  .featured-carousel-section {
+    padding: 2.5rem 1.5rem;
   }
 
   .featured-carousel-section .featured-article {
@@ -939,18 +1003,32 @@ onUnmounted(() => {
   .quick-link-card p {
     font-size: 0.9rem;
   }
+
+  .doctor-feature-landing-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .quick-links-section {
+    padding: 2.5rem 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .carousel-title {
-    font-size: 1.6rem;
-    padding: 1.5rem 2rem 2rem 2rem;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .featured-title-section,
   .quick-links-title {
-    font-size: 1.6rem;
-    padding: 1.5rem 2rem 2rem 2rem;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .featured-carousel-section {
+    padding: 2rem 1rem;
   }
 
   .featured-carousel-section .featured-article {
@@ -1018,15 +1096,27 @@ onUnmounted(() => {
   .quick-link-card p {
     font-size: 0.85rem;
   }
+
+  .doctor-feature-landing-section {
+    padding: 2rem 1rem;
+  }
+
+  .quick-links-section {
+    padding: 2rem 1rem;
+  }
 }
 
 /* Doctor Feature Landing Section */
 .doctor-feature-landing-section {
-  padding: 3rem 2rem;
+  padding: 5rem 2rem;
   background: transparent;
+  text-align: center;
 }
 
 .doctor-feature-landing-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -1038,22 +1128,12 @@ onUnmounted(() => {
   text-align: center;
 }
 
-.doctor-feature-landing-section {
-  padding: 5rem 2rem;
-  background: transparent;
-  text-align: center;
-}
-
-.doctor-feature-landing-section .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .quick-links-section .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .quick-links-title,
@@ -1095,6 +1175,24 @@ onUnmounted(() => {
 :root.dark-mode .quick-links-title::after,
 :root.dark-mode .featured-title-section::after {
   border-top-color: #bc6c25;
+}
+
+@media (max-width: 768px) {
+  .quick-links-title,
+  .featured-title-section {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-links-title,
+  .featured-title-section {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
 }
 
 .quick-links-grid {
