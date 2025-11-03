@@ -40,11 +40,10 @@
           <!-- Committee Members Section -->
           <div v-if="committee.members.length > 0" class="members-section">
             <h3 class="section-title">Members</h3>
-            <div class="members-container">
-              <div v-for="(member, memberIndex) in committee.members" :key="`member-${memberIndex}`" class="member-item">
-                <img :src="member.image" :alt="member.name" class="member-image">
-                <p class="member-name">{{ member.name }}</p>
-              </div>
+            <div class="members-list">
+              <p v-for="(member, memberIndex) in committee.members" :key="`member-${memberIndex}`" class="member-name-text">
+                {{ member.name }}
+              </p>
             </div>
           </div>
 
@@ -190,12 +189,18 @@ const committees = [
     name: 'TREASURY COMMITTEE',
     description: 'Manages finances, budgeting, and ensures responsible stewardship of resources.',
     heads: [
-      { name: 'Head Name', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Analysta D. Lagurin', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
     ],
-    members: Array.from({ length: 8 }, (_, i) => ({ 
-      name: `Member ${i + 1}`, 
-      image: `https://via.placeholder.com/60?text=M${i + 1}` 
-    }))
+    members: [
+      { name: 'Alexah Sofia L. Simon' },
+      { name: 'Reshelle Lyanara R. Libante' },
+      { name: 'Leila Jean B. Arquintillo' },
+      { name: 'John Lloyd S. Kuizon' },
+      { name: 'Blessy Mae P. Francisco' },
+      { name: 'Lestley Amihan' },
+      { name: 'Bianca Issabel M. Bueno' },
+      { name: 'Rylla Mae Zapata' }
+    ]
   },
   {
     name: 'QUALITY ASSURANCE & FEEDBACK COMMITTEE',
@@ -462,6 +467,42 @@ const goBack = () => {
   margin-top: 1.5rem;
 }
 
+.members-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 2rem;
+}
+
+.member-name-text {
+  font-size: 0.9rem;
+  color: #1e293b;
+  margin: 0;
+  padding: 0.6rem 0;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.member-name-text::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #BC6C25;
+  font-weight: bold;
+}
+
+:root.light-mode .member-name-text {
+  color: #1F2937;
+}
+
+:root.dark-mode .member-name-text {
+  color: #f1f5f9;
+}
+
+:root.dark-mode .member-name-text::before {
+  color: #DDA15E;
+}
+
 .members-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
@@ -641,6 +682,10 @@ const goBack = () => {
 
   .committees-section {
     margin-bottom: 2rem;
+  }
+
+  .members-list {
+    grid-template-columns: 1fr;
   }
 
   .stat-number {
