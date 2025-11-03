@@ -184,6 +184,13 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
   color: #1F2937;
 }
 
+:root.dark-mode .about-section {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -204,6 +211,12 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 :root.light-mode .about-section:hover {
   box-shadow: 0 15px 50px rgba(90, 122, 148, 0.3);
   border-color: #5A7A94;
+}
+
+:root.dark-mode .about-section:hover {
+  box-shadow: 0 15px 50px rgba(221, 161, 94, 0.2);
+  border-color: rgba(221, 161, 94, 0.3);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 .section-icon {

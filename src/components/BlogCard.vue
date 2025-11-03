@@ -59,6 +59,12 @@ const formattedDate = computed(() => {
   color: #1F2937;
 }
 
+:root.dark-mode .blog-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
+}
+
 .blog-card::before {
   content: '';
   position: absolute;
@@ -86,6 +92,12 @@ const formattedDate = computed(() => {
   background: var(--card-bg);
   box-shadow: 0 15px 40px rgba(90, 122, 148, 0.3);
   border-color: #5A7A94;
+}
+
+:root.dark-mode .blog-card:hover {
+  box-shadow: 0 15px 40px rgba(221, 161, 94, 0.2);
+  border-color: rgba(221, 161, 94, 0.3);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 .card-image {

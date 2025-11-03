@@ -532,6 +532,12 @@ onUnmounted(() => {
   border-color: #9CA3AF;
 }
 
+:root.dark-mode .feature-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
+}
+
 .feature-card:hover {
   transform: translateY(-8px);
   border-color: rgba(102, 126, 234, 0.5);
@@ -541,6 +547,12 @@ onUnmounted(() => {
 :root.light-mode .feature-card:hover {
   border-color: #6B7280;
   box-shadow: 0 15px 40px rgba(107, 114, 128, 0.3);
+}
+
+:root.dark-mode .feature-card:hover {
+  border-color: rgba(221, 161, 94, 0.3);
+  box-shadow: 0 15px 40px rgba(221, 161, 94, 0.2);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 .feature-icon {
@@ -684,9 +696,10 @@ onUnmounted(() => {
 }
 
 :root.dark-mode .featured-carousel-section .featured-article {
-  background: var(--card-bg);
-  border-color: var(--border-color);
-  box-shadow: 0 10px 40px var(--card-shadow);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  border: 1px solid rgba(221, 161, 94, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .featured-carousel-section .featured-article:hover {
@@ -695,7 +708,8 @@ onUnmounted(() => {
 }
 
 :root.dark-mode .featured-carousel-section .featured-article:hover {
-  box-shadow: 0 15px 40px var(--card-shadow);
+  box-shadow: 0 15px 40px rgba(221, 161, 94, 0.15);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 .featured-carousel-section .featured-image {
@@ -1231,14 +1245,37 @@ onUnmounted(() => {
   padding: 2rem;
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--text-primary);
   font-family: inherit;
+  border: 1px solid var(--border-color);
+}
+
+:root.light-mode .quick-link-card {
+  background: #FFFFFF;
+  border-color: #E5E7EB;
+}
+
+:root.dark-mode .quick-link-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
 }
 
 .quick-link-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 40px var(--card-shadow);
+}
+
+:root.light-mode .quick-link-card:hover {
+  box-shadow: 0 12px 40px rgba(107, 114, 128, 0.3);
+  border-color: #5A7A94;
+}
+
+:root.dark-mode .quick-link-card:hover {
+  box-shadow: 0 12px 40px rgba(221, 161, 94, 0.2);
+  border-color: rgba(221, 161, 94, 0.3);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 .link-icon {

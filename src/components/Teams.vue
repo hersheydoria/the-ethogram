@@ -41,9 +41,10 @@
           <div v-if="committee.members.length > 0" class="members-section">
             <h3 class="section-title">Members</h3>
             <div class="members-list">
-              <p v-for="(member, memberIndex) in committee.members" :key="`member-${memberIndex}`" class="member-name-text">
-                {{ member.name }}
-              </p>
+              <div v-for="(member, memberIndex) in committee.members" :key="`member-${memberIndex}`" class="member-name-text">
+                <User :size="16" class="member-icon" />
+                <span>{{ member.name }}</span>
+              </div>
             </div>
           </div>
 
@@ -77,7 +78,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import { Users } from 'lucide-vue-next';
+import { Users, User } from 'lucide-vue-next';
 
 const committees = [
   {
@@ -108,7 +109,7 @@ const committees = [
     name: 'CONTENT & EDITORIAL COMMITTEE',
     description: 'Curates, reviews, and oversees all content to ensure quality, accuracy, and relevance to our audience.',
     heads: [
-      { name: 'Head Name', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Ela May Minerva', role: 'Committee Head', image: new URL('../assets/Minerva, Ela May - Head.JPG', import.meta.url).href }
     ],
     members: [
       { name: 'Member 1', image: 'https://via.placeholder.com/60?text=M1' },
@@ -134,23 +135,50 @@ const committees = [
     name: 'TECHNICAL & WEBSITE MANAGEMENT COMMITTEE',
     description: 'Manages website infrastructure, functionality, updates, and ensures optimal user experience.',
     heads: [
-      { name: 'Head Name', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Ken Cydric F. Ablir', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
     ],
-    members: Array.from({ length: 22 }, (_, i) => ({ 
-      name: `Member ${i + 1}`, 
-      image: `https://via.placeholder.com/60?text=M${i + 1}` 
-    }))
+    members: [
+      { name: 'Nicole Cabardo' },
+      { name: 'Michelle Monot' },
+      { name: 'Cherry Quiñonez' },
+      { name: 'Jud Moreno' },
+      { name: 'Charliemaine Cariaga' },
+      { name: 'Tim Lance Dabon' },
+      { name: 'Cyrus Casuela' },
+      { name: 'Errich Wilson Seraspe' }
+    ]
   },
   {
     name: 'CREATIVES COMMITTEE',
     description: 'Develops visual design, graphics, photography, and creative assets for all platforms.',
     heads: [
-      { name: 'Head Name', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Althea Chiong', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
     ],
-    members: Array.from({ length: 22 }, (_, i) => ({ 
-      name: `Member ${i + 1}`, 
-      image: `https://via.placeholder.com/60?text=M${i + 1}` 
-    }))
+    members: [
+      { name: 'Eric Galo' },
+      { name: 'Mary Adecer' },
+      { name: 'Alexa Astibe' },
+      { name: 'Yrrah Orquillas' },
+      { name: 'Kara Cabanog' },
+      { name: 'Rea Baes' },
+      { name: 'Richelle Panes' },
+      { name: 'Jasmin Lauro' },
+      { name: 'Bronzel Regidor' },
+      { name: 'Tim Dabon' },
+      { name: 'Ashlee Rama' },
+      { name: 'Mynche Tidalgo' },
+      { name: 'Aivan Andalesio' },
+      { name: 'Bianca Cayanga' },
+      { name: 'Marr Mongado' },
+      { name: 'Dustin Caminade' },
+      { name: 'Ivan Namalata' },
+      { name: 'Ladyfer Obenieta' },
+      { name: 'Lorraine Dayoc' },
+      { name: 'Xanthe Dimalibot' },
+      { name: 'Shane Mundo' },
+      { name: 'Christine Chagas' },
+      { name: 'Jhanelle Clor' }
+    ]
   },
   {
     name: 'PUBLICATIONS & PROMOTIONS COMMITTEE',
@@ -167,23 +195,53 @@ const committees = [
     name: 'PARTNERSHIPS & OUTREACH COMMITTEE',
     description: 'Builds relationships with organizations, coordinates collaborations, and expands our network.',
     heads: [
-      { name: 'Head Name', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Justine Hopia', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
     ],
-    members: Array.from({ length: 22 }, (_, i) => ({ 
-      name: `Member ${i + 1}`, 
-      image: `https://via.placeholder.com/60?text=M${i + 1}` 
-    }))
+    members: [
+      { name: 'Clarence Dave P. Jamisola' },
+      { name: 'J Mendoza' },
+      { name: 'Mary Joy L. Camarillo' },
+      { name: 'Yanna Deguito' },
+      { name: 'Niel Alberca' },
+      { name: 'El-Issah Arenal' },
+      { name: 'Ceejay Quiña' },
+      { name: 'Miriam Dragon' },
+      { name: 'Trisha Cabezas' },
+      { name: 'Xyra Iniego' },
+      { name: 'Leslee Delfin' },
+      { name: 'Mark Laurenz Dela Cruz' },
+      { name: 'Zaccheus Plaza' },
+      { name: 'Alexa Paeste' },
+      { name: 'Blessy Jane Jancinal' },
+      { name: 'Shiangzane Laugo' },
+      { name: 'Angelica Ybiernas' },
+      { name: 'Louise Coleen Vergara' },
+      { name: 'Mohaira Sacandal' },
+      { name: 'Matthew Asumen' },
+      { name: 'Joshua Millanes' },
+      { name: 'Bianca Cordova' }
+    ]
   },
   {
     name: 'DOCUMENTATION & ARCHIVING COMMITTEE',
     description: 'Maintains records, archives important information, and preserves our organizational knowledge.',
     heads: [
-      { name: 'Head Name', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Samantha Intong', role: 'Committee Head', image: new URL('../assets/Intong, Samantha Andrea - Head.jpg', import.meta.url).href }
     ],
-    members: Array.from({ length: 12 }, (_, i) => ({ 
-      name: `Member ${i + 1}`, 
-      image: `https://via.placeholder.com/60?text=M${i + 1}` 
-    }))
+    members: [
+      { name: 'Tasha Marieel Alejo' },
+      { name: 'Francine Matias' },
+      { name: 'Kristin Moreno' },
+      { name: 'Devine Grace Montalaba' },
+      { name: 'Frances Suba' },
+      { name: 'Jerraine Siso' },
+      { name: 'Abegail Valerio' },
+      { name: 'Vyne Dagohoy' },
+      { name: 'Shekinah Balmes' },
+      { name: 'Earl Garnada' },
+      { name: 'Zacchaeus Plaza' },
+      { name: 'Janine Salvar' }
+    ]
   },
   {
     name: 'TREASURY COMMITTEE',
@@ -339,42 +397,73 @@ const goBack = () => {
 
 .committee-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 3rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
   border-left: 4px solid #BC6C25;
   position: relative;
   overflow: hidden;
   min-height: 650px;
+  backdrop-filter: blur(10px);
 }
 
 :root.light-mode .committee-card {
-  background: #FFFFFF;
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.95) 100%);
   color: #1F2937;
+  border: 1px solid rgba(188, 108, 37, 0.1);
 }
 
 :root.dark-mode .committee-card {
-  background: var(--card-bg);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
   border-left-color: #DDA15E;
-  color: #000000;
+  color: #f1f5f9;
+  border: 1px solid rgba(221, 161, 94, 0.15);
+}
+
+.committee-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #BC6C25 0%, #DDA15E 50%, #A16207 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.committee-card:hover::before {
+  opacity: 1;
 }
 
 .committee-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(188, 108, 37, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(188, 108, 37, 0.2);
 }
 
 :root.light-mode .committee-card:hover {
-  box-shadow: 0 12px 32px rgba(90, 122, 148, 0.3);
+  box-shadow: 0 20px 40px rgba(188, 108, 37, 0.15), 0 0 40px rgba(188, 108, 37, 0.05);
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(248, 250, 252, 0.98) 100%);
+}
+
+:root.dark-mode .committee-card:hover {
+  box-shadow: 0 20px 40px rgba(221, 161, 94, 0.15), 0 0 40px rgba(221, 161, 94, 0.05);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 .committee-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(188, 108, 37, 0.1);
+}
+
+:root.dark-mode .committee-header {
+  border-bottom-color: rgba(221, 161, 94, 0.15);
 }
 
 .committee-name {
@@ -383,63 +472,107 @@ const goBack = () => {
   color: #1e293b;
   margin: 0;
   line-height: 1.4;
+  background: linear-gradient(135deg, #BC6C25 0%, #A16207 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 :root.light-mode .committee-name {
   color: #1F2937;
+  background: linear-gradient(135deg, #BC6C25 0%, #A16207 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 :root.dark-mode .committee-name {
-  color: #f1f5f9;
+  background: linear-gradient(135deg, #DDA15E 0%, #F4A460 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .member-count {
   background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
   color: white;
-  padding: 0.35rem 0.85rem;
-  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
   font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(188, 108, 37, 0.3);
+  transition: all 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.member-count:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(188, 108, 37, 0.4);
+}
+
+:root.dark-mode .member-count {
+  box-shadow: 0 4px 15px rgba(221, 161, 94, 0.4);
+}
+
+:root.dark-mode .member-count:hover {
+  box-shadow: 0 6px 20px rgba(221, 161, 94, 0.5);
 }
 
 .committee-description {
   color: #64748b;
   font-size: 0.95rem;
   line-height: 1.6;
-  margin: 1rem 0 0 0;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: rgba(188, 108, 37, 0.05);
+  border-left: 3px solid #BC6C25;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 :root.light-mode .committee-description {
   color: #4B5563;
+  background: linear-gradient(90deg, rgba(188, 108, 37, 0.08), rgba(188, 108, 37, 0.02));
+  border-left-color: #BC6C25;
 }
 
 :root.dark-mode .committee-description {
   color: #cbd5e1;
+  background: linear-gradient(90deg, rgba(221, 161, 94, 0.1), rgba(221, 161, 94, 0.03));
+  border-left-color: #DDA15E;
 }
 
 .committee-icon {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  opacity: 0.1;
+  opacity: 0.08;
   color: #BC6C25;
+  transition: all 0.4s ease;
+  transform: rotate(0deg);
 }
 
 :root.dark-mode .committee-icon {
   color: #DDA15E;
 }
 
+.committee-card:hover .committee-icon {
+  opacity: 0.15;
+  transform: rotate(15deg) scale(1.1);
+}
+
 /* Heads Section */
 .heads-section {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 2px solid #E2E8F0;
+  border-top: 2px solid rgba(188, 108, 37, 0.15);
 }
 
 :root.dark-mode .heads-section {
-  border-top-color: #475569;
+  border-top-color: rgba(221, 161, 94, 0.2);
 }
 
 .section-title {
@@ -449,10 +582,17 @@ const goBack = () => {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
+  background: linear-gradient(90deg, #BC6C25 0%, #A16207 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 :root.dark-mode .section-title {
-  color: #DDA15E;
+  background: linear-gradient(90deg, #DDA15E 0%, #F4A460 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .heads-container {
@@ -477,29 +617,65 @@ const goBack = () => {
   font-size: 0.9rem;
   color: #1e293b;
   margin: 0;
-  padding: 0.6rem 0;
+  padding: 0.8rem 1rem;
   line-height: 1.5;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2.2rem;
+  background: linear-gradient(135deg, rgba(188, 108, 37, 0.08), rgba(221, 161, 94, 0.04));
+  border-left: 3px solid #BC6C25;
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 2px 8px rgba(188, 108, 37, 0.05);
 }
 
-.member-name-text::before {
-  content: '•';
-  position: absolute;
-  left: 0;
+.member-name-text:hover {
+  background: linear-gradient(135deg, rgba(188, 108, 37, 0.15), rgba(221, 161, 94, 0.1));
+  border-left-color: #DDA15E;
+  padding-left: 2.4rem;
+  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.15);
+  transform: translateX(6px);
+}
+
+.member-icon {
   color: #BC6C25;
-  font-weight: bold;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.member-name-text:hover .member-icon {
+  color: #DDA15E;
+  transform: scale(1.2);
 }
 
 :root.light-mode .member-name-text {
   color: #1F2937;
+  background: linear-gradient(135deg, rgba(188, 108, 37, 0.08), rgba(221, 161, 94, 0.04));
+  box-shadow: 0 2px 6px rgba(188, 108, 37, 0.06);
+}
+
+:root.light-mode .member-name-text:hover {
+  background: linear-gradient(135deg, rgba(188, 108, 37, 0.18), rgba(221, 161, 94, 0.12));
+  box-shadow: 0 6px 16px rgba(188, 108, 37, 0.12);
 }
 
 :root.dark-mode .member-name-text {
   color: #f1f5f9;
+  background: linear-gradient(135deg, rgba(221, 161, 94, 0.12), rgba(188, 108, 37, 0.06));
+  border-left-color: #DDA15E;
+  box-shadow: 0 2px 8px rgba(221, 161, 94, 0.08);
 }
 
-:root.dark-mode .member-name-text::before {
+:root.dark-mode .member-name-text:hover {
+  background: linear-gradient(135deg, rgba(221, 161, 94, 0.2), rgba(188, 108, 37, 0.12));
+  border-left-color: #F4A460;
+  box-shadow: 0 6px 16px rgba(221, 161, 94, 0.15);
+}
+
+:root.dark-mode .member-icon {
   color: #DDA15E;
 }
 
@@ -534,27 +710,35 @@ const goBack = () => {
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #BC6C25;
-  transition: all 0.3s ease;
+  border: 3px solid #BC6C25;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.15);
 }
 
 .head-item .member-image {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border: 3px solid #BC6C25;
+  box-shadow: 0 6px 16px rgba(188, 108, 37, 0.25);
 }
 
 :root.dark-mode .member-image {
   border-color: #DDA15E;
+  box-shadow: 0 4px 12px rgba(221, 161, 94, 0.2);
+}
+
+:root.dark-mode .head-item .member-image {
+  box-shadow: 0 6px 16px rgba(221, 161, 94, 0.3);
 }
 
 .member-item:hover .member-image {
   border-color: #DDA15E;
-  box-shadow: 0 4px 12px rgba(188, 108, 37, 0.2);
+  box-shadow: 0 8px 24px rgba(188, 108, 37, 0.35);
+  transform: scale(1.05) rotate(-2deg);
 }
 
 :root.dark-mode .member-item:hover .member-image {
-  box-shadow: 0 4px 12px rgba(221, 161, 94, 0.3);
+  box-shadow: 0 8px 24px rgba(221, 161, 94, 0.4);
 }
 
 .member-info {

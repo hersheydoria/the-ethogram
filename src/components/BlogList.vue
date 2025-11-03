@@ -962,6 +962,12 @@ const clearFilter = (filter) => {
   border-color: #E5E7EB;
 }
 
+:root.dark-mode .list-article {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
+}
+
 @keyframes slideInLeft {
   from {
     opacity: 0;
@@ -1017,6 +1023,12 @@ const clearFilter = (filter) => {
 :root.light-mode .list-article:hover {
   border-color: #5A7A94;
   box-shadow: 0 12px 32px rgba(90, 122, 148, 0.3);
+}
+
+:root.dark-mode .list-article:hover {
+  border-color: rgba(221, 161, 94, 0.3);
+  box-shadow: 0 12px 32px rgba(221, 161, 94, 0.2);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 :root.light-mode .list-article:hover .list-article-title {

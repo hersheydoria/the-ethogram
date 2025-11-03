@@ -341,7 +341,7 @@ const shareToEmail = () => {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -351,6 +351,12 @@ const shareToEmail = () => {
   background: #FFFFFF;
   border-color: #E5E7EB;
   color: #1F2937;
+}
+
+:root.dark-mode .related-post-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
 }
 
 .related-post-card:hover {
@@ -364,6 +370,12 @@ const shareToEmail = () => {
   box-shadow: 0 8px 20px rgba(91, 142, 201, 0.3);
 }
 
+:root.dark-mode .related-post-card:hover {
+  border-color: rgba(221, 161, 94, 0.3);
+  box-shadow: 0 8px 20px rgba(221, 161, 94, 0.2);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+}
+
 .related-post-card.active {
   background: var(--card-bg);
   border-color: #2563eb;
@@ -374,6 +386,13 @@ const shareToEmail = () => {
   background: var(--card-bg);
   border-color: #5B8EC9;
   color: #FFFFFF;
+}
+
+:root.dark-mode .related-post-card.active {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border-color: rgba(221, 161, 94, 0.4);
+  box-shadow: 0 8px 20px rgba(221, 161, 94, 0.2);
+  color: #DDA15E;
 }
 
 .card-image {
@@ -543,6 +562,17 @@ const shareToEmail = () => {
   transition: background-color 0.3s ease;
 }
 
+:root.light-mode .blog-post {
+  background: #FFFFFF;
+  box-shadow: 0 8px 32px rgba(155, 163, 175, 0.15);
+}
+
+:root.dark-mode .blog-post {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(221, 161, 94, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -647,6 +677,11 @@ const shareToEmail = () => {
 
 :root.light-mode .post-content {
   background: #FFFFFF;
+}
+
+:root.dark-mode .post-content {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .post-title {
@@ -886,6 +921,13 @@ const shareToEmail = () => {
   border-left: 4px solid #7FA8C9;
 }
 
+:root.dark-mode .links-section {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid rgba(221, 161, 94, 0.3);
+}
+
 .links-section h3 {
   font-size: 1.6rem;
   color: #BC6C25;
@@ -916,13 +958,13 @@ const shareToEmail = () => {
   background: var(--bg-secondary);
   border-radius: 10px;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1.5px solid var(--border-color);
 }
 
 :root.dark-mode .related-link {
-  background: rgba(188, 108, 37, 0.1);
-  border-color: rgba(188, 108, 37, 0.2);
+  background: linear-gradient(135deg, rgba(188, 108, 37, 0.1) 0%, rgba(221, 161, 94, 0.05) 100%);
+  border-color: rgba(221, 161, 94, 0.2);
 }
 
 :root.light-mode .related-link {
@@ -938,9 +980,9 @@ const shareToEmail = () => {
 }
 
 :root.dark-mode .related-link:hover {
-  background: linear-gradient(135deg, rgba(188, 108, 37, 0.2) 0%, rgba(221, 161, 94, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(221, 161, 94, 0.2) 0%, rgba(188, 108, 37, 0.15) 100%);
   border-color: #DDA15E;
-  box-shadow: 0 4px 15px rgba(221, 161, 94, 0.3);
+  box-shadow: 0 6px 20px rgba(221, 161, 94, 0.3);
 }
 
 :root.light-mode .related-link:hover {
