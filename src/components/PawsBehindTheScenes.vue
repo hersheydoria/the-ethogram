@@ -282,13 +282,14 @@ const generalFacts = [
   margin-bottom: 4rem;
 }
 
+
 .pet-card {
   background: var(--card-bg);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 15px var(--card-shadow);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid var(--border-color);
   animation: fadeInUp 0.6s ease-out;
 }
@@ -298,10 +299,18 @@ const generalFacts = [
   border-color: #E5E7EB;
 }
 
+:root.dark-mode .pet-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9));
+  border-color: #DDA15E;
+  color: #f1f5f9;
+  box-shadow: 0 4px 15px rgba(221, 161, 94, 0.2);
+}
+
 .pet-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px var(--card-shadow);
-  border-color: #2563eb;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(221, 161, 94, 0.3);
+  border-color: #DDA15E;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(15, 23, 42, 0.95));
 }
 
 @keyframes fadeInUp {
@@ -407,6 +416,7 @@ const generalFacts = [
   }
 }
 
+
 .modal-content {
   background: var(--card-bg);
   border-radius: 20px;
@@ -415,7 +425,8 @@ const generalFacts = [
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  animation: slideUp 0.3s ease-out;
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes slideUp {
@@ -431,6 +442,13 @@ const generalFacts = [
 
 :root.light-mode .modal-content {
   background: #FFFFFF;
+}
+
+:root.dark-mode .modal-content {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9));
+  color: #f1f5f9;
+  box-shadow: 0 8px 32px rgba(221, 161, 94, 0.2);
+  border: 2px solid #DDA15E;
 }
 
 .modal-close {
@@ -568,6 +586,7 @@ const generalFacts = [
   margin-bottom: 3rem;
 }
 
+
 .fact-card {
   background: var(--card-bg);
   border-radius: 15px;
@@ -575,8 +594,8 @@ const generalFacts = [
   text-align: center;
   box-shadow: 0 4px 15px var(--card-shadow);
   border: 2px solid var(--border-color);
-  transition: all 0.3s ease;
-  animation: fadeInUp 0.6s ease-out;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 :root.light-mode .fact-card {
@@ -584,9 +603,18 @@ const generalFacts = [
   border-color: #E5E7EB;
 }
 
+:root.dark-mode .fact-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9));
+  border-color: #DDA15E;
+  color: #f1f5f9;
+  box-shadow: 0 4px 15px rgba(221, 161, 94, 0.2);
+}
+
 .fact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px var(--card-shadow);
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(221, 161, 94, 0.3);
+  border-color: #DDA15E;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(15, 23, 42, 0.95));
 }
 
 .fact-icon {
@@ -616,14 +644,15 @@ const generalFacts = [
 .back-button-container {
   text-align: center;
   margin-top: 3rem;
+  
 }
 
 .back-button {
-  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  background: #4A6D42;
   color: white;
   border: none;
   padding: 1rem 2rem;
-  border-radius: 10px;
+  border-radius: 30px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -631,8 +660,8 @@ const generalFacts = [
 }
 
 .back-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(188, 108, 37, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(74, 109, 66, 0.4);
 }
 
 /* Modal Animation */
