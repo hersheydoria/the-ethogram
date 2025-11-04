@@ -20,14 +20,42 @@
         >
           <div class="committee-header">
             <h2 class="committee-name">{{ committee.name }}</h2>
-            <span class="member-count">{{ committee.heads.length + committee.members.length }} members</span>
+            <span class="member-count">{{ committee.heads.length + committee.members.length + (committee.blockReps?.length || 0) + (committee.projectManagers?.length || 0) }} members</span>
           </div>
           <p class="committee-description">{{ committee.description }}</p>
           
+          <!-- Project Managers Section -->
+          <div v-if="committee.projectManagers && committee.projectManagers.length > 0" class="project-managers-section">
+            <h3 class="section-title">Overseeing Project Managers</h3>
+            <div class="project-managers-container two-column">
+              <div v-for="(manager, managerIndex) in committee.projectManagers" :key="`manager-${managerIndex}`" class="member-item head-item">
+                <img :src="manager.image" :alt="manager.name" class="member-image">
+                <div class="member-info">
+                  <p class="member-name">{{ manager.name }}</p>
+                  <p class="member-role">{{ manager.role }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Block Representatives Section -->
+          <div v-if="committee.blockReps && committee.blockReps.length > 0" class="block-reps-section">
+            <h3 class="section-title">Block Representatives</h3>
+            <div class="block-reps-container two-column">
+              <div v-for="(rep, repIndex) in committee.blockReps" :key="`rep-${repIndex}`" class="member-item head-item">
+                <img :src="rep.image" :alt="rep.name" class="member-image">
+                <div class="member-info">
+                  <p class="member-name">{{ rep.name }}</p>
+                  <p class="member-role">{{ rep.role }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Committee Heads Section -->
           <div v-if="committee.heads.length > 0" class="heads-section">
-            <h3 class="section-title">Committee Heads</h3>
-            <div class="heads-container">
+            <h3 class="section-title">{{ committee.blockReps ? 'Committee Heads' : 'Committee Heads' }}</h3>
+            <div class="heads-container" :class="{ 'two-column': committee.blockReps }">
               <div v-for="(head, headIndex) in committee.heads" :key="`head-${headIndex}`" class="member-item head-item">
                 <img :src="head.image" :alt="head.name" class="member-image">
                 <div class="member-info">
@@ -86,27 +114,29 @@ import Navbar from './Navbar.vue'
 const committees = [
   {
     name: 'PROJECT MANAGEMENT & OVERSIGHT COMMITTEE',
-    description: 'Guides overall project direction, strategy, and ensures alignment with our mission to advance animal welfare.',
-    heads: [
-      { name: 'Head Name', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+    description: 'Guides overall project direction, strategy, and ensures alignment with our mission to advance animal welfare. This committee comprises the heads of all major committees, block representatives, and overseeing project managers.',
+    projectManagers: [
+      { name: 'Yyannah Kiss S. Tan', role: 'Overseeing Project Manager', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Lucia Francheska G. Buhisan', role: 'Overseeing Project Manager', image: 'https://via.placeholder.com/80?text=Head' }
     ],
-    members: [
-      { name: 'Member 1', image: 'https://via.placeholder.com/60?text=M1' },
-      { name: 'Member 2', image: 'https://via.placeholder.com/60?text=M2' },
-      { name: 'Member 3', image: 'https://via.placeholder.com/60?text=M3' },
-      { name: 'Member 4', image: 'https://via.placeholder.com/60?text=M4' },
-      { name: 'Member 5', image: 'https://via.placeholder.com/60?text=M5' },
-      { name: 'Member 6', image: 'https://via.placeholder.com/60?text=M6' },
-      { name: 'Member 7', image: 'https://via.placeholder.com/60?text=M7' },
-      { name: 'Member 8', image: 'https://via.placeholder.com/60?text=M8' },
-      { name: 'Member 9', image: 'https://via.placeholder.com/60?text=M9' },
-      { name: 'Member 10', image: 'https://via.placeholder.com/60?text=M10' },
-      { name: 'Member 11', image: 'https://via.placeholder.com/60?text=M11' },
-      { name: 'Member 12', image: 'https://via.placeholder.com/60?text=M12' },
-      { name: 'Member 13', image: 'https://via.placeholder.com/60?text=M13' },
-      { name: 'Member 14', image: 'https://via.placeholder.com/60?text=M14' },
-      { name: 'Member 15', image: 'https://via.placeholder.com/60?text=M15' }
-    ]
+    heads: [
+      { name: 'Ela May S. Minerva', role: 'Committee Head - Content & Editorial', image: new URL('../assets/Minerva, Ela May - Head.JPG', import.meta.url).href },
+      { name: 'Ken Cydric F. Ablir', role: 'Committee Head - Technical & Website Management', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Althea May Chiong', role: 'Committee Head - Creatives', image: new URL('../assets/Chiong, Althea May-Head.png', import.meta.url).href },
+      { name: 'Pearl Odette M. Abcede', role: 'Committee Head - Publications & Promotions', image: new URL('../assets/ABCEDE, PEARL ODETTE M. - HEAD.jpg', import.meta.url).href },
+      { name: 'Justine Hopia', role: 'Committee Head - Partnerships & Outreach', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Samantha Intong', role: 'Committee Head - Documentation & Archiving', image: new URL('../assets/Intong, Samantha Andrea - Head.jpg', import.meta.url).href },
+      { name: 'Analysta D. Lagurin', role: 'Committee Head - Treasury', image: new URL('../assets/LAGURIN, ANALYSTA DATU- HEAD.jpg', import.meta.url).href },
+      { name: 'Danielle Louiesse Dazo', role: 'Committee Head - Quality Assurance & Feedback', image: new URL('../assets/Dazo, Danielle Louiesse-Head.jpeg', import.meta.url).href },
+      { name: 'Salyana Desnia L. Abuhon', role: 'Committee Head - Logistics & Operations', image: 'https://via.placeholder.com/80?text=Head' }
+    ],
+    blockReps: [
+      { name: 'Block Representative 1', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Block Representative 2', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Block Representative 3', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Block Representative 4', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' }
+    ],
+    members: []
   },
   {
     name: 'CONTENT & EDITORIAL COMMITTEE',
@@ -604,7 +634,7 @@ const goBack = () => {
 }
 
 /* Heads Section */
-.heads-section {
+.heads-section, .block-reps-section, .project-managers-section {
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 2px solid rgba(188, 108, 37, 0.15);
@@ -639,6 +669,19 @@ const goBack = () => {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.heads-container.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.block-reps-container,
+.project-managers-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
 /* Members Section */
