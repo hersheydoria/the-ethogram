@@ -250,7 +250,7 @@ const committees = [
     name: 'TREASURY COMMITTEE',
     description: 'Manages finances, budgeting, and ensures responsible stewardship of resources.',
     heads: [
-      { name: 'Analysta D. Lagurin', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Analysta D. Lagurin', role: 'Committee Head', image: new URL('../assets/LAGURIN, ANALYSTA DATU- HEAD.jpg', import.meta.url).href }
     ],
     members: [
       { name: 'Alexah Sofia L. Simon' },
