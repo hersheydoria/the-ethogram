@@ -17,25 +17,31 @@ const rightIcons = [
 ]
 const icons = [...leftIcons, ...rightIcons]
 
+// Seeded random number generator for consistent positioning
+function seededRandom(seed) {
+  let x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
 
-// Generate scattered positions for all icons
-function generateScatteredPositions(count) {
+// Generate fixed scattered positions for all icons using seed
+function generateFixedPositions(count) {
   const positions = [];
   for (let i = 0; i < count; i++) {
-    const top = (Math.random() * 100).toFixed(2) + '%';
-    const left = (Math.random() * 100).toFixed(2) + '%';
+    // Use different seeds for top and left to ensure variety
+    const top = (seededRandom(i * 2 + 1) * 100).toFixed(2) + '%';
+    const left = (seededRandom(i * 2 + 2) * 100).toFixed(2) + '%';
     positions.push({ top, left });
   }
   return positions;
 }
 
-const iconPositions = generateScatteredPositions(icons.length);
+const iconPositions = generateFixedPositions(icons.length);
 
 const randomStyle = (i) => {
-  // Each icon gets a unique position
+  // Each icon gets a unique position and size based on its index
   const pos = iconPositions[i];
-  const size = (Math.random() * 2 + 2.5).toFixed(2) + 'rem';
-  const opacity = (Math.random() * 0.25 + 0.1).toFixed(2);
+  const size = (seededRandom(i * 3 + 10) * 2 + 2.5).toFixed(2) + 'rem';
+  const opacity = (seededRandom(i * 3 + 20) * 0.25 + 0.1).toFixed(2);
   return {
     top: pos.top,
     left: pos.left,
