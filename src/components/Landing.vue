@@ -1012,32 +1012,41 @@ onUnmounted(() => {
     height: 35px;
     font-size: 0.75rem;
   }
-
-  .quick-links-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .quick-link-card {
-    padding: 1.5rem;
-  }
+}
 
   .quick-link-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .quick-link-card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    color: white;
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .doctor-feature-landing-section {
-    padding: 2.5rem 1.5rem;
+  .link-icon-component {
+    color: white;
+    margin-bottom: 1rem;
   }
 
-  .quick-links-section {
-    padding: 2.5rem 1.5rem;
+  :root.light-mode .quick-link-card h3,
+  :root.light-mode .quick-link-card p {
+
+    color: #222 !important;
   }
-}
+
+  :root.light-mode .link-icon-component {
+    color: #222 !important;
+  }
 
 @media (max-width: 480px) {
   .carousel-title {
@@ -1300,10 +1309,20 @@ onUnmounted(() => {
 
 .quick-link-card p {
   font-size: 0.95rem;
+
   color: white;
   line-height: 1.6;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root.light-mode .quick-link-card h3,
+:root.light-mode .quick-link-card p {
+  color: #222 !important;
+}
+
+:root.light-mode .link-icon-component {
+  color: #222 !important;
 }
 </style>

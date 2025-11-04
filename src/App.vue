@@ -12,6 +12,7 @@ import Footer from './components/Footer.vue'
 import { Sun, Moon } from 'lucide-vue-next'
 import { allArticles } from './articles/index.js'
 import { useTheme } from './composables/useTheme'
+import AnimatedAnimalBackground from './components/AnimatedAnimalBackground.vue'
 
 const { isDarkMode, initTheme, toggleTheme } = useTheme()
 
@@ -170,6 +171,7 @@ const handleFooterNavigation = (linkType) => {
 </script>
 
 <template>
+  <AnimatedAnimalBackground />
   <div class="app">
     <!-- Landing Page -->
     <template v-if="currentPage === 'landing'">

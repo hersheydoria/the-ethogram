@@ -103,7 +103,7 @@ defineEmits(['navigate-to-articles', 'navigate-to-team'])
 .about-us {
   min-height: 100vh;
   padding: 5rem 2rem;
-  background: var(--bg-primary);
+  background: transparent;
   position: relative;
   overflow: hidden;
   transition: background-color 0.3s ease;

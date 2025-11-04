@@ -236,7 +236,7 @@ const shareToEmail = () => {
 <style scoped>
 .blog-post-section {
   padding: 2.5rem;
-  background: var(--bg-primary);
+  background: transparent;
   color: var(--text-primary);
   min-height: 100vh;
   flex: 1;

@@ -204,7 +204,7 @@ const clearFilter = (filter) => {
 <style scoped>
 .blog-section {
   padding: 5rem 2rem;
-  background: var(--bg-primary);
+  background: transparent;
   color: var(--text-primary);
   flex: 1;
   min-height: 60vh;

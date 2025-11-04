@@ -46,14 +46,14 @@ defineEmits(['explore-articles'])
   overflow: hidden;
   min-height: auto;
   display: block;
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 .hero-wrapper {
   padding: 0;
   margin: 0;
   width: 100%;
-  background: var(--bg-primary);
+  background: transparent;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
