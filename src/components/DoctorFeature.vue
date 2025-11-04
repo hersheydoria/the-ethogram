@@ -32,8 +32,10 @@
 
 <script setup>
 import { UserCheck, Star, Quote } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
 
-defineEmits(['navigate-to-articles'])
+const router = useRouter()
+const navigateToArticles = () => router.push('/blog')
 
 const doctorInfo = {
   name: 'Dr. Katherine Mae I. Caterial',

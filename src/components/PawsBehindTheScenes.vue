@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <section class="paws-section">
     <div class="container">
       <!-- Header -->
@@ -79,7 +80,7 @@
 
       <!-- Back Button -->
       <div class="back-button-container">
-        <button @click="$emit('navigate-to-landing')" class="back-button">
+        <button @click="navigateToLanding" class="back-button">
           ← Back
         </button>
       </div>
@@ -92,8 +93,11 @@ import { ref } from 'vue'
 import { 
   Dog, Cat, Bird, Rabbit, Fish, Squirrel, Lightbulb, MessageCircle, Heart, Home
 } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
+import Navbar from './Navbar.vue'
 
-defineEmits(['navigate-to-landing'])
+const router = useRouter()
+const navigateToLanding = () => router.push('/')
 
 const selectedPet = ref(null)
 

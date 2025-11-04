@@ -1,6 +1,6 @@
 <template>
   <div class="landing">
-    <Hero @explore-articles="$emit('navigate-to-articles')" />
+    <Hero @explore-articles="navigateToArticles" />
 
     <!-- Featured Articles Carousel Section -->
     <section class="featured-carousel-section">
@@ -32,7 +32,7 @@
             </div>
             <button 
               class="featured-read-more" 
-              @click="$emit('read-post', currentFeaturedArticle.id)"
+              @click="readPost(currentFeaturedArticle.id)"
             >
               Read Featured Blog →
             </button>
@@ -98,7 +98,7 @@
     <section class="doctor-feature-landing-section">
       <div class="container">
         <h2 class="featured-title-section">Featured This Week</h2>
-        <DoctorFeature @navigate-to-articles="$emit('navigate-to-articles')" />
+        <DoctorFeature />
       </div>
     </section>
 
@@ -107,12 +107,12 @@
       <div class="container">
         <h2 class="quick-links-title">Explore More</h2>
         <div class="quick-links-grid">
-          <button @click="$emit('navigate-paws')" class="quick-link-card">
+          <button @click="navigateToPaws" class="quick-link-card">
             <Zap class="link-icon-component" :size="48" />
             <h3>Paws Behind The Scenes</h3>
             <p>Meet our beloved companions and discover fascinating facts about animals</p>
           </button>
-          <button @click="$emit('navigate-to-articles')" class="quick-link-card">
+          <button @click="navigateToArticles" class="quick-link-card">
             <BookMarked class="link-icon-component" :size="48" />
             <h3>Latest Blogs</h3>
             <p>Explore curated blogs on animal welfare, behavior, and conservation</p>
@@ -128,16 +128,18 @@
 import Hero from './Hero.vue'
 import DoctorFeature from './DoctorFeature.vue'
 import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb, Calendar, Clock, Zap } from 'lucide-vue-next'
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted, inject } from 'vue'
+import { useRouter } from 'vue-router'
 
-const props = defineProps({
-  allPosts: {
-    type: Array,
-    default: () => []
-  }
-})
+const router = useRouter()
 
-defineEmits(['navigate-to-articles', 'read-post', 'navigate-paws'])
+// Get blog data from parent
+const blogData = inject('blogData')
+const { allBlogPosts, handleReadPost } = blogData
+
+const navigateToArticles = () => router.push('/blog')
+const navigateToPaws = () => router.push('/paws')
+const readPost = (postId) => handleReadPost(postId)
 
 const currentCarouselIndex = ref(0)
 let carouselInterval = null
@@ -155,7 +157,7 @@ const featuredPost = computed(() => {
 // Get carousel articles - one from each category in a specific order
 const carouselArticles = computed(() => {
   const categories = new Map()
-  props.allPosts.forEach(post => {
+  allBlogPosts.value.forEach(post => {
     if (!categories.has(post.category)) {
       categories.set(post.category, post)
     }

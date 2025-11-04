@@ -1,291 +1,99 @@
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
-import Landing from './components/Landing.vue'
+import { ref, computed, onMounted, provide } from 'vue'
 import Navbar from './components/Navbar.vue'
-import BlogList from './components/BlogList.vue'
-import BlogPost from './components/BlogPost.vue'
-import AboutUs from './components/AboutUs.vue'
-import Teams from './components/Teams.vue'
-import PawsBehindTheScenes from './components/PawsBehindTheScenes.vue'
-import DoctorFeature from './components/DoctorFeature.vue'
 import Footer from './components/Footer.vue'
 import { Sun, Moon } from 'lucide-vue-next'
 import { allArticles } from './articles/index.js'
 import { useTheme } from './composables/useTheme'
 import AnimatedAnimalBackground from './components/AnimatedAnimalBackground.vue'
+import { useRouter } from 'vue-router'
 
 const { isDarkMode, initTheme, toggleTheme } = useTheme()
+const router = useRouter()
 
-const currentPage = ref('landing') // 'landing', 'blog', 'about', 'team', 'paws', 'doctor-feature'
 const selectedCategory = ref('all')
 const searchQuery = ref('')
-const selectedPostId = ref(null)
 const selectedTags = ref([])
 
-// Restore page state from localStorage on mount
+// Initialize theme on mount
 onMounted(() => {
   initTheme()
-  const savedPage = localStorage.getItem('currentPage')
-  const savedCategory = localStorage.getItem('selectedCategory')
-  const savedPostId = localStorage.getItem('selectedPostId')
-  
-  // Only restore valid pages
-  if (savedPage && (savedPage === 'landing' || savedPage === 'blog' || savedPage === 'about' || savedPage === 'team' || savedPage === 'paws' || savedPage === 'doctor-feature')) {
-    currentPage.value = savedPage
-  }
-  if (savedCategory) {
-    selectedCategory.value = savedCategory
-  }
-  if (savedPostId) {
-    selectedPostId.value = parseInt(savedPostId)
-  }
-})
-
-// Save page state to localStorage whenever it changes
-watch(currentPage, (newPage) => {
-  localStorage.setItem('currentPage', newPage)
-})
-
-watch(selectedCategory, (newCategory) => {
-  localStorage.setItem('selectedCategory', newCategory)
-})
-
-watch(selectedPostId, (newPostId) => {
-  if (newPostId) {
-    localStorage.setItem('selectedPostId', newPostId)
-  } else {
-    localStorage.removeItem('selectedPostId')
-  }
 })
 
 // All blog posts data - imported from articles folder
 const allBlogPosts = ref(allArticles)
 
-const selectedPost = computed(() => {
-  return allBlogPosts.value.find(post => post.id === selectedPostId.value)
-})
-
 const handleCategoryChange = (category) => {
   selectedCategory.value = category
   selectedTags.value = [] // Reset tags when changing category
-  selectedPostId.value = null
-  // Navigate to blog page if not already there
-  if (currentPage.value !== 'blog') {
-    currentPage.value = 'blog'
-  }
-  window.scrollTo(0, 0)
+  router.push('/blog')
 }
 
 const handleTagFilterChange = (tags) => {
   selectedTags.value = tags
-  selectedPostId.value = null
 }
 
 const handleSearchQuery = (query) => {
   searchQuery.value = query
-  selectedPostId.value = null
 }
 
 const handleReadPost = (postId) => {
-  selectedPostId.value = postId
-  currentPage.value = 'blog'
-  window.scrollTo(0, 0)
+  router.push(`/blog/${postId}`)
 }
 
-const handleBackToList = () => {
-  selectedPostId.value = null
-}
+// Provide data to child components
+provide('blogData', {
+  allBlogPosts,
+  selectedCategory,
+  searchQuery,
+  selectedTags,
+  handleCategoryChange,
+  handleTagFilterChange,
+  handleSearchQuery,
+  handleReadPost
+})
 
 const handleClearFilter = () => {
   selectedCategory.value = 'all'
-  selectedPostId.value = null
+  selectedTags.value = []
 }
 
 const handleClearSearch = () => {
   searchQuery.value = ''
-  selectedPostId.value = null
-}
-
-const goToArticles = () => {
-  currentPage.value = 'blog'
-  selectedCategory.value = 'all'
-  selectedPostId.value = null
-  searchQuery.value = ''
   selectedTags.value = []
-  window.scrollTo(0, 0)
 }
 
-const goToBlogWithCurrentFilters = () => {
-  // Navigate to blog page while keeping current filters (category, search, tags)
-  currentPage.value = 'blog'
-  selectedPostId.value = null
-  window.scrollTo(0, 0)
-}
 
-const goToHome = () => {
-  currentPage.value = 'landing'
-  selectedPostId.value = null
-  window.scrollTo(0, 0)
-}
 
-const goToAbout = () => {
-  currentPage.value = 'about'
-  selectedPostId.value = null
-  window.scrollTo(0, 0)
-}
-
-const goToTeams = () => {
-  currentPage.value = 'team'
-  selectedPostId.value = null
-  window.scrollTo(0, 0)
-}
-
-const goBackFromTeams = () => {
-  currentPage.value = 'about'
-  window.scrollTo(0, 0)
-}
-
-const goToPaws = () => {
-  currentPage.value = 'paws'
-  selectedPostId.value = null
-  window.scrollTo(0, 0)
-}
-
-const goToDoctorFeature = () => {
-  currentPage.value = 'doctor-feature'
-  selectedPostId.value = null
-  window.scrollTo(0, 0)
-}
+// Navigation handlers for router-based navigation
+const goToHome = () => router.push('/')
+const goToArticles = () => router.push('/blog')
+const goToAbout = () => router.push('/about')
+const goToTeams = () => router.push('/teams')
+const goToPaws = () => router.push('/paws')
+const goToDoctorFeature = () => router.push('/doctor-feature')
 
 const handleFooterCategoryFilter = (category) => {
-  currentPage.value = 'blog'
   selectedCategory.value = category
-  selectedPostId.value = null
-  window.scrollTo(0, 0)
+  router.push('/blog')
 }
 
 const handleFooterNavigation = (linkType) => {
-  // Navigation for removed pages - this is now a no-op
-  // Pages like 'about', 'resources', and 'contribute' have been removed
+  // Handle footer navigation if needed
 }
 </script>
 
 <template>
   <AnimatedAnimalBackground />
   <div class="app">
-    <!-- Landing Page -->
-    <template v-if="currentPage === 'landing'">
-      <Landing 
-        :all-posts="allBlogPosts"
-        @navigate-to-articles="goToArticles"
-        @navigate-paws="goToPaws"
-        @read-post="handleReadPost"
-      />
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- About Us Page -->
-    <template v-else-if="currentPage === 'about'">
-      <Navbar 
-        :selected-category="selectedCategory"
-        :search-query="searchQuery"
-        :all-posts="allBlogPosts"
-        @category-change="handleCategoryChange"
-        @search="handleSearchQuery"
-        @navigate-to-landing="goToHome"
-        @navigate-to-blog="goToArticles"
-        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
-        @navigate-to-about="goToAbout"
-        @tag-filter-change="handleTagFilterChange"
-      />
-      <AboutUs @navigate-to-articles="goToArticles" @navigate-to-team="goToTeams" />
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- Blog Page -->
-    <template v-else-if="currentPage === 'blog'">
-      <Navbar 
-        :selected-category="selectedCategory"
-        :search-query="searchQuery"
-        :all-posts="allBlogPosts"
-        @category-change="handleCategoryChange"
-        @search="handleSearchQuery"
-        @navigate-to-landing="goToHome"
-        @navigate-to-blog="goToArticles"
-        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
-        @navigate-to-about="goToAbout"
-        @tag-filter-change="handleTagFilterChange"
-      />
-      <template v-if="selectedPostId === null">
-        <BlogList 
-          :selected-category="selectedCategory" 
-          :search-query="searchQuery"
-          :selected-tags="selectedTags"
-          :all-posts="allBlogPosts" 
-          @read-post="handleReadPost"
-          @clear-filter="handleClearFilter"
-          @clear-search="handleClearSearch"
-        />
-      </template>
-      <template v-else>
-        <BlogPost :post="selectedPost" :all-posts="allBlogPosts" @back="handleBackToList" @select-post="handleReadPost" />
-      </template>
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- Teams Page -->
-    <template v-else-if="currentPage === 'team'">
-      <Navbar 
-        :selected-category="selectedCategory"
-        :search-query="searchQuery"
-        :all-posts="allBlogPosts"
-        @category-change="handleCategoryChange"
-        @search="handleSearchQuery"
-        @navigate-to-landing="goToHome"
-        @navigate-to-blog="goToArticles"
-        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
-        @navigate-to-about="goToAbout"
-        @tag-filter-change="handleTagFilterChange"
-      />
-      <Teams @go-back="goBackFromTeams" />
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- Paws Behind The Scenes Page -->
-    <template v-else-if="currentPage === 'paws'">
-      <Navbar 
-        :selected-category="selectedCategory"
-        :search-query="searchQuery"
-        :all-posts="allBlogPosts"
-        @category-change="handleCategoryChange"
-        @search="handleSearchQuery"
-        @navigate-to-landing="goToHome"
-        @navigate-to-blog="goToArticles"
-        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
-        @navigate-to-about="goToAbout"
-        @tag-filter-change="handleTagFilterChange"
-      />
-      <PawsBehindTheScenes @navigate-to-landing="goToHome" />
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
-
-    <!-- Doctor Feature Page -->
-    <template v-else-if="currentPage === 'doctor-feature'">
-      <Navbar 
-        :selected-category="selectedCategory"
-        :search-query="searchQuery"
-        :all-posts="allBlogPosts"
-        @category-change="handleCategoryChange"
-        @search="handleSearchQuery"
-        @navigate-to-landing="goToHome"
-        @navigate-to-blog="goToArticles"
-        @navigate-to-blog-with-filters="goToBlogWithCurrentFilters"
-        @navigate-to-about="goToAbout"
-        @tag-filter-change="handleTagFilterChange"
-      />
-      <DoctorFeature @navigate-to-articles="goToArticles" />
-      <Footer @category-filter="handleFooterCategoryFilter" @navigate="handleFooterNavigation" />
-    </template>
+    <!-- Router View for all pages -->
+    <router-view />
+    
+    <!-- Footer on all pages -->
+    <Footer 
+      @category-filter="handleFooterCategoryFilter" 
+      @navigate="handleFooterNavigation" 
+    />
 
     <!-- Floating Theme Toggle Button -->
     <button class="floating-theme-toggle" @click="toggleTheme" :title="isDarkMode ? 'Light Mode' : 'Dark Mode'">

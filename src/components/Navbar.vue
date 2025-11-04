@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-container">
       <!-- Logo -->
-      <div class="navbar-logo" @click="$emit('navigate-to-landing')">
+      <div class="navbar-logo" @click="navigateToLanding">
         <img src="../assets/logo.png" alt="The Ethogram Logo" class="navbar-logo-img" />
         <span>The Ethogram</span>
       </div>
@@ -17,12 +17,12 @@
       <!-- Right-side Navigation Wrapper -->
       <div class="navbar-right-content" :class="{ active: showMobileMenu }">
         <!-- Home Button -->
-        <button @click="handleMobileNavClick($emit('navigate-to-blog'))" class="navbar-home-btn">
+        <button @click="navigateToBlog(); showMobileMenu = false" class="navbar-home-btn">
           Home
         </button>
 
         <!-- About Us Button -->
-        <button @click="handleMobileNavClick($emit('navigate-to-about'))" class="navbar-about-btn">
+        <button @click="navigateToAbout(); showMobileMenu = false" class="navbar-about-btn">
           About Us
         </button>
         
@@ -99,25 +99,16 @@
 </template>
 
 <script setup>
-import { ref, watch, computed, onMounted } from 'vue'
+import { ref, watch, computed, onMounted, inject } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { useTheme } from '../composables/useTheme'
 
 const { initTheme } = useTheme()
+const router = useRouter()
+const route = useRoute()
 
-const props = defineProps({
-  selectedCategory: {
-    type: String,
-    default: 'all'
-  },
-  searchQuery: {
-    type: String,
-    default: ''
-  },
-  allPosts: {
-    type: Array,
-    default: () => []
-  }
-})
+// Get blog data from parent if available
+const blogData = inject('blogData', null)
 
 const localSearchQuery = ref('')
 const activeCategory = ref('all')
@@ -127,7 +118,10 @@ const selectedTags = ref([])
 let closeMenuTimeout = null
 let searchTimeout = null
 
-const emit = defineEmits(['category-change', 'search', 'navigate-to-landing', 'navigate-to-blog', 'navigate-to-about', 'navigate-to-blog-with-filters', 'tag-filter-change'])
+// Navigation functions
+const navigateToLanding = () => router.push('/')
+const navigateToBlog = () => router.push('/blog')
+const navigateToAbout = () => router.push('/about')
 
 // Category definitions
 const categories = computed(() => [
@@ -155,9 +149,9 @@ const categories = computed(() => [
 
 // Get available tags for current category
 const availableTags = computed(() => {
-  if (activeCategory.value === 'all') return []
+  if (activeCategory.value === 'all' || !blogData || !blogData.allBlogPosts) return []
   
-  const articlesInCategory = props.allPosts.filter(p => p.category === activeCategory.value)
+  const articlesInCategory = blogData.allBlogPosts.value.filter(p => p.category === activeCategory.value)
   const tagsSet = new Set()
   
   articlesInCategory.forEach(article => {
@@ -169,13 +163,12 @@ const availableTags = computed(() => {
   return Array.from(tagsSet).sort()
 })
 
-// Watch for parent updates
-watch(() => props.selectedCategory, (newVal) => {
-  activeCategory.value = newVal
-})
-
-watch(() => props.searchQuery, (newVal) => {
-  localSearchQuery.value = newVal
+// Watch for route changes to update active category
+watch(() => route.path, () => {
+  // Update activeCategory based on current route
+  if (blogData && blogData.selectedCategory) {
+    activeCategory.value = blogData.selectedCategory.value
+  }
 })
 
 const toggleMenu = () => {
@@ -200,12 +193,20 @@ const toggleMobileMenu = () => {
 
 const handleMobileNavClick = (action) => {
   showMobileMenu.value = false
+  action() // Execute the navigation function
 }
 
 const selectCategory = (category) => {
   activeCategory.value = category
   selectedTags.value = [] // Reset tags when changing category
-  emit('category-change', category)
+  
+  if (blogData && blogData.handleCategoryChange) {
+    blogData.handleCategoryChange(category)
+  }
+  
+  // Navigate to blog page
+  router.push('/blog')
+  
   if (closeMenuTimeout) clearTimeout(closeMenuTimeout)
   showMenu.value = false // Close dropdown after selection immediately
 }
@@ -217,17 +218,25 @@ const toggleTag = (tag) => {
   } else {
     selectedTags.value.push(tag)
   }
-  emit('tag-filter-change', selectedTags.value)
+  
+  if (blogData && blogData.handleTagFilterChange) {
+    blogData.handleTagFilterChange(selectedTags.value)
+  }
 }
 
 const clearTags = () => {
   selectedTags.value = []
-  emit('tag-filter-change', [])
+  if (blogData && blogData.handleTagFilterChange) {
+    blogData.handleTagFilterChange([])
+  }
 }
 
 const handleSearchInput = (query) => {
   localSearchQuery.value = query
-  emit('search', query)
+  
+  if (blogData && blogData.handleSearchQuery) {
+    blogData.handleSearchQuery(query)
+  }
   
   // Clear previous timeout
   if (searchTimeout) clearTimeout(searchTimeout)
@@ -235,7 +244,7 @@ const handleSearchInput = (query) => {
   // Only navigate to blog after user stops typing for 500ms
   if (query.trim() !== '') {
     searchTimeout = setTimeout(() => {
-      emit('navigate-to-blog-with-filters')
+      router.push('/blog')
     }, 500)
   }
 }

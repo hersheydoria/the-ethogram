@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <section class="about-us">
     <div class="about-container">
       <!-- Header -->
@@ -60,7 +61,7 @@
         <p class="section-content">
           The Ethogram brings together veterinarians, animal welfare advocates, educators, and passionate individuals who believe in the power of information and compassion. Our diverse team ensures that the content we share is accurate, insightful, and meaningful.
         </p>
-        <button @click="$emit('navigate-to-team')" class="team-btn">
+        <button @click="navigateToTeam" class="team-btn">
           Meet Our Team →
         </button>
       </div>
@@ -85,7 +86,7 @@
       <div class="about-cta">
         <h3>Join Our Community</h3>
         <p>Explore our blogs and become part of The Ethogram movement for animal welfare.</p>
-        <button @click="$emit('navigate-to-articles')" class="cta-button">
+        <button @click="navigateToArticles" class="cta-button">
           Explore Blogs →
         </button>
       </div>
@@ -95,8 +96,13 @@
 
 <script setup>
 import { Target, Globe, BookOpen, Users, Heart } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
+import Navbar from './Navbar.vue'
 
-defineEmits(['navigate-to-articles', 'navigate-to-team'])
+const router = useRouter()
+
+const navigateToArticles = () => router.push('/blog')
+const navigateToTeam = () => router.push('/teams')
 </script>
 
 <style scoped>

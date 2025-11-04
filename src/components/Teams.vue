@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <div class="teams-page">
     <!-- Header -->
     <section class="teams-header">
@@ -79,6 +80,8 @@
 <script setup>
 import { computed } from 'vue';
 import { Users, User } from 'lucide-vue-next';
+import { useRouter } from 'vue-router'
+import Navbar from './Navbar.vue'
 
 const committees = [
   {
@@ -308,11 +311,11 @@ const totalMembers = computed(() =>
   committees.reduce((sum, committee) => sum + committee.heads.length + committee.members.length, 0)
 );
 
-const emit = defineEmits(['go-back']);
+const router = useRouter()
 
 const goBack = () => {
-  emit('go-back');
-};
+  router.push('/about')
+}
 </script>
 
 <style scoped>

@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <section class="blog-section">
     <div class="container">
       <div class="section-header">
@@ -22,7 +23,7 @@
                 :key="post.id"
                 class="list-article"
                 :style="{ animationDelay: `${index * 0.1}s` }"
-                @click="$emit('read-post', post.id)"
+                @click="handleReadPost(post.id)"
               >
                 <div class="list-article-number">{{ index + 1 }}</div>
                 <div class="list-article-image">
@@ -78,31 +79,35 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, inject } from 'vue'
 import { X, Calendar, Clock, Search } from 'lucide-vue-next'
+import Navbar from './Navbar.vue'
 
-const props = defineProps({
-  selectedCategory: {
-    type: String,
-    default: 'all'
-  },
-  searchQuery: {
-    type: String,
-    default: ''
-  },
-  allPosts: {
-    type: Array,
-    required: true
-  },
-  selectedTags: {
-    type: Array,
-    default: () => []
-  }
-})
+// Get blog data from parent
+const blogData = inject('blogData')
+const { 
+  allBlogPosts, 
+  selectedCategory, 
+  searchQuery, 
+  selectedTags, 
+  handleCategoryChange,
+  handleTagFilterChange,
+  handleSearchQuery,
+  handleReadPost
+} = blogData
 
-const emit = defineEmits(['read-post', 'clear-filter', 'clear-search'])
-
+// Local state
 const expandedCategories = ref(new Set())
+
+const handleClearFilter = () => {
+  selectedCategory.value = 'all'
+  selectedTags.value = []
+}
+
+const handleClearSearch = () => {
+  searchQuery.value = ''
+  selectedTags.value = []
+}
 
 const toggleCategoryExpanded = (category) => {
   if (expandedCategories.value.has(category)) {
@@ -113,25 +118,25 @@ const toggleCategoryExpanded = (category) => {
 }
 
 const filteredPosts = computed(() => {
-  let posts = props.allPosts
+  let posts = allBlogPosts.value
 
   // Filter by category
-  if (props.selectedCategory !== 'all') {
-    posts = posts.filter(post => post.category === props.selectedCategory)
+  if (selectedCategory.value !== 'all') {
+    posts = posts.filter(post => post.category === selectedCategory.value)
   }
 
   // Filter by tags (only apply when tags are selected)
-  if (props.selectedTags.length > 0) {
+  if (selectedTags.value.length > 0) {
     posts = posts.filter(post => {
       if (!post.tags || !Array.isArray(post.tags)) return false
       // Check if post has ANY of the selected tags
-      return props.selectedTags.some(tag => post.tags.includes(tag))
+          return selectedTags.value.some(tag => post.tags.includes(tag))
     })
   }
 
   // Filter by search query
-  if (props.searchQuery.trim()) {
-    const query = props.searchQuery.toLowerCase()
+  if (searchQuery.value.trim()) {
+    const query = searchQuery.value.toLowerCase()
     posts = posts.filter(post => 
       post.title.toLowerCase().includes(query) ||
       post.excerpt.toLowerCase().includes(query) ||
@@ -149,10 +154,10 @@ const remainingArticles = computed(() => {
 
 const activeFilters = computed(() => {
   const filters = []
-  if (props.selectedCategory !== 'all') {
-    filters.push(`Category: ${capitalize(props.selectedCategory)}`)
+  if (selectedCategory.value !== 'all') {
+    filters.push(`Category: ${capitalize(selectedCategory.value)}`)
   }
-  if (props.searchQuery.trim()) {
+  if (searchQuery.value.trim()) {
     filters.push(`Search: "${props.searchQuery}"`)
   }
   return filters

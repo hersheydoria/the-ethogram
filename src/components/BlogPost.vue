@@ -1,4 +1,5 @@
 <template>
+  <Navbar />
   <section class="blog-post-section">
     <div class="post-container">
       <!-- Side Panel - Related Articles -->
@@ -9,7 +10,7 @@
             <button
               v-for="(relatedPost, index) in displayedRelatedArticles"
               :key="relatedPost.id"
-              @click="$emit('select-post', relatedPost.id)"
+              @click="handleSelectPost(relatedPost.id)"
               class="related-post-card"
               :class="{ active: relatedPost.id === post.id }"
             >
@@ -42,7 +43,7 @@
       <!-- Main Content -->
       <div class="main-content">
         <div class="container">
-          <button class="back-btn" @click="$emit('back')"><ArrowLeft :size="18" /> Back to Blogs</button>
+                    <button class="back-btn" @click="handleBack"><ArrowLeft :size="18" /> Back to Blogs</button>
           
           <article class="blog-post">
             <div class="post-header">
@@ -144,26 +145,46 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, inject } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { BookOpen, ArrowLeft, Calendar, Clock, Image, Frame, Link, ExternalLink, Share2, Facebook, Mail, Instagram } from 'lucide-vue-next'
+import Navbar from './Navbar.vue'
 
+// Define props passed from router
 const props = defineProps({
-  post: {
-    type: Object,
+  id: {
+    type: String,
     required: true
-  },
-  allPosts: {
-    type: Array,
-    default: () => []
   }
 })
 
-defineEmits(['back', 'select-post'])
+const route = useRoute()
+const router = useRouter()
+
+// Get blog data from parent
+const blogData = inject('blogData')
+const { allBlogPosts } = blogData
+
+// Get current post from props
+const postId = computed(() => parseInt(props.id))
+const post = computed(() => {
+  return allBlogPosts.value.find(p => p.id === postId.value)
+})
+
+// Navigation functions
+const handleBack = () => {
+  router.push('/blog')
+}
+
+const handleSelectPost = (newPostId) => {
+  router.push(`/blog/${newPostId}`)
+}
 
 const showMoreRelated = ref(false)
 
 const formattedDate = computed(() => {
-  const date = new Date(props.post.date)
+  if (!post.value) return ''
+  const date = new Date(post.value.date)
   return date.toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
@@ -181,7 +202,8 @@ const formatDate = (dateString) => {
 }
 
 const relatedArticles = computed(() => {
-  return props.allPosts.filter(p => p.category === props.post.category && p.id !== props.post.id)
+  if (!post.value) return []
+  return allBlogPosts.value.filter(p => p.category === post.value.category && p.id !== post.value.id)
 })
 
 const displayedRelatedArticles = computed(() => {
@@ -196,18 +218,44 @@ const toggleShowMore = () => {
 }
 
 const currentUrl = computed(() => {
-  if (typeof window !== 'undefined') {
-    return window.location.href
+  if (typeof window !== 'undefined' && post.value) {
+    const baseUrl = window.location.origin
+    // Use production URL for social sharing if on localhost
+    const productionUrl = 'https://the-ethogram.vercel.app'
+    const shareUrl = baseUrl.includes('localhost') ? productionUrl : baseUrl
+    return `${shareUrl}/blog/${post.value.id}`
   }
   return ''
 })
 
-const shareTitle = computed(() => props.post.title)
-const shareText = computed(() => `${props.post.title} - The Ethogram: Animal Welfare Blog`)
+const shareTitle = computed(() => post.value?.title || '')
+const shareText = computed(() => post.value ? `${post.value.title} - The Ethogram: Animal Welfare Blog` : '')
 
 const shareToFacebook = () => {
-  const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl.value)}`
-  window.open(url, '_blank', 'width=600,height=400')
+  const shareUrl = currentUrl.value || window.location.href
+  const title = shareTitle.value
+  const description = post.value?.excerpt || 'Read this interesting article about animal welfare'
+  
+  // Try Facebook Dialog API first, then fall back to sharer
+  try {
+    const dialogUrl = `https://www.facebook.com/dialog/share?` +
+      `app_id=YOUR_APP_ID&` +
+      `href=${encodeURIComponent(shareUrl)}&` +
+      `quote=${encodeURIComponent(title + ' - ' + description)}&` +
+      `display=popup&` +
+      `redirect_uri=${encodeURIComponent(shareUrl)}`
+    
+    // For now, use the simpler sharer with pre-filled text
+    const simpleUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&t=${encodeURIComponent(title)}`
+    
+    console.log('Sharing to Facebook:', simpleUrl)
+    window.open(simpleUrl, 'facebook-share-dialog', 'width=626,height=436')
+  } catch (error) {
+    console.error('Facebook share error:', error)
+    // Fallback: copy link to clipboard
+    navigator.clipboard.writeText(`${title}\n\n${shareUrl}`)
+    alert('Link copied to clipboard! You can paste it in your Facebook post.')
+  }
 }
 
 const shareToTwitter = () => {
