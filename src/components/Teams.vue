@@ -155,7 +155,7 @@ const committees = [
     name: 'CREATIVES COMMITTEE',
     description: 'Develops visual design, graphics, photography, and creative assets for all platforms.',
     heads: [
-      { name: 'Althea Chiong', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Althea May Chiong', role: 'Committee Head', image: new URL('../assets/Chiong, Althea May-Head.png', import.meta.url).href }
     ],
     members: [
       { name: 'Eric Galo' },
@@ -187,12 +187,28 @@ const committees = [
     name: 'PUBLICATIONS & PROMOTIONS COMMITTEE',
     description: 'Handles marketing, social media campaigns, and strategic promotion of our initiatives.',
     heads: [
-      { name: 'Pearl Odette M. Abcede', role: 'Committee Head', image: new URL('../assets/Abcede, Pearl Odette M. - Head.jpg', import.meta.url).href }
+      { name: 'Pearl Odette M. Abcede', role: 'Committee Head', image: new URL('../assets/ABCEDE, PEARL ODETTE M. - HEAD.jpg', import.meta.url).href }
     ],
-    members: Array.from({ length: 22 }, (_, i) => ({ 
-      name: `Member ${i + 1}`, 
-      image: `https://via.placeholder.com/60?text=M${i + 1}` 
-    }))
+    members: [
+      { name: 'Dei Salundaguit' },
+      { name: 'Marianne Angela Langoyan' },
+      { name: 'Felicity Franco' },
+      { name: 'Shin Alexander D. Nercua' },
+      { name: 'Alliah T. Fuerte' },
+      { name: 'Aljo Luab Enriquez' },
+      { name: 'Pauline Dominique V. Tamala' },
+      { name: 'Janna Marie T. Paredes' },
+      { name: 'Hannah Junel Matea V. Nini' },
+      { name: 'Xyvyl Dhyn L. Jimenez' },
+      { name: 'Gwyn Marie Gonzales' },
+      { name: 'Irene Grace B. Reyes' },
+      { name: 'Elyn-Je Pabualan' },
+      { name: 'Gian Joshua D. Padullon' },
+      { name: 'Carl Avila' },
+      { name: 'Manuel Dela Merced' },
+      { name: 'Kryssha Dane Auguis' },
+      { name: 'Aya Shikinah F. Hibaler' }
+    ]
   },
   {
     name: 'PARTNERSHIPS & OUTREACH COMMITTEE',
@@ -267,7 +283,7 @@ const committees = [
     name: 'QUALITY ASSURANCE & FEEDBACK COMMITTEE',
     description: 'Reviews quality standards, gathers feedback, and implements continuous improvements.',
     heads: [
-      { name: 'Danielle Louiesse Dazo', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Danielle Louiesse Dazo', role: 'Committee Head', image: new URL('../assets/Dazo, Danielle Louiesse-Head.jpeg', import.meta.url).href }
     ],
     members: [
       { name: 'Emmanuel Baclig' },
