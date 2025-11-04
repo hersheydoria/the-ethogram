@@ -526,6 +526,7 @@ onUnmounted(() => {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   color: var(--text-primary);
+  z-index: 1;
 }
 
 :root.light-mode .feature-card {
@@ -1260,6 +1261,7 @@ onUnmounted(() => {
   color: var(--text-primary);
   font-family: inherit;
   border: 1px solid var(--border-color);
+  z-index: 1;
 }
 
 :root.light-mode .quick-link-card {
