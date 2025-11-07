@@ -289,7 +289,7 @@ const shareToEmail = () => {
   min-height: 100vh;
   flex: 1;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   animation: fadeIn 0.6s ease-out;
   transition: background-color 0.3s ease;
 }
@@ -323,6 +323,7 @@ const shareToEmail = () => {
   margin: 0 auto;
   position: relative;
   z-index: 1;
+  align-items: flex-start;
 }
 
 /* Side Panel Styles */
@@ -330,8 +331,15 @@ const shareToEmail = () => {
   width: 280px;
   flex-shrink: 0;
   position: sticky;
-  top: 0;
+  top: 100px;
   height: fit-content;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.side-panel::-webkit-scrollbar {
+  display: none;
 }
 
 .side-panel-content {
