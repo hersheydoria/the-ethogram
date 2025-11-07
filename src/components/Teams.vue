@@ -237,7 +237,8 @@ const committees = [
       { name: 'Carl Avila' },
       { name: 'Manuel Dela Merced' },
       { name: 'Kryssha Dane Auguis' },
-      { name: 'Aya Shikinah F. Hibaler' }
+      { name: 'Aya Shikinah F. Hibaler' },
+      { name: 'Ian Zachary C. Nalangan' }
     ]
   },
   {
