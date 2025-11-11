@@ -62,9 +62,7 @@ const handleCategoryClick = (category) => {
 const handleSocialLink = (platform) => {
   // Social links would typically open external URLs
   const urls = {
-    facebook: 'https://facebook.com',
-    twitter: 'https://twitter.com',
-    instagram: 'https://instagram.com',
+    facebook: 'https://www.facebook.com/profile.php?id=61583589417948',
     email: 'mailto:hello@livinglinks.org'
   }
   window.open(urls[platform], '_blank')
