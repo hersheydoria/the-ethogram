@@ -128,7 +128,7 @@ const committees = [
       { name: 'Samantha Intong', role: 'Committee Head - Documentation & Archiving', image: new URL('../assets/Intong, Samantha Andrea - Head.jpg', import.meta.url).href },
       { name: 'Analysta D. Lagurin', role: 'Committee Head - Treasury', image: new URL('../assets/LAGURIN, ANALYSTA DATU- HEAD.jpg', import.meta.url).href },
       { name: 'Danielle Louiesse Dazo', role: 'Committee Head - Quality Assurance & Feedback', image: new URL('../assets/Dazo, Danielle Louiesse-Head.jpeg', import.meta.url).href },
-      { name: 'Salyana Desnia L. Abuhon', role: 'Committee Head - Logistics & Operations', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Salyana Desnia L. Abuhon', role: 'Committee Head - Logistics & Operations', image: new URL('../assets/Abuhon, Salyana Desnia L. - Head.jpg', import.meta.url).href }
     ],
     blockReps: [
       { name: 'Block Representative 1', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' },
@@ -334,7 +334,7 @@ const committees = [
     name: 'LOGISTICS & OPERATIONS COMMITTEE',
     description: 'Coordinates operations, logistics, scheduling, and day-to-day organizational support.',
     heads: [
-      { name: 'Salyana Desnia L. Abuhon', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Salyana Desnia L. Abuhon', role: 'Committee Head', image: new URL('../assets/Abuhon, Salyana Desnia L. - Head.jpg', import.meta.url).href }
     ],
     members: [
       { name: 'Sire Vince P. Batilona' },
@@ -782,6 +782,50 @@ const goBack = () => {
   align-items: flex-start;
   text-align: left;
   gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .project-managers-container,
+  .block-reps-container {
+    grid-template-columns: 1fr;
+  }
+
+  .project-managers-container .head-item,
+  .block-reps-container .head-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-managers-container .member-image,
+  .block-reps-container .member-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .project-managers-container .member-info,
+  .block-reps-container .member-info {
+    width: 100%;
+  }
+
+  .heads-container.two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .heads-container.two-column .head-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .heads-container.two-column .member-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .heads-container.two-column .member-info {
+    width: 100%;
+  }
 }
 
 .member-item:hover {

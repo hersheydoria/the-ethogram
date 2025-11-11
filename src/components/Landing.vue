@@ -2,6 +2,45 @@
   <div class="landing">
     <Hero @explore-articles="navigateToArticles" />
 
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="container">
+        <h2 class="features-title">Why The Ethogram?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon"><BookMarked /></div>
+            <h3>Curated Blogs</h3>
+            <p>18+ carefully researched blogs on animal behavior, welfare, ethics, veterinary science, and conservation.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><Globe /></div>
+            <h3>Global Perspective</h3>
+            <p>Discover local initiatives, national campaigns, and international efforts in animal welfare and protection.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><Stethoscope /></div>
+            <h3>Expert Contributions</h3>
+            <p>Learn from veterinarians, wildlife specialists, and animal welfare professionals sharing real experiences.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><Users /></div>
+            <h3>Community Driven</h3>
+            <p>Explore rescue operations, educational outreach, and local initiatives making tangible differences.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><GraduationCap /></div>
+            <h3>Educational Content</h3>
+            <p>Comprehensive guides covering responsible pet ownership, wildlife protection, and ethical practices.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon"><Lightbulb /></div>
+            <h3>Inspiring Voices</h3>
+            <p>Amplifying creative expressions, success stories, and personal perspectives on animal advocacy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Featured Articles Carousel Section -->
     <section class="featured-carousel-section">
       <div class="container">
@@ -55,40 +94,45 @@
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- Five Freedoms of Animal Welfare Section -->
+    <section class="five-freedoms-section">
       <div class="container">
-        <h2 class="features-title">Why The Ethogram?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon"><BookMarked /></div>
-            <h3>Curated Blogs</h3>
-            <p>18+ carefully researched blogs on animal behavior, welfare, ethics, veterinary science, and conservation.</p>
+        <h2 class="five-freedoms-title">Five Freedoms of Animal Welfare</h2>
+        <div class="five-freedoms-grid">
+          <div class="freedom-card freedom-1">
+            <div class="freedom-icon">
+              <img src="../assets/freedom from hunger and thirst.png" alt="Freedom from Hunger & Thirst" class="freedom-icon-img" />
+            </div>
+            <h3>Freedom from Hunger & Thirst</h3>
+            <p>Access to fresh water and a diet to maintain full health and vigor</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon"><Globe /></div>
-            <h3>Global Perspective</h3>
-            <p>Discover local initiatives, national campaigns, and international efforts in animal welfare and protection.</p>
+          <div class="freedom-card freedom-2">
+            <div class="freedom-icon">
+              <img src="../assets/freedom from discomfort.png" alt="Freedom from Discomfort" class="freedom-icon-img" />
+            </div>
+            <h3>Freedom from Discomfort</h3>
+            <p>Provision of appropriate shelter and comfortable resting areas</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon"><Stethoscope /></div>
-            <h3>Expert Contributions</h3>
-            <p>Learn from veterinarians, wildlife specialists, and animal welfare professionals sharing real experiences.</p>
+          <div class="freedom-card freedom-3">
+            <div class="freedom-icon">
+              <img src="../assets/freedom from pain, injury & disease.png" alt="Freedom from Pain, Injury & Disease" class="freedom-icon-img" />
+            </div>
+            <h3>Freedom from Pain, Injury & Disease</h3>
+            <p>Prevention and treatment of illness and injury through proper care</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon"><Users /></div>
-            <h3>Community Driven</h3>
-            <p>Explore rescue operations, educational outreach, and local initiatives making tangible differences.</p>
+          <div class="freedom-card freedom-4">
+            <div class="freedom-icon">
+              <img src="../assets/freedom to express normal behavior.png" alt="Freedom to Express Normal Behavior" class="freedom-icon-img" />
+            </div>
+            <h3>Freedom to Express Normal Behavior</h3>
+            <p>Opportunities to engage in natural behaviors and social interactions</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon"><GraduationCap /></div>
-            <h3>Educational Content</h3>
-            <p>Comprehensive guides covering responsible pet ownership, wildlife protection, and ethical practices.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><Lightbulb /></div>
-            <h3>Inspiring Voices</h3>
-            <p>Amplifying creative expressions, success stories, and personal perspectives on animal advocacy.</p>
+          <div class="freedom-card freedom-5">
+            <div class="freedom-icon">
+              <img src="../assets/freedom from fear and distress.png" alt="Freedom from Fear & Distress" class="freedom-icon-img" />
+            </div>
+            <h3>Freedom from Fear & Distress</h3>
+            <p>Conditions that prevent mental suffering and promote psychological well-being</p>
           </div>
         </div>
       </div>
@@ -1328,5 +1372,370 @@ onUnmounted(() => {
 
 :root.light-mode .link-icon-component {
   color: #222 !important;
+}
+
+/* Five Freedoms of Animal Welfare Section */
+.five-freedoms-section {
+  padding: 5rem 2rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.five-freedoms-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.five-freedoms-title {
+  font-size: 2.8rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding: 2rem 2.5rem 3rem 2.5rem;
+  display: inline-block;
+  width: 100%;
+  background: #DDA15E;
+  border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root.dark-mode .five-freedoms-title {
+  background: #bc6c25;
+}
+
+.five-freedoms-title::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #DDA15E;
+  animation: slideDown 0.6s ease-out;
+}
+
+:root.dark-mode .five-freedoms-title::after {
+  border-top-color: #bc6c25;
+}
+
+.five-freedoms-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.freedom-card {
+  background: var(--card-bg);
+  padding: 1.5rem 1rem;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.freedom-card:nth-child(1) { animation-delay: 0.1s; }
+.freedom-card:nth-child(2) { animation-delay: 0.2s; }
+.freedom-card:nth-child(3) { animation-delay: 0.3s; }
+.freedom-card:nth-child(4) { animation-delay: 0.4s; }
+.freedom-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root.light-mode .freedom-card {
+  background: #5A7A94;
+  color: #FFFFFF;
+  box-shadow: 0 6px 25px rgba(90, 122, 148, 0.2);
+}
+
+:root.dark-mode .freedom-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
+}
+
+.freedom-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.freedom-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+:root.light-mode .freedom-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(90, 122, 148, 0.35);
+  background: linear-gradient(135deg, #5A7A94, #4A6A84);
+}
+
+:root.dark-mode .freedom-card:hover {
+  border-color: rgba(221, 161, 94, 0.3);
+  box-shadow: 0 15px 40px rgba(221, 161, 94, 0.2);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+}
+
+/* SDG-style colored borders for each freedom */
+.freedom-1 {
+  border-left: 5px solid #E5243B;
+}
+
+.freedom-1 .freedom-icon {
+  color: #E5243B;
+}
+
+.freedom-2 {
+  border-left: 5px solid #DDA15E;
+}
+
+.freedom-2 .freedom-icon {
+  color: #DDA15E;
+}
+
+.freedom-3 {
+  border-left: 5px solid #4A6D42;
+}
+
+.freedom-3 .freedom-icon {
+  color: #4A6D42;
+}
+
+.freedom-4 {
+  border-left: 5px solid #0A97D9;
+}
+
+.freedom-4 .freedom-icon {
+  color: #0A97D9;
+}
+
+.freedom-5 {
+  border-left: 5px solid #9B59B6;
+}
+
+.freedom-5 .freedom-icon {
+  color: #9B59B6;
+}
+
+.freedom-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid currentColor;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.freedom-icon::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.freedom-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.freedom-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: scale(2.5);
+}
+
+.freedom-card:hover .freedom-icon {
+  transform: scale(1.15) rotate(10deg);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.freedom-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.3px;
+  animation: slideIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.freedom-card:nth-child(1) h3 { animation-delay: 0.2s; }
+.freedom-card:nth-child(2) h3 { animation-delay: 0.3s; }
+.freedom-card:nth-child(3) h3 { animation-delay: 0.4s; }
+.freedom-card:nth-child(4) h3 { animation-delay: 0.5s; }
+.freedom-card:nth-child(5) h3 { animation-delay: 0.6s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+:root.light-mode .freedom-card h3 {
+  color: #FFFFFF;
+}
+
+.freedom-card h3:hover {
+  transform: scale(1.05);
+}
+
+.freedom-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  text-align: justify;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 0.7s ease-out forwards;
+  opacity: 0;
+}
+
+.freedom-card:nth-child(1) p { animation-delay: 0.3s; }
+.freedom-card:nth-child(2) p { animation-delay: 0.4s; }
+.freedom-card:nth-child(3) p { animation-delay: 0.5s; }
+.freedom-card:nth-child(4) p { animation-delay: 0.6s; }
+.freedom-card:nth-child(5) p { animation-delay: 0.7s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:root.light-mode .freedom-card p {
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .five-freedoms-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .five-freedoms-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+
+  .five-freedoms-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .freedom-card {
+    padding: 1.5rem;
+  }
+
+  .freedom-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+  }
+
+  .freedom-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .freedom-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .five-freedoms-section {
+    padding: 2rem 1rem;
+  }
+
+  .five-freedoms-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .five-freedoms-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .freedom-card {
+    padding: 1.2rem;
+  }
+
+  .freedom-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.8rem;
+  }
+
+  .freedom-card h3 {
+    font-size: 1rem;
+  }
+
+  .freedom-card p {
+    font-size: 0.85rem;
+  }
 }
 </style>
