@@ -71,7 +71,9 @@ export default {
 
     <p>As we reflect on the predicament of the <b>Philippine Eagle</b>, we realized its survival is more than a fight for a single species, but a test of our commitment to the future of our forests, our wildlife, and ourselves. Supporting the <b>Philippine Eagle Foundation</b> and protecting its habitat isn't just conservation; it's shaping a future where both the eagle and the Filipino people can thrive together.</p>
 
-    <iframe width="100%" style="max-width: 100%; height: 450px; margin: 20px 0; border-radius: 8px;" src="https://youtu.be/Qu5FMLAMHWY" title="Philippine Eagle Foundation Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 20px 0; border-radius: 8px; overflow: hidden;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;" src="https://www.youtube-nocookie.com/embed/Qu5FMLAMHWY" title="Philippine Eagle Foundation Documentary" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
     <p><i>Video footage Courtesy of the Philippine Eagle Center/ Philippine Eagle Foundation (Youtube Channel: @PhilEagleFdn)<br>
     For more information about the Philippine Eagle Foundation and how to support their efforts, visit their official channel/website(https://www.philippineeaglefoundation.org/)  and the Philippine Eagle Center in Malagos, Davao City.</i></p>

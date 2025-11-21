@@ -772,9 +772,47 @@ const shareToEmail = () => {
 }
 
 @media (max-width: 480px) {
-  .gallery-grid-full {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .blog-post-section {
+    padding: 0.75rem;
+    overflow-x: hidden;
+  }
+
+  .post-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 100vw;
+    padding: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .post-content {
+    padding: 0.75rem !important;
+    overflow-x: hidden;
+  }
+
+  .side-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .side-panel-content {
+    padding: 1rem !important;
+  }
+
+  .post-body :deep(img) {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+  .post-body {
+    overflow-x: hidden;
   }
 }
 
@@ -1118,6 +1156,26 @@ const shareToEmail = () => {
   display: block !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  .post-body :deep(img) {
+    max-width: 100% !important;
+    margin: 15px auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-body :deep(img) {
+    max-width: 100% !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    border-radius: 0 !important;
+  }
 }
 
 .post-body :deep(iframe) {
@@ -1484,21 +1542,32 @@ const shareToEmail = () => {
 
 @media (max-width: 768px) {
   .blog-post-section {
-    padding: 1.5rem;
+    padding: 1rem;
+    overflow-x: hidden;
   }
 
   .post-container {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .main-content {
+    order: 1;
+    width: 100%;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .post-content {
+    padding: 1rem 1rem !important;
+    overflow-x: hidden;
   }
 
   .side-panel {
     width: 100%;
     order: 2;
-  }
-
-  .main-content {
-    order: 1;
   }
 
   .side-panel-content {
