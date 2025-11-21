@@ -29,7 +29,8 @@
             <h3 class="section-title">Overseeing Project Managers</h3>
             <div class="project-managers-container two-column">
               <div v-for="(manager, managerIndex) in committee.projectManagers" :key="`manager-${managerIndex}`" class="member-item head-item">
-                <img :src="manager.image" :alt="manager.name" class="member-image">
+                <img v-if="hasImage(manager.image)" :src="manager.image" :alt="manager.name" class="member-image">
+                <UserCircle v-else :size="80" class="member-image default-profile-icon" />
                 <div class="member-info">
                   <p class="member-name">{{ manager.name }}</p>
                   <p class="member-role">{{ manager.role }}</p>
@@ -43,7 +44,8 @@
             <h3 class="section-title">Block Representatives</h3>
             <div class="block-reps-container two-column">
               <div v-for="(rep, repIndex) in committee.blockReps" :key="`rep-${repIndex}`" class="member-item head-item">
-                <img :src="rep.image" :alt="rep.name" class="member-image">
+                <img v-if="hasImage(rep.image)" :src="rep.image" :alt="rep.name" class="member-image">
+                <UserCircle v-else :size="80" class="member-image default-profile-icon" />
                 <div class="member-info">
                   <p class="member-name">{{ rep.name }}</p>
                   <p class="member-role">{{ rep.role }}</p>
@@ -57,7 +59,8 @@
             <h3 class="section-title">{{ committee.blockReps ? 'Committee Heads' : 'Committee Heads' }}</h3>
             <div class="heads-container" :class="{ 'two-column': committee.blockReps }">
               <div v-for="(head, headIndex) in committee.heads" :key="`head-${headIndex}`" class="member-item head-item">
-                <img :src="head.image" :alt="head.name" class="member-image">
+                <img v-if="hasImage(head.image)" :src="head.image" :alt="head.name" class="member-image">
+                <UserCircle v-else :size="80" class="member-image default-profile-icon" />
                 <div class="member-info">
                   <p class="member-name">{{ head.name }}</p>
                   <p class="member-role">{{ head.role }}</p>
@@ -107,9 +110,22 @@
 
 <script setup>
 import { computed } from 'vue';
-import { Users, User } from 'lucide-vue-next';
+import { Users, User, UserCircle } from 'lucide-vue-next';
 import { useRouter } from 'vue-router'
 import Navbar from './Navbar.vue'
+
+// Helper function to get image or default profile icon
+const getImageOrDefault = (image) => {
+  if (!image || image.includes('placeholder')) {
+    return null; // Return null to use default icon
+  }
+  return image;
+}
+
+// Helper to check if image exists
+const hasImage = (image) => {
+  return image && !image.includes('placeholder');
+}
 
 const committees = [
   {
