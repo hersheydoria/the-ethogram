@@ -14,8 +14,6 @@ export default {
     {name: 'Jazbatincila - An Animal Husbandry Complex in Kadingilan, Bukidnon', url: 'https://www.scribd.com/document/789142376/An-Animal-Husbandry-Complex-in-Kadingilan-Bukidnon-the-Application-of-Spatial-Niche-Construction-Through-Ecological-Architecture'}
   ],
   content: `
-    <h2>Strengthening Communities through Care: The Role of Animal Welfare Programs in Bukidnon</h2>
-
     <p><b>Animal welfare programs in Bukidnon</b> play a central role in protecting livestock, safeguarding public health, and sustaining community livelihoods. The province is one of <b>Mindanao</b>'s most diverse agricultural landscapes, and it relies heavily on livestock, poultry, draft animals, and companion animals for economic productivity and social well-being. Because animals in <b>Bukidnon</b> contribute not only to farming systems but also to cultural practices, food security, and local identity, ensuring their welfare becomes a direct investment in the welfare of communities. Animal welfare programs therefore function as more than isolated initiatives. They operate as interventions that support long-term development, disease prevention, and community resilience.</p>
 
     <h2>Bukidnon's Agricultural Profile and Livestock Dependency</h2>

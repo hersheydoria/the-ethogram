@@ -10,8 +10,6 @@ export default {
   tags: ['veterinary', 'internship', 'clinical-rotation', 'student-experience', 'professional-development'],
   authors: ['Group 2'],
   content: `
-    <h2>Voices From the Field: Stories of Veterinary Interns From Local and International Clinical Rotations</h2>
-
     <h3>Introduction</h3>
     <p>Veterinary internships and clinical rotations expose students to realities far beyond the classroom—moments that challenge, humble, and shape future clinicians. For this feature, we interviewed five veterinary interns and graduates: <b>Jan Vincent Tevar</b>, <b>Kyle Ian Tablon</b>, <b>Dr. Rei Joshua Yasona Ladjahasan</b>, <b>Dr. Joice L. Gallardo</b>, and <b>Doc. Jazmine Endaya</b>.</p>
 

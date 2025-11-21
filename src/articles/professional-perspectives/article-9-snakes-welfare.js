@@ -11,9 +11,6 @@ export default {
   authors: ['Arquintillo', 'Astibe', 'Briones', 'Deguito', 'Dela Cruz', 'Dragon', 'Paquera', 'Plaza'],
   relatedLinks: [],
   content: `
-    <h2>The Snakes Among Us: Inside CMU's Hidden Wildlife</h2>
-
-    <h3>Near the Edges of Campus</h3>
     <p>Near the edges of <b>Central Mindanao University (CMU)</b>, where the fields stretch into soft green shadows, something stirs long before students notice. A shift of leaves. A curve of movement. A presence that sends some running and others recording. What sparks panic for students is, for wildlife experts, a reminder that <b>CMU</b> sits within one of <b>Bukidnon's</b> last functioning natural corridors.</p>
 
     <h2>Meeting Jan Vincent Tevar</h2>

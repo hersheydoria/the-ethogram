@@ -19,8 +19,6 @@ export default {
     {name: 'World Animal Protection - Global Review 2023', url: 'https://www.worldanimalprotection.org/global-reviews'}
   ],
   content: `
-    <h2>The Five Freedoms of Animal Welfare: A Comprehensive Analysis</h2>
-
     <h2>Introduction to Animal Welfare</h2>
 
     <p><b>Animal welfare</b> has become a central concern in modern society, as awareness grows about the conditions in which both domestic and farmed animals live. Beyond simply preventing cruelty, welfare encompasses providing environments and care that ensure animals can thrive physically, mentally, and behaviorally. A foundational framework for understanding and evaluating animal welfare is the <b>Five Freedoms</b>. Developed in the <b>United Kingdom</b>, these principles have been widely adopted globally by veterinarians, animal welfare organizations, and regulatory bodies.</p>

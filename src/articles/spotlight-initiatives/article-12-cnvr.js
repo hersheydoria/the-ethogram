@@ -1,6 +1,6 @@
 export default {
   id: 12,
-  title: 'CNVR: Shifting from Impoundment to Humane Solutions for Stray Dogs',
+  title: 'Shifting from Impoundment to CNVR for Better Animal Welfare in Cebu City and Agusan del Norte',
   excerpt: 'An exploration of Catch-Neuter-Vaccinate-Return programs as a humane and evidence-based alternative to shelter impoundment, examining their effectiveness in animal welfare, public health, and community development.',
   category: 'spotlight-initiatives',
   date: '2025-10-28',
@@ -28,8 +28,6 @@ export default {
     }
   ],
   content: `
-    <h2>Shifting from Impoundment to CNVR for Better Animal Welfare in Cebu City and Agusan del Norte</h2>
-
     <h2>The Problem with Impoundments and Inhumane Practices</h2>
     <p>In the <b>Philippines</b>, impounding stray or unlicensed animals, especially dogs, has long been a default government response to perceived public safety or health risks. While impoundment may seem like a reasonable measure, in reality many local pounds fall far short of humane standards. Municipal and barangay pounds often lack adequate infrastructure, veterinary care, and transparency, resulting in suffering, high disease rates, and even illegal or cruel practices.</p>
     <p>Legally, the <b>Animal Welfare Act (Republic Act No. 8485)</b> prohibits cruelty, neglect, and maltreatment of animals, and requires that euthanasia, when employed, be performed only through humane methods, yet gaps remain between law and local implementation. The <b>BAI</b> issued <b>Administrative Circular No. 03 (2015)</b> to set minimum standards for animal pounds, such as adequate space, ventilation, clean water, drainage, and proper record-keeping, but many LGUs still struggle to meet these requirements. Some facilities lack isolation areas for sick or rabies-suspecting dogs, and reports from welfare advocates describe overcrowding, poor sanitation, and inconsistent feeding practices that worsen animal stress and disease transmission.</p>

@@ -44,8 +44,6 @@ export default {
     }
   ],
   content: `
-    <h2>Ethical Wildlife Conservation and Habitat Protection: Mt. Apo and Philippine Eagle</h2>
-
     <h2>Introduction: A Symbol at Risk</h2>
 
     <p>Across the rich and diverse wildlife of the <b>Philippines</b>, one creature truly stands out among its lush greeneries. The <b>Philippine Eagle</b> soars not just as the national symbol of its homeland but also as evidence of nature's most exquisite creation. But as the advancement in technology envelops mankind, this magnificent animal, along with other lives that dwells within our forests, faces challenges and threats of their demise.</p>

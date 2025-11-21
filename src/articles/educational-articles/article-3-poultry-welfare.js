@@ -76,8 +76,6 @@ export default {
     }
   ],
   content: `
-    <h2>Poultry Welfare and Management Practices: Promoting Healthy, Productive, and Ethical Poultry Raising in the Philippines</h2>
-
     <img src="https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/assets/article-3-1.png" alt="Poultry Welfare Overview" style="width: 100%; max-width: 600px; margin: 20px 0; border-radius: 8px;" />
 
     <h2>Introduction</h2>

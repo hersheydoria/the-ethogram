@@ -11,8 +11,6 @@ export default {
   authors: ['Group 14'],
   relatedLinks: [],
   content: `
-    <h2>Welfare in Livestock: Dr. Racho on Sustainable Livestock Care in Today's Modern Farms</h2>
-
     <h2>Introduction: A Veterinarian's Journey with Large Animals</h2>
 
     <p><b>Dr. Racho</b> began her large animal journey immediately after obtaining her license, starting with hands-on equine practice in <b>Impasug-ong, Bukidnon</b>. She shared, <i>"Right after getting my license… I've got my experience of hands-on training in equine… especially in Impasug-ong."</i></p>

@@ -36,8 +36,6 @@ export default {
     }
   ],
   content: `
-    <h2>Breaking the Chain: Why Tethering Your Dog Could Be Harming Them More Than You Think</h2>
-
     <p>You see it everywhere: a dog tied to a tree, a chain stretched across a yard, a lonely canine pacing back and forth. For many, tethering dogs seems like a harmless way to keep pets safe or out of trouble. But what if that <i>"simple solution"</i> is actually causing serious harm, both physically and emotionally, to the animals we love?</p>
 
     <p><b>Tethering</b> is more than a way to restrain dogs. It can be a silent form of suffering, often overlooked by well-meaning owners. Worse, it can be a factor of their death in some cases.</p>

@@ -12,8 +12,6 @@ export default {
   relatedLinks: [
   ],
   content: `
-    <h2>Why Spay & Neuter Campaigns Matter: Protecting Pets, People & Communities in the Philippines</h2>
-
     <p><b>Spaying and neutering pets</b> is one of the most powerful tools to improve animal welfare and reduce stray animal overpopulation in the <b>Philippines</b>. In provinces like <b>Bukidnon</b>, where rural, semi-urban and urban settings coexist, uncontrolled breeding contributes to rising numbers of free-roaming dogs and cats, which lead to health, safety and environmental challenges. Educational campaigns and community participation are essential to break this cycle.</p>
 
     <h2>What Are Spaying & Neutering?</h2>

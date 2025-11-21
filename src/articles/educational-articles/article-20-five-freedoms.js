@@ -11,8 +11,6 @@ export default {
   authors: ['Group 20'],
   relatedLinks: [],
   content: `
-    <h2>Responsible Pet Ownership: Ensuring Health, Safety, and Humane Care</h2>
-
     <p>Have you ever wondered what it means to be truly ready for a pet? Many people fall in love with the idea of having an animal companion, but responsible pet ownership begins long before bringing one home. To care for a pet is to understand that their well-being is in our hands for the rest of their life. It is a lifelong commitment that goes beyond companionship.</p>
 
     <h3><i><b>If pets could tell us what they truly need to live happily, what would they ask for?</b></i></h3>

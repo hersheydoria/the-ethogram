@@ -16,7 +16,6 @@ export default {
     { icon: '📚', name: 'Feeding PAWgram Malaybalay', url: 'https://www.facebook.com/share/p/1KJT4sJQZ3/?mibextid=wwXIfr' }
   ],
   content: `
-    <h2>Eyes on the Street</h2>
     <p>In the bustling towns of <b>Bukidnon</b>, a silent crisis unfolds daily: the plight of countless stray animals. Emaciated, often sick, and vulnerable, these dogs and cats roam the streets, their lives a stark contrast to the warmth and safety many pets enjoy.</p>
     <p>According to the <b>Philippine Animal Welfare Society (PAWS)</b>, there were an estimated over 12 million stray dogs and cats wandering as of 2019. These animals, often referred to as <i>Askals</i> (street dogs), face a grim reality: constant hunger, exposure to disease, and high risk of cruelty or accidents.</p>
     <p>A single unspayed female cat can quickly lead to a colony of nearly 30 cats in just a year, which shows how fast the stray animal population can grow. What's even more heartbreaking is that many of these animals weren't born on the streets – they once lived in warm homes before being abandoned.</p>

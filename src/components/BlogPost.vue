@@ -1085,23 +1085,23 @@ const shareToEmail = () => {
   font-weight: 700;
 }
 
-.post-body p {
+.post-body :deep(p) {
   margin-bottom: 1.2rem;
   text-align: justify;
 }
 
-.post-body ul,
-.post-body ol {
+.post-body :deep(ul),
+.post-body :deep(ol) {
   margin-left: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-.post-body li {
+.post-body :deep(li) {
   margin-bottom: 0.8rem;
   line-height: 1.8;
 }
 
-.post-body blockquote {
+.post-body :deep(blockquote) {
   border-left: 5px solid #632024;
   padding: 1.5rem;
   padding-left: 1.8rem;
@@ -1112,6 +1112,18 @@ const shareToEmail = () => {
   border-radius: 8px;
   font-weight: 500;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.post-body :deep(img) {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.post-body :deep(iframe) {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Media Section Styles */

@@ -16,7 +16,6 @@ export default {
     { icon: '📚', name: 'Baguio City Government - Animal Welfare', url: 'https://new.baguio.gov.ph/news/baguio-records-cases-of-animal-cruelty-cases-despite-ra-8485-implementation' }
   ],
   content: `
-    <h2>Silent Suffering: How Philippine Cities Are Failing Animals—and What We Can Do About It</h2>
     <p>Animal cruelty is not always loud, dramatic, or obvious. Sometimes, it hides in daily routines, cultural traditions, or silent backyards—often unrecognized as a violation of law or, worse, tolerated as <i>"normal."</i> Yet across the <b>Philippines</b>, from northern highlands to dense urban centers, communities are beginning to confront the harsh realities faced by animals and the moral responsibility every citizen carries. The question that now demands attention is simple but urgent: Are we doing enough?</p>
 
     <h2>A Growing Problem in Baguio City</h2>
