@@ -17,24 +17,14 @@
         <div class="articles-by-category">
           <div v-for="(articles, category) in articlesByCategory" :key="category" class="category-section">
             <h4 v-if="selectedCategory === 'all'" class="category-section-title" :class="category">{{ formatCategoryName(category) }}</h4>
-            <div class="articles-list">
+            <div v-if="articles.some(a => !a.isGallery)" class="articles-list">
               <article 
-                v-for="(post, index) in expandedCategories.has(category) ? articles : articles.slice(0, 2)" 
+                v-for="(post, index) in (expandedCategories.has(category) ? articles : articles.slice(0, 2)).filter(a => !a.isGallery)" 
                 :key="post.id"
                 class="list-article"
                 :style="{ animationDelay: `${index * 0.1}s` }"
                 @click="handleReadPost(post.id)"
               >
-                <div class="list-article-number">{{ index + 1 }}</div>
-                <div class="list-article-image">
-                  <img 
-                    v-if="post.imageUrl" 
-                    :src="post.imageUrl" 
-                    :alt="post.title" 
-                    class="list-img"
-                  />
-                  <div v-else class="list-emoji">{{ post.image }}</div>
-                </div>
                 <div class="list-article-content">
                   <div class="list-article-header">
                     <span class="list-category" :class="post.category">{{ post.category }}</span>
@@ -54,6 +44,30 @@
                   </div>
                 </div>
               </article>
+            </div>
+
+            <!-- Gallery Display -->
+            <div v-if="articles.some(a => a.isGallery)" class="gallery-section-display">
+              <div v-for="post in articles.filter(a => a.isGallery)" :key="post.id" class="gallery-container">
+                <div class="gallery-header-section">
+                  <h3 class="gallery-section-header">{{ post.title }}</h3>
+                  <p class="gallery-section-desc">{{ post.excerpt }}</p>
+                </div>
+                <div class="gallery-grid-main">
+                  <div v-for="(item, imgIndex) in post.galleryItems" :key="imgIndex" class="gallery-cell">
+                    <div class="gallery-cell-wrapper">
+                      <img 
+                        :src="`https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/creative-expressions/${item.image}`"
+                        :alt="item.title"
+                        class="gallery-cell-img"
+                      />
+                      <div class="gallery-cell-overlay">
+                        <p class="gallery-cell-title">{{ item.title }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <button 
               v-if="articles.length > 2" 
@@ -993,11 +1007,11 @@ const clearFilter = (filter) => {
 .list-article {
   cursor: pointer;
   display: grid;
-  grid-template-columns: auto 180px 1fr;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   padding: 1.5rem;
   border: 1px solid rgba(37, 99, 235, 0.08);
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   overflow: hidden;
 }
@@ -1068,72 +1082,170 @@ const clearFilter = (filter) => {
   color: #475569;
 }
 
+/* Gallery Section Display Styles */
+.gallery-section-display {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.gallery-container {
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.gallery-header-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.gallery-section-header {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  text-transform: capitalize;
+}
+
+:root.light-mode .gallery-section-header {
+  color: #1F3A52;
+}
+
+.gallery-section-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+:root.light-mode .gallery-section-desc {
+  color: #4B5563;
+}
+
+.gallery-grid-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid-main {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid-main {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.gallery-cell {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+.gallery-cell:nth-child(1) { animation-delay: 0.1s; }
+.gallery-cell:nth-child(2) { animation-delay: 0.2s; }
+.gallery-cell:nth-child(3) { animation-delay: 0.3s; }
+.gallery-cell:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-cell-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root.light-mode .gallery-cell-wrapper {
+  box-shadow: 0 4px 12px rgba(127, 168, 201, 0.2);
+}
+
+:root.dark-mode .gallery-cell-wrapper {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-cell-wrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px var(--card-shadow);
+}
+
+:root.light-mode .gallery-cell-wrapper:hover {
+  box-shadow: 0 12px 32px rgba(127, 168, 201, 0.3);
+}
+
+:root.dark-mode .gallery-cell-wrapper:hover {
+  box-shadow: 0 12px 32px rgba(221, 161, 94, 0.2);
+}
+
+.gallery-cell-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.gallery-cell-wrapper:hover .gallery-cell-img {
+  transform: scale(1.08);
+}
+
+.gallery-cell-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 1.5rem 1rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-cell-wrapper:hover .gallery-cell-overlay {
+  transform: translateY(0);
+}
+
+.gallery-cell-title {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
 /* Article Number */
 .list-article-number {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #5A7A94;
-  min-width: 60px;
-  text-align: center;
-  line-height: 1;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-:root.light-mode .list-article-number {
-  color: #5A7A94;
-}
-
-:root.dark-mode .list-article-number {
-  color: #ffffff;
-}
-
-.list-article:hover .list-article-number {
-  transform: scale(1.1) rotate(5deg);
-}
-
-:root.light-mode .list-article:hover .list-article-number {
-  color: #4A6D7F;
-}
-
-:root.dark-mode .list-article:hover .list-article-number {
-  color: #e0e0e0;
+  display: none;
 }
 
 /* Article Image */
 .list-article-image {
-  width: 180px;
-  height: 140px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
-  transition: box-shadow 0.3s ease;
-}
-
-.list-article:hover .list-article-image {
-  box-shadow: 0 8px 24px rgba(30, 64, 175, 0.4);
-}
-
-.list-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.list-article:hover .list-img {
-  transform: scale(1.15) rotate(2deg);
-}
-
-.list-emoji {
-  font-size: 3rem;
-  animation: float 3s ease-in-out infinite;
+  display: none;
 }
 
 @keyframes float {
@@ -1200,11 +1312,11 @@ const clearFilter = (filter) => {
 }
 
 .list-article-title {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   color: var(--text-primary);
   font-weight: 700;
   line-height: 1.4;
-  margin: 0;
+  margin: 0.8rem 0 0.5rem 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
@@ -1404,18 +1516,17 @@ const clearFilter = (filter) => {
   }
 
   .list-article {
-    grid-template-columns: auto 150px 1fr;
+    grid-template-columns: 1fr;
     gap: 1.2rem;
     padding: 1.2rem;
   }
 
   .list-article-image {
-    width: 150px;
-    height: 120px;
+    display: none;
   }
 
   .list-article-title {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
   }
 
   .list-article-excerpt {
@@ -1482,8 +1593,7 @@ const clearFilter = (filter) => {
   }
 
   .list-article-image {
-    width: 100%;
-    height: 150px;
+    display: none;
   }
 
   .list-article-title {

@@ -1,48 +1,30 @@
 export default {
   id: 13,
   title: 'Trailblazers of Compassion: How Previous Batches Shaped Animal Welfare Week\'s Legacy',
-  excerpt: 'Recognizing and celebrating how previous student cohorts and animal welfare initiatives have shaped current programs and advocacy.',
+  excerpt: 'Student-led creative projects that transformed Animal Welfare Week, demonstrating how art, empathy, and community engagement can reshape attitudes toward animal welfare.',
   category: 'spotlight-initiatives',
-  date: '2025-10-19',
-  image: '⭐',
-  imageUrl: 'https://images.unsplash.com/photo-1552582711-ddc88a101f64?w=500&h=300&fit=crop',
-  readTime: '6 min read',
-  tags: ['initiatives', 'legacy', 'student leadership', 'animal welfare week', 'history', 'sustainability'],
+  date: '2025-10-28',
+  image: '🎨',
+  imageUrl: null,
+  readTime: '8 min read',
+  tags: ['animal welfare', 'community engagement', 'student leadership', 'creative advocacy', 'environmental education', 'compassion'],
+  authors: ['Adecer', 'Baclayo', 'Casuela', 'Dabon', 'Destajo', 'Galapin', 'Ligan', 'Zapata'],
+  relatedLinks: [],
   content: `
-    <h2>Building on Past Success</h2>
-    <p>Animal welfare initiatives often build on the work of those who came before. Recognizing and celebrating past achievements helps current projects learn and improve.</p>
-    
-    <h3>The Origins of Animal Welfare Week</h3>
-    <p>What began as a small student-led initiative has grown into a major event celebrating animal welfare and advocacy.</p>
-    
-    <h3>Notable Past Projects</h3>
-    <h4>The Community Shelter Initiative (2022-2023)</h4>
-    <p>This project established low-cost veterinary services in underserved communities, spaying and neutering over 2,000 animals and vaccinating thousands more.</p>
-    
-    <h4>Urban Wildlife Corridor Project (2021-2023)</h4>
-    <p>Student leaders worked with city planners to create safe passages for wildlife, reducing animal-vehicle collisions by 40% in project areas.</p>
-    
-    <h3>Lessons Learned</h3>
-    <ul>
-      <li>Community partnerships are crucial to long-term success</li>
-      <li>Education and awareness drive behavioral change</li>
-      <li>Sustainable funding models are essential</li>
-      <li>Student involvement creates lasting impact</li>
-    </ul>
-    
-    <h3>Current Initiatives Building on Past Work</h3>
-    <p>Today's projects are expanding on these foundations:</p>
-    <ul>
-      <li>Mobile veterinary clinics reaching more communities</li>
-      <li>Extended wildlife corridor networks</li>
-      <li>Youth mentorship programs in animal welfare</li>
-    </ul>
-    
-    <h3>The Future</h3>
-    <p>By documenting and celebrating past initiatives, we create a knowledge base that helps future projects succeed and expands the scope of animal welfare work in our communities.</p>
-    
-    <blockquote>
-      The trailblazers of animal welfare paved the path for all of us to follow, and their legacy continues to inspire compassionate action.
-    </blockquote>
+    <h2>Introduction: Heart and Creativity at the Center</h2>
+    <p><b>Animal Welfare Week</b> is one of the highlights of the school year every year, but it's not really the decorations or the schedule of events that make it remarkable; it's the heart and creativity that the students bring to the activities. Every year, the week is a prompt that our relationship with animals goes beyond ownership or observation; it's about respect, empathy, and understanding. This year, a couple of projects stood out and showed us how even small projects can make large ripples that change how our community thinks about and interacts with animals.</p>
+
+    <h2>Project Dalangpanan: The Orcas' Photo Contest</h2>
+    <p>Take the <b>Orcas</b>, for example. They created a photo contest called <i>"Dalangpanan,"</i> which translates to either home or sanctuary. The philosophy behind the photo project was as simple as it was profound: animals are not just an accessory to our lives; they are living beings worthy of their own space to feel safe.</p>
+    <p>However, encapsulating that in a visual was a big effort, especially since you have to find the perfect photo that can be candid, expressive, and authentic at the same time. The students all did a fantastic job. Despite the challenges, the outcomes were outstanding. Hallways, bulletin boards, and even social media were bedecked with compelling images that invited the viewer to stop and reconsider how they view animals in their everyday life. Each image shared a story, and from the gentle curiosity of the neighborhood cat to the calm dignity of rescued birds and everything in between, every image propelled the dialogue of compassion in our mutual world.</p>
+
+    <h2>Project Exhibition: The Krakens' Wildlife Showcase</h2>
+    <p>The <b>Krakens</b> reminded us that education and empathy were critical components that share proximity with local wildlife, some of which are interdependent on their understanding of geography. The animal being the natural world, their in-situ exhibit depicted animal behavior and encompassed human-animal interactions and moments that are rarely witnessed by most human beings. One of the most powerful series challenged the widely held notion of importing pets (and/or objectifying them as <i>"better"</i>) versus native and local species, flagging up the richness, complexities, and human possibilities of local animals.</p>
+    <p>Putting together the shots to come up with the exhibit required enormous patience and commitment as the <b>Krakens</b> spent hours waiting for that moment. In the end, it didn't matter because the experiences left an indelible imprint on visitors. People walked away in awe of the artistry, but they were moved. They learned something about the lives of animals we share in the environment, and reflexively, we understand that raising awareness is equally, if not more so, rewarding than being moved as much in education and comprehension directly.</p>
+
+    <h2>Common Threads: Creativity Meets Compassion</h2>
+    <p>What was shared among both projects was that thoughtful change does not have to be expensive or rely on professional gear. What mattered most was creativity, humanness, and the time and care put into something greater than oneself. Both <b>Orcas</b> and <b>Krakens</b> were proof that thoughtful, small actions can ignite conversation, challenge thinking, and spur action from others.</p>
+    <p>By utilizing an artful lens, observation, and dedication, these students demonstrated not simply that caring for animals is an idea and an obligation that we all share, but that <i>the simple acts of observation, caring, and advocacy for those who cannot speak for themselves</i> are the best way to start. In concert with these efforts, <b>Animal Welfare Week</b> was not just a celebration, but a provocation; care, built upon creativity, can indeed resonate across the whole community, highlighting compassion and so much more.</p>
   `
 }
+

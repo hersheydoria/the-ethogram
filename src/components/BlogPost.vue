@@ -14,13 +14,10 @@
               class="related-post-card"
               :class="{ active: relatedPost.id === post.id }"
             >
-              <div class="card-image">
-                <img v-if="relatedPost.imageUrl" :src="relatedPost.imageUrl" :alt="relatedPost.title" class="article-img" />
-                <span v-else class="emoji-placeholder">{{ relatedPost.image }}</span>
-              </div>
               <div class="card-content">
                 <p class="card-title">{{ relatedPost.title }}</p>
                 <p v-if="relatedPost.excerpt" class="card-excerpt">{{ relatedPost.excerpt }}</p>
+                <p v-if="relatedPost.authors && relatedPost.authors.length > 0" class="card-authors">By {{ relatedPost.authors.join(', ') }}</p>
                 <div class="card-meta">
                   <span class="card-date">{{ formatDate(relatedPost.date) }}</span>
                   <span class="card-read-time">{{ relatedPost.readTime }}</span>
@@ -45,21 +42,51 @@
         <div class="container">
                     <button class="back-btn" @click="handleBack"><ArrowLeft :size="18" /> Back to Blogs</button>
           
-          <article class="blog-post">
-            <div class="post-header">
-              <img v-if="post.imageUrl" :src="post.imageUrl" :alt="post.title" class="post-img" />
-              <span v-else class="emoji-icon">{{ post.image }}</span>
-              <span class="category-badge" :class="post.category">{{ post.category }}</span>
+          <!-- Gallery View -->
+          <article v-if="post.isGallery" class="blog-post gallery-view">
+            <div class="gallery-header">
+              <h1 class="gallery-title">{{ post.title }}</h1>
+              <div class="gallery-meta">
+                <span class="gallery-date">{{ formattedDate }}</span>
+              </div>
             </div>
-            
+
+            <div class="gallery-container">
+              <div class="gallery-grid-full">
+                <div v-for="(item, index) in post.galleryItems" :key="index" class="gallery-item-full">
+                  <div class="gallery-image-wrapper-full">
+                    <img 
+                      :src="`https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/creative-expressions/${item.image}`"
+                      :alt="item.title"
+                      class="gallery-image-full"
+                    />
+                  </div>
+                  <div class="gallery-item-info">
+                    <h3 class="gallery-item-title-full">{{ item.title }}</h3>
+                    <p class="gallery-item-description-full">{{ item.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Traditional Blog Post View -->
+          <article v-else class="blog-post">
             <div class="post-content">
               <h1 class="post-title">{{ post.title }}</h1>
               
               <div class="post-meta">
-                <span class="date"><Calendar :size="18" /> {{ formattedDate }}</span>
-                <span class="read-time"><Clock :size="18" /> {{ post.readTime }}</span>
+                <div class="meta-top">
+                  <span class="date"><Calendar :size="18" /> {{ formattedDate }}</span>
+                  <span class="read-time"><Clock :size="18" /> {{ post.readTime }}</span>
+                </div>
+                <!-- Authors -->
+                <div v-if="post.authors && post.authors.length > 0" class="authors-section">
+                  <span class="authors-label">By</span>
+                  <span class="authors-list">{{ authorsDisplay }}</span>
+                </div>
               </div>
-              
+
               <div class="post-body" v-html="post.content"></div>
 
               <!-- Tags / Keywords -->
@@ -190,6 +217,20 @@ const formattedDate = computed(() => {
     month: 'long', 
     day: 'numeric' 
   })
+})
+
+const authorsDisplay = computed(() => {
+  if (!post.value || !post.value.authors || post.value.authors.length === 0) {
+    return ''
+  }
+  const authors = post.value.authors
+  if (authors.length === 1) {
+    return authors[0]
+  } else if (authors.length === 2) {
+    return `${authors[0]} and ${authors[1]}`
+  } else {
+    return `${authors.slice(0, -1).join(', ')}, and ${authors[authors.length - 1]}`
+  }
 })
 
 const formatDate = (dateString) => {
@@ -640,6 +681,202 @@ const shareToEmail = () => {
   }
 }
 
+/* Gallery View Styles */
+.blog-post.gallery-view {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+:root.light-mode .blog-post.gallery-view {
+  background: transparent;
+  box-shadow: none;
+}
+
+:root.dark-mode .blog-post.gallery-view {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:root.light-mode .gallery-title {
+  color: #1F3A52;
+  background: none;
+  -webkit-text-fill-color: unset;
+}
+
+.gallery-meta {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+:root.light-mode .gallery-meta {
+  color: #4B5563;
+}
+
+.gallery-container {
+  width: 100%;
+}
+
+.gallery-grid-full {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid-full {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid-full {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid-full {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.gallery-item-full {
+  display: flex;
+  flex-direction: column;
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+.gallery-item-full:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item-full:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item-full:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item-full:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-image-wrapper-full {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px var(--card-shadow);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1.5rem;
+}
+
+:root.light-mode .gallery-image-wrapper-full {
+  box-shadow: 0 8px 24px rgba(127, 168, 201, 0.2);
+}
+
+:root.dark-mode .gallery-image-wrapper-full {
+  box-shadow: 0 8px 24px rgba(221, 161, 94, 0.15);
+}
+
+.gallery-item-full:hover .gallery-image-wrapper-full {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px var(--card-shadow);
+}
+
+:root.light-mode .gallery-item-full:hover .gallery-image-wrapper-full {
+  box-shadow: 0 16px 40px rgba(127, 168, 201, 0.3);
+}
+
+:root.dark-mode .gallery-item-full:hover .gallery-image-wrapper-full {
+  box-shadow: 0 16px 40px rgba(221, 161, 94, 0.25);
+}
+
+.gallery-image-full {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.gallery-item-full:hover .gallery-image-full {
+  transform: scale(1.05);
+}
+
+.gallery-item-info {
+  padding: 0;
+}
+
+.gallery-item-title-full {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.8rem 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+:root.light-mode .gallery-item-title-full {
+  color: #1F3A52;
+}
+
+.gallery-item-description-full {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+:root.light-mode .gallery-item-description-full {
+  color: #3D5A7D;
+}
+
 .post-header {
   background: linear-gradient(135deg, #2563eb 0%, #f97316 50%, #a16207 100%);
   height: 300px;
@@ -756,7 +993,8 @@ const shareToEmail = () => {
 
 .post-meta {
   display: flex;
-  gap: 2.5rem;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-bottom: 2.5rem;
   padding-bottom: 1.8rem;
   border-bottom: 3px solid var(--border-color);
@@ -767,9 +1005,42 @@ const shareToEmail = () => {
   transition: border-color 0.3s ease, color 0.3s ease;
 }
 
+.meta-top {
+  display: flex;
+  gap: 2.5rem;
+}
+
 :root.light-mode .post-meta {
   color: #3D5A7D;
   border-bottom-color: #7FA8C9;
+}
+
+.authors-section {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  animation: fadeInUp 0.6s ease-out 0.3s backwards;
+  transition: color 0.3s ease;
+}
+
+.authors-label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.authors-list {
+  color: var(--text-secondary);
+}
+
+:root.light-mode .authors-section {
+  color: #4A6FA5;
+}
+
+:root.light-mode .authors-label {
+  color: #1F3A52;
 }
 
 @keyframes fadeInUp {
@@ -958,6 +1229,134 @@ const shareToEmail = () => {
 }
 
 :root.light-mode .media-description {
+  color: #3D5A7D;
+}
+
+/* Creative Gallery Styles */
+.creative-gallery {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out 0.3s backwards;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.gallery-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(221, 161, 94, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-item:hover {
+  box-shadow: 0 12px 32px var(--card-shadow);
+  border-color: #BC6C25;
+  transform: translateY(-8px);
+}
+
+:root.light-mode .gallery-item {
+  background: #FFFFFF;
+  border-color: #E5E7EB;
+}
+
+:root.light-mode .gallery-item:hover {
+  box-shadow: 0 12px 32px rgba(127, 168, 201, 0.3);
+  border-color: #5A7A94;
+}
+
+:root.dark-mode .gallery-item:hover {
+  border-color: #DDA15E;
+  box-shadow: 0 12px 32px rgba(221, 161, 94, 0.2);
+}
+
+.gallery-image-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.08);
+}
+
+.gallery-item-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 1.2rem 1.2rem 0.6rem 1.2rem;
+  margin: 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+:root.light-mode .gallery-item-title {
+  color: #1F3A52;
+}
+
+.gallery-item-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 0 1.2rem 1.2rem 1.2rem;
+  margin: 0;
+  line-height: 1.6;
+  flex: 1;
+  transition: color 0.3s ease;
+}
+
+:root.light-mode .gallery-item-description {
   color: #3D5A7D;
 }
 

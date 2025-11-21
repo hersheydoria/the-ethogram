@@ -1,72 +1,75 @@
 export default {
   id: 18,
   title: 'From Campus to Community: One VetMed\'s RePAWnsible Parenting Campaign in Action',
-  excerpt: 'Case study of a veterinary school\'s comprehensive campaign to promote responsible pet ownership in the community.',
+  excerpt: 'A comprehensive look at CMU-CVM\'s school-led outreach initiatives promoting responsible pet ownership, preventive veterinary care, and the One Health approach across Central Mindanao communities.',
   category: 'spotlight-initiatives',
-  date: '2025-10-12',
-  image: '🏫',
-  imageUrl: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&h=300&fit=crop',
-  readTime: '6 min read',
-  tags: ['education', 'outreach program', 'veterinary mission', 'community service', 'student involvement', 'training'],
+  date: '2025-10-28',
+  image: '🎓',
+  imageUrl: null,
+  readTime: '22 min read',
+  tags: ['veterinary education', 'community outreach', 'responsible pet ownership', 'One Health approach', 'student engagement', 'rabies prevention'],
+  authors: ['Group 18'],
+  relatedLinks: [
+    { icon: '📚', name: 'Central Mindanao University College of Veterinary Medicine', url: 'https://cmu.edu.ph/' },
+    { icon: '📚', name: 'One Health Framework - CDC', url: 'https://www.cdc.gov/onehealth' },
+    { icon: '📚', name: 'Philippine Rabies Prevention', url: 'https://www.doh.gov.ph/' }
+  ],
   content: `
-    <h2>Education in Action: School-Led Animal Welfare Initiatives</h2>
-    <p>A veterinary school's RPAWnsible Parenting Campaign brings animal welfare education directly to communities, one household at a time.</p>
-    
-    <h3>Campaign Overview</h3>
-    <h4>Mission</h4>
-    <p>The RePAWnsible Parenting Campaign educates pet owners on all aspects of responsible pet care, from nutrition to behavioral training.</p>
-    
-    <h4>Target Audience</h4>
+    <h2>Introduction</h2>
+    <p>The Central Mindanao University College of Veterinary Medicine (CMU–CVM), established in 1975 and now recognized as a premier veterinary institution in Mindanao, continues to live out its mission of excellence in education, research, and community extension. Guided by its vision to serve as a Center of Excellence and to produce competent, socially responsible veterinarians, the college regularly conducts school-led outreach missions across Central Mindanao—including Musuan, Maramag, and nearby communities—to respond to both animal and public health needs with empathy and professionalism.</p>
+    <p>These missions are designed not only to deliver education and training and provide clinical veterinary services, but also to promote a One Health approach that recognizes the deep connection between animal, human, and environmental well-being. Through activities such as free vaccinations, deworming, vitamin administration, rescue and treatment initiatives, and rabies awareness campaigns, CMU–CVM shows its commitment to caring for communities and their animals, while creating meaningful, real-world learning opportunities for its students.</p>
+
+    <h2>Rationale</h2>
+    <p>Maramag, Bukidnon, and its surrounding barangays are predominantly agricultural communities where livestock and companion animals are integral to livelihood, food security, and family life. Yet common animal health concerns—such as parasitism, malnutrition, preventable infectious diseases like rabies, and limited access to routine vaccinations—continue to affect both farm and household animals. Many remote sitios depend on smallholder farming and have little to no regular access to veterinary services due to distance, financial limitations, and the shortage of local animal health personnel. These gaps can lead to unmanaged diseases, reduced productivity, and an increased risk of zoonotic transmission within the community.</p>
+    <p>In light of these realities, the Central Mindanao University College of Veterinary Medicine (CMU–CVM) places strong emphasis on school-led outreach missions as part of its mandate to serve rural communities, while promoting the One Health approach that links the health of animals, people, and the environment. Through education campaigns, clinical services, and preventive interventions, the institution helps address existing veterinary gaps, reduce public health risks, and strengthen community resilience. At the same time, these activities support the college's commitment to experiential learning, ensuring that future veterinarians develop not only technical skills but also a deep sense of responsibility, compassion, and service.</p>
+
+    <h2>Objectives</h2>
     <ul>
-      <li>First-time pet owners</li>
-      <li>Families with young children</li>
-      <li>Community groups and barangays</li>
-      <li>Schools and youth organizations</li>
+      <li>Promote responsible pet ownership by educating the community on proper care, vaccination schedules, nutrition, and animal welfare practices.</li>
+      <li>Strengthen public health protection by providing free preventive veterinary services, including anti-rabies vaccination, deworming, and general pet check-ups.</li>
+      <li>Support the One Health framework by addressing zoonotic disease risks and raising awareness about the interconnected health of animals, humans, and the environment.</li>
+      <li>Enhance student learning and competency by offering hands-on opportunities for veterinary students to practice clinical skills and community engagement under professional supervision.</li>
+      <li>Extend accessible veterinary services to underserved communities, especially those with limited access to routine veterinary care.</li>
+      <li>Foster collaboration with local stakeholders—including LGUs, community organizations, and health sectors—to build stronger, coordinated animal health initiatives.</li>
     </ul>
-    
-    <h3>Key Program Components</h3>
-    <h4>Educational Workshops</h4>
-    <p>Veterinary students and faculty conduct workshops on:</p>
-    <ul>
-      <li>Choosing the right pet for your lifestyle</li>
-      <li>Proper nutrition and feeding practices</li>
-      <li>Healthcare and preventive medicine</li>
-      <li>Training and behavior management</li>
-      <li>Emergency preparedness for pets</li>
-    </ul>
-    
-    <h4>Home Visits</h4>
-    <p>Teams visit households to assess pet living conditions and provide personalized recommendations.</p>
-    
-    <h4>Free Veterinary Services</h4>
-    <p>Clinics provide:</p>
-    <ul>
-      <li>Health checks and vaccinations</li>
-      <li>Spay and neuter services</li>
-      <li>Parasite prevention</li>
-      <li>Dental care education</li>
-    </ul>
-    
-    <h3>Community Impact</h3>
-    <h4>Measurable Results</h4>
-    <ul>
-      <li>Over 10,000 pets examined and treated</li>
-      <li>2,000+ animals spayed or neutered</li>
-      <li>Widespread adoption of responsible pet practices</li>
-      <li>Reduced animal abandonment in participating communities</li>
-    </ul>
-    
-    <h3>Student Development</h3>
-    <p>Participation in the campaign provides veterinary students with:</p>
-    <ul>
-      <li>Real-world clinical experience</li>
-      <li>Understanding of community health needs</li>
-      <li>Compassion and commitment to service</li>
-      <li>Professional networking opportunities</li>
-    </ul>
-    
-    <blockquote>
-      When educational institutions engage in community animal welfare work, they create a win-win: providing needed services while training compassionate professionals.
-    </blockquote>
+
+    <h2>Description of Activities</h2>
+
+    <h3>Education and Training</h3>
+    <p>The One VetMed: ResPAWnsible Parenting Project (Year 3) served as a dynamic and heartfelt platform for educating pet owners and nurturing a culture of responsible pet parenting in the community. Through engaging lectures, myth-busting discussions such as <i>"Myth vs. Fact: Neutering Your Pets,"</i> and interactive learning sessions, participants received practical guidance on nutrition, deworming schedules, proper restraint, animal welfare, and the long-term benefits of neutering.</p>
+    <p>Volunteers, student organizations, and faculty worked hand in hand to support pet owners in making informed and compassionate decisions for their animals. The message was clear: responsible pet ownership begins with awareness, empathy, and accurate information. The event successfully drew together pet owners, student volunteers, and <i>"Resident Utols,"</i> reflecting not only active community participation but also a growing shared understanding of what it means to care for animals with responsibility and kindness.</p>
+
+    <h3>Clinical Services</h3>
+    <p>The outreach activities under the One VetMed program, which began in October 2023, provided a wide range of free veterinary services to the community, thoughtfully complementing educational sessions with hands-on clinical care. Recent initiatives included continuous vaccination drives at the CMU–CVM Veterinary Teaching Hospital and mobile services during community events, offering anti-rabies vaccination, deworming, vitamin supplementation, nail clipping, and minor treatments for hundreds of pets.</p>
+    <p>The ResPAWnsible Parenting Project Year 2 alone served 160 registered dogs and cats, providing free neuter services through a partnership with Le'z Neuter and various sponsors. These efforts eased the financial burden on pet owners, helped address the overpopulation of stray animals, and contributed to a healthier and safer environment for both animals and people. Each animal treated and each owner assisted reflects the shared effort of students, faculty, donors, and local stakeholders who believe that access to veterinary care should not be limited by income or geography.</p>
+
+    <h3>One Health Approach</h3>
+    <p>The One VetMed outreach initiatives are firmly rooted in the One Health philosophy, recognizing that caring for animals is inseparable from caring for people and the environment they share. During the One VetMed ResPAWnsible Parenting Project Year 3, keynote discussions—such as the address delivered by Dr. Catherine Albano—emphasized the importance of compassion, accountability, and preventive care in protecting both pets and the wider community.</p>
+    <p>Activities such as free consultations, vaccinations, and the distribution of pet care supplies served as concrete reminders that timely veterinary interventions help protect families from zoonotic diseases, especially rabies. The success of these initiatives was made possible through the close collaboration of CVMSCO, the CVM Administration, the Veterinary Teaching Hospital, and multiple student organizations. Together, they helped foster a community that is more informed, more compassionate, and more intentional in its approach to pet ownership and animal health.</p>
+
+    <h3>Student Involvement</h3>
+    <p>Students of the Central Mindanao University College of Veterinary Medicine played a vital and inspiring role in all outreach missions, demonstrating not only their growing clinical competence but also their genuine concern for animals and communities. Under the careful supervision of licensed veterinarians and faculty mentors, students carried out procedures such as vaccination, deworming, basic diagnosis, physical examinations, and neutering assistance during the One VetMed ResPAWnsible Parenting Projects.</p>
+    <p>Their involvement extended well beyond the clinical setting. Students led rabies awareness drives, delivered lectures at Musuan Integrated School, and actively engaged in campaigns promoting responsible pet ownership. During disasters such as Tropical Depression Mirasol, student organizations quickly mobilized to conduct relief operations, distribute pet food and vitamins, and provide free check-ups for affected animals. These efforts reflect not only their skills but also their empathy and readiness to respond when communities are most vulnerable.</p>
+    <p>Academic activities such as the VetMed Quiz Bowl 2025 and seminars on animal welfare and mental health further shaped their perspectives and professional values. Through these varied experiences—spanning community outreach, disaster response, education, and clinical training—students developed confidence, teamwork, ethical awareness, and a strong sense of purpose. They are being formed into veterinarians who are not only capable clinicians but also compassionate advocates for animals and communities.</p>
+
+    <h2>Community Impact</h2>
+    <p>The outreach and advocacy efforts of CMU–CVM, led by student organizations such as Vox Veterinarius, the Clinicians Club, and the CVM Student Council, have opened doors to veterinary services for many families in Musuan, Maramag, and nearby areas who would otherwise have limited access to care.</p>
+    <p>During crises such as the floods brought about by Tropical Depression Mirasol, initiatives like <i>"Bayanihan for Pets and Animals"</i> offered free dog and cat food, vitamins, and health check-ups, ensuring that companion animals were not forgotten amid economic and emotional strain. Similarly, the free anti-rabies vaccination drive, which allocated 100 doses in Sampaguita, College Park, and Motorpool, brought essential preventive care directly to communities, easing both financial and logistical barriers.</p>
+    <p>These efforts have led to better animal health, more stable productivity for households that depend on animals, and a deeper community awareness of zoonotic diseases such as rabies. Rabies education sessions at Musuan Integrated School and ongoing campaigns on responsible pet ownership have helped children and adults understand how proper vaccination, restraint, and care safeguard both pets and people.</p>
+    <p>At the same time, seminars on animal welfare and mental health have contributed to a more compassionate and resilient community, reminding everyone that the way animals are treated reflects—and influences—the well-being of families and neighborhoods. Over time, the consistent presence of CMU–CVM in disaster response, community events, and public education has strengthened trust between residents and the institution, positioning the college as both an academic center and a caring partner in protecting the welfare of animals and families in Central Mindanao.</p>
+
+    <h2>Institutional Impact</h2>
+    <p>The outreach and community-engaged programs of the Central Mindanao University College of Veterinary Medicine (CMU–CVM) play a central role in fulfilling the college's mandate on extension and public service, while reaffirming its identity as a leading veterinary institution in Mindanao. Through initiatives such as the One VetMed ResPAWnsible Parenting Project, the Free Anti-Rabies Vaccination Drive, rabies education campaigns, flood-response efforts like <i>"Bayanihan for Pets and Animals,"</i> and animal welfare seminars, the college translates its vision and mission into actions that directly touch lives.</p>
+    <p>These activities not only respond to concrete community needs but also strengthen partnerships with LGUs such as LGU–Maramag, the Provincial Veterinary Office of Bukidnon, and various NGOs, sponsors, and advocacy groups. In working alongside these partners, CMU–CVM demonstrates how collective effort can better protect animal and public health.</p>
+    <p>At the institutional level, these missions enhance the college's visibility, credibility, and legacy in the region, complementing academic events such as the VetMed Quiz Bowl, VLE support activities, and the celebration of CVM's 50th Founding Anniversary. By consistently engaging with communities, promoting One Health, responding to disasters, and advocating for animal welfare and mental well-being, CMU–CVM affirms its deep commitment to rural development and nation-building. The institution, in turn, is enriched by these engagements—gaining stronger networks, continued support, and graduates who carry forward a tradition of technical excellence, compassion, and public service.</p>
+
+    <h2>Challenges Encountered</h2>
+    <p>Despite the many successes of CMU–CVM's outreach and One VetMed initiatives, several challenges emerged along the way. Reaching remote sitios in Musuan and Maramag often required long travel and complex logistical planning, especially when transporting people, animals, and essential equipment. Weather disturbances, such as heavy rains and flooding during events like Tropical Depression Mirasol, disrupted schedules and posed safety concerns for both volunteers and community members.</p>
+    <p>Limited manpower, medical supplies, and vaccine doses also at times restricted the number of animals that could be served. In addition, misconceptions and fears surrounding rabies vaccination, neutering, and other veterinary procedures occasionally led to hesitancy among pet owners.</p>
+    <p>These challenges underscore the need for sustained education, stronger logistical support, and continuous partnerships to ensure that veterinary missions can remain responsive, inclusive, and effective. They also highlight the dedication of students, faculty, and partners who continue to move forward, despite obstacles, in the service of animals and communities.</p>
+
+    <h2>Conclusion</h2>
+    <p>The school-led veterinary missions of CMU–CVM illustrate the vital role that outreach plays in safeguarding animal health, supporting communities, and strengthening public welfare across Central Mindanao. Through these initiatives, local residents gain access to essential veterinary services; students grow in competence, empathy, and commitment; and the institution fulfills its promise of service, education, and social responsibility.</p>
+    <p>Grounded in the One Health approach, these programs help bridge gaps in animal care and public awareness, ensuring that the shared well-being of animals, humans, and the environment is recognized and protected. As CMU–CVM looks toward expanding its reach and enriching its programs, it remains steadfast in its mission to build healthier, more resilient communities and to inspire future veterinarians through sustained, meaningful, and compassionate outreach.</p>
   `
 }

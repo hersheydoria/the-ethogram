@@ -137,41 +137,12 @@
         </div>
       </div>
     </section>
-
-    <!-- Doctor Feature Section (Animal Welfare Week) -->
-    <section class="doctor-feature-landing-section">
-      <div class="container">
-        <h2 class="featured-title-section">Featured This Week</h2>
-        <DoctorFeature />
-      </div>
-    </section>
-
-    <!-- Quick Links Section -->
-    <section class="quick-links-section">
-      <div class="container">
-        <h2 class="quick-links-title">Explore More</h2>
-        <div class="quick-links-grid">
-          <button @click="navigateToPaws" class="quick-link-card">
-            <Zap class="link-icon-component" :size="48" />
-            <h3>Paws Behind The Scenes</h3>
-            <p>Meet our beloved companions and discover fascinating facts about animals</p>
-          </button>
-          <button @click="navigateToArticles" class="quick-link-card">
-            <BookMarked class="link-icon-component" :size="48" />
-            <h3>Latest Blogs</h3>
-            <p>Explore curated blogs on animal welfare, behavior, and conservation</p>
-          </button>
-        </div>
-      </div>
-    </section>
-
   </div>
 </template>
 
 <script setup>
 import Hero from './Hero.vue'
-import DoctorFeature from './DoctorFeature.vue'
-import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb, Calendar, Clock, Zap } from 'lucide-vue-next'
+import { BookMarked, Globe, Stethoscope, Users, GraduationCap, Lightbulb, Calendar, Clock } from 'lucide-vue-next'
 import { computed, ref, onMounted, onUnmounted, inject } from 'vue'
 import { useRouter } from 'vue-router'
 

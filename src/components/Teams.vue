@@ -117,11 +117,11 @@ const committees = [
     description: 'Guides overall project direction, strategy, and ensures alignment with our mission to advance animal welfare. This committee comprises the heads of all major committees, block representatives, and overseeing project managers.',
     projectManagers: [
       { name: 'Yyannah Kiss S. Tan', role: 'Overseeing Project Manager', image: 'https://via.placeholder.com/80?text=Head' },
-      { name: 'Lucia Francheska G. Buhisan', role: 'Overseeing Project Manager', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Lucia Francheska G. Buhisan', role: 'Overseeing Project Manager', image: new URL('../assets/BUHISAN, LUCIA.png', import.meta.url).href }
     ],
     heads: [
       { name: 'Ela May S. Minerva', role: 'Committee Head - Content & Editorial', image: new URL('../assets/Minerva, Ela May - Head.JPG', import.meta.url).href },
-      { name: 'Ken Cydric F. Ablir', role: 'Committee Head - Technical & Website Management', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Ken Cydric F. Ablir', role: 'Committee Head - Technical & Website Management', image: new URL('../assets/Ablir, Ken.jpg', import.meta.url).href },
       { name: 'Althea May Chiong', role: 'Committee Head - Creatives', image: new URL('../assets/Chiong, Althea May-Head.png', import.meta.url).href },
       { name: 'Pearl Odette M. Abcede', role: 'Committee Head - Publications & Promotions', image: new URL('../assets/ABCEDE, PEARL ODETTE M. - HEAD.jpg', import.meta.url).href },
       { name: 'Justine Hopia', role: 'Committee Head - Partnerships & Outreach', image: 'https://via.placeholder.com/80?text=Head' },
@@ -131,10 +131,10 @@ const committees = [
       { name: 'Salyana Desnia L. Abuhon', role: 'Committee Head - Logistics & Operations', image: new URL('../assets/Abuhon, Salyana Desnia L. - Head.jpg', import.meta.url).href }
     ],
     blockReps: [
-      { name: 'Block Representative 1', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' },
-      { name: 'Block Representative 2', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' },
-      { name: 'Block Representative 3', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' },
-      { name: 'Block Representative 4', role: 'Block Representative', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Dagcuta, Katria', role: 'Block A Representative', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Arado, Brettnia Angela', role: 'Block B Representative', image: new URL('../assets/ARADO, BRETTNIA ANGELA.jpeg', import.meta.url).href },
+      { name: 'Fernandez, Rhea Mae C.', role: 'Block C Representative', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Apaap, Joebert', role: 'Block D Representative', image: 'https://via.placeholder.com/80?text=Head' }
     ],
     members: []
   },
@@ -168,7 +168,7 @@ const committees = [
     name: 'TECHNICAL & WEBSITE MANAGEMENT COMMITTEE',
     description: 'Manages website infrastructure, functionality, updates, and ensures optimal user experience.',
     heads: [
-      { name: 'Ken Cydric F. Ablir', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Ken Cydric F. Ablir', role: 'Committee Head', image: new URL('../assets/Ablir, Ken.jpg', import.meta.url).href }
     ],
     members: [
       { name: 'Nicole Cabardo' },
