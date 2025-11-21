@@ -17,6 +17,7 @@ import article14 from './educational-articles/article-14-livestock-welfare.js'
 import article15 from './educational-articles/article-15-mt-apo-eagle.js'
 import article20 from './educational-articles/article-20-five-freedoms.js'
 import article19 from './educational-articles/article-19-farm-to-table.js'
+import article22 from './educational-articles/article-22-five-freedoms-analysis.js'
 
 // Spotlight on Initiatives
 import article10 from './spotlight-initiatives/article-10-anti-venom.js'
@@ -50,7 +51,8 @@ export const allArticles = [
   article18,
   article19,
   article20,
-  article21
+  article21,
+  article22
 ].sort((a, b) => a.id - b.id)
 
 export default allArticles

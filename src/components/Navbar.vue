@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" :class="{ reduced: reduceNavbar }">
     <div class="navbar-container">
       <!-- Logo -->
       <div class="navbar-logo" @click="navigateToLanding">
@@ -70,31 +70,6 @@
         </div>
       </div>
     </div>
-    
-    <!-- Tag Filter Section (Below categories when selected) -->
-    <div v-if="activeCategory !== 'all' && availableTags.length > 0" class="tag-filter-bar" :class="{ hidden: hideFilterBar }">
-      <div class="tag-filter-container">
-        <span class="tag-filter-label">Filter by Tags:</span>
-        <div class="tags-list">
-          <button 
-            v-for="tag in availableTags"
-            :key="tag"
-            @click="toggleTag(tag)"
-            class="tag-filter-btn"
-            :class="{ active: selectedTags.includes(tag) }"
-          >
-            {{ tag }}
-          </button>
-        </div>
-        <button 
-          v-if="selectedTags.length > 0"
-          @click="clearTags"
-          class="clear-tags-btn"
-        >
-          ✕ Clear
-        </button>
-      </div>
-    </div>
   </nav>
 </template>
 
@@ -116,6 +91,7 @@ const showMenu = ref(false)
 const showMobileMenu = ref(false)
 const selectedTags = ref([])
 const hideFilterBar = ref(false)
+const reduceNavbar = ref(false)
 let closeMenuTimeout = null
 let searchTimeout = null
 let lastScrollY = 0
@@ -254,15 +230,17 @@ const handleSearchInput = (query) => {
 onMounted(() => {
   initTheme()
   
-  // Scroll event to hide/show filter bar
+  // Scroll event to hide/show filter bar and reduce navbar
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY
     
-    // Hide filter bar when scrolling down, show when scrolling up
+    // Hide filter bar and reduce navbar when scrolling down, show when scrolling up
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
       hideFilterBar.value = true
+      reduceNavbar.value = true
     } else {
       hideFilterBar.value = false
+      reduceNavbar.value = false
     }
     
     lastScrollY = currentScrollY
@@ -276,9 +254,14 @@ onMounted(() => {
   color: white;
   box-shadow: 0 4px 12px rgba(188, 108, 37, 0.3);
   z-index: 100;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, max-height 0.3s ease;
   position: sticky;
   top: 0;
+  overflow: visible;
+}
+
+.navbar.reduced {
+  max-height: 70px;
 }
 
 :root.light-mode .navbar {
@@ -442,7 +425,7 @@ onMounted(() => {
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   min-width: 220px;
-  z-index: 1000;
+  z-index: 2000;
   margin-top: 0.5rem;
   animation: slideDown 0.2s ease-out;
 }
@@ -618,7 +601,7 @@ onMounted(() => {
 
 /* Tag Filter Bar */
 .tag-filter-bar {
-  background: rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #BC6C25 0%, #DDA15E 50%, #606C38 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -630,6 +613,10 @@ onMounted(() => {
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
+}
+
+:root.dark-mode .tag-filter-bar {
+  background: linear-gradient(135deg, #7A3C0E 0%, #A8643A 50%, #3D4620 100%);
 }
 
 .tag-filter-container {
