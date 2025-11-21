@@ -3,16 +3,16 @@ export default {
   title: 'From Campus to Community: One VetMed\'s RePAWnsible Parenting Campaign in Action',
   excerpt: 'A comprehensive look at CMU-CVM\'s school-led outreach initiatives promoting responsible pet ownership, preventive veterinary care, and the One Health approach across Central Mindanao communities.',
   category: 'spotlight-initiatives',
-  date: '2025-10-28',
+  date: '2025-11-20',
   image: '🎓',
   imageUrl: null,
   readTime: '22 min read',
   tags: ['veterinary education', 'community outreach', 'responsible pet ownership', 'One Health approach', 'student engagement', 'rabies prevention'],
   authors: ['Group 18'],
   relatedLinks: [
-    { icon: '📚', name: 'Central Mindanao University College of Veterinary Medicine', url: 'https://cmu.edu.ph/' },
-    { icon: '📚', name: 'One Health Framework - CDC', url: 'https://www.cdc.gov/onehealth' },
-    { icon: '📚', name: 'Philippine Rabies Prevention', url: 'https://www.doh.gov.ph/' }
+    { name: 'Central Mindanao University College of Veterinary Medicine', url: 'https://cmu.edu.ph/' },
+    { name: 'One Health Framework - CDC', url: 'https://www.cdc.gov/onehealth' },
+    { name: 'Philippine Rabies Prevention', url: 'https://www.doh.gov.ph/' }
   ],
   content: `
     <h2>Introduction</h2>

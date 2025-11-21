@@ -259,7 +259,6 @@ defineEmits(['explore-articles'])
 .stat-icon {
   font-size: 2rem;
   color: #4A6D42;
-  animation: bounce 2s ease-in-out infinite;
 }
 
 :root.dark-mode .stat-icon {
@@ -290,15 +289,6 @@ defineEmits(['explore-articles'])
 
 :root.dark-mode .stat-text {
   color: white;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
 }
 
 @media (max-width: 1024px) {

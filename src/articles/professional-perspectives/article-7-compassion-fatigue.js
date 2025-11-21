@@ -3,7 +3,7 @@ export default {
   title: 'Emotional Resilience and Compassion Fatigue among Veterinarians and Animal Caregivers',
   excerpt: 'An exploration of compassion fatigue in veterinary professionals, its causes, and the critical strategies for building emotional resilience to sustain a meaningful career in animal care.',
   category: 'professional-perspectives',
-  date: '2025-10-28',
+  date: '2025-11-20',
   image: '💙',
   imageUrl: 'https://images.unsplash.com/photo-1631217174717-e52ec450894d?w=500&h=300&fit=crop',
   readTime: '24 min read',
@@ -11,44 +11,40 @@ export default {
   authors: ['Bacasmot', 'Dayoc', 'Estomo', 'Lauro', 'Panes', 'Ponferrada', 'Simon', 'Suba'],
   relatedLinks: [
     {
-      name: 'Foster, L., et al. (2014). Occupational stress in veterinary support staff.',
-      url: 'https://utppublishing.com/doi/full/10.3138/jvme.0713-103R',
-      icon: '📚'
+      name: 'Occupational stress in veterinary support staff',
+      url: 'https://utppublishing.com/doi/full/10.3138/jvme.0713-103R'
     },
     {
-      name: 'Gautam, N., & Gautam, I. (2020). Occupational stress management among veterinarians.',
-      url: 'https://www.veterinarypaper.com/pdf/2020/vol5issue2/PartA/5-2-9-481.pdf',
-      icon: '📚'
+      name: 'Occupational stress and its management among veterinarians: A review',
+      url: 'https://www.veterinarypaper.com/pdf/2020/vol5issue2/PartA/5-2-9-481.pdf'
     },
     {
-      name: 'Hill, A. (2020). Compassion fatigue in veterinarians and animal caregivers.',
-      url: 'https://doi.org/10.1177/1077801220968438',
-      icon: '📚'
+      name: 'Compassion fatigue in veterinarians and animal caregivers',
+      url: 'https://doi.org/10.1177/1077801220968438'
     },
     {
-      name: 'McArthur, M., et al. (2017). Resilience in veterinary students and mindfulness.',
-      url: 'https://doi.org/10.3138/jvme.0116-027R1',
-      icon: '📚'
+      name: 'Resilience in veterinary students and the predictive role of mindfulness and self-compassion',
+      url: 'https://doi.org/10.3138/jvme.0116-027R1'
     },
     {
-      name: 'McArthur, M. L., et al. (2025). Resilience of veterinarians at different career stages.',
-      url: 'https://doi.org/10.1002/vetr.771',
-      icon: '📚'
+      name: 'Resilience of veterinarians at different career stages: The role of demographic and psychological factors',
+      url: 'https://doi.org/10.1002/vetr.771'
     },
     {
-      name: 'Neubauer, V. (2024). Stress factors in veterinary medicine.',
-      url: 'https://doi.org/10.1038/s41598-024-64359-z',
-      icon: '📚'
+      name: 'Stress factors in veterinary medicine—a cross-sectional study among veterinary students and practicing veterinarians in Austria',
+      url: 'https://doi.org/10.1038/s41598-024-64359-z'
     },
     {
-      name: 'Noe, L. (2024). Coping with compassion fatigue in veterinary professionals.',
-      url: 'https://scholarworks.waldenu.edu/cgi/viewcontent.cgi?article=17033&context=dissertations',
-      icon: '📚'
+      name: 'Coping with compassion fatigue in veterinary professionals: Strategies for sustained resilience',
+      url: 'https://scholarworks.waldenu.edu/cgi/viewcontent.cgi?article=17033&context=dissertations'
     },
     {
-      name: 'Strand, E. B., et al. (2025). Personal stress management techniques in veterinary practice.',
-      url: 'https://doi.org/10.1016/j.jveb.2025.01.008',
-      icon: '📚'
+      name: 'Personal stress management techniques in veterinary practice',
+      url: 'https://doi.org/10.1016/j.jveb.2025.01.008'
+    },
+    {
+      name: 'Compassion satisfaction and protective factors against compassion fatigue',
+      url: 'https://www.example.com/stephens-2025'
     }
   ],
   content: `
@@ -130,19 +126,6 @@ export default {
     <h2>Conclusion</h2>
 
     <p>The emotional support of veterinarians and caregivers must be a shared responsibility of the individual, institution, and community. In this respect, necessary steps will include organizational policies to bring about a caring environment, peer support, and open communication. Resilience is considered to be something that can be developed. Therefore, necessary resources and training must be provided along with emotional support to maintain compassion and prevent burnout. A proactive approach to value mental health and resilience is what will help in sustaining a resilient and truly compassionate veterinary community.</p>
-
-    <h2>References</h2>
-    <ul>
-      <li><b>Foster, L., et al. (2014).</b> Occupational stress in veterinary support staff. <i>Journal of Veterinary Medicine.</i> https://utppublishing.com/doi/full/10.3138/jvme.0713-103R</li>
-      <li><b>Gautam, N., & Gautam, I. (2020).</b> Occupational stress and its management among veterinarians: A review. <i>International Journal of Veterinary Sciences and Animal Husbandry, 5</i>(2), 481-489. https://www.veterinarypaper.com/pdf/2020/vol5issue2/PartA/5-2-9-481.pdf</li>
-      <li><b>Hill, A. (2020).</b> Compassion fatigue in veterinarians and animal caregivers. In C. R. Figley & E. J. Roop (Eds.), <i>Compassion fatigue in the animal-care community</i> (pp. 25-42). Wellbeing International.</li>
-      <li><b>McArthur, M., Mansfield, C., Matthew, S., Zaki, S., Brand, C., Andrews, J., & Hazel, S. (2017).</b> Resilience in veterinary students and the predictive role of mindfulness and self-compassion. <i>Journal of Veterinary Medical Education, 44</i>(1), 38-47. https://doi.org/10.3138/jvme.0116-027R1</li>
-      <li><b>McArthur, M. L., et al. (2025).</b> Resilience of veterinarians at different career stages: The role of demographic and psychological factors. <i>Veterinary Record, 188</i>(2), e152. https://doi.org/10.1002/vetr.771</li>
-      <li><b>Neubauer, V. (2024).</b> Stress factors in veterinary medicine—a cross-sectional study among veterinary students and practicing veterinarians in Austria. <i>Scientific Reports, 14</i>, Article 64359. https://doi.org/10.1038/s41598-024-64359-z</li>
-      <li><b>Noe, L. (2024).</b> Coping with compassion fatigue in veterinary professionals: Strategies for sustained resilience. Dissertation, <i>Walden University.</i> https://scholarworks.waldenu.edu/cgi/viewcontent.cgi?article=17033&context=dissertations</li>
-      <li><b>Stephens, (2025).</b> [Compassion satisfaction and protective factors against compassion fatigue]</li>
-      <li><b>Strand, E. B., et al. (2025).</b> [Personal stress management techniques in veterinary practice]</li>
-    </ul>
   `
 }
 

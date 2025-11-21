@@ -3,7 +3,7 @@ export default {
   title: 'The Five Freedoms of Animal Welfare: A Comprehensive Analysis',
   excerpt: 'A detailed examination of the Five Freedoms framework, its global application, enforcement challenges, and implications for improving animal welfare standards worldwide.',
   category: 'educational-articles',
-  date: '2025-10-14',
+  date: '2025-11-21',
   image: '🐾',
   imageUrl: null,
   readTime: '16 min read',

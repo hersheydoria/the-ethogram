@@ -3,7 +3,7 @@ export default {
   title: 'From Bite to Cure: Evaluating Anti-Venom Accessibility, Awareness, and Knowledge Gaps in a Local Area',
   excerpt: 'An investigation into snake envenomation challenges in rural communities, examining anti-venom accessibility, cultural barriers, and the urgent need for better public awareness and emergency response systems.',
   category: 'spotlight-initiatives',
-  date: '2025-10-28',
+  date: '2025-11-19',
   image: '🐍',
   imageUrl: null,
   readTime: '26 min read',

@@ -3,7 +3,7 @@ export default {
   title: 'Responsible Pet Ownership: Ensuring Health, Safety, and Humane Care',
   excerpt: 'Understanding the commitment and responsibilities required to provide proper care for pets, including meeting the Five Freedoms and disaster preparedness.',
   category: 'educational-articles',
-  date: '2025-10-13',
+  date: '2025-11-19',
   image: '🛡️',
   imageUrl: null,
   readTime: '12 min read',

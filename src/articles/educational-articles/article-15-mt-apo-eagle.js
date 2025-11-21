@@ -3,7 +3,7 @@ export default {
   title: 'Ethical Wildlife Conservation and Habitat Protection: Mt. Apo and Philippine Eagle',
   excerpt: 'Comprehensive exploration of Philippine Eagle conservation at Mt. Apo, including legal protections, PEF initiatives, citizen responsibilities, and veterinary roles.',
   category: 'educational-articles',
-  date: '2025-10-17',
+  date: '2025-11-19',
   image: '🦅',
   imageUrl: null,
   readTime: '16 min read',

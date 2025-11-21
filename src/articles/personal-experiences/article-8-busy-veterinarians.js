@@ -3,7 +3,7 @@ export default {
   title: 'Balancing Work and Pet Care: Challenges of Ensuring Animal Welfare among Busy Veterinarians Who Are Also Pet Owners',
   excerpt: 'Two professionals share their lived experiences juggling demanding work schedules while ensuring the welfare of their beloved pets, revealing the emotional, financial, and logistical challenges of this delicate balance.',
   category: 'personal-experiences',
-  date: '2025-10-28',
+  date: '2025-11-19',
   image: '🐾',
   imageUrl: 'https://images.unsplash.com/photo-1583511655857-d19db992cb74?w=500&h=300&fit=crop',
   readTime: '12 min read',

@@ -3,7 +3,7 @@ export default {
   title: 'Why Spay & Neuter Campaigns Matter: Protecting Pets, People & Communities in the Philippines',
   excerpt: 'Explore the critical role of spay/neuter campaigns in population control, disease prevention, and community welfare outcomes across the Philippines.',
   category: 'educational-articles',
-  date: '2025-10-25',
+  date: '2025-11-21',
   image: '🐾',
   imageUrl: null,
   readTime: '12 min read',

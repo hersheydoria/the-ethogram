@@ -3,7 +3,7 @@ export default {
   title: 'Breaking the Chain: Why Tethering Your Dog Could Be Harming Them More Than You Think',
   excerpt: 'Exploring the physical, psychological, and life-threatening dangers of tethering dogs, with special focus on disaster preparedness in the Philippines.',
   category: 'educational-articles',
-  date: '2025-10-23',
+  date: '2025-11-21',
   image: '⛓️',
   imageUrl: null,
   readTime: '18 min read',

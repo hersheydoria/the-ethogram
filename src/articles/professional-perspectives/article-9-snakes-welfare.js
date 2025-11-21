@@ -3,7 +3,7 @@ export default {
   title: 'The Snakes Among Us: Inside CMU\'s Hidden Wildlife',
   excerpt: 'A look at responsible wildlife coexistence on campus through the eyes of a wildlife conservation student and the WILD organization\'s mission to transform fear into understanding and action.',
   category: 'professional-perspectives',
-  date: '2025-10-28',
+  date: '2025-11-19',
   image: '🐍',
   imageUrl: 'https://images.unsplash.com/photo-1589318052192-a79a3c85d061?w=500&h=300&fit=crop',
   readTime: '12 min read',

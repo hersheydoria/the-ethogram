@@ -34,9 +34,6 @@
             <a href="#" @click.prevent="handleSocialLink('facebook')" class="social-link">
               <span class="social-icon">f</span> Facebook
             </a>
-            <a href="#" @click.prevent="handleSocialLink('email')" class="social-link">
-              <span class="social-icon"><Mail :size="18" /></span> Email
-            </a>
           </div>
         </div>
       </div>
@@ -63,7 +60,6 @@ const handleSocialLink = (platform) => {
   // Social links would typically open external URLs
   const urls = {
     facebook: 'https://www.facebook.com/profile.php?id=61583589417948',
-    email: 'mailto:hello@livinglinks.org'
   }
   window.open(urls[platform], '_blank')
 }

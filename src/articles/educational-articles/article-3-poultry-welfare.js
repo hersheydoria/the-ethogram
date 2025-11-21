@@ -3,7 +3,7 @@ export default {
   title: 'Poultry Welfare and Management Practices: Promoting Healthy, Productive, and Ethical Poultry Raising in the Philippines',
   excerpt: 'Best practices for poultry management that prioritize animal welfare, health, and sustainable productivity in Philippine farming, from housing to ethical slaughter.',
   category: 'educational-articles',
-  date: '2025-10-26',
+  date: '2025-11-20',
   image: '🐔',
   imageUrl: null,
   readTime: '18 min read',

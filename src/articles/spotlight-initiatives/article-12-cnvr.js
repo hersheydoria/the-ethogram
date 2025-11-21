@@ -3,7 +3,7 @@ export default {
   title: 'Shifting from Impoundment to CNVR for Better Animal Welfare in Cebu City and Agusan del Norte',
   excerpt: 'An exploration of Catch-Neuter-Vaccinate-Return programs as a humane and evidence-based alternative to shelter impoundment, examining their effectiveness in animal welfare, public health, and community development.',
   category: 'spotlight-initiatives',
-  date: '2025-10-28',
+  date: '2025-11-20',
   image: '🐕',
   imageUrl: null,
   readTime: '28 min read',
@@ -11,20 +11,72 @@ export default {
   authors: ['Group 12'],
   relatedLinks: [
     {
-      name: 'World Health Organization - Rabies Guidelines',
-      url: 'https://www.who.int/teams/blueprint/infectious-diseases/rabies'
+      name: 'Stray animal population control: Methods, public health concern, ethics, and animal welfare issues',
+      url: 'https://doi.org/10.54203/scil.2021.wvj44'
     },
     {
-      name: 'World Organization for Animal Health (WOAH)',
-      url: 'https://www.woah.org'
+      name: 'CNVR Programs: Addressing Stray Animal Overpopulation in the Philippines',
+      url: 'https://www.studocu.com/ph/document/centro-escolar-university/expository-writing/cnvr-programs-addressing-stray-animal-overpopulation-in-the-philippines'
     },
     {
-      name: 'International Companion Animal Management Coalition (ICAM)',
+      name: 'Canine Trap-Neuter-Return: A critical review of potential welfare issues',
+      url: 'https://www.cambridge.org'
+    },
+    {
+      name: 'Changes in free-roaming dog population demographics and health associated with a CNVR program in India',
+      url: 'https://doi.org/10.1371/journal.pone.0317636'
+    },
+    {
+      name: 'The Catch-Neuter-Vaccinate-Return Approach - FOUR PAWS International',
+      url: 'https://www.fourpaws.org'
+    },
+    {
+      name: 'World Stray Animal Day: Humane population management - FOUR PAWS',
+      url: 'https://www.fourpaws.org'
+    },
+    {
+      name: 'CNVR program: Effectiveness and benefits - Happy Doggo',
+      url: 'https://happydoggo.com'
+    },
+    {
+      name: 'Impact assessment of CNVR in Greater Bangkok',
+      url: 'https://doi.org/10.3390/ani13111726'
+    },
+    {
+      name: 'House Bill No. 2527: An Act Institutionalizing a National CNVR Program for Stray Animals',
+      url: 'https://docs.congress.hrep.online/legisdocs/basic_20/HB02527.pdf'
+    },
+    {
+      name: 'ICAM - Canine Catch-Neuter-Return Good Practice Guide',
       url: 'https://www.icam-coalition.org'
     },
     {
-      name: 'Bangkok CNVR Implementation Study',
-      url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3709420/'
+      name: 'Chapter 7.7: Dog population management - Terrestrial Animal Health Code (WOAH)',
+      url: 'https://www.woah.org'
+    },
+    {
+      name: 'Quezon City Government - Free spay and neuter program',
+      url: 'https://quezoncity.gov.ph'
+    },
+    {
+      name: 'Quezon City Government - Anti-rabies vaccination drive',
+      url: 'https://quezoncity.gov.ph'
+    },
+    {
+      name: 'CNVR program boosted to control stray animal overpopulation - SunStar',
+      url: 'https://www.sunstar.com.ph/cebu/cnvr-program-boosted-to-control-stray-animal-overpopulation'
+    },
+    {
+      name: 'Cebu City\'s multi-pronged approach to end rabies - SunStar',
+      url: 'https://www.sunstar.com.ph/cebu/cebu-citys-multi-pronged-approach-to-end-rabies'
+    },
+    {
+      name: 'How to assess dog populations and evaluate CNVR impact - University of Edinburgh',
+      url: 'https://www.ed.ac.uk'
+    },
+    {
+      name: 'Catch Neuter Vaccinate Release Programmes: Breaking the cycle of suffering - Wild at Heart Foundation',
+      url: 'https://www.wildatheartfoundation.org'
     }
   ],
   content: `
@@ -146,24 +198,5 @@ export default {
     <p>For advocates, veterinarians, and humane organizations, CNVR is a framework that reflects both heart and science—grounded in ethics, evidence, and systemic impact.</p>
     <p>As more <b>Philippine</b> cities adopt research-driven CNVR models, we move closer to a future where no child has to die from a preventable dog bite, where no barangay has to resort to cruel, short-term measures, and where every free-roaming dog is seen not as a problem to be removed, but as a life we are responsible for managing with wisdom and compassion.</p>
     <p>CNVR is not just a policy option. It is a statement about what kind of society we want to be: one that chooses science over fear, long-term solutions over quick fixes, and kindness over cruelty.</p>
-
-    <h2>References</h2>
-    <p><b>Abdulkarim, A., Khan Bin Goriman Khan, M. A., & Aklilu, E. (2021).</b> Stray animal population control: Methods, public health concern, ethics, and animal welfare issues. <i>World's Veterinary Journal</i>, 11(3), 319-326. https://doi.org/10.54203/scil.2021.wvj44</p>
-    <p><b>Badilla, J. (2025).</b> CNVR Programs: Addressing Stray Animal Overpopulation in the Philippines. <i>Studocu</i>. https://www.studocu.com/ph/document/centro-escolar-university/expository-writing/cnvr-programs-addressing-stray-animal-overpopulation-in-the-philippines</p>
-    <p><b>Cambridge University Press. (2023).</b> Canine Trap-Neuter-Return: A critical review of potential welfare issues. <i>Animal Welfare Journal</i>.</p>
-    <p><b>Collins, L. M., Kartal, T., Rawat, S., Chaudhari, A., Kumar, A., Quinnell, R. J., & Collins, L. (2025).</b> Changes in free-roaming dog population demographics and health associated with a CNVR program in India. <i>PLOS ONE</i>, 20(10), e0317636.</p>
-    <p><b>FOUR PAWS International. (2023).</b> The Catch-Neuter-Vaccinate-Return Approach. <i>FOUR PAWS Press</i>.</p>
-    <p><b>FOUR PAWS International. (2025).</b> World Stray Animal Day: Humane population management.</p>
-    <p><b>Happy Doggo. (2024).</b> CNVR program: Effectiveness and benefits.</p>
-    <p><b>Hiby, E., Rungpatana, T., Izydorczyk, A., Rooney, C., & Harfoot, M. (2023).</b> Impact assessment of CNVR in Greater Bangkok. <i>Animals</i>, 13(11), 1726. https://doi.org/10.3390/ani13111726</p>
-    <p><b>House of Representatives of the Philippines. (2025).</b> House Bill No. 2527: An Act Institutionalizing a National CNVR Program for Stray Animals. https://docs.congress.hrep.online/legisdocs/basic_20/HB02527.pdf</p>
-    <p><b>International Companion Animal Management (ICAM) Coalition. (n.d.).</b> Canine Catch-Neuter-Return Good Practice Guide. <i>University of Edinburgh</i>.</p>
-    <p><b>Organisation for Animal Health (WOAH). (2021).</b> Chapter 7.7: Dog population management. <i>Terrestrial Animal Health Code</i>.</p>
-    <p><b>Quezon City Government. (n.d.-a).</b> Free spay and neuter program. https://quezoncity.gov.ph</p>
-    <p><b>Quezon City Government. (n.d.-b).</b> Anti-rabies vaccination drive. https://quezoncity.gov.ph</p>
-    <p><b>SunStar. (2025, February 2).</b> CNVR program boosted to control stray animal overpopulation. https://www.sunstar.com.ph/cebu/cnvr-program-boosted-to-control-stray-animal-overpopulation</p>
-    <p><b>SunStar. (2025, September 13).</b> Cebu City's multi-pronged approach to end rabies. https://www.sunstar.com.ph/cebu/cebu-citys-multi-pronged-approach-to-end-rabies</p>
-    <p><b>Veterinary Education, University of Edinburgh. (2024).</b> How to assess dog populations and evaluate CNVR impact.</p>
-    <p><b>Wild at Heart Foundation. (n.d.).</b> Catch Neuter Vaccinate Release Programmes: Breaking the cycle of suffering.</p>
   `
 }

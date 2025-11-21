@@ -3,7 +3,7 @@ export default {
   title: 'Strengthening Communities through Care: The Role of Animal Welfare Programs in Bukidnon',
   excerpt: 'Exploration of how animal welfare programs in Bukidnon protect livestock, safeguard public health, and sustain community livelihoods.',
   category: 'educational-articles',
-  date: '2025-10-14',
+  date: '2025-11-21',
   image: '🥩',
   imageUrl: null,
   readTime: '18 min read',

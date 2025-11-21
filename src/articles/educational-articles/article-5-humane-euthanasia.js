@@ -3,7 +3,7 @@ export default {
   title: 'A Peaceful Goodbye: Veterinarians Speak on Humane Euthanasia and Ethical Decision-Making in Animal Care',
   excerpt: 'Understanding the ethical implications, protocols, and compassionate approaches to end-of-life care for animals.',
   category: 'educational-articles',
-  date: '2025-10-24',
+  date: '2025-11-18',
   image: '💙',
   imageUrl: null,
   readTime: '16 min read',

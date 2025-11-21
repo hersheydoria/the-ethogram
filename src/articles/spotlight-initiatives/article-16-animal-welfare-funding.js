@@ -3,17 +3,17 @@ export default {
   title: 'Silent Suffering: How Philippine Cities Are Failing Animals—and What We Can Do About It',
   excerpt: 'An examination of animal cruelty cases in Philippine cities, the gaps between law and implementation, and the progress being made through infrastructure investment and community engagement.',
   category: 'spotlight-initiatives',
-  date: '2025-10-28',
+  date: '2025-11-21',
   image: '❤️',
   imageUrl: null,
   readTime: '14 min read',
   tags: ['animal cruelty', 'animal welfare', 'public health', 'legal enforcement', 'community responsibility', 'infrastructure'],
   authors: ['Caminade', 'Chagas', 'Clapano', 'Dabajo', 'Francisco', 'Fuerte', 'Paalisbo', 'Tan'],
   relatedLinks: [
-    { icon: '📚', name: 'Philippine Animal Welfare Act (RA 8485)', url: 'https://www.officialgazette.gov.ph/' },
-    { icon: '📚', name: 'Baguio City Animal Care Center', url: 'https://animalcare.baguio.gov.ph/' },
-    { icon: '📚', name: 'Baguio Chronicle - Animal Cruelty Report', url: 'https://thebaguiochronicle.com/2024/09/17/animal-cruelty-continues-in-baguio-benguet/' },
-    { icon: '📚', name: 'Baguio City Government - Animal Welfare', url: 'https://new.baguio.gov.ph/news/baguio-records-cases-of-animal-cruelty-cases-despite-ra-8485-implementation' }
+    { name: 'Philippine Animal Welfare Act (RA 8485)', url: 'https://www.officialgazette.gov.ph/' },
+    { name: 'Baguio City Animal Care Center', url: 'https://animalcare.baguio.gov.ph/' },
+    { name: 'Baguio Chronicle - Animal Cruelty Report', url: 'https://thebaguiochronicle.com/2024/09/17/animal-cruelty-continues-in-baguio-benguet/' },
+    { name: 'Baguio City Government - Animal Welfare', url: 'https://new.baguio.gov.ph/news/baguio-records-cases-of-animal-cruelty-cases-despite-ra-8485-implementation' }
   ],
   content: `
     <p>Animal cruelty is not always loud, dramatic, or obvious. Sometimes, it hides in daily routines, cultural traditions, or silent backyards—often unrecognized as a violation of law or, worse, tolerated as <i>"normal."</i> Yet across the <b>Philippines</b>, from northern highlands to dense urban centers, communities are beginning to confront the harsh realities faced by animals and the moral responsibility every citizen carries. The question that now demands attention is simple but urgent: Are we doing enough?</p>

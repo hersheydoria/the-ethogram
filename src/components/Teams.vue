@@ -133,7 +133,7 @@ const committees = [
     blockReps: [
       { name: 'Dagcuta, Katria', role: 'Block A Representative', image: 'https://via.placeholder.com/80?text=Head' },
       { name: 'Arado, Brettnia Angela', role: 'Block B Representative', image: new URL('../assets/ARADO, BRETTNIA ANGELA.jpeg', import.meta.url).href },
-      { name: 'Fernandez, Rhea Mae C.', role: 'Block C Representative', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Fernandez, Rhea Mae C.', role: 'Block C Representative', image: new URL('../assets/Rhea-Block.png', import.meta.url).href },
       { name: 'Apaap, Joebert', role: 'Block D Representative', image: 'https://via.placeholder.com/80?text=Head' }
     ],
     members: []

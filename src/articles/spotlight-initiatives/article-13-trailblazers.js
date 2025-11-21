@@ -3,7 +3,7 @@ export default {
   title: 'Trailblazers of Compassion: How Previous Batches Shaped Animal Welfare Week\'s Legacy',
   excerpt: 'Student-led creative projects that transformed Animal Welfare Week, demonstrating how art, empathy, and community engagement can reshape attitudes toward animal welfare.',
   category: 'spotlight-initiatives',
-  date: '2025-10-28',
+  date: '2025-11-19',
   image: '🎨',
   imageUrl: null,
   readTime: '8 min read',

@@ -2,7 +2,7 @@
   <Navbar />
   <section class="blog-section">
     <div class="container">
-      <div class="section-header">
+      <div v-if="selectedCategory !== 'creative-expressions'" class="section-header">
         <h2 class="section-title">Latest Blogs</h2>
         <p class="article-count">{{ filteredPosts.length }} blog<span v-if="filteredPosts.length !== 1">s</span> found</p>
       </div>
@@ -15,13 +15,18 @@
       <!-- More Articles List Section -->
       <div v-if="remainingArticles.length > 0" class="articles-list-section">
         <div class="articles-by-category">
-          <div v-for="(articles, category) in articlesByCategory" :key="category" class="category-section">
+          <div
+            v-for="(articles, category) in articlesByCategory"
+            :key="category"
+            class="category-section"
+            :class="{ 'creative-section': category === 'creative-expressions' }"
+          >
             <h4 v-if="selectedCategory === 'all'" class="category-section-title" :class="category">{{ formatCategoryName(category) }}</h4>
             <div v-if="articles.some(a => !a.isGallery)" class="articles-list">
               <article 
                 v-for="(post, index) in (expandedCategories.has(category) ? articles : articles.slice(0, 2)).filter(a => !a.isGallery)" 
                 :key="post.id"
-                class="list-article"
+                :class="['list-article', { 'creative-article': post.category === 'creative-expressions' }]"
                 :style="{ animationDelay: `${index * 0.1}s` }"
                 @click="handleReadPost(post.id)"
               >
@@ -47,10 +52,16 @@
             </div>
 
             <!-- Gallery Display -->
-            <div v-if="articles.some(a => a.isGallery)" class="gallery-section-display">
-              <div v-for="post in articles.filter(a => a.isGallery)" :key="post.id" class="gallery-container">
+              <div v-if="articles.some(a => a.isGallery)" class="gallery-section-display">
+                <div
+                  v-for="post in articles.filter(a => a.isGallery)"
+                  :key="post.id"
+                  :class="['gallery-container', { 'creative-gallery': post.category === 'creative-expressions' }]"
+                >
                 <div class="gallery-header-section">
-                  <h3 class="gallery-section-header">{{ post.title }}</h3>
+                  <h3
+                    :class="['gallery-section-header', { 'creative-gallery-header': post.category === 'creative-expressions' }]"
+                  >{{ post.title }}</h3>
                   <p class="gallery-section-desc">{{ post.excerpt }}</p>
                 </div>
                 <div class="gallery-grid-main">
@@ -60,9 +71,11 @@
                         :src="`https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/creative-expressions/${item.image}`"
                         :alt="item.title"
                         class="gallery-cell-img"
+                        @click="openImageModal(`https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/creative-expressions/${item.image}`, item.title)"
                       />
                       <div class="gallery-cell-overlay">
                         <p class="gallery-cell-title">{{ item.title }}</p>
+                        <p class="gallery-cell-note">Click to view full image</p>
                       </div>
                     </div>
                   </div>
@@ -90,6 +103,19 @@
       </div>
     </div>
   </section>
+
+  <!-- Image Modal -->
+  <transition name="modal-fade">
+    <div v-if="selectedImage" class="image-modal" @click="closeImageModal">
+      <button class="modal-close" @click.stop="closeImageModal">
+        <X :size="32" />
+      </button>
+      <div class="modal-content" @click.stop>
+        <img :src="selectedImage" :alt="selectedImageTitle" class="modal-image" />
+        <div v-if="selectedImageTitle" class="modal-title">{{ selectedImageTitle }}</div>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script setup>
@@ -112,6 +138,8 @@ const {
 
 // Local state
 const expandedCategories = ref(new Set())
+const selectedImage = ref(null)
+const selectedImageTitle = ref(null)
 
 const handleClearFilter = () => {
   selectedCategory.value = 'all'
@@ -129,6 +157,18 @@ const toggleCategoryExpanded = (category) => {
   } else {
     expandedCategories.value.add(category)
   }
+}
+
+const openImageModal = (imageSrc, imageTitle) => {
+  selectedImage.value = imageSrc
+  selectedImageTitle.value = imageTitle
+  document.body.style.overflow = 'hidden'
+}
+
+const closeImageModal = () => {
+  selectedImage.value = null
+  selectedImageTitle.value = null
+  document.body.style.overflow = 'auto'
 }
 
 const filteredPosts = computed(() => {
@@ -899,6 +939,23 @@ const clearFilter = (filter) => {
   box-shadow: 0 10px 30px rgba(77, 88, 41, 0.5);
 }
 
+.category-section.creative-section {
+  border-color: transparent;
+  padding: 2.5rem;
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-section.creative-section::after {
+  display: none;
+}
+
+.category-section.creative-section > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Speech bubble tail effect */
 .category-section-title::after {
   content: '';
@@ -975,10 +1032,20 @@ const clearFilter = (filter) => {
   color: var(--text-primary);
 }
 
+.list-article.creative-article {
+  background: linear-gradient(140deg, rgba(96, 108, 56, 0.08), rgba(15, 23, 42, 0.15));
+  border: 1px solid;
+  color: #f7f9ed;
+}
+
 :root.light-mode .list-article {
   background: #FFFFFF;
   color: #1F2937;
   border-color: #E5E7EB;
+}
+
+.list-article.creative-article::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
 }
 
 :root.dark-mode .list-article {
@@ -1093,9 +1160,29 @@ const clearFilter = (filter) => {
   animation: fadeInUp 0.8s ease-out;
 }
 
+.gallery-container.creative-gallery {
+  background: white;
+  border-radius: 28px;
+  padding: 2rem 2.5rem 3rem;
+  border: 1px solid #9CA3AF;
+}
+
+:root.dark-mode .gallery-container.creative-gallery {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border-color: rgba(221, 161, 94, 0.15);
+  color: #f1f5f9;
+}
+
 .gallery-header-section {
   text-align: center;
   margin-bottom: 2.5rem;
+}
+
+.gallery-container.creative-gallery .gallery-header-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .gallery-section-header {
@@ -1104,6 +1191,12 @@ const clearFilter = (filter) => {
   color: var(--text-primary);
   margin-bottom: 0.8rem;
   text-transform: capitalize;
+}
+
+.creative-gallery-header {
+  color: #f7f7f4;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 :root.light-mode .gallery-section-header {
@@ -1127,10 +1220,24 @@ const clearFilter = (filter) => {
   animation: fadeInUp 0.8s ease-out 0.1s backwards;
 }
 
+.gallery-container.creative-gallery .gallery-grid-main {
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 @media (max-width: 1024px) {
   .gallery-grid-main {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.2rem;
+  }
+  
+  .gallery-container.creative-gallery .gallery-grid-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 
@@ -1139,12 +1246,20 @@ const clearFilter = (filter) => {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+  
+  .gallery-container.creative-gallery .gallery-grid-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
   .gallery-grid-main {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+  
+  .gallery-container.creative-gallery .gallery-grid-main {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1153,6 +1268,11 @@ const clearFilter = (filter) => {
   overflow: hidden;
   border-radius: 12px;
   animation: slideInUp 0.6s ease-out backwards;
+}
+
+.gallery-container.creative-gallery .gallery-cell {
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
 }
 
 .gallery-cell:nth-child(1) { animation-delay: 0.1s; }
@@ -1181,12 +1301,13 @@ const clearFilter = (filter) => {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-:root.light-mode .gallery-cell-wrapper {
-  box-shadow: 0 4px 12px rgba(127, 168, 201, 0.2);
+.gallery-container.creative-gallery .gallery-cell-wrapper {
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
-:root.dark-mode .gallery-cell-wrapper {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+:root.light-mode .gallery-cell-wrapper {
+  box-shadow: 0 4px 12px rgba(127, 168, 201, 0.2);
 }
 
 .gallery-cell-wrapper:hover {
@@ -1226,6 +1347,10 @@ const clearFilter = (filter) => {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.gallery-container.creative-gallery .gallery-cell-overlay {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(96, 108, 56, 0));
+}
+
 .gallery-cell-wrapper:hover .gallery-cell-overlay {
   transform: translateY(0);
 }
@@ -1236,6 +1361,25 @@ const clearFilter = (filter) => {
   font-weight: 600;
   margin: 0;
   line-height: 1.4;
+}
+
+.gallery-container.creative-gallery .gallery-cell-title {
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.gallery-cell-note {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.gallery-container.creative-gallery .gallery-cell-note {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+  letter-spacing: 0.3px;
 }
 
 /* Article Number */
@@ -1325,6 +1469,10 @@ const clearFilter = (filter) => {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.list-article.creative-article .list-article-title {
+  color: #fefefe;
+}
+
 :root.light-mode .list-article-title {
   color: #1F2937;
 }
@@ -1340,6 +1488,10 @@ const clearFilter = (filter) => {
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: color 0.3s ease;
+}
+
+.list-article.creative-article .list-article-excerpt {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 :root.light-mode .list-article-excerpt {
@@ -1786,5 +1938,89 @@ const clearFilter = (filter) => {
     font-size: 0.75rem;
     padding: 0.4rem 1rem;
   }
+}
+
+/* Image Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.modal-title {
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Modal Transition */
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-to,
+.modal-fade-leave-from {
+  opacity: 1;
+}
+
+/* Gallery Image Cursor */
+.gallery-cell-img {
+  cursor: pointer;
 }
 </style>

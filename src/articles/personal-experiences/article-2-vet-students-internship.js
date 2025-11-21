@@ -3,7 +3,7 @@ export default {
   title: 'Voices From the Field: Stories of Veterinary Interns From Local and International Clinical Rotations',
   excerpt: 'Five veterinary interns and graduates share their transformative experiences from clinical rotations, revealing the challenges, breakthroughs, and profound lessons that shape future clinicians.',
   category: 'personal-experiences',
-  date: '2025-10-28',
+  date: '2025-11-21',
   image: '🩺',
   imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=300&fit=crop',
   readTime: '20 min read',

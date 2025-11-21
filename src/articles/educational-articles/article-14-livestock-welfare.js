@@ -3,7 +3,7 @@ export default {
   title: 'Welfare in Livestock: Dr. Racho on Sustainable Livestock Care in Today\'s Modern Farms',
   excerpt: 'Expert perspective on implementing animal welfare standards and sustainable management practices across diverse livestock species.',
   category: 'educational-articles',
-  date: '2025-10-18',
+  date: '2025-11-18',
   image: '🐄',
   imageUrl: null,
   readTime: '14 min read',

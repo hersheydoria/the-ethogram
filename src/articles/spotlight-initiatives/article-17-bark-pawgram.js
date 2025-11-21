@@ -3,17 +3,17 @@ export default {
   title: 'Eyes on the Street: Bukidnon\'s Rescue Heroes Fighting for Forgotten Strays',
   excerpt: 'The stories of two volunteer-led organizations in Bukidnon—BARK and Feeding PAWgram—that provide rescue, rehabilitation, and hope to thousands of abandoned street animals.',
   category: 'spotlight-initiatives',
-  date: '2025-10-28',
+  date: '2025-11-20',
   image: '🐾',
   imageUrl: null,
   readTime: '10 min read',
   tags: ['animal rescue', 'stray welfare', 'community action', 'volunteer work', 'animal rehabilitation', 'compassion'],
   authors: ['Alejo', 'Enriquez', 'Fernandez', 'Galo', 'Pabualan', 'Reyes', 'Setienta', 'Sulay'],
   relatedLinks: [
-    { icon: '📚', name: 'Philippine Animal Welfare Society (PAWS)', url: 'https://paws.org.ph/' },
-    { icon: '📚', name: 'CARA Welfare Philippines', url: 'https://www.caraphil.org/their-lives-matter-too-the-unseen-reality-of-stray-cats-amp-dogs-in-the-philippines/' },
-    { icon: '📚', name: 'Bukidnon Aspin Refuge Kennel (BARK)', url: 'https://www.facebook.com/share/v/1FNGxztRgg/?mibextid=wwXIfr' },
-    { icon: '📚', name: 'Feeding PAWgram Malaybalay', url: 'https://www.facebook.com/share/p/1KJT4sJQZ3/?mibextid=wwXIfr' }
+    { name: 'Philippine Animal Welfare Society (PAWS)', url: 'https://paws.org.ph/' },
+    { name: 'CARA Welfare Philippines', url: 'https://www.caraphil.org/their-lives-matter-too-the-unseen-reality-of-stray-cats-amp-dogs-in-the-philippines/' },
+    { name: 'Bukidnon Aspin Refuge Kennel (BARK)', url: 'https://www.facebook.com/share/v/1FNGxztRgg/?mibextid=wwXIfr' },
+    { name: 'Feeding PAWgram Malaybalay', url: 'https://www.facebook.com/share/p/1KJT4sJQZ3/?mibextid=wwXIfr' }
   ],
   content: `
     <p>In the bustling towns of <b>Bukidnon</b>, a silent crisis unfolds daily: the plight of countless stray animals. Emaciated, often sick, and vulnerable, these dogs and cats roam the streets, their lives a stark contrast to the warmth and safety many pets enjoy.</p>

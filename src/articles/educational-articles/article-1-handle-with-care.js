@@ -3,7 +3,7 @@ export default {
   title: 'Avoiding Rabies-Risk Bites: Because Respawning in Real Life Isn\'t an Option',
   excerpt: 'Essential protocols for safely handling rabies-risk animals during clinical procedures and community settings, with practical guidance for veterinarians, groomers, and pet owners.',
   category: 'educational-articles',
-  date: '2025-10-28',
+  date: '2025-11-19',
   image: '🦁',
   imageUrl: null,
   readTime: '15 min read',
