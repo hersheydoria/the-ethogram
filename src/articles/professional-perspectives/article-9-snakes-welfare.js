@@ -33,7 +33,7 @@ export default {
 
     <p>Among the many cases <b>Tevar</b> has handled, one remains unforgettable.</p>
 
-    <p>A <b>Samar cobra</b> had slipped into the <b>ADDL building</b>. Students panicked. The hallway filled with noise and confusion. But <b>Tevar</b> and his team moved slowly, observing first, then approaching.</p>
+    <p>A <i>Samar cobra</i> had slipped into the <b>ADDL building</b>. Students panicked. The hallway filled with noise and confusion. But <b>Tevar</b> and his team moved slowly, observing first, then approaching.</p>
 
     <p><i>"We verified the identification and secured the snake using calm, controlled manual restraint with a hook assist. We relocated it to a nearby forest patch where there was suitable habitat and prey. That way, we reduced risk to both the snake and the campus."</i></p>
 

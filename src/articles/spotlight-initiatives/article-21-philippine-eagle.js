@@ -23,7 +23,7 @@ export default {
 
     <p><i>How can a creature so powerful and majestic be close to disappearing forever?</i></p>
 
-    <p>Is that a plane? Or is that superman? No, that is the <b>Philippine Eagle</b>. Soaring high in the sky, through the pristine canopies of Philippine Forest, the <b>Philippine Eagle (Pithecophaga jefferyi)</b> stands as one of the most magnificent creations of nature. Yet this grand raptor, the <b>Philippines national bird and pride</b>, faces a harsh reality: classified as <b>Critically endangered</b>, with an estimated number of only <b>400 pairs left in the wild</b>.</p>
+    <p>Is that a plane? Or is that superman? No, that is the <b>Philippine Eagle</b>. Soaring high in the sky, through the pristine canopies of Philippine Forest, the <b>Philippine Eagle</b> (<i>Pithecophaga jefferyi</i>) stands as one of the most magnificent creations of nature. Yet this grand raptor, the <b>Philippines national bird and pride</b>, faces a harsh reality: classified as <b>Critically endangered</b>, with an estimated number of only <b>400 pairs left in the wild</b>.</p>
 
     <p>The <b>Philippine Eagle</b> is more than just a bird. Standing at <b>3 feet from the tip of its crown feather to its tail and a wingspan of 7 feet</b> (one of the broadest among forest raptors), an eyesight that is <b>8 times more powerful than a human</b>, and talons so sharp that can cut its prey so easily. This apex predator represents the health of our entire forest ecosystem. Its survival is intertwined with the fate of our own future.</p>
 
@@ -71,7 +71,7 @@ export default {
 
     <p>As we reflect on the predicament of the <b>Philippine Eagle</b>, we realized its survival is more than a fight for a single species, but a test of our commitment to the future of our forests, our wildlife, and ourselves. Supporting the <b>Philippine Eagle Foundation</b> and protecting its habitat isn't just conservation; it's shaping a future where both the eagle and the Filipino people can thrive together.</p>
 
-    <iframe width="100%" style="max-width: 100%; height: 450px; margin: 20px 0; border-radius: 8px;" src="https://www.youtube.com/embed/8L_EjmoXG_c" title="Philippine Eagle Foundation Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="100%" style="max-width: 100%; height: 450px; margin: 20px 0; border-radius: 8px;" src="https://youtu.be/Qu5FMLAMHWY" title="Philippine Eagle Foundation Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <p><i>Video footage Courtesy of the Philippine Eagle Center/ Philippine Eagle Foundation (Youtube Channel: @PhilEagleFdn)<br>
     For more information about the Philippine Eagle Foundation and how to support their efforts, visit their official channel/website(https://www.philippineeaglefoundation.org/)  and the Philippine Eagle Center in Malagos, Davao City.</i></p>

@@ -52,7 +52,7 @@ export default {
 
     <h2>Philippine Eagle Facts and Importance in Philippine Ecosystem</h2>
 
-    <p>The <b>Philippine Eagle (Pithecophaga jefferyi)</b> is critically endangered, with only around <b>400 breeding pairs</b> remaining in the wild. Many of these pairs inhabit the forests of <b>Mt. Apo</b> in <b>Mindanao</b>. Additionally, this eagle is endemic to the <b>Philippines</b>, found only on four major islands: <b>Luzon, Samar, Leyte, and Mindanao</b>.</p>
+    <p>The <b>Philippine Eagle</b> (<i>Pithecophaga jefferyi</i>) is critically endangered, with only around <b>400 breeding pairs</b> remaining in the wild. Many of these pairs inhabit the forests of <b>Mt. Apo</b> in <b>Mindanao</b>. Additionally, this eagle is endemic to the <b>Philippines</b>, found only on four major islands: <b>Luzon, Samar, Leyte, and Mindanao</b>.</p>
 
     <p>The adults measure <b>86 to 102 cm</b> in length, weigh between <b>4 to 8 kg</b>, and have wingspans over <b>2 meters</b>, with <b>7.6-cm talons</b> for capturing their prey with a distinctive appearance, characterized by a shaggy crest of feathers on their heads, light blue-gray eyes, and a strong hooked bill. They require continuous tracts of old-growth montane and dipterocarp forest at elevations up to <b>1,800 meters</b>. Each pair needs an estimated <b>60 to 130 square kilometers (4,000 to 10,000 hectares)</b> of undisturbed habitat to successfully hunt and breed.</p>
 
