@@ -2,7 +2,7 @@ export default {
   id: 21,
   title: 'Protecting the Philippine Eagle: The Philippine Eagle Foundation\'s Mission',
   excerpt: 'An educational documentary overview of the Philippine Eagle Foundation\'s mission, goals, and conservation initiatives for the critically endangered Philippine Eagle.',
-  category: 'professional-perspectives',
+  category: 'spotlight-initiatives',
   date: '2025-10-11',
   image: '🦅',
   imageUrl: null,

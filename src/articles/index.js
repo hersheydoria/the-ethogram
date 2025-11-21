@@ -5,7 +5,6 @@ import article8 from './personal-experiences/article-8-busy-veterinarians.js'
 // Professional Perspectives
 import article7 from './professional-perspectives/article-7-compassion-fatigue.js'
 import article9 from './professional-perspectives/article-9-snakes-welfare.js'
-import article21 from './professional-perspectives/article-21-philippine-eagle.js'
 
 // Educational Articles
 import article1 from './educational-articles/article-1-handle-with-care.js'
@@ -26,6 +25,7 @@ import article13 from './spotlight-initiatives/article-13-trailblazers.js'
 import article16 from './spotlight-initiatives/article-16-animal-welfare-funding.js'
 import article17 from './spotlight-initiatives/article-17-bark-pawgram.js'
 import article18 from './spotlight-initiatives/article-18-repawnsible-parenting.js'
+import article21 from './spotlight-initiatives/article-21-philippine-eagle.js'
 
 // Creative Expressions
 import article11 from './creative-expressions/article-11-creative-works.js'
