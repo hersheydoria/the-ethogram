@@ -78,6 +78,8 @@ export default {
   content: `
     <h2>Poultry Welfare and Management Practices: Promoting Healthy, Productive, and Ethical Poultry Raising in the Philippines</h2>
 
+    <img src="https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/assets/article-3-1.png" alt="Poultry Welfare Overview" style="width: 100%; max-width: 600px; margin: 20px 0; border-radius: 8px;" />
+
     <h2>Introduction</h2>
 
     <p>Poultry production is one of the most important agricultural industries in the <b>Philippines</b>, supplying affordable protein and livelihood to millions of Filipinos. As the demand for chicken and eggs continues to grow, modern poultry systems are becoming more intensive, making proper welfare and management practices more crucial than ever. Ensuring poultry welfare is not just an ethical responsibility but also a practical approach to improving productivity, reducing mortality, and enhancing the quality of poultry products. In recent years, increasing consumer awareness, government initiatives, and global standards have emphasized the need for humane and sustainable poultry practices. This article focuses on how <b>Filipino poultry raisers</b>—whether backyard or commercial—can adopt welfare-friendly practices while maintaining profitability and productivity.</p>
@@ -89,6 +91,8 @@ export default {
     <h2>Importance of Poultry Welfare in the Philippine Context</h2>
 
     <p>The importance of poultry welfare in the <b>Philippines</b> is rooted in its economic, social, and ethical dimensions. The poultry industry contributes significantly to the national economy and provides income to small farmers in rural communities. Healthy chickens grow faster, produce more eggs, and require fewer medications, making welfare a key factor in profitability. Additionally, the effects of climate stress, especially in a tropical country prone to heat waves and seasonal typhoons, make welfare even more critical. Birds exposed to heat stress can experience reduced feed intake, lower productivity, and increased mortality. Consumers are now becoming more conscious about where their food comes from, and many prefer products raised under humane conditions. Improving welfare aligns with both market expectations and the moral responsibility to treat animals ethically.</p>
+
+    <img src="https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/assets/article-3-2.png" alt="Philippine Poultry Farming" style="width: 100%; max-width: 600px; margin: 20px 0; border-radius: 8px;" />
 
     <h2>Housing and Environmental Management</h2>
 
@@ -105,6 +109,8 @@ export default {
     <h2>Handling, Transportation, and Slaughter Practices</h2>
 
     <p>Proper handling is essential to minimize stress and prevent injury to birds. Rough handling can lead to bruising, broken bones, and fearfulness, which negatively affect welfare and product quality. Workers must be trained to catch and carry birds gently, avoiding actions that cause pain or distress. Transportation must ensure comfortable space, ventilation, and minimal travel time. Overcrowded transport crates, long travel hours, and poor ventilation can cause heat stress and high mortality, especially in the <b>Philippine</b> climate. Humane slaughter practices are also part of welfare management. Birds should be stunned properly before slaughter to ensure a quick and painless death, following recognized animal welfare standards. Good practices throughout the supply chain reflect respect for the birds and give consumers confidence in the quality of the products they purchase.</p>
+
+    <img src="https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/assets/article-3-3.png" alt="Poultry Handling and Slaughter Practices" style="width: 100%; max-width: 600px; margin: 20px 0; border-radius: 8px;" />
 
     <h2>Behavioral Needs and Enrichment</h2>
 

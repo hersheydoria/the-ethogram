@@ -72,7 +72,7 @@
     </div>
     
     <!-- Tag Filter Section (Below categories when selected) -->
-    <div v-if="activeCategory !== 'all' && availableTags.length > 0" class="tag-filter-bar">
+    <div v-if="activeCategory !== 'all' && availableTags.length > 0" class="tag-filter-bar" :class="{ hidden: hideFilterBar }">
       <div class="tag-filter-container">
         <span class="tag-filter-label">Filter by Tags:</span>
         <div class="tags-list">
@@ -115,8 +115,10 @@ const activeCategory = ref('all')
 const showMenu = ref(false)
 const showMobileMenu = ref(false)
 const selectedTags = ref([])
+const hideFilterBar = ref(false)
 let closeMenuTimeout = null
 let searchTimeout = null
+let lastScrollY = 0
 
 // Navigation functions
 const navigateToLanding = () => router.push('/')
@@ -251,6 +253,20 @@ const handleSearchInput = (query) => {
 
 onMounted(() => {
   initTheme()
+  
+  // Scroll event to hide/show filter bar
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY
+    
+    // Hide filter bar when scrolling down, show when scrolling up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      hideFilterBar.value = true
+    } else {
+      hideFilterBar.value = false
+    }
+    
+    lastScrollY = currentScrollY
+  })
 })
 </script>
 
@@ -605,6 +621,15 @@ onMounted(() => {
   background: rgba(0, 0, 0, 0.08);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tag-filter-bar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .tag-filter-container {
