@@ -31,7 +31,9 @@ export default {
 
     <p>For over <b>38 years</b>, the <b>Philippine Eagle Foundation</b> has stood at the frontline of saving our national bird. <b>Established in 1987 as a private, non-profit organization</b>. Through its unwavering commitment, the <b>PEF</b> has transformed public awareness into tangible conservation gains, marking milestones that have redefined the nations wildlife protection history with the mission:</p>
 
+    <blockquote>
     <p><i>"The Philippine Eagle Foundation believes that the fate of the Philippine Eagle, the health of our environment, and the quality of Philippine life are inextricably linked. The organization is firmly committed to ensuring the survival of the Philippine Eagle, the biodiversity it represents, and the sustainable use of forest resources for future generations to enjoy."</i></p>
+    </blockquote>
 
     <h2>Captive Breeding Program</h2>
 
@@ -41,35 +43,36 @@ export default {
 
     <p>Acknowledging that true conservation is impossible without public involvement, the <b>PEF</b> invests heavily in comprehensive education initiatives:</p>
 
-    <p><b>Upland Education:</b> Direct engagement with local and indigenous communities to cultivate care and concerns for their eagle neighbor.</p>
+    <ul>
+    <li><b>Upland Education:</b> Direct engagement with local and indigenous communities to cultivate care and concerns for their eagle neighbor.</li>
 
-    <p><b>PEC Educational Tours:</b> Experiential learning through nature contact, changing human behavior and instilling conservation values.</p>
+    <li><b>PEC Educational Tours:</b> Experiential learning through nature contact, changing human behavior and instilling conservation values.</li>
 
-    <p><b>"Learn with Malaya" Open Classroom Program:</b> Interactive sessions for children featuring guided tours, storytelling, raptor flight demonstration, and games.</p>
-
-    <p><b>Virtual Tours:</b> Remote educational experiences enabling global participation.</p>
-
+    <li><b>"Learn with Malaya" Open Classroom Program:</b> Interactive sessions for children featuring guided tours, storytelling, raptor flight demonstration, and games.</li>
+    <li><b>Virtual Tours:</b> Remote educational experiences enabling global participation.</li>
+    </ul>
     <h2>The Threats Remain Real</h2>
 
     <p>Even with decades of protection efforts, <b>Philippine Eagles</b> face immediate and long-term threats:</p>
 
-    <p><b>Hunting:</b> Despite legal protections, at least one Philippine eagle is killed every year. Eagles continue to be shot for food, sport, or simply out of ignorance.</p>
+    <ul>
+    <li><b>Hunting:</b> Despite legal protections, at least one Philippine eagle is killed every year. Eagles continue to be shot for food, sport, or simply out of ignorance.</li>
 
-    <p><b>Deforestation:</b> With forest disappearing at a disturbing rate, eagles increasingly venture closer to human settlements in search for food, which results in dangerous encounters.</p>
-
+    <li><b>Deforestation:</b> With forest disappearing at a disturbing rate, eagles increasingly venture closer to human settlements in search for food, which results in dangerous encounters.</li>
+  </ul>
     <p>The elimination of these threats remains the focus of the <b>PEF</b>'s conservation strategy.</p>
 
     <h2>How You Can Make a Difference</h2>
 
-    <p><b>Raise awareness:</b> Share information to family and friends, share facts on social media and help educate yourself and others about the situation and importance of the conservation of the Philippine Eagle.</p>
+    <ul>
+      <li><b>Raise awareness:</b> Share information to family and friends, share facts on social media and help educate yourself and others about the situation and importance of the conservation of the Philippine Eagle.</li>
 
-    <p><b>Support Conservation Organizations:</b> Volunteer at PEC, offer your time to support the work of PEF or contribute financially to the PEF.</p>
+      <li><b>Support Conservation Organizations:</b> Volunteer at PEC, offer your time to support the work of PEF or contribute financially to the PEF.</li>
 
-    <p><b>Protect the Habitat:</b> Advocate against illegal logging and other activities that destroys the eagle's forest home and support reforestation by participating or donating to projects aimed at restoring forests.</p>
+      <li><b>Protect the Habitat:</b> Advocate against illegal logging and other activities that destroys the eagle's forest home and support reforestation by participating or donating to projects aimed at restoring forests.</li>
+    </ul>
 
-    <h2>Conclusion: A Future for the Philippine Eagle</h2>
-
-    <p>As we reflect on the predicament of the <b>Philippine Eagle</b>, we realized its survival is more than a fight for a single species, but a test of our commitment to the future of our forests, our wildlife, and ourselves. Supporting the <b>Philippine Eagle Foundation</b> and protecting its habitat isn't just conservation; it's shaping a future where both the eagle and the Filipino people can thrive together.</p>
+    <p>As we reflect on the predicament of the <b>Philippine Eagle</b>, we realize its survival is more than a fight for a single species, but a test of our commitment to the future of our forests, our wildlife, and ourselves. Supporting the <b>Philippine Eagle Foundation</b> and protecting its habitat isn't just conservation; it's shaping a future where both the eagle and the Filipino people can thrive together.</p>
 
     <div style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 20px 0; border-radius: 8px; overflow: hidden;">
       <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;" src="https://www.youtube-nocookie.com/embed/Qu5FMLAMHWY" title="Philippine Eagle Foundation Documentary" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

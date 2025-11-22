@@ -20,7 +20,10 @@ export default {
 
     <h2>A Growing Problem in Baguio City</h2>
     <p><b>Baguio City</b>, known for its cool climate and vibrant culture, has recently found itself confronting an unsettling trend. The <b>Baguio City Police Office (BCPO)</b> recorded five cases of animal cruelty this year, up from three cases reported during the same period last year. Disturbingly, many of these cases involve the serving of dog meat as pulutan, a practice that persists despite being explicitly prohibited under the <b>Animal Welfare Act of 1998 (RA 8485)</b>, as amended by <b>RA 10631</b>.</p>
-    <p><b>BCPO City Director, PCOL Francisco B. Bulwayan, Jr.,</b> emphasized the gravity of the issue: <i>"The protection of animals is a shared responsibility, and we urge the public to respect and abide by the legal prohibitions."</i></p>
+    <p><b>BCPO City Director, PCOL Francisco B. Bulwayan, Jr.,</b> emphasized the gravity of the issue:</p>
+    <blockquote>
+    <p><i>"The protection of animals is a shared responsibility, and we urge the public to respect and abide by the legal prohibitions."</i></p>
+    </blockquote>
     <p>The city's concern intensified following a series of incidents in 2024. In June, <b>Mayor Benjamin Magalong</b> ordered the inspection of local eateries after reports of dog meat being served. This followed charges filed against a man caught butchering a dog in <b>Barangay Irisan</b> in May. By September, the butchering of at least three dogs in <b>La Trinidad</b> had been caught on camera, igniting public outrage and renewed calls for action.</p>
     <p>These incidents reflect a deeper societal dilemma: Where does animal welfare stand in our list of priorities? Despite long-standing legislation, cases of cruelty continue to slip through the cracks, overshadowed by broader socio-economic challenges. This begs the question: Is the law alone enough to end animal cruelty?</p>
 

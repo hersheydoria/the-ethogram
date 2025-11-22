@@ -9,11 +9,7 @@ export default {
   readTime: '22 min read',
   tags: ['veterinary education', 'community outreach', 'responsible pet ownership', 'One Health approach', 'student engagement', 'rabies prevention'],
   authors: ['Group 18'],
-  relatedLinks: [
-    { name: 'Central Mindanao University College of Veterinary Medicine', url: 'https://cmu.edu.ph/' },
-    { name: 'One Health Framework - CDC', url: 'https://www.cdc.gov/onehealth' },
-    { name: 'Philippine Rabies Prevention', url: 'https://www.doh.gov.ph/' }
-  ],
+  relatedLinks: [],
   content: `
     <h2>Introduction</h2>
     <p>The Central Mindanao University College of Veterinary Medicine (CMU–CVM), established in 1975 and now recognized as a premier veterinary institution in Mindanao, continues to live out its mission of excellence in education, research, and community extension. Guided by its vision to serve as a Center of Excellence and to produce competent, socially responsible veterinarians, the college regularly conducts school-led outreach missions across Central Mindanao—including Musuan, Maramag, and nearby communities—to respond to both animal and public health needs with empathy and professionalism.</p>
@@ -25,19 +21,19 @@ export default {
 
     <h2>Objectives</h2>
     <ul>
-      <li>Promote responsible pet ownership by educating the community on proper care, vaccination schedules, nutrition, and animal welfare practices.</li>
-      <li>Strengthen public health protection by providing free preventive veterinary services, including anti-rabies vaccination, deworming, and general pet check-ups.</li>
-      <li>Support the One Health framework by addressing zoonotic disease risks and raising awareness about the interconnected health of animals, humans, and the environment.</li>
-      <li>Enhance student learning and competency by offering hands-on opportunities for veterinary students to practice clinical skills and community engagement under professional supervision.</li>
-      <li>Extend accessible veterinary services to underserved communities, especially those with limited access to routine veterinary care.</li>
-      <li>Foster collaboration with local stakeholders—including LGUs, community organizations, and health sectors—to build stronger, coordinated animal health initiatives.</li>
+      <li><b>Promote responsible pet ownership</b> by educating the community on proper care, vaccination schedules, nutrition, and animal welfare practices.</li>
+      <li><b>Strengthen public health protection</b> by providing free preventive veterinary services, including anti-rabies vaccination, deworming, and general pet check-ups.</li>
+      <li><b>Support the One Health framework</b> by addressing zoonotic disease risks and raising awareness about the interconnected health of animals, humans, and the environment.</li>
+      <li><b>Enhance student learning and competency</b> by offering hands-on opportunities for veterinary students to practice clinical skills and community engagement under professional supervision.</li>
+      <li><b>Extend accessible veterinary services to underserved communities</b>, especially those with limited access to routine veterinary care.</li>
+      <li><b>Foster collaboration with local stakeholders</b>—including LGUs, community organizations, and health sectors—to build stronger, coordinated animal health initiatives.</li>
     </ul>
 
     <h2>Description of Activities</h2>
 
     <h3>Education and Training</h3>
     <p>The One VetMed: ResPAWnsible Parenting Project (Year 3) served as a dynamic and heartfelt platform for educating pet owners and nurturing a culture of responsible pet parenting in the community. Through engaging lectures, myth-busting discussions such as <i>"Myth vs. Fact: Neutering Your Pets,"</i> and interactive learning sessions, participants received practical guidance on nutrition, deworming schedules, proper restraint, animal welfare, and the long-term benefits of neutering.</p>
-    <p>Volunteers, student organizations, and faculty worked hand in hand to support pet owners in making informed and compassionate decisions for their animals. The message was clear: responsible pet ownership begins with awareness, empathy, and accurate information. The event successfully drew together pet owners, student volunteers, and <i>"Resident Utols,"</i> reflecting not only active community participation but also a growing shared understanding of what it means to care for animals with responsibility and kindness.</p>
+    <p>Volunteers, student organizations, and faculty worked hand in hand to support pet owners in making informed and compassionate decisions for their animals. The message was clear: responsible pet ownership begins with awareness, empathy, and accurate information. The event successfully drew together pet owners, student volunteers, and "Resident Utols," reflecting not only active community participation but also a growing shared understanding of what it means to care for animals with responsibility and kindness.</p>
 
     <h3>Clinical Services</h3>
     <p>The outreach activities under the One VetMed program, which began in October 2023, provided a wide range of free veterinary services to the community, thoughtfully complementing educational sessions with hands-on clinical care. Recent initiatives included continuous vaccination drives at the CMU–CVM Veterinary Teaching Hospital and mobile services during community events, offering anti-rabies vaccination, deworming, vitamin supplementation, nail clipping, and minor treatments for hundreds of pets.</p>

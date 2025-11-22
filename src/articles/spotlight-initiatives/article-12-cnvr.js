@@ -119,15 +119,15 @@ export default {
     <p>CNVR is not just an animal welfare program. It is a public health intervention, an ethical commitment, and a community strategy rolled into one. It is grounded in science, supported by international organizations like the <b>WHO</b> and <b>WOAH</b>, and increasingly backed by real-world success stories—including here in the <b>Philippines</b>.</p>
 
     <h2>Why Old Methods Fail—and Why CNVR Works</h2>
-    <p>For decades, many municipalities relied on culling and pound-based removal, believing that rounding up and killing dogs would keep streets safer. The science tells a different story. Evidence shows that culling fails to reduce stray populations in the long term because new, unsterilized dogs quickly fill the <i>"ecological vacancies"</i> left behind <b>(WOAH, 2021)</b>. The cycle of catching and killing repeats, draining public funds while doing little to change the reality on the ground.</p>
-    <p>CNVR breaks that cycle by targeting what truly drives overpopulation: uncontrolled reproduction. Sterilization directly slows population growth. One unspayed female dog and her offspring can theoretically produce up to 67,000 puppies in just six years <b>(Happy Doggo, 2024)</b>. When a city systematically sterilizes a large proportion of its free-roaming dog population, it is not just reacting to a problem—it is preventing tomorrow's crisis today.</p>
-    <p>Research by the <b>World Organisation for Animal Health (WOAH)</b> shows that when about 70% or more of the dog population is sterilized within a CNVR framework, communities see lasting stabilization of dog numbers <b>(WOAH, 2021)</b>. A landmark five-year assessment in <b>Greater Bangkok</b> involving around 300,000 dogs reported a 24.7% reduction in stray population density, demonstrating that large-scale CNVR is not only possible, but effective <b>(Hiby et al., 2023)</b>.</p>
+    <p>For decades, many municipalities relied on culling and pound-based removal, believing that rounding up and killing dogs would keep streets safer. The science tells a different story. Evidence shows that culling fails to reduce stray populations in the long term because new, unsterilized dogs quickly fill the <i>"ecological vacancies"</i> left behind (WOAH, 2021). The cycle of catching and killing repeats, draining public funds while doing little to change the reality on the ground.</p>
+    <p>CNVR breaks that cycle by targeting what truly drives overpopulation: uncontrolled reproduction. Sterilization directly slows population growth. One unspayed female dog and her offspring can theoretically produce up to <b>67,000</b> puppies in just six years (Happy Doggo, 2024). When a city systematically sterilizes a large proportion of its free-roaming dog population, it is not just reacting to a problem—it is preventing tomorrow's crisis today.</p>
+    <p>Research by the <b>World Organisation for Animal Health (WOAH)</b> shows that when about <b>70% or more of the dog population</b> is sterilized within a CNVR framework, communities see lasting stabilization of dog numbers (WOAH, 2021). A landmark five-year assessment in Greater Bangkok involving around <b>300,000 dogs </b> reported a <b>24.7% reduction in stray population density</b>, demonstrating that large-scale CNVR is not only possible, but effective (Hiby et al., 2023).</p>
     <p>These are not abstract numbers. They represent fewer puppies born into hardship, fewer dogs competing for scarce food, and fewer animals suffering or posing unmanaged risks in our neighborhoods.</p>
 
     <h2>Protecting People by Protecting Dogs</h2>
     <p>In a country where rabies remains a deadly threat, especially in rural and peri-urban communities, CNVR is more than an animal program—it is a public health strategy. The <b>World Health Organization</b> and <b>WOAH</b> strongly support CNVR because it directly reduces the spread of zoonotic diseases, particularly rabies.</p>
-    <p>The <b>Bangkok</b> CNVR program, for instance, resulted in a 5.7% monthly reduction in dog rabies cases <b>(Hiby et al., 2023)</b>. In <b>India</b>, a study found improved dog health and fewer clinical disease indicators in areas with active CNVR programs <b>(Collins et al., 2025)</b>. These findings matter deeply for countries like the <b>Philippines</b>, where human rabies cases are still linked to dog bites and where communities often lack access to consistent veterinary services.</p>
-    <p>Vaccination within CNVR frameworks reduces exposure to high-risk, unvaccinated dog populations <b>(WOAH, 2021)</b>. Sterilized, vaccinated dogs typically roam less, fight less, and show reduced aggression <b>(Abdulkarim et al., 2021)</b>. As a result, CNVR is linked not only with quieter streets and fewer dog fights, but also with declining dog bite incidents and safer communities.</p>
+    <p>The <b>Bangkok</b> CNVR program, for instance, resulted in a <b>5.7% monthly reduction in dog rabies cases</b> (Hiby et al., 2023). In <b>India</b>, a study found improved dog health and fewer clinical disease indicators in areas with active CNVR programs (Collins et al., 2025). These findings matter deeply for countries like the <b>Philippines</b>, where human rabies cases are still linked to dog bites and where communities often lack access to consistent veterinary services.</p>
+    <p>Vaccination within CNVR frameworks reduces exposure to high-risk, unvaccinated dog populations (WOAH, 2021). Sterilized, vaccinated dogs typically roam less, fight less, and show reduced aggression (Abdulkarim et al., 2021). As a result, CNVR is linked not only with quieter streets and fewer dog fights, but also with declining dog bite incidents and safer communities.</p>
     <p>Put simply: when cities invest in CNVR, they are investing in the health and safety of children walking to school, market vendors, joggers in barangay roads, and families in every neighborhood.</p>
 
     <h2>Humane, Ethical—and More Effective</h2>
@@ -138,12 +138,12 @@ export default {
       <li>Fewer injuries from mating and territorial fights</li>
       <li>Improved overall temperament and health</li>
     </ul>
-    <p><b>(Cambridge University Press, 2023)</b></p>
-    <p>Communities, in turn, respond differently to humane programs than to culling campaigns. Research shows significantly higher cooperation and participation in humane management efforts <b>(FOUR PAWS, 2023)</b>. In <b>Bangkok</b>, there was a 39% annual increase in community-connected dogs—animals that were owned or semi-owned—indicating strengthened human–dog relationships and a shift toward shared responsibility <b>(Hiby et al., 2023)</b>.</p>
+    <p>(Cambridge University Press, 2023)</p>
+    <p>Communities, in turn, respond differently to humane programs than to culling campaigns. Research shows significantly higher cooperation and participation in humane management efforts (FOUR PAWS, 2023). In <b>Bangkok</b>, there was a <b>39% annual increase in community-connected dogs</b>—animals that were owned or semi-owned—indicating strengthened human–dog relationships and a shift toward shared responsibility (Hiby et al., 2023).</p>
     <p>This is crucial for the <b>Philippines</b>, where many dogs live in a gray area between owned and <i>"community"</i> pets. When people see that programs aim to help, not harm, animals, they are more likely to support vaccination drives, bring dogs for sterilization, and report sick or injured animals. Humane approaches build trust—and trust is the foundation of any lasting public health or animal welfare strategy.</p>
 
     <h2>A Smarter Policy Choice for Local Governments</h2>
-    <p>From a governance perspective, CNVR is not only kinder—it is smarter. Traditional long-term sheltering and pound systems are resource-intensive and often end in overcrowding, disease spread, and euthanasia. CNVR prevents future surges in dog numbers, easing long-term operational and financial burdens for local government units (LGUs) <b>(Four Paws USA, 2025)</b>.</p>
+    <p>From a governance perspective, CNVR is not only kinder—it is smarter. Traditional long-term sheltering and pound systems are resource-intensive and often end in overcrowding, disease spread, and euthanasia. CNVR prevents future surges in dog numbers, easing long-term operational and financial burdens for local government units (LGUs) (Four Paws USA, 2025).</p>
     <p>Research indicates that CNVR programs are most effective when paired with:</p>
     <ul>
       <li>Community education and public awareness</li>
@@ -151,7 +151,7 @@ export default {
       <li>Systematic monitoring and data collection</li>
       <li>Rabies vaccination campaigns and bite management systems</li>
     </ul>
-    <p><b>(WOAH, 2021)</b></p>
+    <p>(WOAH, 2021)</p>
     <p>CNVR also aligns with major international frameworks, including the <b>WHO Rabies Elimination Framework</b>, <b>ICAM Dog Population Management Guidelines</b>, and the <b>Sustainable Development Goals</b> on health, environment, and humane treatment of animals. This alignment makes CNVR a strong candidate for municipal, provincial, and eventually national adoption as standard policy. It is a model that allows cities to be both globally aligned and locally responsive.</p>
 
     <h2>The Philippine Picture: Numbers We Can't Ignore</h2>
@@ -168,7 +168,7 @@ export default {
 
     <h2>Stories from the Cities: Cebu, Davao, and Beyond</h2>
     <p>The shift is already happening in some local governments.</p>
-    <p>In <b>Cebu City</b>, the <b>Department of Veterinary Medicine and Fisheries</b> implemented a CNVR program starting in <b>June 2024</b>. From <b>June 2024 to March 2025</b>, 1,229 dogs and cats underwent CNVR. During this period, the city discontinued impounding and euthanasia of stray animals—a significant policy change that signaled a move away from outdated, inhumane methods. Local officials described CNVR as <i>"the most effective and humane method to ensure animals don't increase in a locality,"</i> reflecting a growing recognition that compassion and effectiveness can go hand in hand <b>(SunStar, 2025)</b>.</p>
+    <p>In <b>Cebu City</b>, the <b>Department of Veterinary Medicine and Fisheries</b> implemented a CNVR program starting in <b>June 2024</b>. From <b>June 2024 to March 2025</b>, 1,229 dogs and cats underwent CNVR. During this period, the city discontinued impounding and euthanasia of stray animals—a significant policy change that signaled a move away from outdated, inhumane methods. Local officials described CNVR as <i>"the most effective and humane method to ensure animals don't increase in a locality,"</i> reflecting a growing recognition that compassion and effectiveness can go hand in hand.</p>
     <p>In <b>Davao City</b>, policy work on dog population control and rabies eradication has explored mechanistic and phenomenological models that highlight the importance of population management strategies, including sterilization. While more granular CNVR data would be valuable, the direction is clear: cities in <b>Mindanao</b> and across the country are beginning to consider and adopt more science-based and humane approaches.</p>
     <p>For provinces like <b>Bukidnon</b> and many other regions facing similar challenges—high stray dog densities, low sterilization coverage, limited vaccination—these examples serve as powerful precedents. Even where formal CNVR programs are still emerging, the evidence suggests that adopting this model could dramatically improve both animal welfare and public safety.</p>
 
@@ -189,7 +189,7 @@ export default {
       <li>Partnerships with <b>NGOs</b>, private veterinarians, and veterinary schools expand capacity, share costs, and help train the next generation of practitioners.</li>
       <li>Local ordinances on responsible pet ownership, licensing, and anti-cruelty complement CNVR and ensure that the gains of each campaign are not lost.</li>
     </ul>
-    <p>Research consistently emphasizes that CNVR works best not as a one-off campaign, but as a core component of multi-layered public policy <b>(Cambridge, 2023; WOAH, 2021)</b>.</p>
+    <p>Research consistently emphasizes that CNVR works best not as a one-off campaign, but as a core component of multi-layered public policy (Cambridge, 2023; WOAH, 2021).</p>
 
     <h2>A Call to Action: What CNVR Means for All of Us</h2>
     <p>The evidence is clear and compelling. From global organizations to local NGOs, from academic journals to city-level case studies, research shows that CNVR is the most humane, sustainable, and effective approach we currently have for managing stray dog populations.</p>
