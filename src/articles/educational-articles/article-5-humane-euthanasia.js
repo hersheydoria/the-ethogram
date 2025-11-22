@@ -24,12 +24,13 @@ export default {
 
     <p>The decision to euthanize an animal must always be ethically driven, acting as a last resort when all avenues have been exhausted. Veterinarians emphasize that euthanasia is appropriate only under specific, justifiable conditions:</p>
 
-    <p><b>Irreversible Suffering:</b> The animal has an incurable disease or injury causing chronic, severe pain or debilitating loss of quality of life for which no effective treatment remains.</p>
+    <ul>
+    <li><b>Irreversible Suffering:</b> The animal has an incurable disease or injury causing chronic, severe pain or debilitating loss of quality of life for which no effective treatment remains.</li>
 
-    <p><b>Containment of Disease:</b> In rare cases, it is necessary for the containment of highly contagious and dangerous diseases that pose a serious risk to other animals or public health.</p>
+    <li><b>Containment of Disease:</b> In rare cases, it is necessary for the containment of highly contagious and dangerous diseases that pose a serious risk to other animals or public health.</li>
 
-    <p><b>Institutional Use:</b> Euthanasia for research or educational purposes (specimen/cadaver use) is only performed when strictly approved and supervised by an oversight committee—prioritizing the welfare of the animal involved.</p>
-
+    <li><b>Institutional Use:</b> Euthanasia for research or educational purposes (specimen/cadaver use) is only performed when strictly approved and supervised by an oversight committee—prioritizing the welfare of the animal involved.</li>
+    </ul>
     <h2>Navigating the Moral Dilemmas</h2>
 
     <p>The core moral dilemma in conducting humane euthanasia in animals stems from balancing the professional duty to relieve an animal's suffering with conflicting human interests, values, and emotions. As veterinarians, our primary moral imperative is the welfare and the best interest of our animal. However, we should balance the principle of <b>beneficence</b> (acting in the best interest of the animal to end suffering) with the principle of <b>client autonomy</b> (respecting the owner's wishes and legal right to decide for their property).</p>
@@ -38,39 +39,40 @@ export default {
 
     <p>Here are some of the moral dilemmas in conducting humane euthanasia:</p>
 
-    <h3>Convenience Euthanasia</h3>
+    <ul>
+    <h3>1. Convenience Euthanasia</h3>
 
     <p>Veterinarians sometimes receive requests to euthanize healthy or treatable animals for non-medical reasons, such as when an owner is moving or cannot handle minor behavior problems. This creates moral conflict because vets are trained to protect animal life, not end it when the animal still has good welfare. It can be emotionally painful for vets who feel they are being asked to go against their professional values.</p>
 
-    <h3>Financial Constraints</h3>
+    <h3>2. Financial Constraints</h3>
 
     <p>Difficult decisions arise when an animal has a treatable illness but the owner cannot afford the needed care. Even if the animal could recover, financial limitations may lead to euthanasia. This forces veterinarians to balance the animal's potential for a good quality of life with the owner's economic reality, a situation that often causes guilt and sadness for everyone involved.</p>
 
-    <h3>Determining Quality of Life</h3>
+    <h3>3. Determining Quality of Life</h3>
 
     <p>Assessing an animal's quality of life can be challenging because animals cannot express their wishes or how much they are suffering. Owners and veterinarians may disagree about whether conditions like blindness or chronic pain justify euthanasia. This uncertainty can lead to ending a life too early or, in contrast, prolonging an animal's suffering longer than necessary.</p>
 
-    <h3>Emotional Attachment vs. Animal Welfare</h3>
+    <h3>4. Emotional Attachment vs. Animal Welfare</h3>
 
     <p>Owners who love their pets deeply may push for continued treatment even when the animal's condition is hopeless or painful. Veterinarians may recommend euthanasia as the most humane option, but emotional attachment can make owners hesitate. This creates tension, as the vet must support the owner emotionally while still advocating for the animal's well-being.</p>
 
-    <h3>Professional Stress and Mental Health</h3>
-
+    <h3>5. Professional Stress and Mental Health</h3>
     <p>Facing emotionally difficult euthanasia cases repeatedly can take a toll on veterinarians. Constant moral pressure, compassion fatigue, and the sadness of ending lives contribute to high levels of stress in the profession. This heavy emotional burden is one reason why veterinarians are at a higher risk for burnout and mental health challenges.</p>
 
-    <h3>Lack of Clear Guidelines</h3>
+    <h3>6. Lack of Clear Guidelines</h3>
 
     <p>Although organizations like the <b>AVMA</b> offer euthanasia guidelines, they do not cover every complex situation. Cases involving non-terminal or uncertain conditions leave room for interpretation, and veterinarians must rely on their own judgment and moral values. This lack of clarity can make decisions more stressful and ethically confusing.</p>
-
+    </ul>
     <h2>The Crucial Role of Transparency and Consent</h2>
 
     <p>In the clinical setting, ethical euthanasia decision-making hinges on absolute transparency and clear communication with the pet owner or family.</p>
+    <ul>
+    <li><b>Honesty first:</b> Misleading owners, for example, by stating an animal will be adopted when it is intended for euthanasia, is a serious ethical breach. Owners must be clearly and honestly informed of the intent.</li>
 
-    <p><b>Honesty first:</b> Misleading owners, for example, by stating an animal will be adopted when it is intended for euthanasia, is a serious ethical breach. Owners must be clearly and honestly informed of the intent.</p>
+    <li><b>Evidence-Based Choices:</b> In cases of terminal illness (like advanced cancer), the veterinarian presents the owner with objective proof (e.g., X-rays, lab results) of the animal's suffering.</li>
 
-    <p><b>Evidence-Based Choices:</b> In cases of terminal illness (like advanced cancer), the veterinarian presents the owner with objective proof (e.g., X-rays, lab results) of the animal's suffering.</p>
-
-    <p><b>Offering Choice:</b> The client is then given a compassionate, difficult choice: continue treatment that may prolong suffering, or choose euthanasia to allow the animal a peaceful release of pain.</p>
+    <li><b>Offering Choice:</b> The client is then given a compassionate, difficult choice: continue treatment that may prolong suffering, or choose euthanasia to allow the animal a peaceful release of pain.</li>
+    </ul>
 
     <h2>Types of Euthanasia and Their Use</h2>
 
@@ -102,10 +104,8 @@ export default {
 
     <p>This involves placing the animal under general anesthesia first so that it becomes completely unconscious and feels no pain or stress. Once the animal is asleep, an overdose of a euthanasia solution, usually a barbiturate, is administered. This method is particularly suitable for fearful, aggressive, or highly stressed animals, and it offers a peaceful passing while the animal is already asleep.</p>
 
-    <h2>Conclusion: The Sacred Duty of Compassion</h2>
-
     <p>The decision for euthanasia is never easy, but when executed with ethical rigor, transparency, and compassion, it represents the final, most profound act of love and mercy a <i>furparent</i> can bestow. Upholding humane standards is not just a professional obligation; it is a moral commitment to ensuring that every life, and every farewell, is met with dignity and peace.</p>
 
-    <p>In this situation, the veterinarian's role transcends medicine—it becomes a sacred duty to translate suffering into a quiet, peaceful goodbye.</p>
+    <p><i><b>In this situation, the veterinarian's role transcends medicine—it becomes a sacred duty to translate suffering into a quiet, peaceful goodbye.</b></i></p>
   `
 }

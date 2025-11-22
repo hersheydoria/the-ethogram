@@ -10,11 +10,11 @@ export default {
   tags: ['veterinary', 'internship', 'clinical-rotation', 'student-experience', 'professional-development'],
   authors: ['Group 2'],
   content: `
-    <h3>Introduction</h3>
-    <p>Veterinary internships and clinical rotations expose students to realities far beyond the classroom—moments that challenge, humble, and shape future clinicians. For this feature, we interviewed five veterinary interns and graduates: <b>Jan Vincent Tevar</b>, <b>Kyle Ian Tablon</b>, <b>Dr. Rei Joshua Yasona Ladjahasan</b>, <b>Dr. Joice L. Gallardo</b>, and <b>Doc. Jazmine Endaya</b>.</p>
+    <i><p>Veterinary internships and clinical rotations expose students to realities far beyond the classroom—moments that challenge, humble, and shape future clinicians. For this feature, we interviewed five veterinary interns and graduates: </p>
+    <p><b>Jan Vincent Tevar</b>, <b>Kyle Ian Tablon</b>, <b>Dr. Rei Joshua Yasona Ladjahasan</b>, <b>Dr. Joice L. Gallardo</b>, and <b>Doc. Jazmine Endaya</b>.</p>
 
     <p>Some trained locally, some abroad, but all share experiences that highlight the differences in case exposure, professional culture, caseload, and the emotional weight of practicing veterinary medicine inside—and outside—the <b>Philippines</b>. Each story offers a unique perspective on learning, mistakes, breakthroughs, and the profound responsibility that comes with caring for animals.</p>
-
+    </i>
     <h2>JAN VINCENT TEVAR – Discipline, Structure, and Situational Awareness</h2>
 
     <h3>A Foundational First Day</h3>
@@ -124,13 +124,13 @@ export default {
     <h3>A Day in Her Rotations</h3>
     <p><b>Doc. Jazmine</b> experienced two very different internship structures:</p>
 
-    <p><b>On her first rotation:</b></p>
+    <p>On her first rotation:</p>
 
     <p><i>"My day usually starts with endorsements for confined patients with veterinarians and nurses."</i></p>
 
     <p><i>"We performed tests as ordered and shadowed consultations when possible."</i></p>
 
-    <p><b>On her second rotation:</b></p>
+    <p>On her second rotation:</p>
 
     <p><i>"We handled the records, patients, and clients by ourselves—but with supervision."</i></p>
 

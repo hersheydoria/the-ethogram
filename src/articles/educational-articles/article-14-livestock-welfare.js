@@ -11,8 +11,6 @@ export default {
   authors: ['Group 14'],
   relatedLinks: [],
   content: `
-    <h2>Introduction: A Veterinarian's Journey with Large Animals</h2>
-
     <p><b>Dr. Racho</b> began her large animal journey immediately after obtaining her license, starting with hands-on equine practice in <b>Impasug-ong, Bukidnon</b>. She shared, <i>"Right after getting my license… I've got my experience of hands-on training in equine… especially in Impasug-ong."</i></p>
 
     <p>Her work involved horse handling, riding, and health management, often participating in activities organized by local horsemen. These experiences, she said, <i>"boosted my confidence,"</i> allowing her to become more comfortable with equine behavior, treatment, and preventive care.</p>

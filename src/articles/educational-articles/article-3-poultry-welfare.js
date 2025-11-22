@@ -87,10 +87,9 @@ export default {
     <p>Poultry welfare refers to the physical, mental, and environmental well-being of chickens throughout their lives. Welfare involves how chickens grow, behave, and interact with their surroundings. Healthy birds exhibit natural behaviors such as pecking, scratching, perching, dust bathing, and social interaction. Poor welfare, on the other hand, occurs when birds experience stress, overcrowding, improper nutrition, or disease. In the <b>Philippines</b>, where both backyard and large-scale systems exist, welfare standards can vary greatly. Improving welfare requires acknowledging that poultry are living animals capable of pain, stress, and discomfort, and therefore must be managed with compassion and science-based practices.</p>
 
     <h2>Importance of Poultry Welfare in the Philippine Context</h2>
+    <img src="https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/assets/article-3-2.png" alt="Philippine Poultry Farming" style="width: 100%; max-width: 600px; margin: 20px 0; border-radius: 8px;" />
 
     <p>The importance of poultry welfare in the <b>Philippines</b> is rooted in its economic, social, and ethical dimensions. The poultry industry contributes significantly to the national economy and provides income to small farmers in rural communities. Healthy chickens grow faster, produce more eggs, and require fewer medications, making welfare a key factor in profitability. Additionally, the effects of climate stress, especially in a tropical country prone to heat waves and seasonal typhoons, make welfare even more critical. Birds exposed to heat stress can experience reduced feed intake, lower productivity, and increased mortality. Consumers are now becoming more conscious about where their food comes from, and many prefer products raised under humane conditions. Improving welfare aligns with both market expectations and the moral responsibility to treat animals ethically.</p>
-
-    <img src="https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/assets/article-3-2.png" alt="Philippine Poultry Farming" style="width: 100%; max-width: 600px; margin: 20px 0; border-radius: 8px;" />
 
     <h2>Housing and Environmental Management</h2>
 

@@ -75,10 +75,16 @@ export default {
     </ul>
 
     <h3>3. Sedation When Needed</h3>
-    <p>Sedation can make procedures safer for everyone, including owners assisting or volunteers helping in community vaccination campaigns. Use it judiciously, monitor the animal, and minimize direct contact.</p>
+    <ul>
+      <li>Sedation can make procedures safer for everyone, including owners assisting or volunteers helping in community vaccination campaigns.</li>
+      <li>Use it judiciously, monitor the animal, and minimize direct contact.</li>
+    </ul>
 
     <h3>4. Environmental Adjustments</h3>
-    <p>Calm environments help animals cooperate. Separate species in waiting areas, minimize noise, and schedule high-risk animals at quieter times. Even small adjustments make handling safer and reduce stress for the animal.</p>
+    <ul>
+      <li>Calm environments help animals cooperate. Separate species in waiting areas, minimize noise, and schedule high-risk animals at quieter times.</li>
+      <li>Even small adjustments make handling safer and reduce stress for the animal.</li>
+    </ul>
 
     <h3>5. Isolation and Containment</h3>
     <ul>
@@ -97,7 +103,7 @@ export default {
 
     <h2>Handling Rabid Animals: Best Practices in the Philippine Setting</h2>
 
-    <p><b>Rabies remains a public health concern in the Philippines, with cases still reported each year in regions like Bicol, Mindanao, and the Visayas.</b> Handling rabies-suspected animals correctly is crucial.</p>
+    <p>Rabies remains a public health concern in the Philippines, with cases still reported each year in regions like Bicol, Mindanao, and the Visayas. Handling rabies-suspected animals correctly is crucial.</p>
 
     <h3>Key Best Practices:</h3>
 
@@ -118,17 +124,17 @@ export default {
 
     <h2>Practical Takeaways for Everyone</h2>
     <ul>
-      <li>Always have a plan: know how to restrain, sedate, and isolate before approaching the animal.</li>
-      <li>Work in pairs when possible: one person handles, another observes.</li>
-      <li>Minimize handling time: calm, efficient procedures reduce stress.</li>
-      <li>Use your environment: corners, tables, and barriers can help restrain safely.</li>
-      <li>Communicate: owners, volunteers, and staff should know how to safely handle or transport animals.</li>
-      <li>Aftercare: comfort and monitor the animal post-handling to reduce fear for future interactions.</li>
+      <li><b>Always have a plan:</b> know how to restrain, sedate, and isolate before approaching the animal.</li>
+      <li><b>Work in pairs when possible:</b> one person handles, another observes.</li>
+      <li><b>Minimize handling time:</b> calm, efficient procedures reduce stress.</li>
+      <li><b>Use your environment:</b> corners, tables, and barriers can help restrain safely.</li>
+      <li><b>Communicate:</b> owners, volunteers, and staff should know how to safely handle or transport animals.</li>
+      <li><b>Aftercare:</b> comfort and monitor the animal post-handling to reduce fear for future interactions.</li>
     </ul>
 
     <h2>Conclusion</h2>
-    <p>Handling rabies-suspect animals is not glamorous, but it is essential. From behavioral observation to PPE, low-stress handling, sedation, and isolation, every step protects both humans and animals.</p>
-    <p>For vets, groomers, owners, and volunteers alike, these principles are practical, humane, and lifesaving. Reading the animal, respecting its signals, and applying proper techniques can prevent bites, save lives, and ensure the emotional and physical well-being of the animal.</p>
+    <p>Handling rabies-suspect animals is not glamorous, but it is essential. From <b>behavioral observation to PPE, low-stress handling, sedation, and isolation</b>, every step protects both humans and animals.</p>
+    <p>For vets, groomers, owners, and volunteers alike, these principles are <b>practical, humane, and lifesaving.</b> Reading the animal, respecting its signals, and applying proper techniques can prevent bites, save lives, and ensure the emotional and physical well-being of the animal.</p>
     <p>Because in real life… <b>respawning isn't an option.</b></p>
   `
 }

@@ -16,11 +16,11 @@ export default {
 
     <h2>What Are Spaying & Neutering?</h2>
 
-    <p><b>Spaying</b> is the surgical removal of the ovaries (and often the uterus) of a female pet.</p>
+    <p>Spaying and neutering are surgical procedures that prevent pets from reproducing; spaying involves removing a female animal's ovaries and usually the uterus, while neutering is the removal of a male animal's testes. These procedures are essential in addressing animal overpopulation, which leads to the suffering of many animals, particularly feral ones and those in shelters. Responsible pet ownership includes spaying or neutering, especially for pets that spend time outdoors, to help alleviate the issues associated with unwanted animals.</p>
 
-    <p><b>Neutering</b> (or castration) is the surgical removal of the testes of a male pet.</p>
+    <h2>When to spay or neuter your pets?</h2>
 
-    <p>Both procedures are safe, routine veterinary operations that prevent reproduction, leading to major long-term benefits for the animals and their communities.</p>
+    <p>It is usually best to spay or neuter your pet when they are young. The ideal time to spay or neuter your dog is around six to nine months old, but this can vary depending on the dog's size and breed. You can also spay or neuter adult dogs, so don’t hesitate to do it if you adopt a full-grown dog. Keep in mind that the risk of complications after surgery is higher for older or overweight dogs and those with health issues. Always check with your veterinarian first. Cats can typically be spayed or neutered after they are 8 weeks old, but many vets suggest waiting until they are 4 or 5 months old.</p>
 
     <h2>Why These Procedures Matter: Research-Based Benefits</h2>
 
@@ -34,9 +34,7 @@ export default {
 
     <h3>B. Behavioural & Safety Benefits</h3>
 
-    <p><b>Spayed and neutered pets are less likely to roam, less likely to fight or mark territory, less likely to engage in mating-driven behaviours.</b></p>
-
-    <p><b>Reduced roaming</b> means fewer pets get hit by vehicles, fewer dog fights, fewer injuries to people.</p>
+    <p>Spaying and neutering animals influence their behaviors by reducing or eliminating certain hormonal effects. Spayed females avoid heat cycles, which can lead to unwanted yowling and urination. In-heat female dogs may become friendlier or more aggressive, while unneutered males are prone to roaming in search of mates, risking accidents or fights. Neutering reduces the likelihood of such roaming behaviors.</p>
 
     <h3>C. Community & Public Health Benefits</h3>
 
@@ -86,9 +84,5 @@ export default {
     </ul>
 
     <p>By working together—pet owners, local government, vets, welfare groups—we can create safer communities, healthier pets, and a future where stray overpopulation is a managed challenge rather than an unchecked problem.</p>
-
-    <h2>Final Word</h2>
-
-    <p><b>Sterilizing pets is more than a one-off act</b>—it's a lifelong investment in their health, behaviour, and in community safety. In the <b>Philippines</b>, where millions of dogs and cats roam without homes or care, spay/neuter campaigns are a practical, humane, and effective solution. Whether in <b>Bukidnon</b> or across the archipelago, every campaign, every sterilized pet, every aware owner moves us closer to an environment where animals thrive safely, and communities live more peacefully.</p>
   `
 }

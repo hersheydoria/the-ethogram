@@ -44,19 +44,15 @@ export default {
     }
   ],
   content: `
-    <h2>Introduction: A Symbol at Risk</h2>
-
     <p>Across the rich and diverse wildlife of the <b>Philippines</b>, one creature truly stands out among its lush greeneries. The <b>Philippine Eagle</b> soars not just as the national symbol of its homeland but also as evidence of nature's most exquisite creation. But as the advancement in technology envelops mankind, this magnificent animal, along with other lives that dwells within our forests, faces challenges and threats of their demise.</p>
 
-    <p>While hope is still within reach and the imminent danger is still preventable, can the wishful thoughts for conservation create an action that can keep this wonderful creature soaring through the <b>Philippines</b> skies?</p>
+    <p><i>While hope is still within reach and the imminent danger is still preventable, can the wishful thoughts for conservation create an action that can keep this wonderful creature soaring through the <b>Philippines</b> skies?</i></p>
 
     <h2>Philippine Eagle Facts and Importance in Philippine Ecosystem</h2>
 
-    <p>The <b>Philippine Eagle</b> (<i>Pithecophaga jefferyi</i>) is critically endangered, with only around <b>400 breeding pairs</b> remaining in the wild. Many of these pairs inhabit the forests of <b>Mt. Apo</b> in <b>Mindanao</b>. Additionally, this eagle is endemic to the <b>Philippines</b>, found only on four major islands: <b>Luzon, Samar, Leyte, and Mindanao</b>.</p>
+    <p>The <b>Philippine Eagle</b> (<i>Pithecophaga jefferyi</i>) is critically endangered, with only around <b>400 breeding pairs</b> remaining in the wild. Many of these pairs inhabit the forests of <b>Mt. Apo</b> in <b>Mindanao</b> (Philippine Eagle Foundation; SunStar, 2022). Additionally, this eagle is endemic to the <b>Philippines</b>, found only on four major islands: <b>Luzon, Samar, Leyte, and Mindanao</b>.</p>
 
-    <p>The adults measure <b>86 to 102 cm</b> in length, weigh between <b>4 to 8 kg</b>, and have wingspans over <b>2 meters</b>, with <b>7.6-cm talons</b> for capturing their prey with a distinctive appearance, characterized by a shaggy crest of feathers on their heads, light blue-gray eyes, and a strong hooked bill. They require continuous tracts of old-growth montane and dipterocarp forest at elevations up to <b>1,800 meters</b>. Each pair needs an estimated <b>60 to 130 square kilometers (4,000 to 10,000 hectares)</b> of undisturbed habitat to successfully hunt and breed.</p>
-
-    <p>Despite being commonly called the <i>"monkey-eating eagle,"</i> its diet is highly varied and includes <b>monkeys (macaques), flying lemurs (colugos), civets, bats, snakes, birds, and other forest mammals</b> helping regulate prey populations and maintain ecological balance in the <b>Philippine</b> forest ecosystem.</p>
+    <p>The adults measure 86 to 102 cm in length, weigh between 4 to 8 kg, and have wingspans over 2 meters, with 7.6-cm talons for capturing their prey with a distinctive appearance, characterized by a shaggy crest of feathers on their heads, light blue-gray eyes, and a strong hooked bill (Britannica, n.d.). They require continuous tracts of old-growth montane and dipterocarp forest at elevations up to 1,800 meters. Each pair needs an estimated 60 to 130 square kilometers (4,000 to 10,000 hectares) of undisturbed habitat to successfully hunt and breed (Britannica, Animal Diversity Web, 2025). Despite being commonly called the <i>"monkey-eating eagle," </i>its diet is highly varied and includes monkeys (macaques), flying lemurs (colugos), civets, bats, snakes, birds, and other forest mammals helping regulate prey populations and maintain ecological balance in the Philippine forest ecosystem. </p>
 
     <p>However, its slow reproductive rate means that population recovery is very slow, as it produces one egg every two years and only reaches sexual maturity after <b>5 to 7 years</b>, with incubation period up to <b>58 to 60 days</b>, with participation of both parents, and the duration of juvenile dependence is beyond fledging. In captivity, these birds can live for over <b>40 years</b>.</p>
 
@@ -107,8 +103,6 @@ export default {
     <p>In addition to legal measures and community education, veterinarians and veterinary students are increasingly recognized as essential players in wildlife conservation. Their expertise goes beyond caring for domestic animals; they provide crucial support in rehabilitation and treatment of injured or sick wildlife. For instance, veterinarians working with the <b>PEF</b> often treat <b>Philippine Eagles</b> that have suffered from gunshot wounds or other forms of injury typically associated with poaching activities. The skills and knowledge they bring to the table are invaluable in ensuring that injured eagles can be safely returned to their natural habitat.</p>
 
     <p>Moreover, veterinary students are encouraged to engage in wildlife conservation through internships and hands-on experience with wildlife rehabilitation centers. This exposure not only equips future veterinarians with practical skills but also instills a strong sense of responsibility for wildlife preservation. By nurturing a cohort of professionals deeply invested in ecological health, we lay the groundwork for renewed conservation efforts that can respond effectively to emerging challenges.</p>
-
-    <h2>Conclusion: A Shared Responsibility</h2>
 
     <p>In conclusion, the preservation of the <b>Philippine Eagle</b> and its habitat is a multidimensional issue requiring concerted efforts across legal, social, and professional avenues. By reinforcing laws, fostering community awareness, and integrating veterinary services into wildlife conservation, we can significantly improve the survival chances of this iconic species. Everyone, from policymakers to local community members and aspiring veterinarians, must unite in this noble cause. Together, we can expand our reach and amplify our impact, ensuring that future generations can witness the awe-inspiring presence of the <b>Philippine Eagle</b> soaring majestically over <b>Mt. Apo</b>.</p>
   `

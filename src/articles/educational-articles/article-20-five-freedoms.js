@@ -16,13 +16,13 @@ export default {
     <h3><i><b>If pets could tell us what they truly need to live happily, what would they ask for?</b></i></h3>
 
     <p>Caring for a pet goes beyond food and shelter. The <b>Five Freedoms</b>, first introduced in 1965 by the <b>UK's Farm Animal Welfare Council</b>, offer a timeless guide to ensure pets live not only healthy lives but happy ones as well:</p>
-
-    <p><b>Freedom from Hunger and Thirst</b></p>
-    <p><b>Freedom from Discomfort</b></p>
-    <p><b>Freedom from Pain, Injury, or Disease</b></p>
-    <p><b>Freedom to Express Normal Behavior</b></p>
-    <p><b>Freedom from Fear and Distress</b></p>
-
+    <ul>
+    <li><b>Freedom from Hunger and Thirst</b></li>
+    <li><b>Freedom from Discomfort</b></li>
+    <li><b>Freedom from Pain, Injury, or Disease</b></li>
+    <li><b>Freedom to Express Normal Behavior</b></li>
+    <li><b>Freedom from Fear and Distress</b></li>
+    </ul>
     <p>When these freedoms are met, we are ensured that pets are not just cared for, but they also live well. When their basic and emotional needs are met, they stay healthy, happy, and build a strong, trusting bond with their owners.</p>
 
     <h3><i><b>If disaster struck tomorrow, would your pet know you had their back?</b></i></h3>
