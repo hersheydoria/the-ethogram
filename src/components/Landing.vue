@@ -688,9 +688,10 @@ onUnmounted(() => {
   border: 1px solid #E5E7EB;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 2rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -959,6 +960,8 @@ onUnmounted(() => {
 
   .featured-carousel-section .featured-article {
     padding: 2rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .featured-carousel-section .featured-title {
@@ -967,6 +970,11 @@ onUnmounted(() => {
 
   .featured-carousel-section .featured-excerpt {
     font-size: 0.9rem;
+  }
+
+  .featured-carousel-section .featured-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 
   .carousel-indicators {
@@ -1035,6 +1043,7 @@ onUnmounted(() => {
 
   .featured-carousel-section .featured-article {
     padding: 1.5rem;
+    width: 100%;
     max-width: 100%;
   }
 
@@ -1053,6 +1062,11 @@ onUnmounted(() => {
   .featured-carousel-section .featured-meta {
     gap: 1rem;
     font-size: 0.8rem;
+  }
+
+  .featured-carousel-section .featured-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
 
   .featured-carousel-section .featured-read-more {
