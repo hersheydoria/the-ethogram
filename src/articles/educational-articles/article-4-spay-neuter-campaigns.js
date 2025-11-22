@@ -84,5 +84,7 @@ export default {
     </ul>
 
     <p>By working together—pet owners, local government, vets, welfare groups—we can create safer communities, healthier pets, and a future where stray overpopulation is a managed challenge rather than an unchecked problem.</p>
+
+    <img src="https://raw.githubusercontent.com/hersheydoria/living-links/main/src/articles/assets/G4 infographics.png" style="width: 100%; max-width: 100%; margin: 20px 0; border-radius: 8px;" alt="Spay and Neuter Campaign Infographic" />
   `
 }

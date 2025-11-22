@@ -32,7 +32,7 @@ export default {
     }
   ],
   content: `
-    <p>Working with animals is not all wagging tails and purring cats. Some days, it's about reading the warning signs in an animal's behavior before it escalates into a bite, especially when rabies is a concern. <b>Rabies remains one of the deadliest zoonotic diseases worldwide. Approximately 59,000 human deaths occur each year, with over 99% of cases transmitted by dogs (WOAH, 2025)</b>. <b>Children under 15 years old are disproportionately affected, representing around 40% of fatalities.</b></p>
+    <p>Working with animals is not all wagging tails and purring cats. Some days, it's about reading the warning signs in an animal's behavior before it escalates into a bite, especially when rabies is a concern. Rabies remains one of the deadliest zoonotic diseases worldwide. <b>Approximately 59,000 human deaths occur each year, with over 99% of cases transmitted by dogs</b> (WOAH, 2025). Children under 15 years old are disproportionately affected, representing around 40% of fatalities.</p>
 
     <p>In the <b>Philippines</b>, the <b>Department of Health</b> reported <b>426 human rabies deaths in 2024, with nearly half linked to domestic pets and most involving unvaccinated or unknown vaccination status animals</b>. <b>Surveillance shows that dogs account for over 95% of confirmed animal rabies cases, including both owned and stray dogs</b>. These numbers emphasize that rabies prevention is not only a veterinary responsibility but also requires the cooperation of pet owners, caregivers, and communities to ensure timely vaccinations, post-exposure treatment, and safe handling practices.</p>
 

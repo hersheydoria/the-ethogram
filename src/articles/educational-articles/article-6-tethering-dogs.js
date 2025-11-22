@@ -56,7 +56,7 @@ export default {
 
     <li><b>Muscle atrophy and joint problems due to lack of movement.</b> Dogs need regular exercise to maintain muscle tone and joint flexibility. A tethered dog may struggle to even turn around in its small confined space.</li>
     </ul>
-    <p>The case of <b>Bundy</b> demonstrates the slow, painful deterioration caused by chronic tethering. After spending three years chained, Bundy was surrendered with <b>severe tissue wounds</b> around his neck from the chain rubbing. Beyond the physical trauma which also included illness and vomiting, Bundy had developed <b>irreversible behavioral issues </b>stemming from his complete lack of bedding, enrichment, and exercise. Sadly, while his physical injuries were treated, the psychological damage from his ordeal could not be rehabilitated <b>(RSPCA Queensland, 2019)</b>.</p>
+    <p>The case of <b>Bundy</b> demonstrates the slow, painful deterioration caused by chronic tethering. After spending three years chained, Bundy was surrendered with <b>severe tissue wounds</b> around his neck from the chain rubbing. Beyond the physical trauma which also included illness and vomiting, Bundy had developed <b>irreversible behavioral issues </b>stemming from his complete lack of bedding, enrichment, and exercise. Sadly, while his physical injuries were treated, the psychological damage from his ordeal could not be rehabilitated (RSPCA Queensland, 2019).</p>
 
     <p>But the harm doesn't stop there. Dogs are social, intelligent animals that need interaction, stimulation, and exercise.</p>
 
@@ -68,7 +68,7 @@ export default {
 
     <li><b>Self-harm or destructive behavior,</b> such as chewing or biting at the chain, fur loss, or compulsive licking, all of which are coping mechanisms for boredom and stress.</li>
     </ul>
-    <p>In a case prosecuted by <b>RSPCA Queensland</b>, two dogs named <b>Jadda</b> and <b>Rajah</b> were found tangled and without water during a heatwave. <b>Tracey Jackson</b>, an <b>RSPCA Solicitor</b>, described their situation as a <i>'death sentence,'</i> noting that Jadda was so severely dehydrated she drank five liters of water immediately upon rescue. Vets estimated that without intervention, Jadda would have succumbed to heat stress and died within just 20 minutes <b>(RSPCA Queensland, 2019)</b>.</p>
+    <p>In a case prosecuted by RSPCA Queensland, two dogs named <b>Jadda</b> and <b>Rajah</b> were found tangled and without water during a heatwave. <b>Tracey Jackson</b>, an <b>RSPCA Solicitor</b>, described their situation as a <i>'death sentence,'</i> noting that Jadda was so severely dehydrated she drank five liters of water immediately upon rescue. Vets estimated that without intervention, Jadda would have succumbed to heat stress and died within just 20 minutes (RSPCA Queensland, 2019).</p>
 
     <p><b>RSPCA Inspectors</b> report that dogs left on tethers frequently suffer from dehydration, emaciation, and severe neck wounds caused by chains rubbing against the skin. Simply put, tethering doesn't just confine a dog's body, it traps their mind, limiting their natural instincts, curiosity, and ability to form healthy social bonds. Some owners tether dogs to protect them from dangers or prevent them from escaping. But the reality is harsh:</p>
     <ul>
@@ -88,7 +88,7 @@ export default {
 
     <p>Similarly, in parts of <b>Davao</b> and <b>Northern Mindanao</b>, dogs tied outdoors were found lifeless after sudden flash floods swept through communities. Local rescuers consistently report the same pattern: <i>loose dogs climb onto rooftops or follow evacuating families, while tethered dogs drown where they stand.</i> This consistent pattern across regions highlights one undeniable truth: restraint turns disaster into death for animals.</p>
 
-    <p>The fatal consequences of tethering are most visible during natural disasters, where restraint becomes a death sentence. Following a localized thunderstorm in <b>Davao</b> that resulted in severe flooding, <b>Marites Batacan</b> of the <b>Animal Rescue Rehabilitation and Fostering (ARRF) Davao Inc.</b> implored owners to unleash their pets during emergencies. This plea came after heartbreaking images circulated on social media of dogs that had drowned because they were still chained or caged and unable to swim to safety <b>(Philippine News Agency, n.d.)</b>. Her message echoes what rescuers and communities have already seen firsthand over and over again.</p>
+    <p>The fatal consequences of tethering are most visible during natural disasters, where restraint becomes a death sentence. Following a localized thunderstorm in <b>Davao</b> that resulted in severe flooding, <b>Marites Batacan</b> of the <b>Animal Rescue Rehabilitation and Fostering (ARRF) Davao Inc.</b> implored owners to unleash their pets during emergencies. This plea came after heartbreaking images circulated on social media of dogs that had drowned because they were still chained or caged and unable to swim to safety (Philippine News Agency, n.d.). Her message echoes what rescuers and communities have already seen firsthand over and over again.</p>
 
     <p>The reality of leaving pets behind is grim. When <b>Typhoon Gaemi</b> reached <b>Southeast Asia</b>, it destroyed the <b>Philippines</b> as well, leaving behind severe damage. Concerned citizen <b>Ashley Fruono</b> saw a horrible scene amid the chaos. She claimed to have witnessed the rotting corpses of dogs in cages, some of which were still fastened to their chains and had horrified expressions on their faces, a sight she would never forget. She added, <i>"They were subjected to an almost unimaginably horrific death that was completely preventable."</i> Accounts like hers reinforce the same painful truth already seen in other disasters: dogs cannot save themselves when they are restrained.</p>
 
@@ -96,7 +96,7 @@ export default {
 
     <h2>Tethering and the Violation of the Five Freedoms of Animal Welfare</h2>
 
-    <p>Given their size, temperament, developmental stage, and level of adaptation, dogs should be housed in environments that support their physiological, ethological, and social needs and enable them to retain good health <b>(Takáčová et al., 2021)</b>.</p>
+    <p>Given their size, temperament, developmental stage, and level of adaptation, dogs should be housed in environments that support their physiological, ethological, and social needs and enable them to retain good health (Takáčová et al., 2021).</p>
 
     <p>Tethering doesn't just limit movement, it directly violates several of the internationally recognized <b>Five Freedoms</b>, which guide humane animal care:</p>
     <ul>
