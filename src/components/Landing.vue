@@ -964,12 +964,18 @@ onUnmounted(() => {
     max-width: 100%;
   }
 
+  .featured-carousel-section .featured-content {
+    text-align: left;
+  }
+
   .featured-carousel-section .featured-title {
     font-size: 1.6rem;
+    text-align: left;
   }
 
   .featured-carousel-section .featured-excerpt {
     font-size: 0.9rem;
+    text-align: justify;
   }
 
   .featured-carousel-section .featured-tag {
@@ -1047,12 +1053,18 @@ onUnmounted(() => {
     max-width: 100%;
   }
 
+  .featured-carousel-section .featured-content {
+    text-align: left;
+  }
+
   .featured-carousel-section .featured-title {
     font-size: 1.3rem;
+    text-align: left;
   }
 
   .featured-carousel-section .featured-excerpt {
     font-size: 0.85rem;
+    text-align: justify;
   }
 
   .featured-carousel-section .featured-label {
