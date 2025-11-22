@@ -132,7 +132,7 @@ const committees = [
     name: 'PROJECT MANAGEMENT & OVERSIGHT COMMITTEE',
     description: 'Guides overall project direction, strategy, and ensures alignment with our mission to advance animal welfare. This committee comprises the heads of all major committees, block representatives, and overseeing project managers.',
     projectManagers: [
-      { name: 'Yyannah Kiss S. Tan', role: 'Overseeing Project Manager', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Yyannah Kiss S. Tan', role: 'Overseeing Project Manager', image: new URL('../assets/Tan, Yannah.jpg', import.meta.url).href },
       { name: 'Lucia Francheska G. Buhisan', role: 'Overseeing Project Manager', image: new URL('../assets/BUHISAN, LUCIA.png', import.meta.url).href }
     ],
     heads: [
@@ -140,7 +140,7 @@ const committees = [
       { name: 'Ken Cydric F. Ablir', role: 'Committee Head - Technical & Website Management', image: new URL('../assets/Ablir, Ken.jpg', import.meta.url).href },
       { name: 'Althea May Chiong', role: 'Committee Head - Creatives', image: new URL('../assets/Chiong, Althea May-Head.png', import.meta.url).href },
       { name: 'Pearl Odette M. Abcede', role: 'Committee Head - Publications & Promotions', image: new URL('../assets/ABCEDE, PEARL ODETTE M. - HEAD.jpg', import.meta.url).href },
-      { name: 'Justine Hopia', role: 'Committee Head - Partnerships & Outreach', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Justine Hopia', role: 'Committee Head - Partnerships & Outreach', image: new URL('../assets/Hopia, Justine.jpg', import.meta.url).href },
       { name: 'Samantha Intong', role: 'Committee Head - Documentation & Archiving', image: new URL('../assets/Intong, Samantha Andrea - Head.jpg', import.meta.url).href },
       { name: 'Analysta D. Lagurin', role: 'Committee Head - Treasury', image: new URL('../assets/LAGURIN, ANALYSTA DATU- HEAD.jpg', import.meta.url).href },
       { name: 'Danielle Louiesse Dazo', role: 'Committee Head - Quality Assurance & Feedback', image: new URL('../assets/Dazo, Danielle Louiesse-Head.jpeg', import.meta.url).href },
@@ -261,7 +261,7 @@ const committees = [
     name: 'PARTNERSHIPS & OUTREACH COMMITTEE',
     description: 'Builds relationships with organizations, coordinates collaborations, and expands our network.',
     heads: [
-      { name: 'Justine Hopia', role: 'Committee Head', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Justine Hopia', role: 'Committee Head', image: new URL('../assets/Hopia, Justine.jpg', import.meta.url).href }
     ],
     members: [
       { name: 'Clarence Dave P. Jamisola' },
