@@ -147,10 +147,10 @@ const committees = [
       { name: 'Salyana Desnia L. Abuhon', role: 'Committee Head - Logistics & Operations', image: new URL('../assets/Abuhon, Salyana Desnia L. - Head.jpg', import.meta.url).href }
     ],
     blockReps: [
-      { name: 'Dagcuta, Katria', role: 'Block A Representative', image: 'https://via.placeholder.com/80?text=Head' },
+      { name: 'Dagcuta, Katria', role: 'Block A Representative', image: new URL('../assets/Dagcuta, Katria.jpg', import.meta.url).href },
       { name: 'Arado, Brettnia Angela', role: 'Block B Representative', image: new URL('../assets/ARADO, BRETTNIA ANGELA.jpeg', import.meta.url).href },
       { name: 'Fernandez, Rhea Mae C.', role: 'Block C Representative', image: new URL('../assets/Rhea-Block.png', import.meta.url).href },
-      { name: 'Apaap, Joebert', role: 'Block D Representative', image: 'https://via.placeholder.com/80?text=Head' }
+      { name: 'Apaap, Joebert', role: 'Block D Representative', image: new URL('../assets/Apaap, Joebert.jpg', import.meta.url).href }
     ],
     members: []
   },
