@@ -315,16 +315,16 @@ defineEmits(['explore-articles'])
   }
 
   .banner-image {
-    max-height: 50vh;
+    max-height: 60vh;
   }
 
   .hero {
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     min-height: auto;
   }
 
   .hero-footer {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
 
   .hero-overlay {
@@ -332,29 +332,29 @@ defineEmits(['explore-articles'])
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   .hero-description {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
   }
 
   .hero-stats {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 1.5rem;
+    gap: 1.2rem;
+    padding: 1.8rem;
     border: none;
     background: transparent;
   }
 
   .stat-number {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .cta-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -369,48 +369,48 @@ defineEmits(['explore-articles'])
   }
 
   .banner-image {
-    max-height: 45vh;
+    max-height: 55vh;
     border-radius: 0;
   }
 
   .hero {
-    padding: 1.5rem 0;
+    padding: 2rem 0;
   }
 
   .hero-footer {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1.2rem;
   }
 
   .hero-title {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
   }
 
   .hero-description {
-    font-size: 0.9rem;
-    margin-bottom: 1.3rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-stats {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
-    padding: 1rem;
+    gap: 1rem;
+    padding: 1.3rem;
     border: none;
     background: transparent;
-    margin: 1rem auto 0;
+    margin: 1.2rem auto 0;
   }
 
   .stat-number {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .stat-text {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 
   .cta-button {
-    padding: 0.75rem 1.2rem;
-    font-size: 0.85rem;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -428,7 +428,7 @@ defineEmits(['explore-articles'])
   }
 
   .banner-image {
-    max-height: 40vh;
+    max-height: 50vh;
     border-radius: 0;
     margin: 0;
     padding: 0;
@@ -440,7 +440,7 @@ defineEmits(['explore-articles'])
   }
 
   .hero-footer {
-    padding: 1.2rem 0.75rem;
+    padding: 1.5rem 1rem;
   }
 
   .hero-overlay {
@@ -448,24 +448,24 @@ defineEmits(['explore-articles'])
   }
 
   .hero-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.25;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
   }
 
   .hero-description {
-    font-size: 0.8rem;
-    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.3rem;
     line-height: 1.6;
   }
 
   .hero-stats {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
-    padding: 0.8rem;
+    gap: 0.8rem;
+    padding: 1rem;
     border: none;
     background: transparent;
-    margin: 0.8rem auto 0;
+    margin: 1rem auto 0;
   }
 
   .stat {
